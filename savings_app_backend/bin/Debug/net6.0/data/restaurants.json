@@ -30,9 +30,9 @@
     "Rating": 3,
     "PickupTimes": [
       {
-        "availableDay": "monday",
-        "startTime": "16:50",
-        "endTime": "17:00"
+        "availableDay": "wednesday",
+        "startTime": "10:00",
+        "endTime": "10:10"
       }
     ]
   },
@@ -49,9 +49,9 @@
     "Rating": 4.5,
     "PickupTimes": [
       {
-        "availableDay": "monday",
-        "startTime": "16:50",
-        "endTime": "17:00"
+        "availableDay": "friday",
+        "startTime": "20:00",
+        "endTime": "20:10"
       }
     ]
   },
@@ -68,7 +68,12 @@
     "Rating": 4.5,
     "PickupTimes": [
       {
-        "availableDay": "monday",
+        "availableDay": "tuesday",
+        "startTime": "16:40",
+        "endTime": "16:50"
+      },
+      {
+        "availableDay": "tuesday",
         "startTime": "16:50",
         "endTime": "17:00"
       }
