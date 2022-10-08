@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32825.248
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "savings_app_frontend", "savings_app_frontend\savings_app_frontend.esproj", "{2EF21B9B-EF5D-45EB-BF21-D5F586AA8134}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "savings_app_backend", "savings_app_backend\savings_app_backend.csproj", "{8D21D039-A69C-4AA9-8E17-0633EC0BE215}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2EF21B9B-EF5D-45EB-BF21-D5F586AA8134}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2EF21B9B-EF5D-45EB-BF21-D5F586AA8134}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2EF21B9B-EF5D-45EB-BF21-D5F586AA8134}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{2EF21B9B-EF5D-45EB-BF21-D5F586AA8134}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2EF21B9B-EF5D-45EB-BF21-D5F586AA8134}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2EF21B9B-EF5D-45EB-BF21-D5F586AA8134}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{8D21D039-A69C-4AA9-8E17-0633EC0BE215}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D21D039-A69C-4AA9-8E17-0633EC0BE215}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D21D039-A69C-4AA9-8E17-0633EC0BE215}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D21D039-A69C-4AA9-8E17-0633EC0BE215}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D384DBE2-71E2-454A-943D-DBB6560C3D34}
+	EndGlobalSection
+EndGlobal

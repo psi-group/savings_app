@@ -1,0 +1,50 @@
+[
+
+{
+  "Id": "b603db5e-6f2d-4751-b3d3-d1c864db8016",
+  "Name": "AAAAAAAA",
+  "Password": "aaaaaaa",
+  "Email": "aaaaa@gmail.com",
+  "IsRestaurant": false
+}
+
+{
+  "Id": "ca5dbb9c-60a8-43c5-9da0-a3f0d24e5108",
+  "Name": "bbbbbbb",
+  "Password": "bbbbbbbbb",
+  "Email": "bbb@gmail.com",
+  "IsRestaurant": true
+}
+
+{
+  "Id": "b335acb9-985b-47cb-bae5-eb649f3101f6",
+  "Name": "User1",
+  "Password": "USER",
+  "Email": "User1@gmail.com",
+  "IsRestaurant": false
+}
+
+{
+  "Id": "fd6ad331-3d86-49d1-a6f7-f4ae85371e97",
+  "Name": "NeGaTIV",
+  "Password": "qwert",
+  "Email": "TestRest@mail.ru",
+  "IsRestaurant": true
+}
+
+{
+  "Id": "1163fde0-8dae-458f-8e25-860dda25dd29",
+  "Name": "asdasd",
+  "Password": "aadsadas",
+  "Email": "asdasd@gmail.com",
+  "IsRestaurant": true
+}
+
+{
+  "Id": "42fd75ec-1d4d-40ee-ae0a-e3ab79c69f02",
+  "Name": "asdasd",
+  "Password": "a",
+  "Email": "asdasd@gmail.com",
+  "IsRestaurant": false
+}
+]

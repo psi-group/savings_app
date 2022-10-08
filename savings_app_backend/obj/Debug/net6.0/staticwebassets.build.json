@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "9Uu8DHVIhzst8LCAL3DdrDX7OQKFhwl3i8NvTDl/bC0=",
+  "Source": "savings_app_backend",
+  "BasePath": "_content/savings_app_backend",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

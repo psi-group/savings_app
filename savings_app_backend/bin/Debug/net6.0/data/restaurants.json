@@ -1,0 +1,115 @@
+[
+  {
+    "Id": "1",
+    "Name": "Huye Magoos Fender",
+    "SiteRef": "???",
+    "Image": "/Image/2.jpg",
+    "PositionCount": 0,
+    "ShortDescription": "______________________________",
+    "Description": "descriptiondescr iptiondescriptiond escriptiondes criptiondescript iondescriptiondescript iondescriptio ndescriptiondescription",
+    "Open": true,
+    "Rating": 4.5,
+    "PickupTimes": [
+      {
+        "availableDay": "monday",
+        "startTime": "16:50",
+        "endTime": "17:00"
+      }
+    ]
+  },
+
+  {
+    "Id": "2",
+    "Name": "Barca",
+    "SiteRef": "???",
+    "Image": "/Image/4.jpg",
+    "ShortDescription": "______________________________",
+    "Description": "descriptiondescr iptiondescriptiond escriptiondes criptiondescript iondescriptiondescript iondescriptio ndescriptiondescription",
+    "PositionCount": 0,
+    "Open": true,
+    "Rating": 3,
+    "PickupTimes": [
+      {
+        "availableDay": "monday",
+        "startTime": "16:50",
+        "endTime": "17:00"
+      }
+    ]
+  },
+
+  {
+    "Id": "3",
+    "Name": "Local",
+    "SiteRef": "???",
+    "Image": "/Image/5.jpg",
+    "PositionCount": 0,
+    "ShortDescription": "______________________________",
+    "Description": "descriptiondescr iptiondescriptiond escriptiondes criptiondescript iondescriptiondescript iondescriptio ndescriptiondescription",
+    "Open": true,
+    "Rating": 4.5,
+    "PickupTimes": [
+      {
+        "availableDay": "monday",
+        "startTime": "16:50",
+        "endTime": "17:00"
+      }
+    ]
+  },
+
+  {
+    "Id": "4",
+    "Name": "Cafe Bilhanes",
+    "SiteRef": "???",
+    "Image": "/Image/3.jpg",
+    "PositionCount": 0,
+    "ShortDescription": "______________________________",
+    "Description": "descriptiondescr iptiondescriptiond escriptiondes criptiondescript iondescriptiondescript iondescriptio ndescriptiondescription",
+    "Open": true,
+    "Rating": 4.5,
+    "PickupTimes": [
+      {
+        "availableDay": "monday",
+        "startTime": "16:50",
+        "endTime": "17:00"
+      }
+    ]
+  },
+
+  {
+    "Id": "5",
+    "Name": "Ba2rca",
+    "SiteRef": "???",
+    "Image": "/Image/4.jpg",
+    "ShortDescription": "______________________________",
+    "Description": "descriptiondescr iptiondescriptiond escriptiondes criptiondescript iondescriptiondescript iondescriptio ndescriptiondescription",
+    "PositionCount": 2,
+    "Open": true,
+    "Rating": 4.1,
+    "PickupTimes": [
+      {
+        "availableDay": "monday",
+        "startTime": "16:50",
+        "endTime": "17:00"
+      }
+    ]
+  },
+
+  {
+    "Id": "6",
+    "Name": "Local",
+    "SiteRef": "???",
+    "Image": "/Image/5.jpg",
+    "PositionCount": 0,
+    "ShortDescription": "______________________________",
+    "Description": "descriptiondescr iptiondescriptiond escriptiondes criptiondescript iondescriptiondescript iondescriptio ndescriptiondescription",
+    "Open": true,
+    "Rating": 4.5,
+    "PickupTimes": [
+      {
+        "availableDay": "monday",
+        "startTime": "16:50",
+        "endTime": "17:00"
+      }
+    ]
+  }
+]
