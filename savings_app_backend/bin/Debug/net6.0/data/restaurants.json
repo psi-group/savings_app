@@ -14,6 +14,16 @@
         "availableDay": "monday",
         "startTime": "16:50",
         "endTime": "17:00"
+      },
+      {
+        "availableDay": "tuesday",
+        "startTime": "16:50",
+        "endTime": "17:00"
+      },
+      {
+        "availableDay": "tuesday",
+        "startTime": "21:25",
+        "endTime": "21:35"
       }
     ]
   },
