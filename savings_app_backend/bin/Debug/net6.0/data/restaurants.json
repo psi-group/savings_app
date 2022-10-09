@@ -32,7 +32,7 @@
     "Id": "2",
     "Name": "Barca",
     "SiteRef": "???",
-    "Image": "/Image/4.jpg",
+    "Image": "s/Image/4.jpg",
     "ShortDescription": "______________________________",
     "Description": "descriptiondescr iptiondescriptiond escriptiondes criptiondescript iondescriptiondescript iondescriptio ndescriptiondescription",
     "PositionCount": 0,
@@ -51,7 +51,7 @@
     "Id": "3",
     "Name": "Local",
     "SiteRef": "???",
-    "Image": "/Image/5.jpg",
+    "Image": "http://localhost:7183/Image/1.jpg",
     "PositionCount": 0,
     "ShortDescription": "______________________________",
     "Description": "descriptiondescr iptiondescriptiond escriptiondes criptiondescript iondescriptiondescript iondescriptio ndescriptiondescription",
@@ -111,7 +111,7 @@
 
   {
     "Id": "6",
-    "Name": "Local",
+    "Name": "Corner Bistro",
     "SiteRef": "???",
     "Image": "/Image/5.jpg",
     "PositionCount": 0,
