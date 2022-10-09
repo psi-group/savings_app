@@ -9,11 +9,11 @@ namespace savings_app_backend.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class RestaurantController : ControllerBase
+    public class RestaurantsController : ControllerBase
     {
         private DataAccessServiceRestaurants _dataAccessService;
 
-        public RestaurantController(DataAccessServiceRestaurants dataAccessService)
+        public RestaurantsController(DataAccessServiceRestaurants dataAccessService)
         {
             _dataAccessService = dataAccessService;
         }
@@ -26,7 +26,7 @@ namespace savings_app_backend.Controllers
         }
 
         // GET api/<ProductsController>/5
-        [HttpGet("id={id}")]
+        [HttpGet("{id}")]
         public Restaurant Get(int id)
         {
             return _dataAccessService.GetById(id);

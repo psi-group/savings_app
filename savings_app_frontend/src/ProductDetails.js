@@ -68,14 +68,14 @@ function ProductDetails() {
     React.useEffect(() => {
 
         let ID = id;
-        fetch('https://localhost:7183/api/products/id=' + ID)
+        fetch('https://localhost:7183/api/products/' + ID)
             .then(res => res.json())
             .then(res => { setContent(res); console.log(res); return res; })
             .then(res => {
                 console.log(res.restaurantID);
                 const a = res.restaurantID;
                 //console.log(content.restaurantId);
-                let url = 'https://localhost:7183/api/restaurant/id=' + a;
+                let url = 'https://localhost:7183/api/restaurants/' + a;
                 console.log(url);
                 return fetch(url)
             })

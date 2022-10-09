@@ -25,22 +25,22 @@ namespace savings_app_backend.Controllers
         }
 
         // GET api/<ProductsController>/5
-        [HttpGet("id={id}")]
+        [HttpGet("{id}")]
         public Product Get(int id)
         {
             return _dataAccessService.GetById(id);
         }
 
-        [HttpGet]
+        /*[HttpGet]
         [Route("search={search}")]
         public IEnumerable<Product> Get(string search)
         {
             return _dataAccessService.GetBySearchText(search);
-        }
+        }*/
 
         [HttpGet]
         [Route("filter")]
-        public IEnumerable<Product> Get([FromQuery] string[] filter, string? search)
+        public IEnumerable<Product> Get([FromQuery] string[] filter, string search)
         {
             return _dataAccessService.GetWithFilters(filter, search);
         }
