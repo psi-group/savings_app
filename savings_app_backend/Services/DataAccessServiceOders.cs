@@ -27,17 +27,16 @@ namespace savings_app_backend.WebSite.Services
         public IEnumerable<Order> GetOrders()
         {
 
-            var jsonFileReader = File.OpenText(JsonFileName);
+            var jsonFile = File.ReadAllText(JsonFileName);
 
-            var orders = JsonSerializer.Deserialize<Order[]>(jsonFileReader.ReadToEnd());
-            jsonFileReader.Close();
-            return orders;
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<Order[]>(jsonFile);
         }
 
         public IEnumerable<Order> GetByBuyerId(string buyerId)
         {
             var orders = GetOrders();
             List<Order> filteredOrders = new List<Order>();
+
             foreach(Order order in orders)
             {
                 if(order.buyerId.Equals(buyerId))

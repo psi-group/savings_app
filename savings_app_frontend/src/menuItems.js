@@ -11,4 +11,8 @@ export const menuItems = [
         title: 'Order history',
         url: '/orders',
     },
+    {
+        title: 'Restaurants',
+        url: '/restaurants',
+    }
 ];

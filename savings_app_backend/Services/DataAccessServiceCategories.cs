@@ -26,11 +26,9 @@ namespace savings_app_backend.WebSite.Services
         public IEnumerable<Category> GetCategories()
         {
 
-            var jsonFileReader = File.OpenText(JsonFileName);
+            var jsonFile = File.ReadAllText(JsonFileName);
 
-            var categories = JsonSerializer.Deserialize<Category[]>(jsonFileReader.ReadToEnd());
-            jsonFileReader.Close();
-            return categories;
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<Category[]>(jsonFile);
         }
 
 
