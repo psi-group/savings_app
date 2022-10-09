@@ -14,7 +14,7 @@ export default class List extends Component {
         if (this.props.searched === "")
             data = this.props.products;
         else {
-            const response = await fetch('https://localhost:7183/api/products/search=' + this.props.searched);
+            const response = await fetch('https://localhost:7183/api/products/filter?search=' + this.props.searched);
             data = await response.json();
             console.log(data);
         }

@@ -10,6 +10,8 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddTransient<DataAccessService>();
 builder.Services.AddTransient<DataAccessServiceRestaurants>();
+builder.Services.AddTransient<DataAccessServiceCategories>();
+
 
 builder.Services.AddCors(options =>
 {

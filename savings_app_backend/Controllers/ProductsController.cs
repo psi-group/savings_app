@@ -38,6 +38,13 @@ namespace savings_app_backend.Controllers
             return _dataAccessService.GetBySearchText(search);
         }
 
+        [HttpGet]
+        [Route("filter")]
+        public IEnumerable<Product> Get([FromQuery] string[] filter, string? search)
+        {
+            return _dataAccessService.GetWithFilters(filter, search);
+        }
+
         // POST api/<ProductsController>
         [HttpPost]
         public void Post([FromBody] Product product)

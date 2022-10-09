@@ -1,0 +1,23 @@
+﻿[
+  {
+    "CategoryName": "fresh",
+    "Subcategories": [
+      "fruits",
+      "vegetables",
+      "grains",
+      "protein",
+      "dairy"
+    ]
+  },
+  {
+    "CategoryName": "prepared",
+    "Subcategories": [
+      "snacks",
+      "desserts",
+      "meat dishes",
+      "salads",
+      "bakery",
+      "drinks"
+    ]
+  }
+]

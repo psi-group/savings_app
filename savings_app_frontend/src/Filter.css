@@ -1,0 +1,18 @@
+.header {
+    height: 120px;
+}
+
+.container {
+    float: left;
+}
+
+.overlay-right {
+    display: none;
+    background: red;
+    float: right;
+    height: 100%;
+}
+
+.right-panel-active ~ .overlay-right {
+    display: inline-block;
+}

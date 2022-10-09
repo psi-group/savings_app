@@ -12,6 +12,8 @@ namespace savings_app_backend.Models
         [Required(ErrorMessage = "Restaurant ID is required")]
         public string RestaurantID { get; set; }
 
+        public string Category { get; set; }
+
         [Required(ErrorMessage = "Product picture is required")]
         public string PictureURL { get; set; }
 
