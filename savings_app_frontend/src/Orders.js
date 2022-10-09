@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import "./App.css";
+import "./Orders.css";
 import SearchAndDisplay from "./SearchAndDisplay";
 
 export default class Orders extends Component {
@@ -7,12 +7,9 @@ export default class Orders extends Component {
     constructor(props) {
         super(props);
         this.state = { orders: [], loading: true };
+        this.getOrders = this.getOrders.bind(this);
     }
 
-    componentDidMount() {
-        console.log("mounted");
-        this.populateProductsData();
-    }
 
     async getOrders() {
 
@@ -20,72 +17,57 @@ export default class Orders extends Component {
 
         let value = document.getElementById('fname').value;
 
-        const response = await fetch('https://localhost:7183/api/orders/byClientId/' + value);
+        const response = await fetch('https://localhost:7183/api/orders/byBuyerId/' + value);
         const data = await response.json();
+
+        console.log("good");
+        this.setState({orders: data, loading : false});
         console.log(data);
 
     }
 
-    static renderForecastsTable(products) {
-        return (
-
-
-            <div className="main">
-                <h1>React Search</h1>
-
-                <div>
-
-
-                    <label >Enter your user ID:</label>
-                    <input type="text" id="fname"/>
-                    <button onClick={this.getOrders }>submit</button> 
-
-
-                    
-
-                </div>
-
-
-            </div>
-
-
-        );
-    }
+    
 
     render() {
 
 
+        let contents = this.state.loading ? 
+            <></> :
+            <table>
+                <tr>
+                    <th>Order Id</th>
+                    <th>Buyer Id</th>
+                    <th>Seller Id</th>
+                    <th>Order Status</th>
+                </tr>
+                {this.state.orders.map((order, index) => (
 
-
-        let contents = this.state.loading
-            ? <p><em>Loading... Please refresh once the ASP.NET backend has started. See <a href="https://aka.ms/jspsintegrationreact">https://aka.ms/jspsintegrationreact</a> for more details.</em></p>
-            : Orders.renderForecastsTable(this.state.products);
+                    <tr key={index }>
+                        <td>{order.orderId}</td>
+                        <td>{order.buyerId}</td>
+                        <td>{order.sellerId}</td>
+                        <td>{order.orderStatus}</td>
+                    </tr>
+                    
+                ))}
+            </table>
 
         return (
             <div className="main">
                 <h1>React Search</h1>
 
                 <div>
-
 
                     <label >Enter your user ID:</label>
                     <input type="text" id="fname" />
                     <button onClick={this.getOrders}>submit</button>
 
-
-
-
                 </div>
 
+                {contents}
+                
 
             </div>
         );
-    }
-
-    async populateProductsData() {
-        console.log("this is called");
-        const response = await fetch("https://localhost:7183/api/products");
-        const data = await response.json();
-        this.setState({ products: data, loading: false });
     }
 }
