@@ -14,7 +14,6 @@ const SearchAndDisplay = (props) => {
         <div>
 
             <Filter filters={filters} setFilters={setFilters} />
-
             <SearchBar searched={searched} setSearched={setSearched} />
 
 
