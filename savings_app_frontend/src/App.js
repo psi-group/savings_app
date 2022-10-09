@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import "./App.css";
 import SearchAndDisplay from "./SearchAndDisplay";
 import Main from "./Main.js";
+import Header from "./Header.js";
 
 export default class App extends Component {
     static displayName = App.name;
@@ -22,6 +23,7 @@ export default class App extends Component {
 
         return (
             <div className="App">
+                <Header/>
                 <Main />
             </div>
         );

@@ -11,6 +11,8 @@ builder.Services.AddControllers();
 builder.Services.AddTransient<DataAccessService>();
 builder.Services.AddTransient<DataAccessServiceRestaurants>();
 builder.Services.AddTransient<DataAccessServiceCategories>();
+builder.Services.AddTransient<DataAccessServiceOrders>();
+
 
 
 builder.Services.AddCors(options =>
