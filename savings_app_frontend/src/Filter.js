@@ -16,7 +16,7 @@ const Filter = (props) => {
 
         <>
             <div class="filterContainer">
-                <button type="button" onClick={() => setOpen(!open)}>Categories</button>
+                <button type="button" className={open ? "dropdownButtonBlack": "dropdownButton"} onClick={() => setOpen(!open)}>Categories</button>
                 {open && categories &&
                     <DropdownMenu categories={categories} />
                 }
@@ -65,7 +65,7 @@ const DropdownMenu = ({ categories }) => {
                 <div className="menu">
                     {categories.map((category, index) =>
 
-                        <DropdownItem key={index} goToMenu={category.categoryName}>{category.categoryName}</DropdownItem>
+                        <DropdownItem key={index} goToMenu={category.categoryName}>{category.categoryName.toUpperCase()}</DropdownItem>
                     )
                     }
 
@@ -82,9 +82,14 @@ const DropdownMenu = ({ categories }) => {
                     onEnter={calcHeight}
                 >
                     <div className="menu">
-                        <DropdownItem goToMenu="main">Go back</DropdownItem>
+                        <div className="menu-item goBack" goToMenu="main">
+                            <div className="goBackButton" onClick={() => setActiveMenu('main')}>
+                                <img src={arrow} className="flippedArrow" />
+                            </div>
+                            <h3>{category.categoryName.toUpperCase()}</h3>
+                        </div>
                         {category.subcategories.map(sub => {
-                            return <DropdownItem key={sub} img={arrow}>{sub}</DropdownItem>;
+                            return <DropdownItem key={sub} img={arrow}>{sub.toUpperCase()}</DropdownItem>;
                         })}
 
 

@@ -8,10 +8,25 @@ a {
     color: aliceblue;
 }
 
-    a:hover {
+a:hover {
         text-decoration: none;
         color: aliceblue;
-    }
+}
+
+.dropdownButton {
+    padding: 0.25rem;
+    background: white;
+    font-style: italic;
+    border-radius: 5px;
+}
+
+.dropdownButtonBlack {
+    padding: 0.25rem;
+    font-style: italic;
+    background: #242526;
+    border-radius: 5px;
+    color: white;
+}
 
 .filterContainer {
     position: relative;
@@ -47,14 +62,13 @@ a {
     border-image: linear-gradient(to right, white 100%, transparent 50%) 75% 1;
 }
 
-    .menu-item:last-child {
+.menu-item:last-child {
         border: 0;
-    }
+}
 
-
-    .menu-item:hover {
+.menu-item:hover {
         background-color: #525357;
-    }
+}
 
 .menu-primary-enter {
     position: absolute;
@@ -96,4 +110,44 @@ a {
 .dropdown img {
     width: 20px;
     height: 20px;
+}
+
+.goBack {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.goBackButton {
+    position: absolute;
+    left: 5px;
+    bottom: 12px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+.goBackButton:hover {
+        background-color: #525357;
+}
+
+.goBack:hover {
+    background-color: #242526;
+}
+
+.flippedArrow {
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    height: 30px !important;
+    width: 30px !important;
+    filter: hue-rotate(50%);
+}
+
+.flippedArrow:hover {
+        -webkit-filter: grayscale(1) invert(1);
+        filter: grayscale(1) invert(1);
 }
