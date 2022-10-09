@@ -26,24 +26,15 @@ namespace savings_app_backend.WebSite.Services
         public IEnumerable<Product> GetProducts()
         {
 
-            var jsonFileReader = File.OpenText(JsonFileName);
-
-            var products = JsonSerializer.Deserialize<Product[]>(jsonFileReader.ReadToEnd());
-            jsonFileReader.Close();
-            return products;
+            var jsonFile = File.ReadAllText(JsonFileName);
+            
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<Product[]>(jsonFile);
         }
 
         public Product GetById(int id)
         {
             var products = GetProducts();
-            foreach(Product product in products)
-            {
-                if(product.Id.Equals(id+""))
-                {
-                    return product;
-                }
-            }
-            return null;
+            return products.SingleOrDefault(p => p.Id == id + "");
         }
 
         public IEnumerable<Product> GetWithFilters(string[] filters, string searchText)

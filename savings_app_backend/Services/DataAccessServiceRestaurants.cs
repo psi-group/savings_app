@@ -7,6 +7,7 @@ using System.Text.Json;
 using Microsoft.AspNetCore.Hosting;
 using savings_app.Models;
 using savings_app_backend.Models;
+using Newtonsoft.Json;
 
 namespace savings_app_backend.WebSite.Services
 {
@@ -26,25 +27,16 @@ namespace savings_app_backend.WebSite.Services
 
         public IEnumerable<Restaurant> GetRestaurants()
         {
+            var jsonFile = File.ReadAllText(JsonFileName);
 
-            var jsonFileReader = File.OpenText(JsonFileName);
-
-            var restaurants = JsonSerializer.Deserialize<Restaurant[]>(jsonFileReader.ReadToEnd());
-            jsonFileReader.Close();
-            return restaurants;
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<Restaurant[]>(jsonFile);
         }
 
         public Restaurant GetById(int id)
         {
             var restaurants = GetRestaurants();
-            foreach(Restaurant restaurant in restaurants)
-            {
-                if(restaurant.Id.Equals(id+""))
-                {
-                    return restaurant;
-                }
-            }
-            return null;
+
+            return restaurants.SingleOrDefault(r => r.Id == id + "");
         }
 
         public IEnumerable<Product> GetBySearchText(string searchText)
