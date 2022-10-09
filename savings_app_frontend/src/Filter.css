@@ -151,3 +151,16 @@ a:hover {
         -webkit-filter: grayscale(1) invert(1);
         filter: grayscale(1) invert(1);
 }
+
+.addFilterCheckbox {
+    height: 25px;
+    width: 25px;
+    accent-color: #242526;
+}
+
+.addFilterCheckbox:hover {
+    accent-color: #000000;
+}
+
+
+

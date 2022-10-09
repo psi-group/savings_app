@@ -44,8 +44,11 @@ const DropdownMenu = ({ categories }) => {
         return (
             <a href="#" className="menu-item" onClick={() => props.goToMenu && setActiveMenu(props.goToMenu)}>
                 {props.children}
-                {activeMenu == 'main' &&
+                {activeMenu === 'main' &&
                     <img src={arrow} />
+                }
+                {activeMenu !== 'main' &&
+                    <input type="checkbox" className="addFilterCheckbox"></input>
                 }
             </a>
 
