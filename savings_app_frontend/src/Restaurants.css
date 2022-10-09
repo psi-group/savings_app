@@ -1,4 +1,28 @@
 
-header {
+
+.all {
     text-align: center;
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+.restaurants {
+    display: inline-block;
+    float: left;
+    margin-bottom: 30px;
+    margin-left: 20px;
+    padding: 5px;
+    width: 240px;
+    height: 225px;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+img {
+    width: 230px;
+    height: 180px;
+}
+
+.restaurants:hover {
+    box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
 }

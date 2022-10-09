@@ -1,5 +1,5 @@
 import React from 'react';
-import "./List.css";
+import "./Restaurants.css";
 
 const RestaurantsList = (props) => {
 
@@ -8,11 +8,10 @@ const RestaurantsList = (props) => {
             <div >
             
                 {props.restaurants.map((restaurant) => (
-                    <div className="container">
-                        <a href={"/restaurant/" + restaurant.id}><span></span></a>
+                    <a className="restaurants"  href={"/restaurant/" + restaurant.id}>
                         <li key={restaurant.id}>{restaurant.name}</li>
-                        <img className="container" src={restaurant.image} alt={restaurant.name} />
-                    </div>))}
+                        <img className="img" src={restaurant.image} alt={restaurant.name} />
+                    </a>))}
              </div>  
         </ul>
     )

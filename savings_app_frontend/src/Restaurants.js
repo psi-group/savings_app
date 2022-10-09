@@ -31,7 +31,7 @@ export default class Restaurants extends Component {
 
         return (
             <div>
-                <h1 className="Restaurants">All Restaurants</h1>
+                <h1 className="all">All Restaurants</h1>
                 {content}
             </div>
 
