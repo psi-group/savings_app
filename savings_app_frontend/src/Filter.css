@@ -1,18 +1,99 @@
-.header {
-    height: 120px;
+
+ul {
+    list-style: none;
 }
 
-.container {
-    float: left;
+a {
+    text-decoration: none;
+    color: aliceblue;
 }
 
-.overlay-right {
-    display: none;
-    background: red;
-    float: right;
-    height: 100%;
+    a:hover {
+        text-decoration: none;
+        color: aliceblue;
+    }
+
+.filterContainer {
+    position: relative;
+    margin-left: 1rem;
 }
 
-.right-panel-active ~ .overlay-right {
-    display: inline-block;
+.dropdown {
+    position: absolute;
+    background: #242526;
+    width: 300px;
+    display: block;
+    left: 0px;
+    padding: 1rem;
+    border: 1px solid #474a4d;
+    overflow: hidden;
+    border-radius: 8px;
+    transition: height 500ms ease;
+}
+
+.menu {
+    width: 100%;
+}
+
+.menu-item {
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 500ms;
+    padding: 1rem;
+    border-radius: 5px;
+    border-bottom: 0.5px solid;
+    border-image: linear-gradient(to right, white 100%, transparent 50%) 75% 1;
+}
+
+    .menu-item:last-child {
+        border: 0;
+    }
+
+
+    .menu-item:hover {
+        background-color: #525357;
+    }
+
+.menu-primary-enter {
+    position: absolute;
+    transform: translateX(-110%);
+}
+
+.menu-primary-enter-active {
+    transform: translateX(0%);
+    transition: all 500ms ease;
+}
+
+.menu-primary-exit {
+    position: absolute;
+}
+
+.menu-primary-exit-active {
+    transform: translateX(-110%);
+    transition: all 500ms ease;
+}
+
+
+.menu-secondary-enter {
+    transform: translateX(110%);
+}
+
+.menu-secondary-enter-active {
+    transform: translateX(0%);
+    transition: all 500ms ease;
+}
+
+.menu-secondary-exit {
+}
+
+.menu-secondary-exit-active {
+    transform: translateX(110%);
+    transition: all 500ms ease;
+}
+
+.dropdown img {
+    width: 20px;
+    height: 20px;
 }
