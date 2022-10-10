@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import "./Restaurants.css";
 import RestaurantsList from "./RestaurantsList";
 
 
@@ -31,7 +30,7 @@ export default class Restaurants extends Component {
 
         return (
             <div>
-                <h1 className="all">All Restaurants</h1>
+                <h1 className="mt-4 text-center mb-[30px] text-[30px]">All Restaurants</h1>
                 {content}
             </div>
 
