@@ -22,7 +22,7 @@
 "Name": "french-fries",
 "ShelfLife": "2022-09-30",
 "Description": ".....",
-"Category": "sides"
+"Category": "snacks"
 },{
 "Id": "6",
 "RestaurantID": "2",
@@ -30,7 +30,7 @@
 "Name": "eggs",
 "ShelfLife": "2022-09-30",
 "Description": ".....",
-"Category": "eggs"
+"Category": "protein"
 },{
 "Id": "5",
 "RestaurantID": "6",
@@ -38,7 +38,7 @@
 "Name": "Burger patties",
 "ShelfLife": "2022-10-01",
 "Description": "asdas",
-"Category": "bakery"
+"Category": "protein"
 },{
 "Id": "db7d2e61-077d-40ca-a888-9e05e59dce83",
 "RestaurantID": "3",

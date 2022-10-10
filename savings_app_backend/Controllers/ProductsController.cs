@@ -40,7 +40,7 @@ namespace savings_app_backend.Controllers
 
         [HttpGet]
         [Route("filter")]
-        public IEnumerable<Product> Get([FromQuery] string[] filter, string search)
+        public IEnumerable<Product> Get([FromQuery] string[] filter, string? search)
         {
             return _dataAccessService.GetWithFilters(filter, search);
         }

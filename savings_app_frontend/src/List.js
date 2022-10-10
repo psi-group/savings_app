@@ -6,18 +6,23 @@ export default class List extends Component {
     constructor(props) {
         super(props);
         this.state = { products: [] };
-
     }
     async populateProductsData() {
+        console.log(this.props.filters);
+        console.log("populating");
         //console.log(this.state.searched);
-        let data;
-        if (this.props.searched === "")
-            data = this.props.products;
-        else {
-            const response = await fetch('https://localhost:7183/api/products/filter?search=' + this.props.searched);
-            data = await response.json();
-            console.log(data);
-        }
+        let url = 'https://localhost:7183/api/products/filter?search=' + this.props.searched;
+
+        this.props.filters.map((filter) => {
+            url = url + "&filter=" + filter;
+        })
+
+        console.log(url);
+        
+        const response = await fetch(url);
+        let data = await response.json();
+        console.log(data);
+        
         
         await this.setState({ products: data, loading: false });
         console.log("finished populating");
@@ -34,7 +39,7 @@ export default class List extends Component {
     {
         console.log(this.props.filters);
         console.log("update");
-        if (this.props.searched !== prevProps.searched) {
+        if (this.props.searched !== prevProps.searched || this.props.filters != prevProps.filters) {
 
             await this.populateProductsData();
             console.log(this.props.searched);

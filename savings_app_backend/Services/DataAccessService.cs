@@ -41,12 +41,18 @@ namespace savings_app_backend.WebSite.Services
         {
             /* more searching logic to implement (use regex here)*/
 
+            string search = null;
+            if (searchText != null)
+                search = searchText.ToLower();
+           
+
+
             var products = GetProducts();
 
             List<Product> filteredProductsBySearch = new List<Product>();
             foreach (Product product in products)
             {
-                if (searchText == null || product.Name.Contains(searchText))
+                if (search == null || search == "" || product.Name.Contains(search))
                 {
                     filteredProductsBySearch.Add(product);
                 }
