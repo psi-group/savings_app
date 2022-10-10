@@ -46,10 +46,10 @@ const DropdownMenu = ({ categories, setFilters, filters }) => {
         const handleChange = event => {
             if (event.target.checked) {
                 event.preventDefault();
-                props.setFilters(oldFilters => [...oldFilters, props.children]);
+                props.setFilters(oldFilters => [...oldFilters, props.children.toLowerCase()]);
             } else {
                 props.setFilters((current) =>
-                    current.filter((filter) => filter !== props.children)
+                    current.filter((filter) => filter !== props.children.toLowerCase())
                 );
             }
         };
@@ -59,10 +59,10 @@ const DropdownMenu = ({ categories, setFilters, filters }) => {
                 {activeMenu === 'main' &&
                     <img src={arrow} />
                 }
-                {activeMenu !== 'main' && props.filters && !(props.filters.includes(props.children)) &&
+                {activeMenu !== 'main' && props.filters && !(props.filters.includes(props.children.toLowerCase())) &&
                     <input type="checkbox" className="addFilterCheckbox" onChange={handleChange}></input>
                 }
-                {activeMenu !== 'main' && props.filters && props.filters.includes(props.children) &&
+                {activeMenu !== 'main' && props.filters && props.filters.includes(props.children.toLowerCase()) &&
                     <input type="checkbox" className="addFilterCheckbox" checked onChange={handleChange}></input>   
                 }
             </a>
