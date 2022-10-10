@@ -18,7 +18,7 @@ const Filter = (props) => {
             <div class="filterContainer">
                 <button type="button" className={open ? "dropdownButtonBlack": "dropdownButton"} onClick={() => setOpen(!open)}>Categories</button>
                 {open && categories &&
-                    <DropdownMenu categories={categories} />
+                    <DropdownMenu categories={categories} setFilters={props.setFilters} filters={props.filters}/>
                 }
             </div>
         </>
@@ -26,7 +26,7 @@ const Filter = (props) => {
     );
 };
 
-const DropdownMenu = ({ categories }) => {
+const DropdownMenu = ({ categories, setFilters, filters }) => {
     const [activeMenu, setActiveMenu] = useState('main');
     const [menuHeight, setMenuHeight] = useState(null);
     const dropdownRef = useRef(null);
@@ -40,15 +40,30 @@ const DropdownMenu = ({ categories }) => {
         setMenuHeight(height);
     }
 
+    
+
     const DropdownItem = (props) => {
+        const handleChange = event => {
+            if (event.target.checked) {
+                event.preventDefault();
+                props.setFilters(oldFilters => [...oldFilters, props.children]);
+            } else {
+                props.setFilters((current) =>
+                    current.filter((filter) => filter !== props.children)
+                );
+            }
+        };
         return (
             <a href="#" className="menu-item" onClick={() => props.goToMenu && setActiveMenu(props.goToMenu)}>
                 {props.children}
                 {activeMenu === 'main' &&
                     <img src={arrow} />
                 }
-                {activeMenu !== 'main' &&
-                    <input type="checkbox" className="addFilterCheckbox"></input>
+                {activeMenu !== 'main' && props.filters && !(props.filters.includes(props.children)) &&
+                    <input type="checkbox" className="addFilterCheckbox" onChange={handleChange}></input>
+                }
+                {activeMenu !== 'main' && props.filters && props.filters.includes(props.children) &&
+                    <input type="checkbox" className="addFilterCheckbox" checked onChange={handleChange}></input>   
                 }
             </a>
 
@@ -92,7 +107,7 @@ const DropdownMenu = ({ categories }) => {
                             <h3>{category.categoryName.toUpperCase()}</h3>
                         </div>
                         {category.subcategories.map(sub => {
-                            return <DropdownItem key={sub} img={arrow}>{sub.toUpperCase()}</DropdownItem>;
+                            return <DropdownItem key={sub} img={arrow} filters={filters} setFilters={setFilters}>{sub.toUpperCase()}</DropdownItem>;
                         })}
 
 

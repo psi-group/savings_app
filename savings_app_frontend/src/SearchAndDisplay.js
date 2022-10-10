@@ -7,7 +7,7 @@ import Filter from "./Filter";
 const SearchAndDisplay = (props) => {
 
     const [searched, setSearched] = useState("");
-    const [filters, setFilters] = useState({});
+    const [filters, setFilters] = useState([]);
 
     return (
 
@@ -17,7 +17,7 @@ const SearchAndDisplay = (props) => {
             <SearchBar searched={searched} setSearched={setSearched} />
 
 
-            <List searched={searched} products={props.products} />
+            <List searched={searched} products={props.products} filters={filters} />
         
     </div>)
         

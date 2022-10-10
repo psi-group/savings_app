@@ -32,6 +32,7 @@ export default class List extends Component {
 
     async componentDidUpdate(prevProps)
     {
+        console.log(this.props.filters);
         console.log("update");
         if (this.props.searched !== prevProps.searched) {
 
