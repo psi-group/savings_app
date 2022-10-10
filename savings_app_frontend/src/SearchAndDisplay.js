@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import SearchBar from "./SearchBar";
 import List from "./List";
 import Filter from "./Filter";
+import FilterDisplay from "./FilterDisplay";
 
 
 const SearchAndDisplay = (props) => {
@@ -14,6 +15,7 @@ const SearchAndDisplay = (props) => {
         <div>
 
             <Filter filters={filters} setFilters={setFilters} />
+            <FilterDisplay filters={filters} setFilters={setFilters} />
             <SearchBar searched={searched} setSearched={setSearched} />
 
 
