@@ -25,7 +25,6 @@ namespace savings_app_backend.Controllers
             return _dataAccessService.GetRestaurants();
         }
 
-        // GET api/<ProductsController>/5
         [HttpGet("{id}")]
         public Restaurant Get(int id)
         {
