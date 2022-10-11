@@ -7,11 +7,14 @@ import Header from "./Header.js";
 const App = () => {
 
     const [searchas, setSearchas] = React.useState("");
+    const [selector, setSelector] = React.useState("");
+
+    console.log("appas");
 
     return (
         <div className="App">
-            <Header searchas={searchas} setSearchas={setSearchas} />
-            <Main searchas = {searchas }/>
+            <Header selector={selector} setSelector={setSelector} searchas={searchas} setSearchas={setSearchas} />
+            <Main searchas={searchas} selector={selector} />
         </div>
     );
 

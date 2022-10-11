@@ -7,7 +7,7 @@ const Header = (props) => {
                 <a href="/" className="logo">
                     Logo
                 </a>
-                <Navbar searchas={props.searchas} setSearchas={props.setSearchas} />
+                <Navbar selector={props.selector} setSelector={props.setSelector} searchas={props.searchas} setSearchas={props.setSearchas} />
             </div>
         </header>
     );

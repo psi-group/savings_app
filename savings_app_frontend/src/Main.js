@@ -10,7 +10,8 @@ import RestaurantDetails from './RestaurantDetails';
 const Main = (props) => {
     return (
         <Routes>
-            <Route path='/' element={<Home searchas={props.searchas }/>}></Route>
+            <Route path='/' element={<Home searchas={props.searchas} />}></Route>
+            <Route path='/products' element={<Home searchas={props.searchas} />}></Route>
             <Route path='/product/:id' element={<ProductDetails />}></Route>
             <Route path='/orders' element={<Orders />}></Route>
             <Route path='/restaurants' element={<Restaurants searchas={props.searchas} />}></Route>
