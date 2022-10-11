@@ -2,20 +2,13 @@ import React, { Component } from 'react';
 import RestaurantsList from "./RestaurantsList";
 
 
-export default class Restaurants extends Component {
+function Restaurants(props) {
 
-    constructor(props) {
-        super(props);
-        this.state = { restaurants: [], loading: true };
-        
-    }
-    componentDidMount() {
-        console.log("Res mounted");
-        this.populateRestaurantsData();
-    }
+    const [content, setContent] = React.useState([]);
+    const [loading, setLoading] = React.useState([]);
 
-   
-    renderRestaurantsList(restaurants) {
+    const renderRestaurantsList = (restaurants) => {
+        console.log(restaurants);
         return (
             <div>
                 <RestaurantsList restaurants={restaurants} />
@@ -23,23 +16,30 @@ export default class Restaurants extends Component {
         )
     }
 
-    render(restaurants) {
-        let content = this.state.loading
-            ? <p><em>Loading... Please refresh once the ASP.NET backend has started. See <a href="https://aka.ms/jspsintegrationreact">https://aka.ms/jspsintegrationreact</a> for more details.</em></p>
-            : this.renderRestaurantsList(this.state.restaurants);
+    React.useEffect(() => {
+        
+        console.log("useEffect");
+        let url = 'https://localhost:7183/api/restaurants/filter?search=' + props.searchas;
+        fetch(url)
+            .then(res => res.json())
+            .then(res => { setContent(res); setLoading(false) })
+            .catch(err => console.log(err));
+    }, [props.searchas]);
 
-        return (
-            <div>
-                <h1 className="mt-4 text-center mb-[30px] text-[30px]">All Restaurants</h1>
-                {content}
-            </div>
 
-        )
+    let contents = loading
+        ? <p><em>Loading... Please refresh once the ASP.NET backend has started. See <a href="https://aka.ms/jspsintegrationreact">https://aka.ms/jspsintegrationreact</a> for more details.</em></p>
+        : renderRestaurantsList(content);
 
-    }
-    async populateRestaurantsData() {
-        const response = await fetch('https://localhost:7183/api/restaurants');
-        const data = await response.json();
-        this.setState({ restaurants: data, loading: false })
-    }
+    
+    return <div>
+        <h1 className="mt-4 text-center mb-[30px] text-[30px]">All Restaurants</h1>
+        {contents}
+    </div>
+
+    
+
+    
 }
+
+export default Restaurants;

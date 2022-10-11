@@ -4,36 +4,17 @@ import SearchAndDisplay from "./SearchAndDisplay";
 import Main from "./Main.js";
 import Header from "./Header.js";
 
-export default class App extends Component {
-    static displayName = App.name;
+const App = () => {
 
-    constructor(props) {
-        super(props);
-        this.state = { products: [], loading: true };
-    }
+    const [searchas, setSearchas] = React.useState("");
 
-    /*componentDidMount() {
-        this.populateProductsData();
-    }*/
+    return (
+        <div className="App">
+            <Header searchas={searchas} setSearchas={setSearchas} />
+            <Main searchas = {searchas }/>
+        </div>
+    );
 
-    
-
-    render() {
-      
-
-        return (
-            <div className="App">
-                <Header/>
-                <Main />
-            </div>
-        );
-    }
-
-    async populateProductsData() {
-        const response = await fetch('api/products');
-        const data = await response.json();
-        this.setState({ products: data, loading: false });
-    }
-
-   
 }
+
+export default App;

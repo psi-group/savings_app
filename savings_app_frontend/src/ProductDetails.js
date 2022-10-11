@@ -21,7 +21,6 @@ function ProductDetails() {
     let { id } = useParams();
 
 
-    console.log(id);
 
     //const [popUpMenu, setPopUpMenu] = React.useState(false);
 
@@ -67,20 +66,18 @@ function ProductDetails() {
 
     React.useEffect(() => {
 
-        let ID = id;
-        fetch('https://localhost:7183/api/products/' + ID)
+        console.log("useEffect");
+        fetch('https://localhost:7183/api/products/' + id)
             .then(res => res.json())
-            .then(res => { setContent(res); console.log(res); return res; })
+            .then(res => { setContent(res);  return res; })
             .then(res => {
-                console.log(res.restaurantID);
                 const a = res.restaurantID;
                 //console.log(content.restaurantId);
                 let url = 'https://localhost:7183/api/restaurants/' + a;
-                console.log(url);
                 return fetch(url)
             })
             .then(res =>  res.json() )
-            .then(res => { setRestaurant(res); console.log(res); })
+            .then(res => { setRestaurant(res); })
             .then(res => { setLoading(false); })
             .catch(err => console.log(err));
 
@@ -107,21 +104,7 @@ function ProductDetails() {
         );
     }*/
 
-
     console.log("in details");
-
-    /*
-     * 
-     * {restaurant.pickupTimes.map((pickUpTime) => (
-
-
-                <div>
-                    
-                    <li key={product.id}>hello</li>
-                </div>
-            ))}
-
-*/
 
 
     if (!loading) {
@@ -150,7 +133,7 @@ function ProductDetails() {
         return <p> Loading... </p>
     }
 
-    
+   
 }
 
 export default ProductDetails;

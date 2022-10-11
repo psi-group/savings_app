@@ -58,6 +58,14 @@ export default class Orders extends Component {
 
                 <div>
 
+                    
+
+                </div>
+
+                
+
+                <div>
+
                     <label >Enter your user ID:</label>
                     <input type="text" id="fname" />
                     <button onClick={this.getOrders}>submit</button>

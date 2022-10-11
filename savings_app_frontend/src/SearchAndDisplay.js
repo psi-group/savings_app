@@ -7,8 +7,11 @@ import FilterDisplay from "./FilterDisplay";
 
 const SearchAndDisplay = (props) => {
 
-    const [searched, setSearched] = useState("");
+    //const [searched, setSearched] = useState("");
     const [filters, setFilters] = useState([]);
+
+    //            <SearchBar searched={searched} setSearched={setSearched} />
+
 
     return (
 
@@ -16,12 +19,9 @@ const SearchAndDisplay = (props) => {
 
             <Filter filters={filters} setFilters={setFilters} />
             <FilterDisplay filters={filters} setFilters={setFilters} />
-            <SearchBar searched={searched} setSearched={setSearched} />
-
-
-            <List searched={searched} products={props.products} filters={filters} />
+            <List searched={props.searchas} products={props.products} filters={filters} />
         
-    </div>)
+        </div>)
         
     
 
