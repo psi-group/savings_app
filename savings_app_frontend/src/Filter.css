@@ -18,14 +18,16 @@ a:hover {
     background: white;
     font-style: italic;
     border-radius: 5px;
+    border: 1px solid rgb(43, 116, 144);
 }
 
 .dropdownButtonBlack {
     padding: 0.25rem;
     font-style: italic;
-    background: #242526;
+    background: rgb(43, 116, 144);
     border-radius: 5px;
     color: white;
+    
 }
 
 .filterContainer {
@@ -35,12 +37,12 @@ a:hover {
 
 .dropdown {
     position: absolute;
-    background: #242526;
+    background: rgb(43, 116, 144);
     width: 300px;
     display: block;
     left: 0px;
     padding: 1rem;
-    border: 1px solid #474a4d;
+    border: 1px solid rgb(43, 116, 144);
     overflow: hidden;
     border-radius: 8px;
     transition: height 500ms ease;

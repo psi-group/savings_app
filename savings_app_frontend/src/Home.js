@@ -14,8 +14,8 @@ function Home (props)  {
         //console.log(this.props.searchas + "wtf");
 
         return (
-                <div className="main">
-                    <h1>React Search</h1>
+                <div className="main ml-20 mr-20">
+                    <h1 className="text-sky-800 font-bold text-2xl">React Search</h1>
 
                     <div>
 
@@ -46,7 +46,7 @@ function Home (props)  {
 
     return (
         <div>
-            <h1 id="tabelLabel" >Savings app</h1>
+            <h1 id="tabelLabel" className='text-center  text-bold text-5xl bg-gradient-to-r from-sky-300 to-sky-700 bg-clip-text text-transparent'>Savings app</h1>
             {contents}
         </div>
     );
