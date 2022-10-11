@@ -32,7 +32,7 @@ namespace savings_app_backend.Controllers
             return _dataAccessService.GetWithFilters(filter, search);
         }
 
-        // GET api/<ProductsController>/5
+
         [HttpGet("{id}")]
         public Restaurant Get(int id)
         {
