@@ -3,7 +3,7 @@ import Navbar from './Navbar';
 const Header = (props) => {
     return (
         <header>
-            <div className="nav-area">
+            <div className="nav-area ">
                 <a href="/" className="logo">
                     Logo
                 </a>

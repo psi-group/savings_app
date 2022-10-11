@@ -8,10 +8,7 @@ a {
     color: aliceblue;
 }
 
-a:hover {
-        text-decoration: none;
-        color: aliceblue;
-}
+
 
 .dropdownButton {
     padding: 0.25rem;

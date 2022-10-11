@@ -3,13 +3,15 @@ import { useParams } from 'react-router-dom';
 
 
 const RestaurantDetails = () => {
+
     const params = useParams()
 
     console.log(params.id);
 
-    const [data, setData] = useState(null);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
+    const [dataRestaurant, setRData] = useState(null);
+    const [dataProducts, setPData] = useState(null);
+
+    const imgURL = window.location.protocol + "//" + window.location.host + "/";
 
     useEffect(() => {
         fetch(`https://localhost:7183/api/restaurants/` + params.id)
@@ -22,25 +24,51 @@ const RestaurantDetails = () => {
                 return response.json();
             })
             .then((actualData) => {
-                setData(actualData);
-                setError(null);
+                fetch(`https://localhost:7183/api/products/`).then((res) => {
+                    if (!res.ok) {
+                        throw new Error(
+                            `This is an HTTP error: The status is ${res.status}`
+                        );
+                    }
+                    return res.json();
+                }).then((pData) => {
+                    setPData(pData);
+                });
+                setRData(actualData);
             })
             .catch((err) => {
-                setError(err.message);
-                setData(null);
+                setRData(null);
+                console.log(err);
             })
-            .finally(() => {
-                setLoading(false);
-            });
     }, [])
 
-    return (
-        <ul>
-            {data &&
-                data.name
-                }
-        </ul>
-     )
+    const ProductList = (product) => {
+
+        if (product.restaurantID == dataRestaurant.id) {
+            return (
+                <div>{product.name}</div>
+            )
+        }
+       
+    }
+    if (dataRestaurant && dataProducts) {
+        return (
+            <>
+                <h1 className="text-[35px] text-center mt-3 font-bold mb-5" >{dataRestaurant.name}</h1>
+                <div>
+                    <img className="w-[230px] h-[180px]" src={imgURL + dataRestaurant.image} alt={dataRestaurant.name} />
+                    <div>
+                        {dataProducts.map(product =>
+                            <>{ProductList(product)}</>
+                        )}
+                    </div>
+                </div>
+            </>
+        )
+    } else {
+        return <p> Loading... </p>
+    }
 }
+
 
 export default RestaurantDetails

@@ -66,7 +66,6 @@ function ProductDetails() {
 
     React.useEffect(() => {
 
-        console.log("useEffect");
         fetch('https://localhost:7183/api/products/' + id)
             .then(res => res.json())
             .then(res => { setContent(res);  return res; })
@@ -104,7 +103,6 @@ function ProductDetails() {
         );
     }*/
 
-    console.log("in details");
 
 
     if (!loading) {

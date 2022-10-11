@@ -11,8 +11,7 @@ namespace savings_app_backend.Controllers
     [ApiController]
     public class RestaurantsController : ControllerBase
     {
-        private DataAccessServiceRestaurants _dataAccessService;
-
+        private readonly DataAccessServiceRestaurants _dataAccessService;
         public RestaurantsController(DataAccessServiceRestaurants dataAccessService)
         {
             _dataAccessService = dataAccessService;

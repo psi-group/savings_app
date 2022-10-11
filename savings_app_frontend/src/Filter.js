@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import "./Filter.css";
-import arrow from './img/arrow.png';
 import "./useFetchData.js";
 import useFetchData from './useFetchData.js';
 
@@ -11,6 +10,7 @@ const Filter = (props) => {
 
     const [categories] = useFetchData("https://localhost:7183/api/categories");
     const [open, setOpen] = useState(false);
+
 
     return (
 
@@ -30,6 +30,8 @@ const DropdownMenu = ({ categories, setFilters, filters }) => {
     const [activeMenu, setActiveMenu] = useState('main');
     const [menuHeight, setMenuHeight] = useState(null);
     const dropdownRef = useRef(null);
+
+    const arrow = window.location.protocol + "//" + window.location.host + "/Images/arrow.png";
 
     useEffect(() => {
         setMenuHeight(dropdownRef.current?.firstChild.offsetHeight)
