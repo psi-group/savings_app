@@ -20,7 +20,7 @@ function Home (props)  {
                     <div>
 
                         
-                    <SearchAndDisplay searchas={props.searchas} products={products} />
+                    <SearchAndDisplay searchas={props.searchas} products={products} cartItems={props.cartItems} setCartItems={props.setCartItems} />
 
                     </div>
 
