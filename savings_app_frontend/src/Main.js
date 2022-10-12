@@ -6,6 +6,7 @@ import Orders from "./Orders";
 import RestaurantsDetails from './RestaurantDetails';
 import Restaurants from './Restaurants';
 import RestaurantDetails from './RestaurantDetails';
+import ShoppingCart from './ShoppingCart';
 
 const Main = (props) => {
     return (
@@ -16,6 +17,7 @@ const Main = (props) => {
             <Route path='/orders' element={<Orders />}></Route>
             <Route path='/restaurants' element={<Restaurants searchas={props.searchas} />}></Route>
             <Route path='/restaurants/:id' element={<RestaurantDetails />}></Route>
+            <Route path='/shoppingCart' element={<ShoppingCart />}></Route>
         </Routes>
     );
 }
