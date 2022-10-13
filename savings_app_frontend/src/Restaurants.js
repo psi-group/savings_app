@@ -34,7 +34,7 @@ function Restaurants(props) {
 
     
     return <div>
-        <h1 className="mt-4 text-center mb-[30px] text-[30px]">All Restaurants</h1>
+        <h1 className="mt-4 text-center mb-[30px] text-[30px]">Restaurants</h1>
         {contents}
     </div>
 

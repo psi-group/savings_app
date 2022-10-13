@@ -15,11 +15,9 @@ function Home (props)  {
 
         return (
                 <div className="main ml-20 mr-20">
-                    <h1 className="text-sky-800 font-bold text-2xl">React Search</h1>
 
                     <div>
 
-                        
                     <SearchAndDisplay searchas={props.searchas} products={products} cartItems={props.cartItems} setCartItems={props.setCartItems} />
 
                     </div>

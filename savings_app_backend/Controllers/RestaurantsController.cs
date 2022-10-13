@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using savings_app.Models;
 using savings_app_backend.Models;
 using savings_app_backend.WebSite.Services;
 
@@ -33,17 +32,9 @@ namespace savings_app_backend.Controllers
 
 
         [HttpGet("{id}")]
-        public Restaurant Get(int id)
+        public Restaurant GetByID(string id)
         {
             return _dataAccessService.GetById(id);
-        }
-
-        [HttpGet]
-        [Route("search={search}")]
-        public IEnumerable<Restaurant> Get(string search)
-        {
-            return null;
-            //return _dataAccessService.GetBySearchText(search);
         }
 
         // POST api/<ProductsController>

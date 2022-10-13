@@ -9,7 +9,6 @@ const App = () => {
   const [selector, setSelector] = React.useState("");
   const [cartItems, setCartItems] = React.useState([]);
 
-  console.log("appas");
 
   return (
     <div className="App">

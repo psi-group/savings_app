@@ -13,14 +13,12 @@ export default class Orders extends Component {
 
     async getOrders() {
 
-        console.log("pressed");
 
         let value = document.getElementById('fname').value;
 
         const response = await fetch('https://localhost:7183/api/orders/byBuyerId/' + value);
         const data = await response.json();
 
-        console.log("good");
         this.setState({orders: data, loading : false});
         console.log(data);
 

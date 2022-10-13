@@ -1,14 +1,15 @@
-﻿using savings_app.Models;
-using savings_app_backend.Models;
+﻿using savings_app_backend.Models;
 using Newtonsoft.Json;
 
 namespace savings_app_backend.WebSite.Services
 {
     public class DataAccessServiceRestaurants
     {
-        public DataAccessServiceRestaurants(IWebHostEnvironment webHostEnvironment)
+        DataAccessService _dataAccessServiceProducts;
+        public DataAccessServiceRestaurants(IWebHostEnvironment webHostEnvironment, DataAccessService dataAccessServiceProducts)
         {
             WebHostEnvironment = webHostEnvironment;
+            _dataAccessServiceProducts = dataAccessServiceProducts;
         }
 
         public IWebHostEnvironment WebHostEnvironment { get; }
@@ -18,6 +19,7 @@ namespace savings_app_backend.WebSite.Services
             get { return WebHostEnvironment.ContentRootPath + "\\" + "data" + "\\" +  "restaurants.json"; }
         }
 
+       
         public IEnumerable<Restaurant> GetRestaurants()
         {
             var jsonFile = File.ReadAllText(JsonFileName);
@@ -79,11 +81,11 @@ namespace savings_app_backend.WebSite.Services
             return filteredRestaurantsByCategories;
         }
 
-        public Restaurant GetById(int id)
+        public Restaurant GetById(string id)
         {
             var restaurants = GetRestaurants();
 
-            return restaurants.SingleOrDefault(r => r.Id == id + "");
+            return restaurants.SingleOrDefault(r => r.Id == id);
         }
 
         public IEnumerable<Product> GetBySearchText(string searchText)

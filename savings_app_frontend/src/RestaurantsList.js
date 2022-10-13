@@ -9,7 +9,7 @@ const RestaurantsList = (props) => {
         <ul>
             <div >
                 {props.restaurants.map((restaurant) => (
-                    <Link to={"/restaurants/" + restaurant.id} className="mb-[30px] border-solid border-2 border-sky-500 inline block 
+                    <Link to={"/restaurants/" + restaurant.id} className=" border-solid border-2 border-sky-500 inline
                                 float-left text-[20px] text-center text-black
                                 mb-[30px] p-[5px] ml-[3.5%] w-[240px] h-[225px]
                                 hover:shadow-[0_0_2px_1px_rgba(0,151,255,0.7)] font-bold">

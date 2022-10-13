@@ -65,7 +65,7 @@ const Navbar = (props) => {
 
       <div>
         <label>Search:</label>
-        <input type="text" id="search" />
+        <input className="border-2 border-sky-100" type="text" id="search" />
         <button onClick={setSearch}>search</button>
       </div>
 

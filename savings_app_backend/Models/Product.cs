@@ -4,10 +4,8 @@ using System.Text.Json;
 
 namespace savings_app_backend.Models
 {
-    public class Product
+    public class Product : SavingsAppObj
     {
-        [Key]
-        public string Id { get; set; }
 
         [Required(ErrorMessage = "Restaurant ID is required")]
         public string RestaurantID { get; set; }
