@@ -1,137 +1,105 @@
 import "./ProductDetails.css";
-import { useLocation, useParams } from 'react-router-dom';
-import Popup from 'reactjs-popup';
-import 'reactjs-popup/dist/index.css';
-import React from 'react';
-
-
-
+import { useParams } from "react-router-dom";
+import imgSkeleton from "./img/productImageSkeleton.png";
+import checkIcon from "./img/checkIcon.png";
+import "reactjs-popup/dist/index.css";
+import React from "react";
 
 function ProductDetails() {
+  const [loading, setLoading] = React.useState(true);
+  const [productName, setProductName] = React.useState("");
+  const [productCategory, setProductCategory] = React.useState("");
+  const [productDescription, setProductDescription] = React.useState("");
+  const [imgURL, setImgURL] = React.useState("");
+  const [restaurant, setRestaurant] = React.useState({});
 
-    const [content, setContent] = React.useState(null);
-    const [product, setProduct] = React.useState(null);
+  let { id } = useParams();
 
-    const [loading, setLoading] = React.useState(true);
+  const capitalizeFirst = (str) => {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  };
 
-    const [restId, setRestId] = React.useState(0);
+  React.useEffect(() => {
+    fetch("https://localhost:7183/api/products/" + id)
+      .then((res) => res.json())
+      .then((data) => {
+        setProductName(data.name);
+        setProductCategory(data.category);
+        setImgURL(data.pictureURL);
+        console.log(data);
+        const restaurantID = data.restaurantID;
+        let url = "https://localhost:7183/api/restaurants/" + restaurantID;
+        return fetch(url);
+      })
+      .then((res) => res.json())
+      .then((data) => {
+        setRestaurant(data);
+        setLoading(false);
+      })
+      .catch((err) => console.log(err));
+  }, []);
 
-    const [restaurant, setRestaurant] = React.useState(null);
+  if (!loading) {
+    return (
+      <div className="flex items-center w-full justify-center p-16 gap-10">
+        {imgURL != "" ? (
+          <img src={imgURL} className="w-3/12 h-3/12" />
+        ) : (
+          <img src={imgSkeleton} className="w-3/12 h-3/12" />
+        )}
 
-    let { id } = useParams();
+        <div className="flex flex-col self-start gap-3">
+          <div>
+            <h1 className="text-5xl text-sky-500">
+              {capitalizeFirst(productName)}
+            </h1>
+            <h3 className="text-xl">{capitalizeFirst(productCategory)}</h3>
+          </div>
+          <div>
+            <h2 className="text-2xl text-sky-500">Available pickup times</h2>
 
-
-
-    //const [popUpMenu, setPopUpMenu] = React.useState(false);
-
-    const selectTime =() =>{
-        console.log("select");
-    }
-
-
-    
-
-
-    /*React.useEffect(() => {
-
-        console.log("start of effect");
-
-        const url = "https://localhost:7183/api/products/id=1";
-
-        const fetchData = async () => {
-            try {
-                const response = await fetch(url);
-                const json = await response.json();
-                //console.log(json);
-                setProduct(json);
-                console.log(product)
-
-                const resp = await fetch("https://localhost:7183/api/restaurant/id=1");
-                const json2 = await resp.json();
-
-                setRestaurant(json2);
-
-            } catch (error) {
-                console.log("error", error);
-            }
-        };
-
-       
-
-        fetchData();
-
-
-        //console.log(product);
-    }, []);*/
-
-    React.useEffect(() => {
-
-        fetch('https://localhost:7183/api/products/' + id)
-            .then(res => res.json())
-            .then(res => { setContent(res);  return res; })
-            .then(res => {
-                const a = res.restaurantID;
-                //console.log(content.restaurantId);
-                let url = 'https://localhost:7183/api/restaurants/' + a;
-                return fetch(url)
-            })
-            .then(res =>  res.json() )
-            .then(res => { setRestaurant(res); })
-            .then(res => { setLoading(false); })
-            .catch(err => console.log(err));
-
-        /*
-
-
-        fetch('https://localhost:7183/api/restaurant/id=1')
-            .then(res => res.json())
-            .then(res => { setContent(res); console.log(res); })
-            .catch(err => console.log(err));
-            */
-    }, []);
-
-    
-    console.log(id);
-    
-    /*function PopUpMenu() {
-        return (
-            <ul className="drop-down">
-                <li>Menu-item-1</li>
-                <li>Menu-item-2</li>
-                <li>Menu-item-3</li>
-            </ul>
-        );
-    }*/
-
-
-
-    if (!loading) {
-        return (
-
-            <>
-
-                <h2>Details of product #{id} sold by {restaurant.name}</h2>
-
-                <h3>Available pickup Times</h3>
-
-                {restaurant.pickupTimes.map((pickUpTime, index) => (
-
-
-                    <div key={index }>
-
-                        <li >{pickUpTime.availableDay} from {pickUpTime.startTime} to {pickUpTime.endTime}</li>
-                    </div>
-                ))}
-
-
-            </>
-        )
-    }
-    else {
-        return <p> Loading... </p>
-    }
-
-   
+            <form className="flex gap-1 flex-col">
+              {restaurant.pickupTimes.map((pickUpTime, index) => (
+                <label
+                  className="flex items-center rounded border-2 w-full border-sky-500"
+                  name="pickUpTime"
+                  key={index}
+                >
+                  <input
+                    className="peer hidden absolute "
+                    type="radio"
+                    value={`${pickUpTime.availableDay} from ${pickUpTime.startTime} to ${pickUpTime.endTime}`}
+                    name="pickUpTime"
+                  ></input>
+                  <div className="peer-checked:bg-sky-500 w-full peer-checked:text-white flex justify-between items-center gap-2">
+                    <p>
+                      {capitalizeFirst(pickUpTime.availableDay)} from{" "}
+                      {pickUpTime.startTime} to {pickUpTime.endTime}
+                    </p>
+                    <img
+                      src={checkIcon}
+                      className="peer-checked:visible w-8 h-8"
+                    />
+                  </div>
+                </label>
+              ))}
+              <button
+                type="button"
+                className="mt-4 pl-10 pr-10 pt-3 pb-3 bg-gradient-to-r from-sky-400 to-blue-500 rounded-xl text-white text-lg active:shadow-lg active:font-bold"
+              >
+                Add To Cart
+              </button>
+            </form>
+            <h2 className="text-sm text-center font-bold">
+              Sold By {capitalizeFirst(restaurant.name)}
+            </h2>
+          </div>
+        </div>
+      </div>
+    );
+  } else {
+    return <p> Loading... </p>;
+  }
 }
 
 export default ProductDetails;
