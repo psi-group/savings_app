@@ -71,14 +71,14 @@ function ProductDetails() {
                     value={`${pickUpTime.availableDay} from ${pickUpTime.startTime} to ${pickUpTime.endTime}`}
                     name="pickUpTime"
                   ></input>
-                  <div className="peer-checked:bg-sky-500 w-full peer-checked:text-white flex justify-between items-center gap-2">
+                  <div className="pl-1 peer-hover:bg-sky-100 peer-checked:peer-hover:bg-sky-500 peer-checked:bg-sky-500 w-full peer-checked:text-white  flex justify-between items-center gap-2">
                     <p>
                       {capitalizeFirst(pickUpTime.availableDay)} from{" "}
                       {pickUpTime.startTime} to {pickUpTime.endTime}
                     </p>
                     <img
                       src={checkIcon}
-                      className="peer-checked:visible w-8 h-8"
+                      className="invisible peer-checked:visible w-8 h-8"
                     />
                   </div>
                 </label>
