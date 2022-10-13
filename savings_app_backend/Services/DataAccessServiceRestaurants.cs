@@ -42,6 +42,7 @@ namespace savings_app_backend.WebSite.Services
             //return restaurants;
 
             List<Restaurant> filteredRestaurantsBySearch = new List<Restaurant>();
+            
             foreach (Restaurant restaurant in restaurants)
             {
                 if (search == null || search == "" || restaurant.Name.ToLower().Contains(search))

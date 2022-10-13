@@ -4,7 +4,7 @@ using savings_app_backend.Models;
 
 namespace savings_app_backend.Models
 {
-    public class SavingsList<T> : IEnumerable where T : SavingsAppObj
+    public class SavingsList<T> : System.Collections.Generic.IEnumerable<T> where T : SavingsAppObj
     {
       
         private List<T> _data = new List<T>();
