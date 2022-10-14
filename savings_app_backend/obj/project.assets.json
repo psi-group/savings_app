@@ -458,11 +458,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Project_Ps_1\\savings_app\\savings_app_backend\\savings_app_backend.csproj",
+      "projectUniqueName": "D:\\Project_Ps_1\\savings_app\\savings_app\\savings_app_backend\\savings_app_backend.csproj",
       "projectName": "savings_app_backend",
-      "projectPath": "D:\\Project_Ps_1\\savings_app\\savings_app_backend\\savings_app_backend.csproj",
+      "projectPath": "D:\\Project_Ps_1\\savings_app\\savings_app\\savings_app_backend\\savings_app_backend.csproj",
       "packagesPath": "C:\\Users\\NGTV\\.nuget\\packages\\",
-      "outputPath": "D:\\Project_Ps_1\\savings_app\\savings_app_backend\\obj\\",
+      "outputPath": "D:\\Project_Ps_1\\savings_app\\savings_app\\savings_app_backend\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\NGTV\\AppData\\Roaming\\NuGet\\NuGet.Config",

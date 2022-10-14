@@ -10,3 +10,5 @@ C:\Users\justa\Desktop\savings_application\save\api_with_react\savings_app_front
 C:\Users\justa\Desktop\savings_application\save\api_with_react\savings_app_frontend\obj\Debug\savings_app_frontend.esproj.CoreCompileInputs.cache
 C:\Users\Medas\Desktop\savings_app\savings_app_frontend\obj\Debug\savings_app_frontend.esproj.SuggestedBindingRedirects.cache
 C:\Users\Medas\Desktop\savings_app\savings_app_frontend\obj\Debug\savings_app_frontend.esproj.CoreCompileInputs.cache
+D:\Project_Ps_1\savings_app\savings_app\savings_app_frontend\obj\Debug\savings_app_frontend.esproj.SuggestedBindingRedirects.cache
+D:\Project_Ps_1\savings_app\savings_app\savings_app_frontend\obj\Debug\savings_app_frontend.esproj.CoreCompileInputs.cache
