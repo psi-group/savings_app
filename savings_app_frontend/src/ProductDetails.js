@@ -12,6 +12,7 @@ function ProductDetails(props) {
   const [productDescription, setProductDescription] = React.useState("");
   const [imgURL, setImgURL] = React.useState("");
   const [restaurant, setRestaurant] = React.useState({});
+  const [itemQuantity, setItemQuantity] = React.useState(1);
   const [itemPickupTime, setItemPickupTime] = React.useState("");
   const [errorVisible, setErrorVisible] = React.useState(false);
 
@@ -22,7 +23,7 @@ function ProductDetails(props) {
   };
 
   const setItemPickup = (e) => {
-    setItemPickupTime(e.target.value);
+    setItemPickupTime(capitalizeFirst(e.target.value));
     setErrorVisible(false);
   };
 
@@ -31,7 +32,7 @@ function ProductDetails(props) {
     if (itemPickupTime == "") {
       setErrorVisible(true);
     } else {
-      props.addCartItem(productName, itemPickupTime);
+      props.addCartItem(productName, itemPickupTime, parseInt(itemQuantity,10));
     }
   };
 
@@ -105,9 +106,30 @@ function ProductDetails(props) {
                   Please select a pickup time
                 </h3>
               )}
+              <div className="flex justify-between gap-3 mt-3">
+                <label for="quantitySelect" className="text-sky-500 text-xl">
+                  Quantity:{" "}
+                </label>
+                <select
+                  name="quantities"
+                  id="quantitySelect"
+                  className="w-full border-black border-2 rounded text-sky-500 text-lg"
+                  onChange={(e) => setItemQuantity(e.target.value)}
+                >
+                  {[...Array(10)].map((value, index) => (
+                    <option
+                      value={index + 1}
+                      key={index + 1}
+                      className="text-right"
+                    >
+                      {index + 1}
+                    </option>
+                  ))}
+                </select>
+              </div>
               <button
                 type="submit"
-                className="mt-4 pl-10 pr-10 pt-3 pb-3 bg-gradient-to-r from-sky-400 to-blue-500 rounded-xl text-white text-lg active:shadow-lg active:font-bold"
+                className="pl-10 pr-10 pt-3 pb-3 bg-gradient-to-r from-sky-400 to-blue-500 rounded-xl text-white text-lg active:shadow-lg active:font-bold"
               >
                 Add To Cart
               </button>

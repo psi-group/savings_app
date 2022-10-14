@@ -8,21 +8,24 @@ const App = () => {
   const [selector, setSelector] = React.useState("");
   const [cartItems, setCartItems] = React.useState([]);
 
-  const addCartItem = (item, pickupTime) => {
-    cartItems.length == 0
-      ? setCartItems([
-          {
-            itemName: item,
-            pickupTime: pickupTime,
-          },
-        ])
-      : setCartItems((previousItems) => [
-          ...previousItems,
-          {
-            itemName: item,
-            pickupTime: pickupTime,
-          },
-        ]);
+  const addCartItem = (name, pickupTime, quantity) => {
+    const itemIndex = cartItems.findIndex(
+      (i) => i.itemName === name && i.pickupTime === pickupTime
+    );
+    if (itemIndex > -1) {
+      const newCart = cartItems.slice();
+      newCart[itemIndex].quantity += quantity;
+      setCartItems(newCart);
+    } else {
+      setCartItems((previousItems) => [
+        ...previousItems,
+        {
+          itemName: name,
+          pickupTime: pickupTime,
+          quantity: quantity,
+        },
+      ]);
+    }
     console.log(cartItems);
   };
 
