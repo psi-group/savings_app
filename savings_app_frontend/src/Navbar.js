@@ -87,7 +87,11 @@ const Navbar = (props) => {
               Shopping Cart
             </h1>
             <div className="w-full h-0.5 bg-sky-800 mb-2"></div>
-            <div className="h-64 font-mono"></div>
+            <div className="h-64 font-mono">
+              {props.cartItems.map(cartItem => {
+                return <p>{cartItem.itemName}</p>
+              })}
+            </div>
             <div className="w-full h-0.5 bg-sky-800"></div>
             <Link to="/ShoppingCart" className="self-center">
               <button

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "./App.css";
-import SearchAndDisplay from "./SearchAndDisplay";
 import Main from "./Main.js";
 import Header from "./Header.js";
 
@@ -9,6 +8,23 @@ const App = () => {
   const [selector, setSelector] = React.useState("");
   const [cartItems, setCartItems] = React.useState([]);
 
+  const addCartItem = (item, pickupTime) => {
+    cartItems.length == 0
+      ? setCartItems([
+          {
+            itemName: item,
+            pickupTime: pickupTime,
+          },
+        ])
+      : setCartItems((previousItems) => [
+          ...previousItems,
+          {
+            itemName: item,
+            pickupTime: pickupTime,
+          },
+        ]);
+    console.log(cartItems);
+  };
 
   return (
     <div className="App">
@@ -18,13 +34,13 @@ const App = () => {
         searchas={searchas}
         setSearchas={setSearchas}
         cartItems={cartItems}
-        setCartItems={setCartItems}
+        addCartItem={addCartItem}
       />
       <Main
         searchas={searchas}
         selector={selector}
         cartItems={cartItems}
-        setCartItems={setCartItems}
+        addCartItem={addCartItem}
       />
     </div>
   );

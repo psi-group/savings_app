@@ -12,6 +12,8 @@ function ProductDetails(props) {
   const [productDescription, setProductDescription] = React.useState("");
   const [imgURL, setImgURL] = React.useState("");
   const [restaurant, setRestaurant] = React.useState({});
+  const [itemPickupTime, setItemPickupTime] = React.useState("");
+  const [errorVisible, setErrorVisible] = React.useState(false);
 
   let { id } = useParams();
 
@@ -19,12 +21,19 @@ function ProductDetails(props) {
     return str.charAt(0).toUpperCase() + str.slice(1);
   };
 
-  const handleClick = () => {
-    console.log(props.cartItems);
-    props.setCartItems((previousItems) => 
-      [...previousItems, 'b']);
-    console.log(props.cartItems);
-  }
+  const setItemPickup = (e) => {
+    setItemPickupTime(e.target.value);
+    setErrorVisible(false);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (itemPickupTime == "") {
+      setErrorVisible(true);
+    } else {
+      props.addCartItem(productName, itemPickupTime);
+    }
+  };
 
   React.useEffect(() => {
     fetch("https://localhost:7183/api/products/" + id)
@@ -65,7 +74,7 @@ function ProductDetails(props) {
           <div>
             <h2 className="text-2xl text-sky-500">Available pickup times</h2>
 
-            <form className="flex gap-1 flex-col">
+            <form className="flex gap-1 flex-col" onSubmit={handleSubmit}>
               {restaurant.pickupTimes.map((pickUpTime, index) => (
                 <label
                   className="flex items-center rounded border-2 w-full border-sky-500"
@@ -73,10 +82,11 @@ function ProductDetails(props) {
                   key={index}
                 >
                   <input
-                    className="peer hidden absolute "
+                    className="peer opacity-0 absolute "
                     type="radio"
                     value={`${pickUpTime.availableDay} from ${pickUpTime.startTime} to ${pickUpTime.endTime}`}
                     name="pickUpTime"
+                    onChange={setItemPickup}
                   ></input>
                   <div className="pl-1 peer-hover:bg-sky-100 peer-checked:peer-hover:bg-sky-500 peer-checked:bg-sky-500 w-full peer-checked:text-white  flex justify-between items-center gap-2">
                     <p>
@@ -90,9 +100,13 @@ function ProductDetails(props) {
                   </div>
                 </label>
               ))}
+              {errorVisible && (
+                <h3 className="text-sky-500 text-lg font-bold">
+                  Please select a pickup time
+                </h3>
+              )}
               <button
-                type="button"
-                onClick={handleClick}
+                type="submit"
                 className="mt-4 pl-10 pr-10 pt-3 pb-3 bg-gradient-to-r from-sky-400 to-blue-500 rounded-xl text-white text-lg active:shadow-lg active:font-bold"
               >
                 Add To Cart
