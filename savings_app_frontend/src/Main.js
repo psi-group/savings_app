@@ -13,7 +13,7 @@ const Main = (props) => {
         <Routes>
             <Route path='/' element={<Home searchas={props.searchas} />}></Route>
             <Route path='/products' element={<Home searchas={props.searchas} />}></Route>
-            <Route path='/product/:id' element={<ProductDetails />}></Route>
+            <Route path='/product/:id' element={<ProductDetails cartItems={props.cartItems} setCartItems={props.setCartItems}/>}></Route>
             <Route path='/orders' element={<Orders />}></Route>
             <Route path='/restaurants' element={<Restaurants searchas={props.searchas} />}></Route>
             <Route path='/restaurants/:id' element={<RestaurantDetails />}></Route>

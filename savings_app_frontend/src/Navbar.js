@@ -49,7 +49,7 @@ const Navbar = (props) => {
           {menuItems.map((menu, index) => {
             return (
               <li className="menu-items" key={index}>
-                <a href={menu.url}>{menu.title}</a>
+                <Link to={menu.url}>{menu.title}</Link>
               </li>
             );
           })}

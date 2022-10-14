@@ -1,12 +1,13 @@
 import Navbar from './Navbar';
+import {Link} from 'react-router-dom';
 
 const Header = (props) => {
     return (
         <header>
             <div className="nav-area ">
-                <a href="/" className="logo">
+                <Link to="/" className="logo">
                     Logo
-                </a>
+                </Link>
                 <Navbar selector={props.selector} setSelector={props.setSelector} searchas={props.searchas} setSearchas={props.setSearchas} />
             </div>
         </header>

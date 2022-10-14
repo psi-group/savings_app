@@ -5,7 +5,7 @@ import checkIcon from "./img/checkIcon.png";
 import "reactjs-popup/dist/index.css";
 import React from "react";
 
-function ProductDetails() {
+function ProductDetails(props) {
   const [loading, setLoading] = React.useState(true);
   const [productName, setProductName] = React.useState("");
   const [productCategory, setProductCategory] = React.useState("");
@@ -18,6 +18,13 @@ function ProductDetails() {
   const capitalizeFirst = (str) => {
     return str.charAt(0).toUpperCase() + str.slice(1);
   };
+
+  const handleClick = () => {
+    console.log(props.cartItems);
+    props.setCartItems((previousItems) => 
+      [...previousItems, 'b']);
+    console.log(props.cartItems);
+  }
 
   React.useEffect(() => {
     fetch("https://localhost:7183/api/products/" + id)
@@ -85,6 +92,7 @@ function ProductDetails() {
               ))}
               <button
                 type="button"
+                onClick={handleClick}
                 className="mt-4 pl-10 pr-10 pt-3 pb-3 bg-gradient-to-r from-sky-400 to-blue-500 rounded-xl text-white text-lg active:shadow-lg active:font-bold"
               >
                 Add To Cart

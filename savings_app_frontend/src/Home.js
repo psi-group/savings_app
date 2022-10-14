@@ -18,7 +18,7 @@ function Home (props)  {
 
                     <div>
 
-                    <SearchAndDisplay searchas={props.searchas} products={products} cartItems={props.cartItems} setCartItems={props.setCartItems} />
+                    <SearchAndDisplay searchas={props.searchas} products={products} />
 
                     </div>
 

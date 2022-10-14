@@ -15,8 +15,6 @@ const SearchAndDisplay = (props) => {
         searched={props.searchas}
         products={props.products}
         filters={filters}
-        cartItems={props.cartItems}
-        setCartItems={props.setCartItems}
       />
     </div>
   );
