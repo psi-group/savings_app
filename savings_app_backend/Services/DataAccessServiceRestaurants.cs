@@ -30,56 +30,60 @@ namespace savings_app_backend.WebSite.Services
         public IEnumerable<Restaurant> GetWithFilters(string[] filters, string searchText)
         {
             /* more searching logic to implement (use regex here)*/
-
-            string search = null;
-            if (searchText != null)
-                search = searchText.ToLower();
-
-
-
-            var restaurants = GetRestaurants();
-
-            //return restaurants;
-
-            List<Restaurant> filteredRestaurantsBySearch = new List<Restaurant>();
             
-            foreach (Restaurant restaurant in restaurants)
-            {
-                if (search == null || search == "" || restaurant.Name.ToLower().Contains(search))
-                {
-                    filteredRestaurantsBySearch.Add(restaurant);
-                }
-            }
+            SavingsList<Restaurant> restaurants = new SavingsList<Restaurant>(GetRestaurants());
+           
+            return restaurants.Search(filters, searchText);
 
-            List<Restaurant> filteredRestaurantsByCategories = new List<Restaurant>();
+            //string search = null;
+            //if (searchText != null)
+            //    search = searchText.ToLower();
 
-            if (filters.Length == 0)
-                return filteredRestaurantsBySearch;
 
-            int count = 0;
-            foreach (string filter in filters)
-            {
-                if (filter != null)
-                    count++;
 
-            }
+            //var restaurants = GetRestaurants();
 
-            if (count == 0)
-                return filteredRestaurantsBySearch;
+            ////return restaurants;
 
-            foreach (Restaurant restaurant in filteredRestaurantsBySearch)
-            {
-                foreach (string filter in filters)
-                {
-                    //if (restaurant.Category.Equals(filter)) // no categories of restaurants implemented yet
-                    {
-                        filteredRestaurantsByCategories.Add(restaurant);
-                    }
-                }
+            //List<Restaurant> filteredRestaurantsBySearch = new List<Restaurant>();
+            
+            //foreach (Restaurant restaurant in restaurants)
+            //{
+            //    if (search == null || search == "" || restaurant.Name.ToLower().Contains(search))
+            //    {
+            //        filteredRestaurantsBySearch.Add(restaurant);
+            //    }
+            //}
 
-            }
+            //List<Restaurant> filteredRestaurantsByCategories = new List<Restaurant>();
 
-            return filteredRestaurantsByCategories;
+            //if (filters.Length == 0)
+            //    return filteredRestaurantsBySearch;
+
+            //int count = 0;
+            //foreach (string filter in filters)
+            //{
+            //    if (filter != null)
+            //        count++;
+
+            //}
+
+            //if (count == 0)
+            //    return filteredRestaurantsBySearch;
+
+            //foreach (Restaurant restaurant in filteredRestaurantsBySearch)
+            //{
+            //    foreach (string filter in filters)
+            //    {
+            //        //if (restaurant.Category.Equals(filter)) // no categories of restaurants implemented yet
+            //        {
+            //            filteredRestaurantsByCategories.Add(restaurant);
+            //        }
+            //    }
+
+            //}
+
+            //return filteredRestaurantsByCategories;
         }
 
         public Restaurant GetById(string id)

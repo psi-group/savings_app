@@ -11,7 +11,7 @@ namespace savings_app_backend.Models{
         public string Password { get; protected set; }
         public string Email { get; set; }
         public double Rating { get; set; }
-
+        public string Category { get; set; }
         public void ChangePassword(string newPassword)
         {
             this.Password = newPassword;
