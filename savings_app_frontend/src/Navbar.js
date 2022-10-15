@@ -79,24 +79,53 @@ const Navbar = (props) => {
         </Link>
         {showCart && (
           <div
-            className="absolute w-72 h-96 bg-sky-100 right-1 z-20 rounded-lg flex flex-col border-sky-800 border-2"
+            className="absolute w-96 p-3 h-96 bg-white right-1 z-20 rounded-lg flex flex-col border-sky-500 border-2"
             onMouseEnter={() => setShowCart(true)}
             onMouseLeave={() => setShowCart(false)}
           >
-            <h1 className="self-center text-lg pb-2 pt-2 font-mono font-bold">
+            <h1 className="self-center text-xl pb-2 pt-2 font-mono font-bold text-sky-500">
               Shopping Cart
             </h1>
-            <div className="w-full h-0.5 bg-sky-800 mb-2"></div>
-            <div className="h-64 font-mono">
-              {props.cartItems.map(cartItem => {
-                return <p>{cartItem.itemName}</p>
-              })}
+            <div className="w-full h-0.5 bg-sky-500 mb-2"></div>
+            <div className="h-60 mb-2 font-mono overflow-y-scroll scrollbar">
+              {props.cartItems.length > 0 ? (
+                props.cartItems.map((cartItem) => {
+                  return (
+                    <div className="flex flex-col">
+                      <h1 className="text-xl font-bold text-sky-500">
+                        {cartItem.itemName}
+                      </h1>
+                      <div className="flex gap-2">
+                        <img
+                          src={cartItem.image}
+                          className="w-14 h-16 rounded-md border-2 border-sky-500"
+                        />
+                        <div className="flex flex-col">
+                          <p className="text-xs">
+                            <h3 className="font-bold text-xs">Pickup Time: </h3>
+                            {cartItem.pickupTime}
+                          </p>
+                          <h3 className="font-bold text-xs">Quantity: </h3>
+                          <p className="text-xs">{cartItem.quantity}</p>
+                        </div>
+                      </div>
+                      <div className="mt-3 mb-3 w-full h-[1px] bg-sky-500">
+                        {" "}
+                      </div>
+                    </div>
+                  );
+                })
+              ) : (
+                <p className="text-center font-bold self-center pt-24 text-xl">
+                  Shopping Cart Is Empty
+                </p>
+              )}
             </div>
-            <div className="w-full h-0.5 bg-sky-800"></div>
+            <div className="w-full h-0.5 bg-sky-500"></div>
             <Link to="/ShoppingCart" className="self-center">
               <button
                 type="button"
-                className="mt-3 bg-sky-900 w-30 text-white p-2 font-mono rounded-md hover:font-bold"
+                className="mt-3 bg-gradient-to-r from-sky-400 to-blue-500 w-30 text-white p-2 font-mono rounded-md hover:font-bold"
               >
                 Go To Cart
               </button>
