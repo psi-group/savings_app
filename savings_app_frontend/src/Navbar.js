@@ -79,7 +79,7 @@ const Navbar = (props) => {
         </Link>
         {showCart && (
           <div
-            className="absolute w-96 p-3 h-96 bg-sky-50 right-1 z-20 rounded-lg flex flex-col border-sky-500 border-2"
+            className="absolute w-96 p-3 h-96 bg-white right-1 z-20 rounded-lg flex flex-col border-sky-500 border-2"
             onMouseEnter={() => setShowCart(true)}
             onMouseLeave={() => setShowCart(false)}
           >
@@ -89,18 +89,28 @@ const Navbar = (props) => {
             <div className="w-full h-0.5 bg-sky-500 mb-2"></div>
             <div className="h-60 mb-2 font-mono overflow-y-scroll scrollbar">
               {props.cartItems.map((cartItem) => {
-                return <div className="flex flex-col">
-                  <h1 className="text-xl text-black">{cartItem.itemName}</h1>
-                  <div className="flex gap-2"> 
-                    <img src={cartItem.image} className="w-14 h-16 rounded-xl"/>
-                    <div className="flex flex-col">
-                     <p className="text-xs"><h3 className="font-bold text-xs">Pickup Time: </h3>{cartItem.pickupTime}</p>
-                      <h3 className="font-bold text-xs">Quantity: </h3>
-                      <p className="text-xs">{cartItem.quantity}</p>
+                return (
+                  <div className="flex flex-col">
+                    <h1 className="text-xl font-bold text-sky-500">
+                      {cartItem.itemName}
+                    </h1>
+                    <div className="flex gap-2">
+                      <img
+                        src={cartItem.image}
+                        className="w-14 h-16 rounded-xl"
+                      />
+                      <div className="flex flex-col">
+                        <p className="text-xs">
+                          <h3 className="font-bold text-xs">Pickup Time: </h3>
+                          {cartItem.pickupTime}
+                        </p>
+                        <h3 className="font-bold text-xs">Quantity: </h3>
+                        <p className="text-xs">{cartItem.quantity}</p>
+                      </div>
                     </div>
+                    <div className="mt-3 mb-3 w-full h-[1px] bg-sky-500"> </div>
                   </div>
-                  <div className="mt-3 w-full h-[1px] bg-sky-500"> </div>
-                </div>
+                );
               })}
             </div>
             <div className="w-full h-0.5 bg-sky-500"></div>
