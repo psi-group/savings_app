@@ -453,19 +453,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\NGTV\\.nuget\\packages\\": {}
+    "C:\\Users\\Medas\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Project_Ps_1\\savings_app\\savings_app\\savings_app_backend\\savings_app_backend.csproj",
+      "projectUniqueName": "C:\\Users\\Medas\\Desktop\\repos\\savings_app\\savings_app_backend\\savings_app_backend.csproj",
       "projectName": "savings_app_backend",
-      "projectPath": "D:\\Project_Ps_1\\savings_app\\savings_app\\savings_app_backend\\savings_app_backend.csproj",
-      "packagesPath": "C:\\Users\\NGTV\\.nuget\\packages\\",
-      "outputPath": "D:\\Project_Ps_1\\savings_app\\savings_app\\savings_app_backend\\obj\\",
+      "projectPath": "C:\\Users\\Medas\\Desktop\\repos\\savings_app\\savings_app_backend\\savings_app_backend.csproj",
+      "packagesPath": "C:\\Users\\Medas\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Medas\\Desktop\\repos\\savings_app\\savings_app_backend\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\NGTV\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Medas\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
