@@ -30,11 +30,10 @@ namespace savings_app_backend.WebSite.Services
         public IEnumerable<Restaurant> GetWithFilters(string[] filters, string searchText)
         {
             /* more searching logic to implement (use regex here)*/
-
-            var _data = GetRestaurants();
-            SavingsList<Restaurant> restaurants = new SavingsList<Restaurant>(_data);
-            _data = restaurants.Search(filters, searchText);
-            return _data;
+            
+            SavingsList<Restaurant> restaurants = new SavingsList<Restaurant>(GetRestaurants());
+           
+            return restaurants.Search(filters, searchText);
 
             //string search = null;
             //if (searchText != null)

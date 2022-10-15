@@ -41,8 +41,8 @@ namespace savings_app_backend.WebSite.Services
         public IEnumerable<Product> GetWithFilters(string[] filters, string searchText)
         {
             /* more searching logic to implement (use regex here)*/
-           var _data = GetProducts();
-            SavingsList<Product> _products = new SavingsList<Product>(_data);
+
+            SavingsList<Product> _products = new SavingsList<Product>(GetProducts());
 
             return _products.Search(filters, searchText);
            
