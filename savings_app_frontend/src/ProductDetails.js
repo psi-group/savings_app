@@ -32,7 +32,7 @@ function ProductDetails(props) {
     if (itemPickupTime == "") {
       setErrorVisible(true);
     } else {
-      props.addCartItem(productName, itemPickupTime, parseInt(itemQuantity,10));
+      props.addCartItem(capitalizeFirst(productName), itemPickupTime, parseInt(itemQuantity,10), imgURL);
     }
   };
 

@@ -8,7 +8,7 @@ const App = () => {
   const [selector, setSelector] = React.useState("");
   const [cartItems, setCartItems] = React.useState([]);
 
-  const addCartItem = (name, pickupTime, quantity) => {
+  const addCartItem = (name, pickupTime, quantity, image) => {
     const itemIndex = cartItems.findIndex(
       (i) => i.itemName === name && i.pickupTime === pickupTime
     );
@@ -23,6 +23,7 @@ const App = () => {
           itemName: name,
           pickupTime: pickupTime,
           quantity: quantity,
+          image: image
         },
       ]);
     }
