@@ -35,55 +35,7 @@ namespace savings_app_backend.WebSite.Services
            
             return restaurants.Search(filters, searchText);
 
-            //string search = null;
-            //if (searchText != null)
-            //    search = searchText.ToLower();
-
-
-
-            //var restaurants = GetRestaurants();
-
-            ////return restaurants;
-
-            //List<Restaurant> filteredRestaurantsBySearch = new List<Restaurant>();
             
-            //foreach (Restaurant restaurant in restaurants)
-            //{
-            //    if (search == null || search == "" || restaurant.Name.ToLower().Contains(search))
-            //    {
-            //        filteredRestaurantsBySearch.Add(restaurant);
-            //    }
-            //}
-
-            //List<Restaurant> filteredRestaurantsByCategories = new List<Restaurant>();
-
-            //if (filters.Length == 0)
-            //    return filteredRestaurantsBySearch;
-
-            //int count = 0;
-            //foreach (string filter in filters)
-            //{
-            //    if (filter != null)
-            //        count++;
-
-            //}
-
-            //if (count == 0)
-            //    return filteredRestaurantsBySearch;
-
-            //foreach (Restaurant restaurant in filteredRestaurantsBySearch)
-            //{
-            //    foreach (string filter in filters)
-            //    {
-            //        //if (restaurant.Category.Equals(filter)) // no categories of restaurants implemented yet
-            //        {
-            //            filteredRestaurantsByCategories.Add(restaurant);
-            //        }
-            //    }
-
-            //}
-
-            //return filteredRestaurantsByCategories;
         }
 
         public Restaurant GetById(string id)

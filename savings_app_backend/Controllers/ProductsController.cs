@@ -26,7 +26,7 @@ namespace savings_app_backend.Controllers
 
         // GET api/<ProductsController>/5
         [HttpGet("{id}")]
-        public Product Get(int id)
+        public Product Get(string id)
         {
             return _dataAccessService.GetById(id);
         }
