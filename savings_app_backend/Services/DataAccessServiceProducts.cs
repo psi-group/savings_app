@@ -32,7 +32,7 @@ namespace savings_app_backend.WebSite.Services
             return Newtonsoft.Json.JsonConvert.DeserializeObject<Product[]>(jsonFile);
         }
 
-        public Product GetById(int id)
+        public Product GetById(string id)
         {
             var products = GetProducts();
             return products.SingleOrDefault(p => p.Id == id + "");
@@ -46,77 +46,6 @@ namespace savings_app_backend.WebSite.Services
 
             return _products.Search(filters, searchText);
            
-            
-            // string search = null;
-            // if (searchText != null)
-            //     search = searchText.ToLower();
-
-
-
-            // var products = GetProducts();
-
-            // List<Product> filteredProductsBySearch = new List<Product>();
-            // foreach (Product product in products)
-            // {
-            //     if (search == null || search == "" || product.Name.Contains(search))
-            //     {
-            //         filteredProductsBySearch.Add(product);
-            //     }
-            // }
-
-            // List<Product> filteredProductsByCategories = new List<Product>();
-
-            // if (filters.Length == 0)
-            //     return filteredProductsBySearch;
-
-            // int count = 0;
-            // foreach(string filter in filters)
-            // {
-            //     if (filter != null)
-            //         count++;
-
-            // }
-
-            // if (count == 0)
-            //     return filteredProductsBySearch;
-
-            // foreach(Product product in filteredProductsBySearch)
-            // {
-            //     foreach(string filter in filters)
-            //     {
-            //         if (product.Category.Equals(filter))
-            //         {
-            //             filteredProductsByCategories.Add(product);
-            //         }
-            //     }
-
-            // }
-
-            // return filteredProductsByCategories;
-        }
-
-        public IEnumerable<Product> GetBySearchText(string searchText)
-        {
-            /* more searching logic to implement (use regex here)*/
-
-            var products = GetProducts();
-
-            if (searchText.Equals(""))
-            {
-                Console.Write("tuscias");
-                return products;
-            }
-                
-
-            List<Product> filteredProducts = new List<Product>();   
-            foreach (Product product in products)
-            {
-                if (product.Name.Contains(searchText))
-                {
-                    filteredProducts.Add(product);
-                }
-            }
-            return filteredProducts;
         }
 
         public void AddProduct(Product product)
