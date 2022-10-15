@@ -4,6 +4,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.Json;
+using System.Xml.Linq;
 using Microsoft.AspNetCore.Hosting;
 using savings_app_backend.Models;
 
@@ -40,53 +41,58 @@ namespace savings_app_backend.WebSite.Services
         public IEnumerable<Product> GetWithFilters(string[] filters, string searchText)
         {
             /* more searching logic to implement (use regex here)*/
+           var _data = GetProducts();
+            SavingsList<Product> _products = new SavingsList<Product>(_data);
 
-            string search = null;
-            if (searchText != null)
-                search = searchText.ToLower();
+            return _products.Search(filters, searchText);
            
+            
+            // string search = null;
+            // if (searchText != null)
+            //     search = searchText.ToLower();
 
 
-            var products = GetProducts();
 
-            List<Product> filteredProductsBySearch = new List<Product>();
-            foreach (Product product in products)
-            {
-                if (search == null || search == "" || product.Name.Contains(search))
-                {
-                    filteredProductsBySearch.Add(product);
-                }
-            }
+            // var products = GetProducts();
 
-            List<Product> filteredProductsByCategories = new List<Product>();
+            // List<Product> filteredProductsBySearch = new List<Product>();
+            // foreach (Product product in products)
+            // {
+            //     if (search == null || search == "" || product.Name.Contains(search))
+            //     {
+            //         filteredProductsBySearch.Add(product);
+            //     }
+            // }
 
-            if (filters.Length == 0)
-                return filteredProductsBySearch;
+            // List<Product> filteredProductsByCategories = new List<Product>();
 
-            int count = 0;
-            foreach(string filter in filters)
-            {
-                if (filter != null)
-                    count++;
+            // if (filters.Length == 0)
+            //     return filteredProductsBySearch;
 
-            }
+            // int count = 0;
+            // foreach(string filter in filters)
+            // {
+            //     if (filter != null)
+            //         count++;
 
-            if (count == 0)
-                return filteredProductsBySearch;
+            // }
 
-            foreach(Product product in filteredProductsBySearch)
-            {
-                foreach(string filter in filters)
-                {
-                    if (product.Category.Equals(filter))
-                    {
-                        filteredProductsByCategories.Add(product);
-                    }
-                }
-                
-            }
+            // if (count == 0)
+            //     return filteredProductsBySearch;
 
-            return filteredProductsByCategories;
+            // foreach(Product product in filteredProductsBySearch)
+            // {
+            //     foreach(string filter in filters)
+            //     {
+            //         if (product.Category.Equals(filter))
+            //         {
+            //             filteredProductsByCategories.Add(product);
+            //         }
+            //     }
+
+            // }
+
+            // return filteredProductsByCategories;
         }
 
         public IEnumerable<Product> GetBySearchText(string searchText)

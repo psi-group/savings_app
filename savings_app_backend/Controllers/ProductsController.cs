@@ -31,12 +31,6 @@ namespace savings_app_backend.Controllers
             return _dataAccessService.GetById(id);
         }
 
-        /*[HttpGet]
-        [Route("search={search}")]
-        public IEnumerable<Product> Get(string search)
-        {
-            return _dataAccessService.GetBySearchText(search);
-        }*/
 
         [HttpGet]
         [Route("filter")]

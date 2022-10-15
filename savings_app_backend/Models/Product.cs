@@ -10,15 +10,12 @@ namespace savings_app_backend.Models
         [Required(ErrorMessage = "Restaurant ID is required")]
         public string RestaurantID { get; set; }
 
-        public string Category { get; set; }
 
         [Required(ErrorMessage = "Product picture is required")]
         public string PictureURL { get; set; }
 
 
-        [Required(ErrorMessage = "Product Name is required")]
-        [StringLength(50, MinimumLength = 5, ErrorMessage = "Name must be between 5 and 30 symbols")]
-        public string Name { get; set; }
+
 
         [Required(ErrorMessage = "Product shelf life is required")]
         public string ShelfLife { get; set; }

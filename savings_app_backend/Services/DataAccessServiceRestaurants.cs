@@ -31,55 +31,60 @@ namespace savings_app_backend.WebSite.Services
         {
             /* more searching logic to implement (use regex here)*/
 
-            string search = null;
-            if (searchText != null)
-                search = searchText.ToLower();
+            var _data = GetRestaurants();
+            SavingsList<Restaurant> restaurants = new SavingsList<Restaurant>(_data);
+            _data = restaurants.Search(filters, searchText);
+            return _data;
+
+            //string search = null;
+            //if (searchText != null)
+            //    search = searchText.ToLower();
 
 
 
-            var restaurants = GetRestaurants();
+            //var restaurants = GetRestaurants();
 
-            //return restaurants;
+            ////return restaurants;
 
-            List<Restaurant> filteredRestaurantsBySearch = new List<Restaurant>();
+            //List<Restaurant> filteredRestaurantsBySearch = new List<Restaurant>();
             
-            foreach (Restaurant restaurant in restaurants)
-            {
-                if (search == null || search == "" || restaurant.Name.ToLower().Contains(search))
-                {
-                    filteredRestaurantsBySearch.Add(restaurant);
-                }
-            }
+            //foreach (Restaurant restaurant in restaurants)
+            //{
+            //    if (search == null || search == "" || restaurant.Name.ToLower().Contains(search))
+            //    {
+            //        filteredRestaurantsBySearch.Add(restaurant);
+            //    }
+            //}
 
-            List<Restaurant> filteredRestaurantsByCategories = new List<Restaurant>();
+            //List<Restaurant> filteredRestaurantsByCategories = new List<Restaurant>();
 
-            if (filters.Length == 0)
-                return filteredRestaurantsBySearch;
+            //if (filters.Length == 0)
+            //    return filteredRestaurantsBySearch;
 
-            int count = 0;
-            foreach (string filter in filters)
-            {
-                if (filter != null)
-                    count++;
+            //int count = 0;
+            //foreach (string filter in filters)
+            //{
+            //    if (filter != null)
+            //        count++;
 
-            }
+            //}
 
-            if (count == 0)
-                return filteredRestaurantsBySearch;
+            //if (count == 0)
+            //    return filteredRestaurantsBySearch;
 
-            foreach (Restaurant restaurant in filteredRestaurantsBySearch)
-            {
-                foreach (string filter in filters)
-                {
-                    //if (restaurant.Category.Equals(filter)) // no categories of restaurants implemented yet
-                    {
-                        filteredRestaurantsByCategories.Add(restaurant);
-                    }
-                }
+            //foreach (Restaurant restaurant in filteredRestaurantsBySearch)
+            //{
+            //    foreach (string filter in filters)
+            //    {
+            //        //if (restaurant.Category.Equals(filter)) // no categories of restaurants implemented yet
+            //        {
+            //            filteredRestaurantsByCategories.Add(restaurant);
+            //        }
+            //    }
 
-            }
+            //}
 
-            return filteredRestaurantsByCategories;
+            //return filteredRestaurantsByCategories;
         }
 
         public Restaurant GetById(string id)
