@@ -1,51 +1,80 @@
 [
-{
-"Id": "1",
-"RestaurantID": "1",
-"PictureURL": "https://media.istockphoto.com/photos/three-potatoes-picture-id157430678?k=20&m=157430678&s=612x612&w=0&h=dfYLuPYwA50ojI90hZ4jCgKZd5TGnqf24UCVBszoZIA=",
-"Name": "potatoes",
-"ShelfLife": "2022-09-30",
-"Description": ".....",
-"Category": "vegetables"
-},{
-"Id": "7",
-"RestaurantID": "2",
-"PictureURL": "https://images.pexels.com/photos/2487443/pexels-photo-2487443.jpeg?cs=srgb&dl=pexels-matheus-cenali-2487443.jpg&fm=jpg",
-"Name": "apples",
-"ShelfLife": "2022-09-30",
-"Description": ".....",
-"Category":  "fruits"
-},{
-"Id": "9",
-"RestaurantID": "4",
-"PictureURL": "https://images.pexels.com/photos/2487443/pexels-photo-2487443.jpeg?cs=srgb&dl=pexels-matheus-cenali-2487443.jpg&fm=jpg",
-"Name": "french-fries",
-"ShelfLife": "2022-09-30",
-"Description": ".....",
-"Category": "snacks"
-},{
-"Id": "6",
-"RestaurantID": "2",
-"PictureURL": "https://images.pexels.com/photos/2487443/pexels-photo-2487443.jpeg?cs=srgb&dl=pexels-matheus-cenali-2487443.jpg&fm=jpg",
-"Name": "eggs",
-"ShelfLife": "2022-09-30",
-"Description": ".....",
-"Category": "protein"
-},{
-"Id": "5",
-"RestaurantID": "6",
-"PictureURL": "https://media.istockphoto.com/photos/stack-of-fresh-raw-burger-patty-picture-id1268023262?k=20&m=1268023262&s=612x612&w=0&h=aLMpdDBCzc31AJPfxZOFFG90HvdaZso0fpHmaJf7fw0=",
-"Name": "Burger patties",
-"ShelfLife": "2022-10-01",
-"Description": "asdas",
-"Category": "protein"
-},{
-"Id": "db7d2e61-077d-40ca-a888-9e05e59dce83",
-"RestaurantID": "3",
-"PictureURL": "linkas",
-"Name": "milkas",
-"ShelfLife": "2022-10-20",
-"Description": ",,,,",
-"Category": "dairy"
-}
+  {
+    "Id": "1",
+    "RestaurantID": "1",
+    "PictureURL": "https://media.istockphoto.com/photos/three-potatoes-picture-id157430678?k=20&m=157430678&s=612x612&w=0&h=dfYLuPYwA50ojI90hZ4jCgKZd5TGnqf24UCVBszoZIA=",
+    "Name": "potatoes",
+    "ShelfLife": "2017-09-08T19:01:55.714942+03:00",
+    "Description": ".....",
+    "Category": "vegetables",
+    "AmountType": "kilogram",
+    "AmountPerUnit": 0.5,
+    "AmountOfUnits": 5,
+    "Price": 1.5
+  },
+  {
+    "Id": "7",
+    "RestaurantID": "2",
+    "PictureURL": "https://images.pexels.com/photos/2487443/pexels-photo-2487443.jpeg?cs=srgb&dl=pexels-matheus-cenali-2487443.jpg&fm=jpg",
+    "Name": "apples",
+    "ShelfLife": "2017-09-08T19:01:55.714942+03:00",
+    "Description": ".....",
+    "Category": "fruits",
+    "AmountType": "kilogram",
+    "AmountPerUnit": 2,
+    "AmountOfUnits": 9,
+    "Price": 3.20
+  },
+  {
+    "Id": "9",
+    "RestaurantID": "4",
+    "PictureURL": "https://images.pexels.com/photos/2487443/pexels-photo-2487443.jpeg?cs=srgb&dl=pexels-matheus-cenali-2487443.jpg&fm=jpg",
+    "Name": "french-fries",
+    "ShelfLife": "2017-09-08T19:01:55.714942+03:00",
+    "Description": ".....",
+    "Category": "snacks",
+    "AmountType": "kilogram",
+    "AmountPerUnit": 0.2,
+    "AmountOfUnits": 13,
+    "Price": 0.5
+  },
+  {
+    "Id": "6",
+    "RestaurantID": "2",
+    "PictureURL": "https://images.pexels.com/photos/2487443/pexels-photo-2487443.jpeg?cs=srgb&dl=pexels-matheus-cenali-2487443.jpg&fm=jpg",
+    "Name": "eggs",
+    "ShelfLife": "2017-09-08T19:01:55.714942+03:00",
+    "Description": ".....",
+    "Category": "protein",
+    "AmountType": "unit",
+    "AmountPerUnit": 12,
+    "AmountOfUnits": 5,
+    "Price": 2.20
+  },
+  {
+    "Id": "5",
+    "RestaurantID": "6",
+    "PictureURL": "https://media.istockphoto.com/photos/stack-of-fresh-raw-burger-patty-picture-id1268023262?k=20&m=1268023262&s=612x612&w=0&h=aLMpdDBCzc31AJPfxZOFFG90HvdaZso0fpHmaJf7fw0=",
+    "Name": "Burger patties",
+    "ShelfLife": "2017-09-08T19:01:55.714942+03:00",
+    "Description": "asdas",
+    "Category": "protein",
+    "AmountType": "kilogram",
+    "AmountPerUnit": 1,
+    "AmountOfUnits": 2,
+    "Price": 5.0
+  },
+  {
+    "Id": "db7d2e61-077d-40ca-a888-9e05e59dce83",
+    "RestaurantID": "3",
+    "PictureURL": "linkas",
+    "Name": "milkas",
+    "ShelfLife": "2017-09-08T19:01:55.714942+03:00",
+    "Description": ",,,,",
+    "Category": "dairy",
+    "AmountType": "litre",
+    "AmountPerUnit": 0.5,
+    "AmountOfUnits": 5,
+    "Price": 0.80
+  }
 ]

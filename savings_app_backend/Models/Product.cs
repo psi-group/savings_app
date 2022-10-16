@@ -1,33 +1,35 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Newtonsoft.Json.Converters;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace savings_app_backend.Models
 {
     public class Product : SavingsAppObj
     {
 
-        [Required(ErrorMessage = "Restaurant ID is required")]
+        public string Id { get; set; }
+
         public string RestaurantID { get; set; }
 
+        [JsonConverter(typeof(JsonStringEnumConverter))]
+        [EnumDataType(typeof(AmountType))]
+        public AmountType AmountType { get; set; }
 
-        [Required(ErrorMessage = "Product picture is required")]
+        public float AmountPerUnit { get; set; }
+        public int AmountOfUnits { get; set; }
+
+        public float Price { get; set; }
+
+        public string Category { get; set; }
+
         public string PictureURL { get; set; }
 
+        public string Name { get; set; }
 
+        public DateTime ShelfLife { get; set; }
 
-
-        [Required(ErrorMessage = "Product shelf life is required")]
-        public string ShelfLife { get; set; }
-
-        //public int sellerId { get; set; } // User will later be changed to Seller type
-
-        //public double price { get; set; } 
-
-        // need to make enum 'AmountType' to show how amount is represented (unit, volume, mass)
-        //public double amount { get; set; }
-
-        //[Required]
        public string Description { get; set; }
 
         public override string ToString()

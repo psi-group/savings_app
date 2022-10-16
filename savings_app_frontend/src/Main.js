@@ -17,7 +17,7 @@ const Main = (props) => {
             <Route path='/orders' element={<Orders />}></Route>
             <Route path='/restaurants' element={<Restaurants searchas={props.searchas} />}></Route>
             <Route path='/restaurants/:id' element={<RestaurantDetails />}></Route>
-            <Route path='/shoppingCart' element={<ShoppingCart cartItems={props.cartItems} addCartItem={props.addCartItem}/>}></Route>
+            <Route path='/shoppingCart' element={<ShoppingCart cartItems={props.cartItems} addCartItem={props.addCartItem} removeCartItem={props.removeCartItem}/>}></Route>
         </Routes>
     );
 }
