@@ -30,6 +30,15 @@ const App = () => {
     console.log(cartItems);
   };
 
+  const removeCartItem = (index) => {
+    
+    setCartItems([
+      ...cartItems.slice(0, index),
+      ...cartItems.slice(index + 1)
+    ]);
+    
+  };
+
   return (
     <div className="App">
       <Header
@@ -45,6 +54,7 @@ const App = () => {
         selector={selector}
         cartItems={cartItems}
         addCartItem={addCartItem}
+        removeCartItem={removeCartItem}
       />
     </div>
   );

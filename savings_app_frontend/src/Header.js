@@ -14,7 +14,6 @@ const Header = (props) => {
           searchas={props.searchas}
           setSearchas={props.setSearchas}
           cartItems={props.cartItems}
-          addCartItem={props.addCartItem}
         />
       </div>
     </header>
