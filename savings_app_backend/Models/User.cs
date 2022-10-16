@@ -9,7 +9,5 @@ namespace savings_app_backend.Models
 
         }
 
-       
-
     }
 }

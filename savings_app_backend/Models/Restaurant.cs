@@ -6,15 +6,10 @@ namespace savings_app_backend.Models
     public class Restaurant : SavingsAppObj
     {
 
-        public static int Count = 0;
-
-        public int PositionCount { set; get; }
 
         public bool Open { get; set; }
 
         public string? Image { get; set; }
-
-        public double Rating { get; set; }
 
         public string Description { get; set; }
 
@@ -25,9 +20,6 @@ namespace savings_app_backend.Models
 
         public string SiteRef { get; set; }
 
-        
-
-        public Restaurant() { Count++; }
 
     }
 }

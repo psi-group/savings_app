@@ -40,7 +40,6 @@ namespace savings_app_backend.WebSite.Services
 
         public IEnumerable<Product> GetWithFilters(string[] filters, string searchText)
         {
-            /* more searching logic to implement (use regex here)*/
 
             SavingsList<Product> _products = new SavingsList<Product>(GetProducts());
 
@@ -74,10 +73,6 @@ namespace savings_app_backend.WebSite.Services
 
             File.WriteAllText(JsonFileName, json.ToString());
             
-            /*var jsonFileWriter = File.OpenWrite(JsonFileName);
-
-            jsonFileWriter.WriteAsync(json.ToString());
-            jsonFileWriter.Close();*/
         }
         
         public void DeleteProduct(Product product)

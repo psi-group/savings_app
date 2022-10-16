@@ -34,15 +34,8 @@ namespace savings_app_backend.WebSite.Services
         public IEnumerable<Order> GetByBuyerId(string buyerId)
         {
             var orders = GetOrders();
-            List<Order> filteredOrders = new List<Order>();
+            var filteredOrders = orders.Where(p => p.buyerId.Equals(buyerId));
 
-            foreach(Order order in orders)
-            {
-                if(order.buyerId.Equals(buyerId))
-                {
-                    filteredOrders.Add(order);
-                }
-            }
             return filteredOrders;
         }
 
