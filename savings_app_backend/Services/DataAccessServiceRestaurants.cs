@@ -5,8 +5,8 @@ namespace savings_app_backend.WebSite.Services
 {
     public class DataAccessServiceRestaurants
     {
-        DataAccessService _dataAccessServiceProducts;
-        public DataAccessServiceRestaurants(IWebHostEnvironment webHostEnvironment, DataAccessService dataAccessServiceProducts)
+        DataAccessServiceProducts _dataAccessServiceProducts;
+        public DataAccessServiceRestaurants(IWebHostEnvironment webHostEnvironment, DataAccessServiceProducts dataAccessServiceProducts)
         {
             WebHostEnvironment = webHostEnvironment;
             _dataAccessServiceProducts = dataAccessServiceProducts;

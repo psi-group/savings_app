@@ -10,9 +10,9 @@ using savings_app_backend.Models;
 
 namespace savings_app_backend.WebSite.Services
 {
-    public class DataAccessService
+    public class DataAccessServiceProducts
     {
-        public DataAccessService(IWebHostEnvironment webHostEnvironment)
+        public DataAccessServiceProducts(IWebHostEnvironment webHostEnvironment)
         {
             WebHostEnvironment = webHostEnvironment;
         }

@@ -10,9 +10,9 @@ namespace savings_app_backend.Controllers
     [ApiController]
     public class ProductsController : ControllerBase
     {
-        private DataAccessService _dataAccessService;
+        private DataAccessServiceProducts _dataAccessService;
 
-        public ProductsController(DataAccessService dataAccessService)
+        public ProductsController(DataAccessServiceProducts dataAccessService)
         {
             _dataAccessService = dataAccessService;
         }

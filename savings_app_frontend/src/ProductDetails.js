@@ -6,6 +6,8 @@ import "reactjs-popup/dist/index.css";
 import React from "react";
 
 function ProductDetails(props) {
+
+    const [product, setProduct] = React.useState(null);
   const [loading, setLoading] = React.useState(true);
   const [productName, setProductName] = React.useState("");
   const [productCategory, setProductCategory] = React.useState("");
@@ -14,7 +16,8 @@ function ProductDetails(props) {
   const [restaurant, setRestaurant] = React.useState({});
   const [itemQuantity, setItemQuantity] = React.useState(1);
   const [itemPickupTime, setItemPickupTime] = React.useState("");
-  const [errorVisible, setErrorVisible] = React.useState(false);
+    const [errorVisible, setErrorVisible] = React.useState(false);
+    const [pickups, setPickups] = React.useState({});
 
   let { id } = useParams();
 
@@ -36,24 +39,50 @@ function ProductDetails(props) {
     }
   };
 
-  React.useEffect(() => {
-    fetch("https://localhost:7183/api/products/" + id)
-      .then((res) => res.json())
-      .then((data) => {
-        setProductName(data.name);
-        setProductCategory(data.category);
-        setImgURL(data.pictureURL);
-        console.log(data);
-        const restaurantID = data.restaurantID;
-        let url = "https://localhost:7183/api/restaurants/" + restaurantID;
-        return fetch(url);
-      })
-      .then((res) => res.json())
-      .then((data) => {
-        setRestaurant(data);
-        setLoading(false);
-      })
-      .catch((err) => console.log(err));
+    React.useEffect(() => {
+
+
+        fetch("https://localhost:7183/api/pickups/byProductId/" + id)
+            .then((res) => res.json())
+            .then((data) => {
+                
+                let temp = [];
+                data.map((pickup, index) => {
+                    let availableDay = pickup.startTime.substring(0, 10);
+                    let startTime = pickup.startTime.substring(14);
+                    let endTime = pickup.endTime.substring(14);
+                    temp.push({
+                        availableDay: availableDay,
+                        startTime: startTime,
+                        endTime: endTime
+                    });
+                });
+                setPickups(temp);
+                console.log(temp);
+
+            })
+            .then((res) => {
+                fetch("https://localhost:7183/api/products/" + id)
+                    .then((res) => res.json())
+                    .then((data) => {
+                        setProduct(data);
+                        setProductName(data.name);
+                        setProductCategory(data.category);
+                        setImgURL(data.pictureURL);
+                        console.log(data);
+                        const restaurantID = data.restaurantID;
+                        let url = "https://localhost:7183/api/restaurants/" + restaurantID;
+                        return fetch(url);
+                    })
+                    .then((res) => res.json())
+                    .then((data) => {
+                        setRestaurant(data);
+                        setLoading(false);
+                    })
+                    .catch((err) => console.log(err));
+            })
+
+    
   }, []);
 
   if (!loading) {
@@ -76,7 +105,7 @@ function ProductDetails(props) {
             <h2 className="text-2xl text-sky-500">Available pickup times</h2>
 
             <form className="flex gap-1 flex-col" onSubmit={handleSubmit}>
-              {restaurant.pickupTimes.map((pickUpTime, index) => (
+              {pickups.map((pickUpTime, index) => (
                 <label
                   className="flex items-center rounded border-2 w-full border-sky-500"
                   name="pickUpTime"
@@ -116,13 +145,13 @@ function ProductDetails(props) {
                   className="w-full border-black border-2 rounded text-sky-500 text-lg"
                   onChange={(e) => setItemQuantity(e.target.value)}
                 >
-                  {[...Array(10)].map((value, index) => (
+                  {[...Array(product.amountOfUnits)].map((value, index) => (
                     <option
                       value={index + 1}
                       key={index + 1}
                       className="text-right"
                     >
-                      {index + 1}
+                      {(index + 1) * product.amountPerUnit + " " + product.amountType + "( " + (product.price * (index + 1)).toFixed(2) + " eur)"}
                     </option>
                   ))}
                 </select>
