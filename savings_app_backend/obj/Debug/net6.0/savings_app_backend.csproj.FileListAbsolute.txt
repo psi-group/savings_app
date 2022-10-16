@@ -247,3 +247,4 @@ C:\Users\justa\Desktop\savings_application\new\savings_app\savings_app_backend\o
 C:\Users\justa\Desktop\savings_application\new\savings_app\savings_app_backend\obj\Debug\net6.0\savings_app_backend.csproj.CopyComplete
 C:\Users\justa\Desktop\savings_application\new\savings_app\savings_app_backend\obj\Debug\net6.0\savings_app_backend.genruntimeconfig.cache
 C:\Users\justa\Desktop\savings_application\new\savings_app\savings_app_backend\obj\Debug\net6.0\ref\savings_app_backend.dll
+D:\Project_Ps_1\savings_app\savings_app\savings_app_backend\bin\Debug\net6.0\data\pickups.json
