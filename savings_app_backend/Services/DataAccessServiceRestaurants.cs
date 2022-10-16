@@ -29,13 +29,9 @@ namespace savings_app_backend.WebSite.Services
 
         public IEnumerable<Restaurant> GetWithFilters(string[] filters, string searchText)
         {
-            /* more searching logic to implement (use regex here)*/
-            
             SavingsList<Restaurant> restaurants = new SavingsList<Restaurant>(GetRestaurants());
            
             return restaurants.Search(filters, searchText);
-
-            
         }
 
         public Restaurant GetById(string id)
