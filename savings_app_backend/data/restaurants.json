@@ -8,24 +8,7 @@
     "ShortDescription": "______________________________",
     "Description": "descriptiondescr iptiondescriptiond escriptiondes criptiondescript iondescriptiondescript iondescriptio ndescriptiondescription",
     "Open": true,
-    "Rating": 4.5,
-    "PickupTimes": [
-      {
-        "availableDay": "monday",
-        "startTime": "16:50",
-        "endTime": "17:00"
-      },
-      {
-        "availableDay": "tuesday",
-        "startTime": "16:50",
-        "endTime": "17:00"
-      },
-      {
-        "availableDay": "tuesday",
-        "startTime": "21:25",
-        "endTime": "21:35"
-      }
-    ]
+    "Rating": 4.5
   },
 
   {
@@ -37,14 +20,7 @@
     "Description": "descriptiondescr iptiondescriptiond escriptiondes criptiondescript iondescriptiondescript iondescriptio ndescriptiondescription",
     "PositionCount": 0,
     "Open": true,
-    "Rating": 3,
-    "PickupTimes": [
-      {
-        "availableDay": "wednesday",
-        "startTime": "10:00",
-        "endTime": "10:10"
-      }
-    ]
+    "Rating": 3
   },
 
   {
@@ -56,14 +32,7 @@
     "ShortDescription": "______________________________",
     "Description": "descriptiondescr iptiondescriptiond escriptiondes criptiondescript iondescriptiondescript iondescriptio ndescriptiondescription",
     "Open": true,
-    "Rating": 4.5,
-    "PickupTimes": [
-      {
-        "availableDay": "friday",
-        "startTime": "20:00",
-        "endTime": "20:10"
-      }
-    ]
+    "Rating": 4.5
   },
 
   {
@@ -75,19 +44,7 @@
     "ShortDescription": "______________________________",
     "Description": "descriptiondescr iptiondescriptiond escriptiondes criptiondescript iondescriptiondescript iondescriptio ndescriptiondescription",
     "Open": true,
-    "Rating": 4.5,
-    "PickupTimes": [
-      {
-        "availableDay": "tuesday",
-        "startTime": "16:40",
-        "endTime": "16:50"
-      },
-      {
-        "availableDay": "tuesday",
-        "startTime": "16:50",
-        "endTime": "17:00"
-      }
-    ]
+    "Rating": 4.5
   },
 
   {
@@ -99,14 +56,7 @@
     "Description": "descriptiondescr iptiondescriptiond escriptiondes criptiondescript iondescriptiondescript iondescriptio ndescriptiondescription",
     "PositionCount": 2,
     "Open": true,
-    "Rating": 4.1,
-    "PickupTimes": [
-      {
-        "availableDay": "monday",
-        "startTime": "16:50",
-        "endTime": "17:00"
-      }
-    ]
+    "Rating": 4.1
   },
 
   {
@@ -118,13 +68,6 @@
     "ShortDescription": "______________________________",
     "Description": "descriptiondescr iptiondescriptiond escriptiondes criptiondescript iondescriptiondescript iondescriptio ndescriptiondescription",
     "Open": true,
-    "Rating": 4.5,
-    "PickupTimes": [
-      {
-        "availableDay": "monday",
-        "startTime": "16:50",
-        "endTime": "17:00"
-      }
-    ]
+    "Rating": 4.5
   }
 ]
