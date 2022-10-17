@@ -13,6 +13,8 @@ builder.Services.AddTransient<DataAccessServiceRestaurants>();
 builder.Services.AddTransient<DataAccessServiceCategories>();
 builder.Services.AddTransient<DataAccessServiceOrders>();
 builder.Services.AddTransient<DataAccessServicePickups>();
+builder.Services.AddTransient<DataAccessServiceUsers>();
+
 
 
 
