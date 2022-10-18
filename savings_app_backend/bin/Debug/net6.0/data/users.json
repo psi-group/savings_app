@@ -58,5 +58,11 @@
     "Name": "vardas",
     "Password": "password",
     "Email": "kazkascia@email.com"
+  },
+  {
+    "Id": "91227b09-b2a6-474d-a396-acb0a8a39f1b",
+    "Name": "name",
+    "Password": "Hello@1458",
+    "Email": "hello@gmail.com"
   }
 ]

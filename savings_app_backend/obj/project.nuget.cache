@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ve6LJG+MFah4Qf+jLrxf5QqwGzOQP1JWnRq8vYiOu6o5et/HAos6v+z4F0lo3Z01JaW0TWqT63AgQC0ThLSIoA==",
+  "dgSpecHash": "XAgwtMcHjVVrD4dECI8Q7GufOVDhfMzMb5o8ENoVBDJx5SaFvVDboq2OEzj7FB2WN0H5Bd1D7LIAzAV1QGTUdw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\justa\\Desktop\\savings_application\\wtfman\\main\\savings_app_backend\\savings_app_backend.csproj",
+  "projectFilePath": "C:\\Users\\justa\\Desktop\\savings_application\\klonas\\main\\savings_app_backend\\savings_app_backend.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\justa\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\6.0.9\\microsoft.aspnetcore.jsonpatch.6.0.9.nupkg.sha512",
     "C:\\Users\\justa\\.nuget\\packages\\microsoft.aspnetcore.mvc.newtonsoftjson\\6.0.9\\microsoft.aspnetcore.mvc.newtonsoftjson.6.0.9.nupkg.sha512",

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\justa\\Desktop\\savings_application\\wtfman\\main\\savings_app_backend\\savings_app_backend.csproj": {}
+    "C:\\Users\\justa\\Desktop\\savings_application\\klonas\\main\\savings_app_backend\\savings_app_backend.csproj": {}
   },
   "projects": {
-    "C:\\Users\\justa\\Desktop\\savings_application\\wtfman\\main\\savings_app_backend\\savings_app_backend.csproj": {
+    "C:\\Users\\justa\\Desktop\\savings_application\\klonas\\main\\savings_app_backend\\savings_app_backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\justa\\Desktop\\savings_application\\wtfman\\main\\savings_app_backend\\savings_app_backend.csproj",
+        "projectUniqueName": "C:\\Users\\justa\\Desktop\\savings_application\\klonas\\main\\savings_app_backend\\savings_app_backend.csproj",
         "projectName": "savings_app_backend",
-        "projectPath": "C:\\Users\\justa\\Desktop\\savings_application\\wtfman\\main\\savings_app_backend\\savings_app_backend.csproj",
+        "projectPath": "C:\\Users\\justa\\Desktop\\savings_application\\klonas\\main\\savings_app_backend\\savings_app_backend.csproj",
         "packagesPath": "C:\\Users\\justa\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\justa\\Desktop\\savings_application\\wtfman\\main\\savings_app_backend\\obj\\",
+        "outputPath": "C:\\Users\\justa\\Desktop\\savings_application\\klonas\\main\\savings_app_backend\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\justa\\AppData\\Roaming\\NuGet\\NuGet.Config",
