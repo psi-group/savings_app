@@ -40,10 +40,10 @@ namespace savings_app_backend.Controllers
             _dataAccessService.AddProduct(product);
         }
 
-        [HttpDelete("{id}")]
-        public void Delete(Guid id)
+        [HttpPut("{id}")]
+        public void Update([FromBody] Product product)
         {
-            _dataAccessService.Delete(id);
+            _dataAccessService.UpdateProduct(product);
         }
 
     }

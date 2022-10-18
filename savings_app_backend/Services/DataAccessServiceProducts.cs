@@ -104,6 +104,18 @@ namespace savings_app_backend.WebSite.Services
 
         }
 
+        public void UpdateProduct(Product productToUpdate)
+        {
+            var products = GetProducts();
+
+            ((List<Product>)products).RemoveAll((product) => product.Id == productToUpdate.Id);
+            ((List<Product>)products).Add(productToUpdate);
+
+            var productsJson = Newtonsoft.Json.JsonConvert.SerializeObject(products, Formatting.Indented);
+
+            File.WriteAllText(JsonFileName, products.ToString());
+        }
+
 
     }
 }
