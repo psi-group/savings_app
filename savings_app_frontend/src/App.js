@@ -62,7 +62,7 @@ const App = () => {
         2
       );
       setCartItems(newCart);
-      setFullSum(roundNumber(fullSum + unitQuantity * unitPrice, 2));
+      setFullSum(parseFloat(roundNumber(fullSum + unitQuantity * unitPrice, 2)));
     } else {
       setCartItems((previousItems) => [
         ...previousItems,
