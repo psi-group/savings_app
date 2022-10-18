@@ -17,46 +17,25 @@ namespace savings_app_backend.Controllers
             _dataAccessService = dataAccessService;
         }
 
-        // GET: api/<ProductsController>
         [HttpGet]
         public IEnumerable<Order> Get()
         {
             return _dataAccessService.GetOrders();
         }
 
-        // GET api/<ProductsController>/5
-        /*[HttpGet("{id}")]
-        public Restaurant Get(int id)
-        {
-            return _dataAccessService.GetById(id);
-        }*/
-
-
         [HttpGet]
         [Route("byBuyerId/{buyerId}")]
-        public IEnumerable<Order> GetByBuyerId(string buyerId)
+        public IEnumerable<Order> GetByBuyerId(Guid buyerId)
         {
             return _dataAccessService.GetByBuyerId(buyerId);
-            //return _dataAccessService.GetBySearchText(search);
         }
 
-        // POST api/<ProductsController>
         [HttpPost]
-        public void Post([FromBody] Product product)
+        public void Create([FromBody] Order order)
         {
-            _dataAccessService.AddProduct(product);
+            _dataAccessService.CreateOrder(order);
         }
 
-        // PUT api/<ProductsController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/<ProductsController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
+        
     }
 }

@@ -1,51 +1,51 @@
 ﻿[
   {
-    "id": "99",
-    "buyerId": "1",
-    "productId": "7",
+    "id": "fd6ad331-3d86-49d1-a6f7-f4ae85371e97",
+    "productId": "db7d2e61-077d-40ca-a888-9e05e59dce83",
     "startTime": "2017-09-08T19:01:45",
-    "endTime": "2017-09-08T19:01:55"
+    "endTime": "2017-09-08T19:01:55",
+    "PickupStatus": "Available"
   },
   {
-    "id": "6",
-    "buyerId": "1",
-    "productId": "9",
+    "id": "42fd75ec-1d4d-40ee-ae0a-e3ab79c69f02",
+    "productId": "1163fde0-8dae-458f-8e25-860dda25dd29",
     "startTime": "2017-09-08T19:01:45",
-    "endTime": "2017-09-08T19:01:55"
+    "endTime": "2017-09-08T19:01:55",
+    "PickupStatus": "Available"
   },
   {
-    "id": "7",
-    "buyerId": "1",
-    "productId": "9",
+    "id": "168cba18-9541-4e71-8e5f-4c78be6a7c2c",
+    "productId": "1163fde0-8dae-458f-8e25-860dda25dd29",
     "startTime": "2017-09-08T19:01:45",
-    "endTime": "2017-09-08T19:01:55"
+    "endTime": "2017-09-08T19:01:55",
+    "PickupStatus": "Available"
   },
   {
-    "id": "2",
-    "buyerId": "2",
-    "productId": "6",
+    "id": "a2e5346e-b246-4578-b5cd-993af7f77d06",
+    "productId": "168cba18-9541-4e71-8e5f-4c78be6a7c2c",
     "startTime": "2017-09-08T19:01:45",
-    "endTime": "2017-09-08T19:01:55"
+    "endTime": "2017-09-08T19:01:55",
+    "PickupStatus": "Available"
   },
   {
-    "id": "3",
-    "buyerId": "3",
-    "productId": "7",
+    "id": "39392fad-a761-45c1-89b9-3d26f6ac96e2",
+    "productId": "42fd75ec-1d4d-40ee-ae0a-e3ab79c69f02",
     "startTime": "2017-09-08T19:01:45",
-    "endTime": "2017-09-08T19:01:55"
+    "endTime": "2017-09-08T19:01:55",
+    "PickupStatus": "Available"
   },
   {
-    "id": "78",
-    "buyerId": "1",
-    "productId": "6",
+    "id": "39392fad-a761-45c1-89b9-3d26f6ac96f1",
+    "productId": "db7d2e61-077d-40ca-a888-9e05e59dce83",
     "startTime": "2017-09-08T19:01:45",
-    "endTime": "2017-09-08T19:01:55"
+    "endTime": "2017-09-08T19:01:55",
+    "PickupStatus": "Available"
   },
   {
-    "id": "45",
-    "buyerId": "1",
-    "productId": "1",
+    "id": "39392fad-a761-45c1-89b9-3d26f6ac96b3",
+    "productId": "42fd75ec-1d4d-40ee-ae0a-e3ab79c69f02",
     "startTime": "2017-09-08T19:01:45",
-    "endTime": "2017-09-08T19:01:55"
+    "endTime": "2017-09-08T19:01:55",
+    "PickupStatus": "Available"
   }
 ]

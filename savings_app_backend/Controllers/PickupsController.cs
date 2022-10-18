@@ -1,8 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using savings_app_backend.Models;
 using savings_app_backend.WebSite.Services;
-
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+using System.Xml.Linq;
 
 namespace savings_app_backend.Controllers
 {
@@ -17,7 +16,6 @@ namespace savings_app_backend.Controllers
             _dataAccessService = dataAccessService;
         }
 
-        // GET: api/<ProductsController>
         [HttpGet]
         public IEnumerable<Pickup> Get()
         {
@@ -25,7 +23,7 @@ namespace savings_app_backend.Controllers
         }
 
         [HttpGet("byProductId/{id}")]
-        public IEnumerable<Pickup> GetBy(string id)
+        public IEnumerable<Pickup> GetBy(Guid id)
         {
             var pickups = _dataAccessService.GetPickups();
             List<Pickup> pickupsByProductId = new List<Pickup>();
@@ -40,14 +38,10 @@ namespace savings_app_backend.Controllers
             return pickupsByProductId;
         }
 
-        // GET api/<ProductsController>/5
-        /*[HttpGet("{id}")]
-        public Restaurant Get(int id)
+        [HttpPut("{id}")]
+        public void Update([FromBody] Pickup pickup)
         {
-            return _dataAccessService.GetById(id);
-        }*/
-
-
-
+            _dataAccessService.UpdatePickup(pickup);
+        }
     }
 }

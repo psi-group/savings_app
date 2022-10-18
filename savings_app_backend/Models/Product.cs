@@ -6,10 +6,14 @@ using System.Text.Json.Serialization;
 
 namespace savings_app_backend.Models
 {
-    public class Product : SavingsAppObj
+    public class Product
     {
 
-        public string RestaurantID { get; set; }
+        public Guid Id { get; set; }
+        public string Name { get; set; }
+
+        public string Category { get; set; }
+        public Guid RestaurantID { get; set; }
 
         [JsonConverter(typeof(JsonStringEnumConverter))]
         [EnumDataType(typeof(AmountType))]
@@ -25,21 +29,5 @@ namespace savings_app_backend.Models
         public DateTime ShelfLife { get; set; }
 
        public string Description { get; set; }
-
-        public override string ToString()
-        {
-
-            StringBuilder json = new StringBuilder();
-
-            json.Append("{\n").Append("\"Id\": ").Append("\"" + Id + "\",\n");
-            json.Append("\"RestaurantID\": ").Append("\"" + RestaurantID + "\",\n");
-            json.Append("\"PictureURL\": ").Append("\"" + PictureURL + "\",\n");
-            json.Append("\"Name\": ").Append("\"" + Name + "\",\n");
-            json.Append("\"ShelfLife\": ").Append("\"" + ShelfLife + "\",\n");
-            json.Append("\"Description\": ").Append("\"" + Description + "\"\n");
-
-            json.Append("}");
-            return json.ToString();
-        }
     }
 }

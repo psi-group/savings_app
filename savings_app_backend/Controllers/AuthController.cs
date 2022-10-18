@@ -23,7 +23,7 @@ namespace savings_app_backend.Controllers
         }
 
         [HttpPost("register")]
-        public IActionResult Register(User user)
+        public IActionResult Register([FromBody] User user)
         {
             if ((_dataAccessServiceUsers.DoesUserAlreadyExists(user)))
             {

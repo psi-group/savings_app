@@ -2,8 +2,6 @@
 using savings_app_backend.Models;
 using savings_app_backend.WebSite.Services;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-
 namespace savings_app_backend.Controllers
 {
     [Route("api/[controller]")]
@@ -17,20 +15,17 @@ namespace savings_app_backend.Controllers
             _dataAccessService = dataAccessService;
         }
 
-        // GET: api/<ProductsController>
         [HttpGet]
         public IEnumerable<Product> Get()
         {
             return _dataAccessService.GetProducts();
         }
 
-        // GET api/<ProductsController>/5
         [HttpGet("{id}")]
-        public Product Get(string id)
+        public Product Get(Guid id)
         {
             return _dataAccessService.GetById(id);
         }
-
 
         [HttpGet]
         [Route("filter")]
@@ -39,23 +34,17 @@ namespace savings_app_backend.Controllers
             return _dataAccessService.GetWithFilters(filter, search);
         }
 
-        // POST api/<ProductsController>
         [HttpPost]
         public void Post([FromBody] Product product)
         {
             _dataAccessService.AddProduct(product);
         }
 
-        // PUT api/<ProductsController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [HttpDelete("{id}")]
+        public void Delete(Guid id)
         {
+            _dataAccessService.Delete(id);
         }
 
-        // DELETE api/<ProductsController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
     }
 }
