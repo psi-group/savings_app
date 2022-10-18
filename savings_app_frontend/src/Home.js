@@ -10,9 +10,6 @@ function Home (props)  {
 
     const renderForecastsTable = (products) => {
 
-        console.log(" start of rendering helper");
-        //console.log(this.props.searchas + "wtf");
-
         return (
                 <div className="main ml-20 mr-20">
 

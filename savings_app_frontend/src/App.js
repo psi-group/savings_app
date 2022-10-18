@@ -22,7 +22,6 @@ const App = () => {
     () => {
       window.localStorage.setItem("SHOPPING_CART", JSON.stringify(cartItems));
       window.localStorage.setItem("FULL_SUM", JSON.stringify(fullSum));
-      console.log("aa");
     },
     [cartItems],
     [fullSum]
@@ -64,7 +63,6 @@ const App = () => {
       );
       setCartItems(newCart);
       setFullSum(roundNumber(fullSum + unitQuantity * unitPrice, 2));
-      console.log(fullSum);
     } else {
       setCartItems((previousItems) => [
         ...previousItems,
@@ -81,7 +79,6 @@ const App = () => {
       ]);
       setFullSum(fullSum + unitPrice * unitQuantity);
     }
-    console.log(cartItems);
   };
 
   const removeCartItem = (index) => {
