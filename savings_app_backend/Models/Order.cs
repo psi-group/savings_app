@@ -2,9 +2,11 @@
 {
     public class Order
     {
-        public string buyerId { get; set; }
-        public string orderId { get; set; }
-        public string sellerId { get; set; }
+        public Guid Id { get; set; }
+        public Guid buyerId { get; set; }
+        public Guid sellerId { get; set; }
+
+        public Guid pickupTimeId { get; set; }
 
         public int orderStatus { get; set; }
 

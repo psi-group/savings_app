@@ -48,14 +48,17 @@ function ProductDetails(props) {
                 
                 let temp = [];
                 data.map((pickup, index) => {
-                    let availableDay = pickup.startTime.substring(0, 10);
-                    let startTime = pickup.startTime.substring(14);
-                    let endTime = pickup.endTime.substring(14);
-                    temp.push({
-                        availableDay: availableDay,
-                        startTime: startTime,
-                        endTime: endTime
-                    });
+                    if (pickup.status == "Available") {
+                        let availableDay = pickup.startTime.substring(0, 10);
+                        let startTime = pickup.startTime.substring(14);
+                        let endTime = pickup.endTime.substring(14);
+                        temp.push({
+                            availableDay: availableDay,
+                            startTime: startTime,
+                            endTime: endTime
+                        });
+                    }
+                    
                 });
                 setPickups(temp);
                 console.log(temp);

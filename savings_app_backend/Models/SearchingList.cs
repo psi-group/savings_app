@@ -4,16 +4,16 @@ using savings_app_backend.Models;
 
 namespace savings_app_backend.Models
 {
-    public class SavingsList<T> : System.Collections.Generic.IEnumerable<T> where T : SavingsAppObj
+    public class SearchingList<T> : IEnumerable<T>
     {
       
         private List<T> _data;
-        public SavingsList(IEnumerable<T> _data)
+        public SearchingList(IEnumerable<T> _data)
         {
             this._data = _data.ToList();
         }
 
-        System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
+        IEnumerator IEnumerable.GetEnumerator()
         {
             return GetEnumerator();
         }
@@ -28,7 +28,7 @@ namespace savings_app_backend.Models
         }
 
 
-        public IEnumerable<T> Search(string[] filters, string search)
+        public IEnumerable<T> Search(string search, Func<T, string> ToSearchabableText)
         {
             List<T> result = new List<T>(_data);
 
@@ -36,23 +36,8 @@ namespace savings_app_backend.Models
             if (search != null && search != ""){
                
                 string searchText = search.ToLower();
-                result.RemoveAll(el => !el.Name.ToLower().Contains(searchText));
+                result.RemoveAll(el => !ToSearchabableText(el).ToLower().Contains(searchText));
             }
-
-            if(filters.Length == 0)
-                return result;
-
-            result.RemoveAll(el => {
-                bool delete = false;
-
-                foreach(string filter in filters){
-                    delete = el.Category.Equals(filter) ? true : delete;
-                }
-
-                return !delete;
-            });
-
-
             return result;
         }
 

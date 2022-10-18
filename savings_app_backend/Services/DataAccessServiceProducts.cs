@@ -6,6 +6,7 @@ using System.Text;
 using System.Text.Json;
 using System.Xml.Linq;
 using Microsoft.AspNetCore.Hosting;
+using Newtonsoft.Json;
 using savings_app_backend.Models;
 
 namespace savings_app_backend.WebSite.Services
@@ -32,19 +33,35 @@ namespace savings_app_backend.WebSite.Services
             return Newtonsoft.Json.JsonConvert.DeserializeObject<Product[]>(jsonFile);
         }
 
-        public Product GetById(string id)
+        public Product GetById(Guid id)
         {
             var products = GetProducts();
-            return products.SingleOrDefault(p => p.Id == id + "");
+            return products.SingleOrDefault(p => p.Id == id);
         }
 
         public IEnumerable<Product> GetWithFilters(string[] filters, string searchText)
         {
 
-            SavingsList<Product> _products = new SavingsList<Product>(GetProducts());
+            SearchingList<Product> _products = new SearchingList<Product>(GetProducts());
 
-            return _products.Search(filters, searchText);
-           
+            var resultsAfterSearch = _products.Search(searchText, (Product prd) => prd.Name);
+
+            
+            if(filters.Length == 0)
+                return resultsAfterSearch;
+
+            ((List<Product>)resultsAfterSearch).RemoveAll(el => {
+                bool delete = false;
+
+                foreach(string filter in filters){
+                    delete = el.Category.Equals(filter) ? true : delete;
+                }
+
+                return !delete;
+            });
+
+            return resultsAfterSearch;
+
         }
 
         public void AddProduct(Product product)
@@ -52,8 +69,8 @@ namespace savings_app_backend.WebSite.Services
             
             IEnumerable<Product> products = GetProducts();
 
-            int lastID = int.Parse(products.ToList().Last().Id);
-            product.Id = Guid.NewGuid().ToString();
+            
+            product.Id = Guid.NewGuid();
 
             products = products.Concat(new[] { product });
             
@@ -74,29 +91,17 @@ namespace savings_app_backend.WebSite.Services
             File.WriteAllText(JsonFileName, json.ToString());
             
         }
-        
-        public void DeleteProduct(Product product)
+
+        public void Delete(Guid id)
         {
-            List<Product> products = GetProducts().ToList();
+            var products = GetProducts();
 
-            products.RemoveAll(p => p.Id == product.Id);
+            ((List<Product>)products).RemoveAll((product) => product.Id == id);
 
+            var productsJson = Newtonsoft.Json.JsonConvert.SerializeObject(products, Formatting.Indented);
 
+            File.WriteAllText(JsonFileName, productsJson.ToString());
 
-            StringBuilder json = new StringBuilder();
-
-            json = json.Append("[\n");
-
-            foreach (Product prod in products)
-            {
-                json.Append(prod.ToString());
-                json.Append(",");
-            }
-
-            json.Remove(json.Length - 1, 1);
-            json.Append("\n]");
-
-            File.WriteAllText(JsonFileName, json.ToString());
         }
 
 
