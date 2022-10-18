@@ -9,7 +9,11 @@ export default class List extends Component {
         this.state = { products: [] };
     }
     async populateProductsData() {
-        let url = 'https://localhost:7183/api/products/filter?search=' + this.props.searched;
+
+        console.log("SORTINAM" + this.props.sorting);
+
+
+        let url = 'https://localhost:7183/api/products/filter?search=' + this.props.searched + "&order=" + this.props.sorting;
 
         this.props.filters.map((filter) => {
             url = url + "&filter=" + filter;
@@ -29,7 +33,7 @@ export default class List extends Component {
 
     async componentDidUpdate(prevProps)
     {
-        if (this.props.searched !== prevProps.searched || this.props.filters != prevProps.filters) {
+        if (this.props.searched !== prevProps.searched || this.props.filters != prevProps.filters || this.props.sorting != prevProps.sorting) {
 
             await this.populateProductsData();
         }

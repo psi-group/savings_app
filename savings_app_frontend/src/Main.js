@@ -7,11 +7,14 @@ import RestaurantsDetails from './RestaurantDetails';
 import Restaurants from './Restaurants';
 import RestaurantDetails from './RestaurantDetails';
 import ShoppingCart from './ShoppingCart';
+import Register from "./Register";
 
 const Main = (props) => {
     return (
         <Routes>
             <Route path='/' element={<Home searchas={props.searchas} />}></Route>
+            <Route path='/register' element={ <Register></Register> } ></Route>
+
             <Route path='/products' element={<Home searchas={props.searchas} />}></Route>
             <Route path='/product/:id' element={<ProductDetails cartItems={props.cartItems} addCartItem={props.addCartItem} roundNumber={props.roundNumber} />}></Route>
             <Route path='/orders' element={<Orders />}></Route>

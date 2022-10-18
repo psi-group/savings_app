@@ -29,9 +29,15 @@ namespace savings_app_backend.Controllers
 
         [HttpGet]
         [Route("filter")]
-        public IEnumerable<Product> Get([FromQuery] string[] filter, string? search)
+        public IEnumerable<Product> Get([FromQuery] string[] filter, string? search, string? order)
         {
-            return _dataAccessService.GetWithFilters(filter, search);
+            if(order == null)
+            {
+                return _dataAccessService.GetWithFilters(filters: filter, searchText: search);
+            }
+            else
+                return _dataAccessService.GetWithFilters(filters: filter, searchText: search, order: order);
+
         }
 
         [HttpPost]
