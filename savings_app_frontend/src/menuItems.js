@@ -5,7 +5,7 @@ export const menuItems = [
     },
     {
         title: 'Log in/Sign up',
-        url: '/services',
+        url: '/register',
     },
     {
         title: 'Order history',

@@ -36,19 +36,56 @@ namespace savings_app_backend.WebSite.Services
         public Product GetById(Guid id)
         {
             var products = GetProducts();
-            return products.SingleOrDefault(p => p.Id == id);
+
+            var numQuery =
+            from product in products
+            where product.Id == id
+            select product;
+
+            return numQuery.ToArray()[0];
         }
 
-        public IEnumerable<Product> GetWithFilters(string[] filters, string searchText)
+        public IEnumerable<Product> GetWithFilters(string[] filters, string searchText, string order = "by_id")
         {
 
             SearchingList<Product> _products = new SearchingList<Product>(GetProducts());
 
+             
+
             var resultsAfterSearch = _products.Search(searchText, (Product prd) => prd.Name);
 
+            var products = ((List<Product>)resultsAfterSearch);
+
+
+            products.Sort(delegate (Product x, Product y)
+            {
+                if (order == "by_id")
+                {
+                    if (x.Id == null && y.Id == null) return 0;
+                    else if (x.Id == null) return -1;
+                    else if (y.Id == null) return 1;
+                    else return x.Id.CompareTo(y.Id);
+                }
+                else if (order == "by_name")
+                {
+                    if (x.Name == null && y.Name == null) return 0;
+                    else if (x.Name == null) return -1;
+                    else if (y.Name == null) return 1;
+                    else return x.Name.CompareTo(y.Name);
+                }
+                else
+                {
+                    if (x.Price == null && y.Price == null) return 0;
+                    else if (x.Price == null) return -1;
+                    else if (y.Price == null) return 1;
+                    else return x.Price.CompareTo(y.Price);
+                }
+
+            });
+
+            if (filters.Length == 0)
+                return products;
             
-            if(filters.Length == 0)
-                return resultsAfterSearch;
 
             ((List<Product>)resultsAfterSearch).RemoveAll(el => {
                 bool delete = false;
@@ -60,7 +97,7 @@ namespace savings_app_backend.WebSite.Services
                 return !delete;
             });
 
-            return resultsAfterSearch;
+            return (IEnumerable<Product>)products;
 
         }
 

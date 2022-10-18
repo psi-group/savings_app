@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import "./App.css";
 import SearchAndDisplay from "./SearchAndDisplay";
+import SortButton from "./SortButton";
 
 function Home (props)  {
 
 
     const [content, setContent] = React.useState([]);
     const [loading, setLoading] = React.useState(true);
+    const [sorting, setSorting] = React.useState("by_id");
 
     const renderForecastsTable = (products) => {
 
@@ -15,7 +17,8 @@ function Home (props)  {
 
                     <div>
 
-                    <SearchAndDisplay searchas={props.searchas} products={products} />
+                    <SortButton setSorting={setSorting }></SortButton>
+                    <SearchAndDisplay searchas={props.searchas} products={products} sorting={sorting }/>
 
                     </div>
 

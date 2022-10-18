@@ -16,16 +16,15 @@ builder.Services.AddTransient<DataAccessServicePickups>();
 builder.Services.AddTransient<DataAccessServiceUsers>();
 
 
-
-
-
 builder.Services.AddCors(options =>
 {
     options.AddPolicy(name: MyAllowSpecificOrigins,
                       policy =>
                       {
-                          policy.WithOrigins("https://localhost:3000"
-                                              ); // add the allowed origins
+                          policy.WithOrigins("https://localhost:3000"); // add the allowed origins
+                          policy.AllowAnyHeader();
+                          policy.AllowAnyMethod();
+                          policy.AllowCredentials();
                       });
 });
 

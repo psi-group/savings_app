@@ -15,6 +15,7 @@ const SearchAndDisplay = (props) => {
         searched={props.searchas}
         products={props.products}
         filters={filters}
+        sorting={props.sorting }
       />
     </div>
   );
