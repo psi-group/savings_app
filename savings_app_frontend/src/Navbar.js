@@ -92,21 +92,23 @@ const Navbar = (props) => {
                 props.cartItems.map((cartItem) => {
                   return (
                     <div className="flex flex-col">
-                      <h1 className="text-xl font-bold text-sky-500">
+                      <h1 className="text-2xl font-bold text-sky-500 tracking-wide">
                         {cartItem.itemName}
                       </h1>
                       <div className="flex gap-2">
                         <img
                           src={cartItem.image}
-                          className="w-14 h-16 rounded-md border-2 border-sky-500"
+                          className="w-16 h-16 rounded-md border-2 border-black self-center"
                         />
                         <div className="flex flex-col">
+                          <h3 className="font-bold text-xs">Pickup Time: </h3>
                           <p className="text-xs">
-                            <h3 className="font-bold text-xs">Pickup Time: </h3>
                             {cartItem.pickupTime}
                           </p>
                           <h3 className="font-bold text-xs">Quantity: </h3>
-                          <p className="text-xs">{cartItem.quantity}</p>
+                          <p className="text-xs">{cartItem.quantity} {cartItem.quantityType}</p>
+                          <h3 className="font-bold text-xs">Price: </h3>
+                          <p className="text-xs">{cartItem.fullPrice} Eur</p>
                         </div>
                       </div>
                       <div className="mt-3 mb-3 w-full h-[1px] bg-sky-500">
@@ -122,10 +124,14 @@ const Navbar = (props) => {
               )}
             </div>
             <div className="w-full h-0.5 bg-sky-500"></div>
+            <div className="flex self-center gap-1 mt-2">
+              <p className="text-black">Total: </p>
+              <p className="font-bold text-sky-500">{props.fullSum} Eur</p>
+            </div>
             <Link to="/ShoppingCart" className="self-center">
               <button
                 type="button"
-                className="mt-3 bg-gradient-to-r from-sky-400 to-blue-500 w-30 text-white p-2 font-mono rounded-md hover:font-bold"
+                className="bg-gradient-to-r from-sky-400 to-blue-500 w-30 text-white p-2 font-mono rounded-md hover:font-bold"
               >
                 Go To Cart
               </button>

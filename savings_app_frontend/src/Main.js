@@ -13,11 +13,11 @@ const Main = (props) => {
         <Routes>
             <Route path='/' element={<Home searchas={props.searchas} />}></Route>
             <Route path='/products' element={<Home searchas={props.searchas} />}></Route>
-            <Route path='/product/:id' element={<ProductDetails cartItems={props.cartItems} addCartItem={props.addCartItem}/>}></Route>
+            <Route path='/product/:id' element={<ProductDetails cartItems={props.cartItems} addCartItem={props.addCartItem} roundNumber={props.roundNumber} />}></Route>
             <Route path='/orders' element={<Orders />}></Route>
             <Route path='/restaurants' element={<Restaurants searchas={props.searchas} />}></Route>
             <Route path='/restaurants/:id' element={<RestaurantDetails />}></Route>
-            <Route path='/shoppingCart' element={<ShoppingCart cartItems={props.cartItems} addCartItem={props.addCartItem} removeCartItem={props.removeCartItem}/>}></Route>
+            <Route path='/shoppingCart' element={<ShoppingCart cartItems={props.cartItems} addCartItem={props.addCartItem} removeCartItem={props.removeCartItem} fullSum={props.fullSum}/>}></Route>
         </Routes>
     );
 }
