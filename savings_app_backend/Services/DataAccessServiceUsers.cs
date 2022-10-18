@@ -20,7 +20,6 @@ namespace savings_app_backend.WebSite.Services
             get { return WebHostEnvironment.ContentRootPath + "\\" + "data" + "\\" +  "users.json"; }
         }
 
-       
         public IEnumerable<User> GetUsers()
         {
             var jsonFile = File.ReadAllText(JsonFileName);
@@ -41,9 +40,6 @@ namespace savings_app_backend.WebSite.Services
             }
             return false;
         }
-
-        
-
         public bool RegisterUser(User userToRegister)
         {
 
@@ -55,27 +51,10 @@ namespace savings_app_backend.WebSite.Services
 
             var usersJson = Newtonsoft.Json.JsonConvert.SerializeObject(users, Formatting.Indented);
 
-
-
-            StringBuilder json = new StringBuilder();
-
-            json = json.Append("[\n");
-
-            foreach (User user in users)
-            {
-                json.Append(user.ToString());
-                json.Append(",");
-            }
-
-            json.Remove(json.Length - 1, 1);
-            json.Append("\n]");
-
             File.WriteAllText(JsonFileName, usersJson.ToString());
 
             return true;
         }
-        
-        
 
         public User GetById(Guid id)
         {
@@ -83,9 +62,5 @@ namespace savings_app_backend.WebSite.Services
 
             return users.SingleOrDefault(r => r.Id == id);
         }
-
-        
-
-
     }
 }
