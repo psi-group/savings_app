@@ -10,18 +10,18 @@ const App = () => {
   const [fullSum, setFullSum] = React.useState(0);
 
   useEffect(() => {
-    const shoppingCartData = window.localStorage.getItem("SHOPPING_CART");
-    const fullSumData = window.localStorage.getItem("FULL_SUM");
+    const shoppingCartData = window.sessionStorage.getItem("SHOPPING_CART");
+    const fullSumData = window.sessionStorage.getItem("FULL_SUM");
     if (shoppingCartData !== null && fullSumData !== null) {
       setCartItems(JSON.parse(shoppingCartData));
-      fullSumData > 0 ? setFullSum(fullSumData) : setFullSum(0);
+      fullSumData > 0 ? setFullSum(parseFloat(fullSumData)) : setFullSum(0);
     }
   }, []);
 
   useEffect(
     () => {
-      window.localStorage.setItem("SHOPPING_CART", JSON.stringify(cartItems));
-      window.localStorage.setItem("FULL_SUM", JSON.stringify(fullSum));
+      window.sessionStorage.setItem("SHOPPING_CART", JSON.stringify(cartItems));
+      window.sessionStorage.setItem("FULL_SUM", JSON.stringify(fullSum));
     },
     [cartItems],
     [fullSum]
