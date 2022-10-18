@@ -1,6 +1,6 @@
 [
   {
-    "Id": "1",
+    "Id": "a2e5346e-b246-4578-b5cd-993af7f77d06",
     "Name": "Huye Magoos Fender",
     "SiteRef": "???",
     "Image": "Images/2.jpg",
@@ -12,7 +12,7 @@
   },
 
   {
-    "Id": "2",
+    "Id": "fd6ad331-3d86-49d1-a6f7-f4ae85371e97",
     "Name": "Barca",
     "SiteRef": "???",
     "Image": "Images/4.jpg",
@@ -24,7 +24,7 @@
   },
 
   {
-    "Id": "3",
+    "Id": "42fd75ec-1d4d-40ee-ae0a-e3ab79c69f02",
     "Name": "Local",
     "SiteRef": "???",
     "Image": "Images/1.jpg",
@@ -36,7 +36,7 @@
   },
 
   {
-    "Id": "4",
+    "Id": "168cba18-9541-4e71-8e5f-4c78be6a7c2c",
     "Name": "Cafe Bilhanes",
     "SiteRef": "???",
     "Image": "Images/3.jpg",
@@ -48,7 +48,7 @@
   },
 
   {
-    "Id": "5",
+    "Id": "a2e5346e-b246-4578-b5cd-993af7f77d05",
     "Name": "Ba2rca",
     "SiteRef": "???",
     "Image": "Images/4.jpg",
@@ -60,7 +60,7 @@
   },
 
   {
-    "Id": "6",
+    "Id": "39392fad-a761-45c1-89b9-3d26f6ac96e2",
     "Name": "Corner Bistro",
     "SiteRef": "???",
     "Image": "Images/5.jpg",

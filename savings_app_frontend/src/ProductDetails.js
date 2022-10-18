@@ -6,8 +6,7 @@ import "reactjs-popup/dist/index.css";
 import React from "react";
 
 function ProductDetails(props) {
-
-    const [product, setProduct] = React.useState(null);
+  const [product, setProduct] = React.useState(null);
   const [loading, setLoading] = React.useState(true);
   const [productName, setProductName] = React.useState("");
   const [productCategory, setProductCategory] = React.useState("");
@@ -15,9 +14,10 @@ function ProductDetails(props) {
   const [imgURL, setImgURL] = React.useState("");
   const [restaurant, setRestaurant] = React.useState({});
   const [itemQuantity, setItemQuantity] = React.useState(1);
+  const [quantityType, setQuantityType] = React.useState("");
   const [itemPickupTime, setItemPickupTime] = React.useState("");
-    const [errorVisible, setErrorVisible] = React.useState(false);
-    const [pickups, setPickups] = React.useState({});
+  const [errorVisible, setErrorVisible] = React.useState(false);
+  const [pickups, setPickups] = React.useState({});
 
   let { id } = useParams();
 
@@ -35,54 +35,57 @@ function ProductDetails(props) {
     if (itemPickupTime == "") {
       setErrorVisible(true);
     } else {
-      props.addCartItem(capitalizeFirst(productName), itemPickupTime, parseInt(itemQuantity,10), imgURL);
+      props.addCartItem(
+        capitalizeFirst(productName),
+        itemPickupTime,
+        itemQuantity,
+        capitalizeFirst(quantityType),
+        itemQuantity * product.amountPerUnit,
+        imgURL,
+        product.price,
+      );
     }
   };
 
-    React.useEffect(() => {
-
-
-        fetch("https://localhost:7183/api/pickups/byProductId/" + id)
-            .then((res) => res.json())
-            .then((data) => {
-                
-                let temp = [];
-                data.map((pickup, index) => {
-                    let availableDay = pickup.startTime.substring(0, 10);
-                    let startTime = pickup.startTime.substring(14);
-                    let endTime = pickup.endTime.substring(14);
-                    temp.push({
-                        availableDay: availableDay,
-                        startTime: startTime,
-                        endTime: endTime
-                    });
-                });
-                setPickups(temp);
-                console.log(temp);
-
-            })
-            .then((res) => {
-                fetch("https://localhost:7183/api/products/" + id)
-                    .then((res) => res.json())
-                    .then((data) => {
-                        setProduct(data);
-                        setProductName(data.name);
-                        setProductCategory(data.category);
-                        setImgURL(data.pictureURL);
-                        console.log(data);
-                        const restaurantID = data.restaurantID;
-                        let url = "https://localhost:7183/api/restaurants/" + restaurantID;
-                        return fetch(url);
-                    })
-                    .then((res) => res.json())
-                    .then((data) => {
-                        setRestaurant(data);
-                        setLoading(false);
-                    })
-                    .catch((err) => console.log(err));
-            })
-
-    
+  React.useEffect(() => {
+    fetch("https://localhost:7183/api/pickups/byProductId/" + id)
+      .then((res) => res.json())
+      .then((data) => {
+        let temp = [];
+        data.map((pickup, index) => {
+          let availableDay = pickup.startTime.substring(0, 10);
+          let startTime = pickup.startTime.substring(14);
+          let endTime = pickup.endTime.substring(14);
+          temp.push({
+            availableDay: availableDay,
+            startTime: startTime,
+            endTime: endTime,
+          });
+        });
+        setPickups(temp);
+        console.log(temp);
+      })
+      .then((res) => {
+        fetch("https://localhost:7183/api/products/" + id)
+          .then((res) => res.json())
+          .then((data) => {
+            setProduct(data);
+            setProductName(data.name);
+            setProductCategory(data.category);
+            setImgURL(data.pictureURL);
+            setQuantityType(data.amountType);
+            console.log(data);
+            const restaurantID = data.restaurantID;
+            let url = "https://localhost:7183/api/restaurants/" + restaurantID;
+            return fetch(url);
+          })
+          .then((res) => res.json())
+          .then((data) => {
+            setRestaurant(data);
+            setLoading(false);
+          })
+          .catch((err) => console.log(err));
+      });
   }, []);
 
   if (!loading) {
@@ -151,10 +154,21 @@ function ProductDetails(props) {
                       key={index + 1}
                       className="text-right"
                     >
-                      {(index + 1) * product.amountPerUnit + " " + product.amountType + "( " + (product.price * (index + 1)).toFixed(2) + " eur)"}
+                      {props.roundNumber(
+                        (index + 1) * product.amountPerUnit,
+                        2
+                      ) +
+                        " " +
+                        product.amountType}
                     </option>
                   ))}
                 </select>
+              </div>
+              <div className="flex justify-between mr-3 gap-2 mt-1">
+                <h2 className="text-xl text-sky-500">Price: </h2>
+                <p className="text-xl">
+                  {props.roundNumber(product.price * itemQuantity, 2)} Eur
+                </p>
               </div>
               <button
                 type="submit"

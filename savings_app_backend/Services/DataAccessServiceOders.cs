@@ -5,6 +5,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Text.Json;
 using Microsoft.AspNetCore.Hosting;
+using Newtonsoft.Json;
 using savings_app_backend.Models;
 
 namespace savings_app_backend.WebSite.Services
@@ -31,7 +32,7 @@ namespace savings_app_backend.WebSite.Services
             return Newtonsoft.Json.JsonConvert.DeserializeObject<Order[]>(jsonFile);
         }
 
-        public IEnumerable<Order> GetByBuyerId(string buyerId)
+        public IEnumerable<Order> GetByBuyerId(Guid buyerId)
         {
             var orders = GetOrders();
             var filteredOrders = orders.Where(p => p.buyerId.Equals(buyerId));
@@ -39,88 +40,17 @@ namespace savings_app_backend.WebSite.Services
             return filteredOrders;
         }
 
-        public IEnumerable<Product> GetBySearchText(string searchText)
+        public void CreateOrder(Order order)
         {
-            /* more searching logic to implement (use regex here)*/
-            /*
-                        var products = GetProducts();
+            order.Id = Guid.NewGuid();
 
-                        if (searchText.Equals(""))
-                        {
-                            Console.Write("tuscias");
-                            return products;
-                        }
+            IEnumerable<Order> orders = GetOrders();
 
+            orders = orders.Concat(new[] { order });
 
-                        List<Product> filteredProducts = new List<Product>();   
-                        foreach (Product product in products)
-                        {
-                            if (product.Name.Contains(searchText))
-                            {
-                                filteredProducts.Add(product);
-                            }
-                        }
-                        return filteredProducts;*/
+            var ordersJson = Newtonsoft.Json.JsonConvert.SerializeObject(orders, Formatting.Indented);
 
-            return null;
-        }
-
-        public void AddProduct(Product product)
-        {
-            
-            /*IEnumerable<Product> products = GetProducts();
-
-            int lastID = int.Parse(products.ToList().Last().Id);
-            product.Id = Guid.NewGuid().ToString();
-
-            products = products.Concat(new[] { product });
-            
-            StringBuilder json = new StringBuilder();
-
-            json = json.Append("[\n");
-
-            foreach(Product prod in products)
-            {
-                //json.Append("\n\n\n\n" + products.Count() + "\n\n\n\n\n");
-                json.Append(prod.ToString());
-                json.Append(",");
-            }
-
-            json.Remove(json.Length - 1, 1);
-            json.Append("\n]");
-
-            File.WriteAllText(JsonFileName, json.ToString());
-            
-            /*var jsonFileWriter = File.OpenWrite(JsonFileName);
-
-            jsonFileWriter.WriteAsync(json.ToString());
-            jsonFileWriter.Close();*/
-        }
-        
-        public void DeleteProduct(Product product)
-        {
-            /*
-            List<Product> products = GetProducts().ToList();
-
-            products.RemoveAll(p => p.Id == product.Id);
-
-
-
-            StringBuilder json = new StringBuilder();
-
-            json = json.Append("[\n");
-
-            foreach (Product prod in products)
-            {
-                json.Append(prod.ToString());
-                json.Append(",");
-            }
-
-            json.Remove(json.Length - 1, 1);
-            json.Append("\n]");
-
-            File.WriteAllText(JsonFileName, json.ToString());
-            */
+            File.WriteAllText(JsonFileName, ordersJson.ToString());
         }
 
 

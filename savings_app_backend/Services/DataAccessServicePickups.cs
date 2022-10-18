@@ -5,6 +5,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Text.Json;
 using Microsoft.AspNetCore.Hosting;
+using Newtonsoft.Json;
 using savings_app_backend.Models;
 
 namespace savings_app_backend.WebSite.Services
@@ -30,6 +31,19 @@ namespace savings_app_backend.WebSite.Services
 
             return Newtonsoft.Json.JsonConvert.DeserializeObject<Pickup[]>(jsonFile);
         }
+
+        public void UpdatePickup(Pickup pickupToUpdate)
+        {
+            var pickups = GetPickups();
+
+            ((List<Pickup>)pickups).RemoveAll((pickup) => pickup.id == pickupToUpdate.id);
+            ((List<Pickup>)pickups).Add(pickupToUpdate);
+
+            var pickupsJson = Newtonsoft.Json.JsonConvert.SerializeObject(pickups, Formatting.Indented);
+
+            File.WriteAllText(JsonFileName, pickupsJson.ToString());
+        }
+        
 
     }
 

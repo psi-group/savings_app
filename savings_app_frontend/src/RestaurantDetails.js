@@ -1,6 +1,7 @@
 import { useEffect, useState} from 'react';
-import { useParams } from 'react-router-dom';
-
+import { useParams, Link } from 'react-router-dom';
+import StarRating from "./StarRating";
+import Rating from '@mui/material/Rating';
 
 const RestaurantDetails = () => {
 
@@ -46,7 +47,11 @@ const RestaurantDetails = () => {
 
         if (product.restaurantID == dataRestaurant.id) {
             return (
-                <div>{product.name}</div>
+                <Link to={"/product/" + product.id} >
+                    <div className="border-2 mb-6 w-[25%] float-left ml-7 mt-6 align-middle border-sky-500 flex  justify-center p-5 drop-shadow-xl rounded-xl bg-gradient-to-l from-sky-400 to-sky-900">
+                        <li key={product.id} className="font-bold text-white text-xl  list-none	">{product.name.toUpperCase()}</li>
+                    </div>
+                </Link>
             )
         }
        
@@ -56,7 +61,16 @@ const RestaurantDetails = () => {
             <>
                 <h1 className="text-[35px] text-center mt-3 font-bold mb-5" >{dataRestaurant.name}</h1>
                 <div>
-                    <img className="w-[230px] h-[180px]" src={imgURL + dataRestaurant.image} alt={dataRestaurant.name} />
+                    <img className=" align-middle w-[400px] h-[350px] border-sky-500 border-5 ml-auto mb-7 mr-auto" src={imgURL + dataRestaurant.image} alt={dataRestaurant.name} />
+                    <div className="w-[150px] ml-auto mr-auto">
+                          <Rating name="half-rating" value={dataRestaurant.rating} precision={0.5}  size="large" />
+                    </div>
+                    <div className="ml-7 mb-6">
+                        <h2 className=" font-bold text-[20px]">Description:</h2>
+                        <p>{dataRestaurant.description}</p>
+                    </div>
+                   
+                    <h3 className="text-[20px] font-bold ml-7">Offered products:</h3>
                     <div>
                         {dataProducts.map(product =>
                             <>{ProductList(product)}</>
