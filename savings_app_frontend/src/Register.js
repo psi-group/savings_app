@@ -51,14 +51,14 @@ const Register = () => {
     return (
 
         <div>
-            <div>
-                <label>Username</label>
-                <input type="text" id="username"></input>
-                <label>Email</label>
-                <input type="text" id="email"></input>
-                <label>Password</label>
-                <input type="password" id="password" ></input>
-                <input type="submit" onClick={handleRegister}></input>
+            <div className="text-[20px] ml-10 mt-10">
+                <label>Username:</label>
+                <input className=" mb-2  ml-[10px] border-2" type="text" id="username"></input><br></br>
+                <label>Email:</label>
+                <input className=" mb-2 ml-[50px] border-2" type="text" id="email"></input><br></br>
+                <label>Password:</label>
+                <input className=" mb-2 ml-[10px] border-2" type="password" id="password" ></input><br></br>
+                <input className=" mb-2   border-2" type="submit" onClick={handleRegister}></input>
 
             </div>
             <div>
