@@ -20,3 +20,5 @@ C:\Users\justa\Desktop\savings_application\wtfman\main\savings_app_frontend\obj\
 C:\Users\justa\Desktop\savings_application\wtfman\main\savings_app_frontend\obj\Debug\savings_app_frontend.esproj.CoreCompileInputs.cache
 C:\Users\justa\Desktop\savings_application\klonas\main\savings_app_frontend\obj\Debug\savings_app_frontend.esproj.SuggestedBindingRedirects.cache
 C:\Users\justa\Desktop\savings_application\klonas\main\savings_app_frontend\obj\Debug\savings_app_frontend.esproj.CoreCompileInputs.cache
+C:\Users\justa\Desktop\savings_application\karoceVaCia\testing_database\savings_app_frontend\obj\Debug\savings_app_frontend.esproj.SuggestedBindingRedirects.cache
+C:\Users\justa\Desktop\savings_application\karoceVaCia\testing_database\savings_app_frontend\obj\Debug\savings_app_frontend.esproj.CoreCompileInputs.cache

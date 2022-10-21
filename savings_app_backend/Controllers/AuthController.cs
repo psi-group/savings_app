@@ -1,7 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using savings_app_backend.Extention;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using savings_app_backend.Models;
-using savings_app_backend.WebSite.Services;
+using savings_app_backend.Models.Entities;
 
 namespace savings_app_backend.Controllers
 {
@@ -9,44 +14,95 @@ namespace savings_app_backend.Controllers
     [ApiController]
     public class AuthController : ControllerBase
     {
-        private DataAccessServiceUsers _dataAccessServiceUsers;
+        private readonly savingsAppContext _context;
 
-        public AuthController(DataAccessServiceUsers dataAccessServiceUsers)
+        public AuthController(savingsAppContext context)
         {
-            _dataAccessServiceUsers = dataAccessServiceUsers;
+            _context = context;
         }
 
-        [HttpGet("users")]
-        public IEnumerable<User> Get()
+        // GET: api/Auth
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<UserAuth>>> GetUserAuth()
         {
-            return _dataAccessServiceUsers.GetUsers();
+            return await _context.UserAuth.ToListAsync();
         }
 
-        [HttpPost("register")]
-        public IActionResult Register([FromBody] User user)
+        // GET: api/Auth/5
+        [HttpGet("{id}")]
+        public async Task<ActionResult<UserAuth>> GetUserAuth(Guid id)
         {
-            if ((_dataAccessServiceUsers.DoesUserAlreadyExists(user)))
+            var userAuth = await _context.UserAuth.FindAsync(id);
+
+            if (userAuth == null)
             {
-                return BadRequest("User with this email already exists");
+                return NotFound();
             }
-            else if (!user.Email.IsValidEmail())
+
+            return userAuth;
+        }
+
+        // PUT: api/Auth/5
+        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        [HttpPut("{id}")]
+        public async Task<IActionResult> PutUserAuth(Guid id, UserAuth userAuth)
+        {
+            if (id != userAuth.Id)
             {
-                return BadRequest("Email format is not valid");
+                return BadRequest();
             }
-            else if (!user.Password.IsValidPassword())
+
+            _context.Entry(userAuth).State = EntityState.Modified;
+
+            try
             {
-                return BadRequest("Password format is not valid");
+                await _context.SaveChangesAsync();
             }
-            else
+            catch (DbUpdateConcurrencyException)
             {
-                if (_dataAccessServiceUsers.RegisterUser(user))
-                    return Ok("registered");
+                if (!UserAuthExists(id))
+                {
+                    return NotFound();
+                }
                 else
-                    return BadRequest("Could not register");
-
+                {
+                    throw;
+                }
             }
 
+            return NoContent();
         }
-        
+
+        // POST: api/Auth
+        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        [HttpPost]
+        public async Task<ActionResult<UserAuth>> PostUserAuth(UserAuth userAuth)
+        {
+            _context.UserAuth.Add(userAuth);
+            await _context.SaveChangesAsync();
+
+            return CreatedAtAction("GetUserAuth", new { id = userAuth.Id }, userAuth);
+        }
+
+        // DELETE: api/Auth/5
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteUserAuth(Guid id)
+        {
+            var userAuth = await _context.UserAuth.FindAsync(id);
+            if (userAuth == null)
+            {
+                return NotFound();
+            }
+
+            _context.UserAuth.Remove(userAuth);
+            await _context.SaveChangesAsync();
+
+            return NoContent();
+        }
+
+        private bool UserAuthExists(Guid id)
+        {
+            return _context.UserAuth.Any(e => e.Id == id);
+        }
     }
 }

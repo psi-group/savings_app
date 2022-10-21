@@ -1,6 +1,11 @@
 using savings_app_backend.WebSite.Services;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using savings_app_backend.Models;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<savingsAppContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("savingsAppContext") ?? throw new InvalidOperationException("Connection string 'savingsAppContext' not found.")));
 
 // Add services to the container.
 
@@ -13,7 +18,7 @@ builder.Services.AddTransient<DataAccessServiceRestaurants>();
 builder.Services.AddTransient<DataAccessServiceCategories>();
 builder.Services.AddTransient<DataAccessServiceOrders>();
 builder.Services.AddTransient<DataAccessServicePickups>();
-builder.Services.AddTransient<DataAccessServiceUsers>();
+builder.Services.AddTransient<DataAccessServiceUserAuth>();
 
 
 builder.Services.AddCors(options =>
