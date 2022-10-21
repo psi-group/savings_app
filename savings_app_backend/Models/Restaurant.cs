@@ -12,7 +12,7 @@ namespace savings_app_backend.Models
         public bool Open { get; set; }
 
         public string? Image { get; set; }
-
+        public double Rating {get; set;}
         public string Description { get; set; }
 
         public List<Product> ProductsList { get; set; }

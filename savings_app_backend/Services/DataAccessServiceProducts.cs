@@ -49,13 +49,9 @@ namespace savings_app_backend.WebSite.Services
         {
 
             SearchingList<Product> _products = new SearchingList<Product>(GetProducts());
+            _products.Search(searchText, (Product prd) => prd.Name);
 
-             
-
-            var resultsAfterSearch = _products.Search(searchText, (Product prd) => prd.Name);
-
-            var products = ((List<Product>)resultsAfterSearch);
-
+            var products = ((List<Product>)_products.Filtration(filters, (Product p) => p.Category));
 
             products.Sort(delegate (Product x, Product y)
             {
@@ -81,20 +77,6 @@ namespace savings_app_backend.WebSite.Services
                     else return x.Price.CompareTo(y.Price);
                 }
 
-            });
-
-            if (filters.Length == 0)
-                return products;
-            
-
-            ((List<Product>)resultsAfterSearch).RemoveAll(el => {
-                bool delete = false;
-
-                foreach(string filter in filters){
-                    delete = el.Category.Equals(filter) ? true : delete;
-                }
-
-                return !delete;
             });
 
             return (IEnumerable<Product>)products;
