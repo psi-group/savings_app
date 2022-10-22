@@ -21,7 +21,7 @@ namespace savings_app_backend.WebSite.Services
 
         private string JsonFileName
         {
-            get { return WebHostEnvironment.ContentRootPath + "\\" + "data" + "\\" + "pickups.json"; }
+            get { return WebHostEnvironment.ContentRootPath + "\\" + "SeedData\\data" + "\\" + "pickups.json"; }
         }
 
         public IEnumerable<Pickup> GetPickups()

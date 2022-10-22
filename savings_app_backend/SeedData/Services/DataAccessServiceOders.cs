@@ -21,7 +21,7 @@ namespace savings_app_backend.WebSite.Services
 
         private string JsonFileName
         {
-            get { return WebHostEnvironment.ContentRootPath + "\\" + "data" + "\\" +  "orders.json"; }
+            get { return WebHostEnvironment.ContentRootPath + "\\" + "SeedData\\data" + "\\" +  "orders.json"; }
         }
 
         public IEnumerable<Order> GetOrders()

@@ -372,11 +372,6 @@ C:\Users\justa\Desktop\savings_application\karoceVaCia\testing_database\savings_
 C:\Users\justa\Desktop\savings_application\karoceVaCia\testing_database\savings_app_backend\obj\Debug\net6.0\savings_app_backend.pdb
 C:\Users\justa\Desktop\savings_application\karoceVaCia\testing_database\savings_app_backend\bin\Debug\net6.0\appsettings.Development.json
 C:\Users\justa\Desktop\savings_application\karoceVaCia\testing_database\savings_app_backend\bin\Debug\net6.0\appsettings.json
-C:\Users\justa\Desktop\savings_application\karoceVaCia\testing_database\savings_app_backend\bin\Debug\net6.0\data\orders.json
-C:\Users\justa\Desktop\savings_application\karoceVaCia\testing_database\savings_app_backend\bin\Debug\net6.0\data\pickups.json
-C:\Users\justa\Desktop\savings_application\karoceVaCia\testing_database\savings_app_backend\bin\Debug\net6.0\data\products.json
-C:\Users\justa\Desktop\savings_application\karoceVaCia\testing_database\savings_app_backend\bin\Debug\net6.0\data\restaurants.json
-C:\Users\justa\Desktop\savings_application\karoceVaCia\testing_database\savings_app_backend\bin\Debug\net6.0\data\users.json
 C:\Users\justa\Desktop\savings_application\karoceVaCia\testing_database\savings_app_backend\bin\Debug\net6.0\savings_app_backend.exe
 C:\Users\justa\Desktop\savings_application\karoceVaCia\testing_database\savings_app_backend\bin\Debug\net6.0\savings_app_backend.deps.json
 C:\Users\justa\Desktop\savings_application\karoceVaCia\testing_database\savings_app_backend\bin\Debug\net6.0\savings_app_backend.runtimeconfig.json
@@ -633,3 +628,8 @@ C:\Users\justa\Desktop\savings_application\karoceVaCia\testing_database\savings_
 C:\Users\justa\Desktop\savings_application\karoceVaCia\testing_database\savings_app_backend\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
 C:\Users\justa\Desktop\savings_application\karoceVaCia\testing_database\savings_app_backend\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\justa\Desktop\savings_application\karoceVaCia\testing_database\savings_app_backend\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+C:\Users\justa\Desktop\savings_application\karoceVaCia\testing_database\savings_app_backend\bin\Debug\net6.0\SeedData\Data\orders.json
+C:\Users\justa\Desktop\savings_application\karoceVaCia\testing_database\savings_app_backend\bin\Debug\net6.0\SeedData\Data\pickups.json
+C:\Users\justa\Desktop\savings_application\karoceVaCia\testing_database\savings_app_backend\bin\Debug\net6.0\SeedData\Data\products.json
+C:\Users\justa\Desktop\savings_application\karoceVaCia\testing_database\savings_app_backend\bin\Debug\net6.0\SeedData\Data\restaurants.json
+C:\Users\justa\Desktop\savings_application\karoceVaCia\testing_database\savings_app_backend\bin\Debug\net6.0\SeedData\Data\users.json

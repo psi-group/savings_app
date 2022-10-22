@@ -35,7 +35,10 @@ namespace savings_app_backend.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-
+            modelBuilder.Entity<Restaurant>()
+            .HasOne(b => b.UserAuth)
+            .WithOne().
+            HasForeignKey<UserAuth>(b => b.UserId);
 
             modelBuilder.SeedUserAuth(_dataAccessServiceUserAuth);
             modelBuilder.SeedOrders(_dataAccessServiceOrders);
@@ -43,10 +46,7 @@ namespace savings_app_backend.Models
             modelBuilder.SeedRestaurants(_dataAccessServiceRestaurants);
             modelBuilder.SeedProducts(_dataAccessServiceProducts);
 
-            modelBuilder.Entity<Restaurant>()
-            .HasOne(b => b.UserAuth)
-            .WithOne().
-            HasForeignKey<Restaurant>(rest => rest.UserAuthId);
+            
 
             modelBuilder
                 .Entity<Product>()

@@ -1,7 +1,6 @@
 [
   {
     "Id": "a2e5346e-b246-4578-b5cd-993af7f77d06",
-    "UserAuthId": "b603db5e-6f2d-4751-b3d3-d1c864db8016",
     "Name": "Huye Magoos Fender",
     "SiteRef": "???",
     "Image": "Images/2.jpg",
@@ -14,7 +13,6 @@
 
   {
     "Id": "fd6ad331-3d86-49d1-a6f7-f4ae85371e97",
-    "UserAuthId": "ca5dbb9c-60a8-43c5-9da0-a3f0d24e5108",
     "Name": "Barca",
     "SiteRef": "???",
     "Image": "Images/4.jpg",
@@ -27,7 +25,6 @@
 
   {
     "Id": "42fd75ec-1d4d-40ee-ae0a-e3ab79c69f02",
-    "UserAuthId": "b335acb9-985b-47cb-bae5-eb649f3101f6",
     "Name": "Local",
     "SiteRef": "???",
     "Image": "Images/1.jpg",
@@ -40,7 +37,6 @@
 
   {
     "Id": "168cba18-9541-4e71-8e5f-4c78be6a7c2c",
-    "UserAuthId": "fd6ad331-3d86-49d1-a6f7-f4ae85371e97",
     "Name": "Cafe Bilhanes",
     "SiteRef": "???",
     "Image": "Images/3.jpg",
@@ -53,7 +49,6 @@
 
   {
     "Id": "a2e5346e-b246-4578-b5cd-993af7f77d05",
-    "UserAuthId": "1163fde0-8dae-458f-8e25-860dda25dd29",
     "Name": "Ba2rca",
     "SiteRef": "???",
     "Image": "Images/4.jpg",
@@ -66,7 +61,6 @@
 
   {
     "Id": "39392fad-a761-45c1-89b9-3d26f6ac96e2",
-    "UserAuthId": "42fd75ec-1d4d-40ee-ae0a-e3ab79c69f02",
     "Name": "Corner Bistro",
     "SiteRef": "???",
     "Image": "Images/5.jpg",

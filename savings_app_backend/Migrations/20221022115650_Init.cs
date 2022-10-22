@@ -10,6 +10,19 @@ namespace savings_app_backend.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
+                name: "Buyer",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Picture = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Buyer", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Order",
                 columns: table => new
                 {
@@ -62,39 +75,6 @@ namespace savings_app_backend.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "UserAuth",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_UserAuth", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Buyer",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    UserAuthId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Picture = table.Column<string>(type: "nvarchar(max)", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Buyer", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Buyer_UserAuth_UserAuthId",
-                        column: x => x.UserAuthId,
-                        principalTable: "UserAuth",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Restaurant",
                 columns: table => new
                 {
@@ -104,17 +84,30 @@ namespace savings_app_backend.Migrations
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ShortDescription = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     SiteRef = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    UserAuthId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Picture = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Restaurant", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "UserAuth",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_UserAuth", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Restaurant_UserAuth_UserAuthId",
-                        column: x => x.UserAuthId,
-                        principalTable: "UserAuth",
+                        name: "FK_UserAuth_Restaurant_UserId",
+                        column: x => x.UserId,
+                        principalTable: "Restaurant",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -158,47 +151,35 @@ namespace savings_app_backend.Migrations
                 });
 
             migrationBuilder.InsertData(
-                table: "UserAuth",
-                columns: new[] { "Id", "Email", "Password" },
+                table: "Restaurant",
+                columns: new[] { "Id", "Description", "Name", "Open", "Picture", "Rating", "ShortDescription", "SiteRef" },
                 values: new object[,]
                 {
-                    { new Guid("1163fde0-8dae-458f-8e25-860dda25dd29"), "asdasd@gmail.com", "aadsadas" },
-                    { new Guid("168cba18-9541-4e71-8e5f-4c78be6a7c2c"), "kazkas@email.com", "password" },
-                    { new Guid("39392fad-a761-45c1-89b9-3d26f6ac96e2"), "kazkascia@email.com", "password" },
-                    { new Guid("42fd75ec-1d4d-40ee-ae0a-e3ab79c69f02"), "asdasd@gmail.com", "a" },
-                    { new Guid("42fd75ec-1d4d-40ee-ae0a-e3ab79c69f33"), "email@email.com", "password" },
-                    { new Guid("7b3ed2a5-4257-48a8-ae1a-13da39e343d8"), "asaasddf@gmail.com", "klkl@1KL" },
-                    { new Guid("8b2ea1b7-12f8-4afc-9064-25181379ae30"), "asaasddddf@gmail.com", "klkl@1KL" },
-                    { new Guid("91227b09-b2a6-474d-a396-acb0a8a39f1b"), "hello@gmail.com", "Hello@1458" },
-                    { new Guid("a2e5346e-b246-4578-b5cd-993af7f77d06"), "kaz@kas@email.com", "password" },
-                    { new Guid("b335acb9-985b-47cb-bae5-eb649f3101f6"), "User1@gmail.com", "USER" },
-                    { new Guid("b603db5e-6f2d-4751-b3d3-d1c864db8016"), "aaaaa@gmail.com", "aaaaaaa" },
-                    { new Guid("ca5dbb9c-60a8-43c5-9da0-a3f0d24e5108"), "bbb@gmail.com", "bbbbbbbbb" },
-                    { new Guid("fd6ad331-3d86-49d1-a6f7-f4ae85371e97"), "TestRest@mail.ru", "qwert" }
+                    { new Guid("168cba18-9541-4e71-8e5f-4c78be6a7c2c"), "descriptiondescr iptiondescriptiond escriptiondes criptiondescript iondescriptiondescript iondescriptio ndescriptiondescription", "Cafe Bilhanes", true, null, 4.5, "______________________________", "???" },
+                    { new Guid("39392fad-a761-45c1-89b9-3d26f6ac96e2"), "descriptiondescr iptiondescriptiond escriptiondes criptiondescript iondescriptiondescript iondescriptio ndescriptiondescription", "Corner Bistro", true, null, 4.5, "______________________________", "???" },
+                    { new Guid("42fd75ec-1d4d-40ee-ae0a-e3ab79c69f02"), "descriptiondescr iptiondescriptiond escriptiondes criptiondescript iondescriptiondescript iondescriptio ndescriptiondescription", "Local", true, null, 4.5, "______________________________", "???" },
+                    { new Guid("a2e5346e-b246-4578-b5cd-993af7f77d05"), "descriptiondescr iptiondescriptiond escriptiondes criptiondescript iondescriptiondescript iondescriptio ndescriptiondescription", "Ba2rca", true, null, 4.0999999999999996, "______________________________", "???" },
+                    { new Guid("a2e5346e-b246-4578-b5cd-993af7f77d06"), "descriptiondescr iptiondescriptiond escriptiondes criptiondescript iondescriptiondescript iondescriptio ndescriptiondescription", "Huye Magoos Fender", true, null, 4.5, "______________________________", "???" },
+                    { new Guid("fd6ad331-3d86-49d1-a6f7-f4ae85371e97"), "descriptiondescr iptiondescriptiond escriptiondes criptiondescript iondescriptiondescript iondescriptio ndescriptiondescription", "Barca", true, null, 3.0, "______________________________", "???" }
                 });
 
             migrationBuilder.InsertData(
-                table: "Restaurant",
-                columns: new[] { "Id", "Description", "Name", "Open", "Picture", "Rating", "ShortDescription", "SiteRef", "UserAuthId" },
+                table: "UserAuth",
+                columns: new[] { "Id", "Email", "Password", "UserId" },
                 values: new object[,]
                 {
-                    { new Guid("168cba18-9541-4e71-8e5f-4c78be6a7c2c"), "descriptiondescr iptiondescriptiond escriptiondes criptiondescript iondescriptiondescript iondescriptio ndescriptiondescription", "Cafe Bilhanes", true, null, 4.5, "______________________________", "???", new Guid("fd6ad331-3d86-49d1-a6f7-f4ae85371e97") },
-                    { new Guid("39392fad-a761-45c1-89b9-3d26f6ac96e2"), "descriptiondescr iptiondescriptiond escriptiondes criptiondescript iondescriptiondescript iondescriptio ndescriptiondescription", "Corner Bistro", true, null, 4.5, "______________________________", "???", new Guid("42fd75ec-1d4d-40ee-ae0a-e3ab79c69f02") },
-                    { new Guid("42fd75ec-1d4d-40ee-ae0a-e3ab79c69f02"), "descriptiondescr iptiondescriptiond escriptiondes criptiondescript iondescriptiondescript iondescriptio ndescriptiondescription", "Local", true, null, 4.5, "______________________________", "???", new Guid("b335acb9-985b-47cb-bae5-eb649f3101f6") },
-                    { new Guid("a2e5346e-b246-4578-b5cd-993af7f77d05"), "descriptiondescr iptiondescriptiond escriptiondes criptiondescript iondescriptiondescript iondescriptio ndescriptiondescription", "Ba2rca", true, null, 4.0999999999999996, "______________________________", "???", new Guid("1163fde0-8dae-458f-8e25-860dda25dd29") },
-                    { new Guid("a2e5346e-b246-4578-b5cd-993af7f77d06"), "descriptiondescr iptiondescriptiond escriptiondes criptiondescript iondescriptiondescript iondescriptio ndescriptiondescription", "Huye Magoos Fender", true, null, 4.5, "______________________________", "???", new Guid("b603db5e-6f2d-4751-b3d3-d1c864db8016") },
-                    { new Guid("fd6ad331-3d86-49d1-a6f7-f4ae85371e97"), "descriptiondescr iptiondescriptiond escriptiondes criptiondescript iondescriptiondescript iondescriptio ndescriptiondescription", "Barca", true, null, 3.0, "______________________________", "???", new Guid("ca5dbb9c-60a8-43c5-9da0-a3f0d24e5108") }
+                    { new Guid("1163fde0-8dae-458f-8e25-860dda25dd29"), "asdasd@gmail.com", "aadsadas", new Guid("a2e5346e-b246-4578-b5cd-993af7f77d05") },
+                    { new Guid("42fd75ec-1d4d-40ee-ae0a-e3ab79c69f02"), "asdasd@gmail.com", "a", new Guid("39392fad-a761-45c1-89b9-3d26f6ac96e2") },
+                    { new Guid("b335acb9-985b-47cb-bae5-eb649f3101f6"), "User1@gmail.com", "USER", new Guid("42fd75ec-1d4d-40ee-ae0a-e3ab79c69f02") },
+                    { new Guid("b603db5e-6f2d-4751-b3d3-d1c864db8016"), "aaaaa@gmail.com", "aaaaaaa", new Guid("a2e5346e-b246-4578-b5cd-993af7f77d06") },
+                    { new Guid("ca5dbb9c-60a8-43c5-9da0-a3f0d24e5108"), "bbb@gmail.com", "bbbbbbbbb", new Guid("fd6ad331-3d86-49d1-a6f7-f4ae85371e97") },
+                    { new Guid("fd6ad331-3d86-49d1-a6f7-f4ae85371e97"), "TestRest@mail.ru", "qwert", new Guid("168cba18-9541-4e71-8e5f-4c78be6a7c2c") }
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Buyer_UserAuthId",
-                table: "Buyer",
-                column: "UserAuthId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Restaurant_UserAuthId",
-                table: "Restaurant",
-                column: "UserAuthId",
+                name: "IX_UserAuth_UserId",
+                table: "UserAuth",
+                column: "UserId",
                 unique: true);
         }
 
@@ -217,10 +198,10 @@ namespace savings_app_backend.Migrations
                 name: "Product");
 
             migrationBuilder.DropTable(
-                name: "Restaurant");
+                name: "UserAuth");
 
             migrationBuilder.DropTable(
-                name: "UserAuth");
+                name: "Restaurant");
         }
     }
 }

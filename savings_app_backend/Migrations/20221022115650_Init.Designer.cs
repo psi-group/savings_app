@@ -12,7 +12,7 @@ using savings_app_backend.Models;
 namespace savings_app_backend.Migrations
 {
     [DbContext(typeof(savingsAppContext))]
-    [Migration("20221021194441_Init")]
+    [Migration("20221022115650_Init")]
     partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,7 +24,7 @@ namespace savings_app_backend.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("savings_app_backend.Models.Buyer", b =>
+            modelBuilder.Entity("savings_app_backend.Models.Entities.Buyer", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -37,17 +37,12 @@ namespace savings_app_backend.Migrations
                     b.Property<string>("Picture")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("UserAuthId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("UserAuthId");
 
                     b.ToTable("Buyer");
                 });
 
-            modelBuilder.Entity("savings_app_backend.Models.Order", b =>
+            modelBuilder.Entity("savings_app_backend.Models.Entities.Order", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -113,7 +108,7 @@ namespace savings_app_backend.Migrations
                         });
                 });
 
-            modelBuilder.Entity("savings_app_backend.Models.Pickup", b =>
+            modelBuilder.Entity("savings_app_backend.Models.Entities.Pickup", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -195,7 +190,7 @@ namespace savings_app_backend.Migrations
                         });
                 });
 
-            modelBuilder.Entity("savings_app_backend.Models.Product", b =>
+            modelBuilder.Entity("savings_app_backend.Models.Entities.Product", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -327,7 +322,7 @@ namespace savings_app_backend.Migrations
                         });
                 });
 
-            modelBuilder.Entity("savings_app_backend.Models.Restaurant", b =>
+            modelBuilder.Entity("savings_app_backend.Models.Entities.Restaurant", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -358,13 +353,7 @@ namespace savings_app_backend.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("UserAuthId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("UserAuthId")
-                        .IsUnique();
 
                     b.ToTable("Restaurant");
 
@@ -377,8 +366,7 @@ namespace savings_app_backend.Migrations
                             Open = true,
                             Rating = 4.5,
                             ShortDescription = "______________________________",
-                            SiteRef = "???",
-                            UserAuthId = new Guid("b603db5e-6f2d-4751-b3d3-d1c864db8016")
+                            SiteRef = "???"
                         },
                         new
                         {
@@ -388,8 +376,7 @@ namespace savings_app_backend.Migrations
                             Open = true,
                             Rating = 3.0,
                             ShortDescription = "______________________________",
-                            SiteRef = "???",
-                            UserAuthId = new Guid("ca5dbb9c-60a8-43c5-9da0-a3f0d24e5108")
+                            SiteRef = "???"
                         },
                         new
                         {
@@ -399,8 +386,7 @@ namespace savings_app_backend.Migrations
                             Open = true,
                             Rating = 4.5,
                             ShortDescription = "______________________________",
-                            SiteRef = "???",
-                            UserAuthId = new Guid("b335acb9-985b-47cb-bae5-eb649f3101f6")
+                            SiteRef = "???"
                         },
                         new
                         {
@@ -410,8 +396,7 @@ namespace savings_app_backend.Migrations
                             Open = true,
                             Rating = 4.5,
                             ShortDescription = "______________________________",
-                            SiteRef = "???",
-                            UserAuthId = new Guid("fd6ad331-3d86-49d1-a6f7-f4ae85371e97")
+                            SiteRef = "???"
                         },
                         new
                         {
@@ -421,8 +406,7 @@ namespace savings_app_backend.Migrations
                             Open = true,
                             Rating = 4.0999999999999996,
                             ShortDescription = "______________________________",
-                            SiteRef = "???",
-                            UserAuthId = new Guid("1163fde0-8dae-458f-8e25-860dda25dd29")
+                            SiteRef = "???"
                         },
                         new
                         {
@@ -432,12 +416,11 @@ namespace savings_app_backend.Migrations
                             Open = true,
                             Rating = 4.5,
                             ShortDescription = "______________________________",
-                            SiteRef = "???",
-                            UserAuthId = new Guid("42fd75ec-1d4d-40ee-ae0a-e3ab79c69f02")
+                            SiteRef = "???"
                         });
                 });
 
-            modelBuilder.Entity("savings_app_backend.Models.UserAuth", b =>
+            modelBuilder.Entity("savings_app_backend.Models.Entities.UserAuth", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -451,7 +434,13 @@ namespace savings_app_backend.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("UserId")
+                        .IsUnique();
 
                     b.ToTable("UserAuth");
 
@@ -460,102 +449,59 @@ namespace savings_app_backend.Migrations
                         {
                             Id = new Guid("b603db5e-6f2d-4751-b3d3-d1c864db8016"),
                             Email = "aaaaa@gmail.com",
-                            Password = "aaaaaaa"
+                            Password = "aaaaaaa",
+                            UserId = new Guid("a2e5346e-b246-4578-b5cd-993af7f77d06")
                         },
                         new
                         {
                             Id = new Guid("ca5dbb9c-60a8-43c5-9da0-a3f0d24e5108"),
                             Email = "bbb@gmail.com",
-                            Password = "bbbbbbbbb"
+                            Password = "bbbbbbbbb",
+                            UserId = new Guid("fd6ad331-3d86-49d1-a6f7-f4ae85371e97")
                         },
                         new
                         {
                             Id = new Guid("b335acb9-985b-47cb-bae5-eb649f3101f6"),
                             Email = "User1@gmail.com",
-                            Password = "USER"
+                            Password = "USER",
+                            UserId = new Guid("42fd75ec-1d4d-40ee-ae0a-e3ab79c69f02")
                         },
                         new
                         {
                             Id = new Guid("fd6ad331-3d86-49d1-a6f7-f4ae85371e97"),
                             Email = "TestRest@mail.ru",
-                            Password = "qwert"
+                            Password = "qwert",
+                            UserId = new Guid("168cba18-9541-4e71-8e5f-4c78be6a7c2c")
                         },
                         new
                         {
                             Id = new Guid("1163fde0-8dae-458f-8e25-860dda25dd29"),
                             Email = "asdasd@gmail.com",
-                            Password = "aadsadas"
+                            Password = "aadsadas",
+                            UserId = new Guid("a2e5346e-b246-4578-b5cd-993af7f77d05")
                         },
                         new
                         {
                             Id = new Guid("42fd75ec-1d4d-40ee-ae0a-e3ab79c69f02"),
                             Email = "asdasd@gmail.com",
-                            Password = "a"
-                        },
-                        new
-                        {
-                            Id = new Guid("42fd75ec-1d4d-40ee-ae0a-e3ab79c69f33"),
-                            Email = "email@email.com",
-                            Password = "password"
-                        },
-                        new
-                        {
-                            Id = new Guid("168cba18-9541-4e71-8e5f-4c78be6a7c2c"),
-                            Email = "kazkas@email.com",
-                            Password = "password"
-                        },
-                        new
-                        {
-                            Id = new Guid("a2e5346e-b246-4578-b5cd-993af7f77d06"),
-                            Email = "kaz@kas@email.com",
-                            Password = "password"
-                        },
-                        new
-                        {
-                            Id = new Guid("39392fad-a761-45c1-89b9-3d26f6ac96e2"),
-                            Email = "kazkascia@email.com",
-                            Password = "password"
-                        },
-                        new
-                        {
-                            Id = new Guid("91227b09-b2a6-474d-a396-acb0a8a39f1b"),
-                            Email = "hello@gmail.com",
-                            Password = "Hello@1458"
-                        },
-                        new
-                        {
-                            Id = new Guid("7b3ed2a5-4257-48a8-ae1a-13da39e343d8"),
-                            Email = "asaasddf@gmail.com",
-                            Password = "klkl@1KL"
-                        },
-                        new
-                        {
-                            Id = new Guid("8b2ea1b7-12f8-4afc-9064-25181379ae30"),
-                            Email = "asaasddddf@gmail.com",
-                            Password = "klkl@1KL"
+                            Password = "a",
+                            UserId = new Guid("39392fad-a761-45c1-89b9-3d26f6ac96e2")
                         });
                 });
 
-            modelBuilder.Entity("savings_app_backend.Models.Buyer", b =>
+            modelBuilder.Entity("savings_app_backend.Models.Entities.UserAuth", b =>
                 {
-                    b.HasOne("savings_app_backend.Models.UserAuth", "UserAuth")
-                        .WithMany()
-                        .HasForeignKey("UserAuthId")
+                    b.HasOne("savings_app_backend.Models.Entities.Restaurant", null)
+                        .WithOne("UserAuth")
+                        .HasForeignKey("savings_app_backend.Models.Entities.UserAuth", "UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("UserAuth");
                 });
 
-            modelBuilder.Entity("savings_app_backend.Models.Restaurant", b =>
+            modelBuilder.Entity("savings_app_backend.Models.Entities.Restaurant", b =>
                 {
-                    b.HasOne("savings_app_backend.Models.UserAuth", "UserAuth")
-                        .WithOne()
-                        .HasForeignKey("savings_app_backend.Models.Restaurant", "UserAuthId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                    b.Navigation("UserAuth")
                         .IsRequired();
-
-                    b.Navigation("UserAuth");
                 });
 #pragma warning restore 612, 618
         }

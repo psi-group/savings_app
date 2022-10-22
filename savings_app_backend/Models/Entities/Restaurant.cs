@@ -7,6 +7,7 @@ namespace savings_app_backend.Models.Entities
         public bool Open { get; set; }
         public double Rating { get; set; }
         public string Description { get; set; }
+        public UserAuth UserAuth { get; set; }
 
         public string ShortDescription { get; set; }
 
