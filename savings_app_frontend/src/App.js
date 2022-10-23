@@ -102,6 +102,7 @@ const App = () => {
         selector={selector}
         cartItems={cartItems}
         addCartItem={addCartItem}
+        setCartItems={setCartItems}
         removeCartItem={removeCartItem}
         roundNumber={roundNumber}
         fullSum={fullSum}

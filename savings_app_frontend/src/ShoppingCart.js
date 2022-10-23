@@ -2,6 +2,30 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 export const ShoppingCart = (props) => {
+
+  const handleCheckout = () => {
+    props.cartItems.map(cartItem=> {
+      fetch('https://localhost:7183/api/pickups/' + cartItem.pickupTime.id,
+      {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+     },
+      body: JSON.stringify(
+        {
+          id: cartItem.pickupTime.id,
+          productId: cartItem.pickupTime.productId,
+          startTime: cartItem.pickupTime.startTime,
+          endTime: cartItem.pickupTime.endTime,
+          status: "taken"
+        }
+      )
+      })
+    } 
+  )
+  props.setCartItems([]);
+}
+
   return (
     <div className="flex w-full h-full">
       <div className="bg-white w-2/3 p-16 flex flex-col">
@@ -91,6 +115,7 @@ export const ShoppingCart = (props) => {
         <button
           type="button"
           className="bg-white p-2 pt-2 font-bold justify-self-end "
+          onClick={handleCheckout}
         >
           Checkout
         </button>

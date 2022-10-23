@@ -19,7 +19,7 @@ const Main = (props) => {
             <Route path='/orders' element={<Orders />}></Route>
             <Route path='/restaurants' element={<Restaurants searchas={props.searchas} />}></Route>
             <Route path='/restaurants/:id' element={<RestaurantDetails />}></Route>
-            <Route path='/shoppingCart' element={<ShoppingCart cartItems={props.cartItems} addCartItem={props.addCartItem} removeCartItem={props.removeCartItem} fullSum={props.fullSum}/>}></Route>
+            <Route path='/shoppingCart' element={<ShoppingCart cartItems={props.cartItems} setCartItems={props.setCartItems} addCartItem={props.addCartItem} removeCartItem={props.removeCartItem} fullSum={props.fullSum}/>}></Route>
         </Routes>
     );
 }
