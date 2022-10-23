@@ -15,7 +15,7 @@ export default class List extends Component {
       this.props.sorting;
 
     this.props.filters.map((filter) => {
-      url = url + "&filter=" + filter;
+      url = url + "&category=" + filter;
     });
 
     const response = await fetch(url);
