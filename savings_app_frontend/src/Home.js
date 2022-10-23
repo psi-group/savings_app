@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import "./App.css";
-import SearchAndDisplay from "./SearchAndDisplay";
-import SortButton from "./SortButton";
+import SearchAndDisplay from "./Search/SearchAndDisplay";
+import SortButton from "./Common/SortButton";
 
 function Home (props)  {
 
@@ -24,7 +24,6 @@ function Home (props)  {
 
                 </div>
         );
-        console.log("end of rendering helper");
     }
 
     React.useEffect(() => {

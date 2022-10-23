@@ -1,7 +1,7 @@
 import React, { Component, useEffect } from "react";
 import "./App.css";
-import Main from "./Main.js";
-import Header from "./Header.js";
+import Main from "./Routing/Main";
+import Header from "./Header/Header";
 
 const App = () => {
   const [searchas, setSearchas] = React.useState("");

@@ -1,7 +1,7 @@
 import "./ProductDetails.css";
 import { useParams } from "react-router-dom";
-import imgSkeleton from "./img/productImageSkeleton.png";
-import checkIcon from "./img/checkIcon.png";
+import imgSkeleton from "../img/productImageSkeleton.png";
+import checkIcon from "../img/checkIcon.png";
 import "reactjs-popup/dist/index.css";
 import React from "react";
 

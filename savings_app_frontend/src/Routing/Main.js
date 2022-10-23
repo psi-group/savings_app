@@ -1,13 +1,12 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import Home from './Home';
-import ProductDetails from './ProductDetails';
-import Orders from "./Orders";
-import RestaurantsDetails from './RestaurantDetails';
-import Restaurants from './Restaurants';
-import RestaurantDetails from './RestaurantDetails';
-import ShoppingCart from './ShoppingCart';
-import Register from "./Register";
+import Home from '../Home';
+import ProductDetails from '../Product/ProductDetails';
+import Orders from "../Orders";
+import Restaurants from '../Restaurant/Restaurants';
+import RestaurantDetails from '../Restaurant/RestaurantDetails';
+import ShoppingCart from '../ShoppingCart';
+import Register from "../Register";
 
 const Main = (props) => {
     return (

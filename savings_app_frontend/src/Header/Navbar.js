@@ -1,7 +1,7 @@
 import React from "react";
-import  { MENU_ITEMS } from "./Constants";
+import  { MENU_ITEMS } from "../Constants";
 import { useNavigate } from "react-router-dom";
-import ShoppingCart from "./img/shopping-cart.png";
+import ShoppingCart from "../img/shopping-cart.png";
 import { Link } from "react-router-dom";
 
 const Navbar = (props) => {
