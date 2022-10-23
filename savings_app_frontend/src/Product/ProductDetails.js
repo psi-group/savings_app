@@ -15,7 +15,7 @@ function ProductDetails(props) {
   const [restaurant, setRestaurant] = React.useState({});
   const [itemQuantity, setItemQuantity] = React.useState(1);
   const [quantityType, setQuantityType] = React.useState("");
-  const [itemPickupTime, setItemPickupTime] = React.useState("");
+  const [itemPickupTime, setItemPickupTime] = React.useState({});
   const [errorVisible, setErrorVisible] = React.useState(false);
   const [pickups, setPickups] = React.useState({});
 
@@ -25,8 +25,9 @@ function ProductDetails(props) {
     return str.charAt(0).toUpperCase() + str.slice(1);
   };
 
-  const setItemPickup = (e) => {
-    setItemPickupTime(capitalizeFirst(e.target.value));
+  const setItemPickup = (pickup) => {
+    console.log(pickup);
+    setItemPickupTime(pickup);
     setErrorVisible(false);
   };
 
@@ -42,19 +43,24 @@ function ProductDetails(props) {
         capitalizeFirst(quantityType),
         itemQuantity * product.amountPerUnit,
         imgURL,
-        product.price,
+        product.price
       );
     }
   };
 
-    React.useEffect(() => {      
-        fetch("https://localhost:7183/api/pickups/product/" + id, {
-            headers: { 'Content-Type': 'application/json', "Access-Control-Allow-Origin": "*" },
-        })
+  React.useEffect(() => {
+    fetch("https://localhost:7183/api/pickups/product/" + id, {
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+      },
+    })
       .then((res) => res.json())
       .then((data) => {
+        /*
         let temp = [];
         data.map((pickup, index) => {
+          console.log(pickup);
           let availableDay = pickup.startTime.substring(0, 10);
           let startTime = pickup.startTime.substring(14);
           let endTime = pickup.endTime.substring(14);
@@ -64,8 +70,9 @@ function ProductDetails(props) {
             endTime: endTime,
           });
         });
-        setPickups(temp);
-        console.log(temp);
+        */
+        console.log(data);
+        setPickups(data);
       })
       .then((res) => {
         fetch("https://localhost:7183/api/products/" + id)
@@ -110,30 +117,30 @@ function ProductDetails(props) {
             <h2 className="text-2xl text-sky-500">Available pickup times</h2>
 
             <form className="flex gap-1 flex-col" onSubmit={handleSubmit}>
-              {pickups.map((pickUpTime, index) => (
-                <label
-                  className="flex items-center rounded border-2 w-full border-sky-500"
-                  name="pickUpTime"
-                  key={index}
-                >
-                  <input
-                    className="peer opacity-0 absolute "
-                    type="radio"
-                    value={`${pickUpTime.availableDay} from ${pickUpTime.startTime} to ${pickUpTime.endTime}`}
+              {pickups.filter(pickUp => pickUp.status == "Available").map( (pickUpTime, index) => (
+                
+                  <label
+                    className="flex items-center rounded border-2 w-full border-sky-500"
                     name="pickUpTime"
-                    onChange={setItemPickup}
-                  ></input>
-                  <div className="pl-1 peer-hover:bg-sky-100 peer-checked:peer-hover:bg-sky-500 peer-checked:bg-sky-500 w-full peer-checked:text-white  flex justify-between items-center gap-2">
-                    <p>
-                      {capitalizeFirst(pickUpTime.availableDay)} from{" "}
-                      {pickUpTime.startTime} to {pickUpTime.endTime}
-                    </p>
-                    <img
-                      src={checkIcon}
-                      className="invisible peer-checked:visible w-8 h-8"
-                    />
-                  </div>
-                </label>
+                    key={index}
+                  >
+                    <input
+                      className="peer opacity-0 absolute "
+                      type="radio"
+                      name="pickUpTime"
+                      onChange={() => setItemPickup(pickUpTime)}
+                    ></input>
+                    <div className="pl-1 peer-hover:bg-sky-100 peer-checked:peer-hover:bg-sky-500 peer-checked:bg-sky-500 w-full peer-checked:text-white  flex justify-between items-center gap-2">
+                      <p>
+                        {pickUpTime.startTime} to {pickUpTime.endTime}
+                      </p>
+                      <img
+                        src={checkIcon}
+                        className="invisible peer-checked:visible w-8 h-8"
+                      />
+                    </div>
+                  </label>
+                
               ))}
               {errorVisible && (
                 <h3 className="text-sky-500 text-lg font-bold">

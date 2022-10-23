@@ -103,7 +103,9 @@ const Navbar = (props) => {
                         <div className="flex flex-col">
                           <h3 className="font-bold text-xs">Pickup Time: </h3>
                           <p className="text-xs">
-                            {cartItem.pickupTime}
+                            FROM: {cartItem.pickupTime.startTime}
+                            <br></br>
+                            TO: {cartItem.pickupTime.endTime}
                           </p>
                           <h3 className="font-bold text-xs">Quantity: </h3>
                           <p className="text-xs">{cartItem.quantity} {cartItem.quantityType}</p>

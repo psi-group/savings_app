@@ -31,7 +31,7 @@ export const ShoppingCart = (props) => {
                     </h1>
                     <div className="flex gap-1 items-center">
                       <h3 className="font-bold text-md">Pickup Time: </h3>
-                      <p className="text-sm">{cartItem.pickupTime}</p>
+                      <p className="text-sm">{cartItem.pickupTime.startTime} to {cartItem.pickupTime.endTime}</p>
                     </div>
                     <div className="flex gap-1 items-center">
                       <h3 className="font-bold text-md">Quantity: </h3>

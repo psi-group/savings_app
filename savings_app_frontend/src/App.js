@@ -46,7 +46,7 @@ const App = () => {
     const itemIndex = cartItems.findIndex(
       (i) =>
         i.itemName === name &&
-        i.pickupTime === pickupTime &&
+        i.pickupTime.id === pickupTime.id &&
         i.quantityType === quantityType
     );
     if (itemIndex > -1) {
