@@ -106,6 +106,7 @@ const App = () => {
         removeCartItem={removeCartItem}
         roundNumber={roundNumber}
         fullSum={fullSum}
+        setFullSum={setFullSum}
       />
     </div>
   );

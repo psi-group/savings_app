@@ -24,6 +24,7 @@ export const ShoppingCart = (props) => {
     } 
   )
   props.setCartItems([]);
+  props.setFullSum(0);
 }
 
   return (
