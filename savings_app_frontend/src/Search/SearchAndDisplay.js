@@ -16,6 +16,7 @@ const SearchAndDisplay = (props) => {
         products={props.products}
         filters={filters}
         sorting={props.sorting }
+        isValidUrl={props.isValidUrl}
       />
     </div>
   );

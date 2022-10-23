@@ -86,6 +86,15 @@ const App = () => {
     setFullSum(roundNumber(fullSum - cartItems[index].fullPrice, 2));
   };
 
+  const isValidUrl = (string) => {
+    try {
+      new URL(string);
+      return true;
+    } catch (err) {
+      return false;
+    }
+  }
+
   return (
     <div className="App">
       <Header
@@ -107,6 +116,7 @@ const App = () => {
         roundNumber={roundNumber}
         fullSum={fullSum}
         setFullSum={setFullSum}
+        isValidUrl={isValidUrl}
       />
     </div>
   );

@@ -18,7 +18,7 @@ function Home (props)  {
                     <div>
 
                     <SortButton setSorting={setSorting }></SortButton>
-                    <SearchAndDisplay searchas={props.searchas} products={products} sorting={sorting }/>
+                    <SearchAndDisplay searchas={props.searchas} products={products} sorting={sorting } isValidUrl={props.isValidUrl}/>
 
                     </div>
 
