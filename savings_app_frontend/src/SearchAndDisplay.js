@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import SearchBar from "./SearchBar";
 import List from "./List";
-import Filter from "./Filter";
-import FilterDisplay from "./FilterDisplay";
+import Filter from "./CategoriesFilter";
+import { FilterDisplay } from "./CategoriesFilter";
 
 const SearchAndDisplay = (props) => {
   const [filters, setFilters] = useState([]);

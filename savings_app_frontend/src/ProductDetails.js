@@ -47,23 +47,7 @@ function ProductDetails(props) {
     }
   };
 
-    React.useEffect(() => {
-
-        /*fetch("https://localhost:7183/api/products/filter?category=banana")
-            .then((response) => {
-                if (response.ok) {
-                    return response.json();
-                }
-                console.log(response.text());
-                return response.text().then((text) => { throw Error(text); });
-            })
-            .then((jsonResponse) => {
-            console.log("jsonas" + jsonResponse);
-            }).catch((error) => {
-                console.log(error.message);
-            })*/
-        
-
+    React.useEffect(() => {      
         fetch("https://localhost:7183/api/pickups/product/" + id, {
             headers: { 'Content-Type': 'application/json', "Access-Control-Allow-Origin": "*" },
         })

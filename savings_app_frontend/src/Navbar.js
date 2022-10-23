@@ -1,5 +1,5 @@
 import React from "react";
-import { menuItems } from "./menuItems.js";
+import  { MENU_ITEMS } from "./Constants";
 import { useNavigate } from "react-router-dom";
 import ShoppingCart from "./img/shopping-cart.png";
 import { Link } from "react-router-dom";
@@ -46,7 +46,7 @@ const Navbar = (props) => {
     <>
       <nav>
         <ul className="menus">
-          {menuItems.map((menu, index) => {
+          {MENU_ITEMS.map((menu, index) => {
             return (
               <li className="menu-items" key={index}>
                 <Link to={menu.url}>{menu.title}</Link>
