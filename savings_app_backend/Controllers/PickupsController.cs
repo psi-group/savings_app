@@ -23,21 +23,30 @@ namespace savings_app_backend.Controllers
 
         // GET: api/Pickups
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Pickup>>> GetPickup()
+        public async Task<ActionResult<IEnumerable<Pickup>>> GetPickups()
         {
-            return await _context.Pickup.ToListAsync();
+            return await _context.Pickups.ToListAsync();
         }
 
-        
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Pickup>> GetPickup(Guid id)
+        {
+            var pickup = await _context.Pickups.FindAsync(id);
 
+            if (pickup == null)
+            {
+                return NotFound();
+            }
 
+            return pickup;
+        }
 
         // GET: api/Pickups/5
         [HttpGet("product/{productId}")]
-        public async Task<ActionResult<IEnumerable<Pickup>>> GetProductPickup(Guid productId)
+        public async Task<ActionResult<IEnumerable<Pickup>>> GetProductPickups(Guid productId)
         {
-            return await _context.Pickup
-                .Where((pickup) => pickup.productId == productId)
+            return await _context.Pickups
+                .Where((pickup) => pickup.ProductId == productId)
                 .ToListAsync();
         }
 
@@ -77,7 +86,7 @@ namespace savings_app_backend.Controllers
         [HttpPost]
         public async Task<ActionResult<Pickup>> PostPickup(Pickup pickup)
         {
-            _context.Pickup.Add(pickup);
+            _context.Pickups.Add(pickup);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetPickup", new { id = pickup.Id }, pickup);
@@ -87,13 +96,13 @@ namespace savings_app_backend.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeletePickup(Guid id)
         {
-            var pickup = await _context.Pickup.FindAsync(id);
+            var pickup = await _context.Pickups.FindAsync(id);
             if (pickup == null)
             {
                 return NotFound();
             }
 
-            _context.Pickup.Remove(pickup);
+            _context.Pickups.Remove(pickup);
             await _context.SaveChangesAsync();
 
             return NoContent();
@@ -101,7 +110,7 @@ namespace savings_app_backend.Controllers
 
         private bool PickupExists(Guid id)
         {
-            return _context.Pickup.Any(e => e.Id == id);
+            return _context.Pickups.Any(e => e.Id == id);
         }
     }
 }

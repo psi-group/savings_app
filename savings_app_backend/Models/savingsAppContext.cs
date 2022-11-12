@@ -18,12 +18,14 @@ namespace savings_app_backend.Models
         private DataAccessServiceOrders _dataAccessServiceOrders;
         private DataAccessServicePickups _dataAccessServicePickups;
         private DataAccessServiceUserAuth _dataAccessServiceUserAuth;
+        private DataAccessServiceBuyers _dataAccessServiceBuyers;
         public savingsAppContext(DbContextOptions<savingsAppContext> options,
             DataAccessServiceProducts dataAccessServiceProducts,
             DataAccessServiceOrders dataAccessServiceOrders,
             DataAccessServiceRestaurants dataAccessServiceRestaurants,
             DataAccessServicePickups dataAccessServicePickups,
-            DataAccessServiceUserAuth dataAccessServiceUserAuth)
+            DataAccessServiceUserAuth dataAccessServiceUserAuth,
+            DataAccessServiceBuyers dataAccessServiceBuyers)
             : base(options)
         {
             _dataAccessServiceProducts = dataAccessServiceProducts;
@@ -31,6 +33,7 @@ namespace savings_app_backend.Models
             _dataAccessServicePickups = dataAccessServicePickups;
             _dataAccessServiceRestaurants = dataAccessServiceRestaurants;
             _dataAccessServiceUserAuth = dataAccessServiceUserAuth;
+            _dataAccessServiceBuyers = dataAccessServiceBuyers;
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -38,16 +41,60 @@ namespace savings_app_backend.Models
             modelBuilder.Entity<Restaurant>()
             .HasOne(b => b.UserAuth)
             .WithOne().
-            HasForeignKey<UserAuth>(b => b.UserId);
+            HasForeignKey<Restaurant>(b => b.UserAuthId);
 
-            modelBuilder.SeedUserAuth(_dataAccessServiceUserAuth);
-            modelBuilder.SeedOrders(_dataAccessServiceOrders);
+            modelBuilder.Entity<Restaurant>()
+                .HasMany(rest => rest.Products)
+                .WithOne(prd => prd.Restaurant)
+                .HasForeignKey(fk => fk.RestaurantID);
+
+
+            modelBuilder.Entity<Product>()
+                .HasMany(rest => rest.Pickups)
+                .WithOne()
+                .HasForeignKey(fk => fk.ProductId);
+
+
+            modelBuilder.Entity<Buyer>()
+            .HasOne(b => b.UserAuth)
+            .WithOne().
+            HasForeignKey<Buyer>(b => b.UserAuthId);
+
+            modelBuilder.Entity<Order>()
+                .HasOne(o => o.Restaurant)
+                .WithMany(s => s.Orders)
+                .HasForeignKey(o => o.SellerId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<Order>()
+                .HasOne(o => o.Buyer)
+                .WithMany(s => s.Orders)
+                .HasForeignKey(o => o.BuyerId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<Order>()
+                .HasOne(o => o.Pickup)
+                .WithOne()
+                .HasForeignKey<Order>(o => o.PickupId);
+
+            modelBuilder.Entity<Restaurant>()
+                .HasOne(o => o.Address)
+                .WithOne()
+                .HasForeignKey<Restaurant>(o => o.AddressId);
+
+            modelBuilder.Entity<Buyer>()
+                .HasOne(o => o.Address)
+                .WithOne()
+                .HasForeignKey<Buyer>(o => o.AddressId);
+
+            /*modelBuilder.SeedUserAuth(_dataAccessServiceUserAuth);
+            
             modelBuilder.SeedPickups(_dataAccessServicePickups);
             modelBuilder.SeedRestaurants(_dataAccessServiceRestaurants);
             modelBuilder.SeedProducts(_dataAccessServiceProducts);
-
+            modelBuilder.SeedBuyers(_dataAccessServiceBuyers);
+            modelBuilder.SeedOrders(_dataAccessServiceOrders);*/
             
-
             modelBuilder
                 .Entity<Product>()
                 .Property(e => e.AmountType)
@@ -79,15 +126,17 @@ namespace savings_app_backend.Models
                     v => (PickupStatus)Enum.Parse(typeof(PickupStatus), v));
         }
 
-        public DbSet<Product> Product { get; set; } = default!;
+        public DbSet<Product> Products { get; set; } = default!;
 
-        public DbSet<Order> Order { get; set; }
+        public DbSet<Order> Orders { get; set; }
 
-        public DbSet<Pickup> Pickup { get; set; }
+        public DbSet<Pickup> Pickups { get; set; }
 
-        public DbSet<Restaurant> Restaurant { get; set; }
-        public DbSet<Buyer> Buyer { get; set; }
-        public DbSet<UserAuth> UserAuth { get; set; }
+        public DbSet<Restaurant> Restaurants { get; set; }
+        public DbSet<Buyer> Buyers { get; set; }
+        public DbSet<UserAuth> UserAuths { get; set; }
+
+        public DbSet<Address> Addresses { get; set; }
 
     }
 }

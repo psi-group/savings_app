@@ -16,9 +16,17 @@ namespace savings_app_backend.Extention
         public static void SeedUserAuth(this ModelBuilder modelBuilder,
             DataAccessServiceUserAuth dataAccessServiceUserAuth)
         {
-            var userAuth = dataAccessServiceUserAuth.GetUserAuth();
+            var userAuth = dataAccessServiceUserAuth.GetUserAuths();
             
             modelBuilder.Entity<UserAuth>().HasData((IEnumerable<UserAuth>)userAuth);
+
+        }
+        public static void SeedBuyers(this ModelBuilder modelBuilder,
+            DataAccessServiceBuyers dataAccessServiceBuyers)
+        {
+            var buyers = dataAccessServiceBuyers.GetBuyers();
+
+            modelBuilder.Entity<Buyer>().HasData((IEnumerable<Buyer>)buyers);
 
         }
         public static void SeedRestaurants(this ModelBuilder modelBuilder,

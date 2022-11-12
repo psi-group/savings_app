@@ -29,30 +29,9 @@ namespace savings_app_backend.WebSite.Services
 
             var jsonFile = File.ReadAllText(JsonFileName);
 
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<Order[]>(jsonFile);
+            var result = Newtonsoft.Json.JsonConvert.DeserializeObject<Order[]>(jsonFile);
+
+            return result;
         }
-
-        public IEnumerable<Order> GetByBuyerId(Guid buyerId)
-        {
-            var orders = GetOrders();
-            var filteredOrders = orders.Where(p => p.buyerId.Equals(buyerId));
-
-            return filteredOrders;
-        }
-
-        public void CreateOrder(Order order)
-        {
-            order.Id = Guid.NewGuid();
-
-            IEnumerable<Order> orders = GetOrders();
-
-            orders = orders.Concat(new[] { order });
-
-            var ordersJson = Newtonsoft.Json.JsonConvert.SerializeObject(orders, Formatting.Indented);
-
-            File.WriteAllText(JsonFileName, ordersJson.ToString());
-        }
-
-
     }
 }

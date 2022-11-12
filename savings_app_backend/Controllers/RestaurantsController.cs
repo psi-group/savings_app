@@ -23,15 +23,15 @@ namespace savings_app_backend.Controllers
 
         // GET: api/Restaurants
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Restaurant>>> GetRestaurant()
+        public async Task<ActionResult<IEnumerable<Restaurant>>> GetRestaurants()
         {
-            return await _context.Restaurant.ToListAsync();
+            return await _context.Restaurants.ToListAsync();
         }
 
         [HttpGet("filter")]
         public async Task<ActionResult<IEnumerable<Restaurant>>> GetFilteredRestaurant([FromQuery] string? search)
         {
-            return await _context.Restaurant
+            return await _context.Restaurants
                 .Where((restaurant) => String.IsNullOrEmpty(search) || restaurant.Name.ToLower().Contains(search.ToLower()))
                 .ToListAsync();
         }
@@ -40,7 +40,7 @@ namespace savings_app_backend.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Restaurant>> GetRestaurant(Guid id)
         {
-            var restaurant = await _context.Restaurant.FindAsync(id);
+            var restaurant = await _context.Restaurants.FindAsync(id);
 
             if (restaurant == null)
             {
@@ -86,7 +86,7 @@ namespace savings_app_backend.Controllers
         [HttpPost]
         public async Task<ActionResult<Restaurant>> PostRestaurant(Restaurant restaurant)
         {
-            _context.Restaurant.Add(restaurant);
+            _context.Restaurants.Add(restaurant);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetRestaurant", new { id = restaurant.Id }, restaurant);
@@ -96,13 +96,13 @@ namespace savings_app_backend.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteRestaurant(Guid id)
         {
-            var restaurant = await _context.Restaurant.FindAsync(id);
+            var restaurant = await _context.Restaurants.FindAsync(id);
             if (restaurant == null)
             {
                 return NotFound();
             }
 
-            _context.Restaurant.Remove(restaurant);
+            _context.Restaurants.Remove(restaurant);
             await _context.SaveChangesAsync();
 
             return NoContent();
@@ -110,7 +110,7 @@ namespace savings_app_backend.Controllers
 
         private bool RestaurantExists(Guid id)
         {
-            return _context.Restaurant.Any(e => e.Id == id);
+            return _context.Restaurants.Any(e => e.Id == id);
         }
     }
 }

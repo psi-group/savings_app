@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -24,13 +25,13 @@ namespace savings_app_backend.Controllers
 
         // GET: api/ProductContr
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Product>>> GetProduct()
+        public async Task<ActionResult<IEnumerable<Product>>> GetProducts()
         {
-            return await _context.Product.ToListAsync();
+            return await _context.Products.ToListAsync();
         }
 
         [HttpGet("filter")]
-        public async Task<ActionResult<IEnumerable<Product>>> GetFilteredProduct(
+        public async Task<ActionResult<IEnumerable<Product>>> GetFilteredProducts(
             [FromQuery] List<string> category, [FromQuery] string? search, [FromQuery] string? order)
         {
             List<Category> categories = new List<Category>();
@@ -49,15 +50,20 @@ namespace savings_app_backend.Controllers
                 categories.Add(cat);
             }
 
-            Func<Product, Object> orderDelegate = order == "by_id" ? (product) => product.Id :
+            Expression <Func<Product, Object>> orderDelegate = order == "by_id" ? (product) => product.Id :
                 order == "by_name" ? (product) => product.Name : (product) => product.Price;
 
             ActionResult<IEnumerable<Product>> products;
 
-            if(String.IsNullOrEmpty(order) || order == "by_id")
+            products = await _context.Products
+                .Where(product => (String.IsNullOrEmpty(search) || product.Name.ToLower().Contains(search.ToLower())))
+                .Where(product => (categories.Count() == 0 || categories.Contains(product.Category)))
+                .OrderBy(orderDelegate)
+                .ToListAsync();
+
+            if (String.IsNullOrEmpty(order) || order == "by_id")
             {
-                products = await _context.Product
-                
+                products = await _context.Products
                 .Where(product => (String.IsNullOrEmpty(search) || product.Name.ToLower().Contains(search.ToLower())))
                 .Where(product => (categories.Count() == 0 || categories.Contains(product.Category)))
                 .OrderBy((product) => product.Id)
@@ -65,8 +71,7 @@ namespace savings_app_backend.Controllers
             }
             else if(order == "by_name")
             {
-                products = await _context.Product
-
+                products = await _context.Products
                 .Where(product => (String.IsNullOrEmpty(search) || product.Name.ToLower().Contains(search.ToLower())))
                 .Where(product => (categories.Count() == 0 || categories.Contains(product.Category)))
                 .OrderBy((product) => product.Name)
@@ -74,8 +79,7 @@ namespace savings_app_backend.Controllers
             }
             else if (order == "by_price")
             {
-                products = await _context.Product
-
+                products = await _context.Products
                 .Where(product => (String.IsNullOrEmpty(search) || product.Name.ToLower().Contains(search.ToLower())))
                 .Where(product => (categories.Count() == 0 || categories.Contains(product.Category)))
                 .OrderBy((product) => product.Price)
@@ -85,9 +89,6 @@ namespace savings_app_backend.Controllers
             {
                 return BadRequest("Invalid order argument");
             }
-
-
-
             return products;
         }
 
@@ -95,7 +96,7 @@ namespace savings_app_backend.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Product>> GetProduct(Guid id)
         {
-            var product = await _context.Product.FindAsync(id);
+            var product = await _context.Products.FindAsync(id);
             var str = product.Category.ToString();
             if (product == null)
             {
@@ -141,7 +142,7 @@ namespace savings_app_backend.Controllers
         [HttpPost]
         public async Task<ActionResult<Product>> PostProduct(Product product)
         {
-            _context.Product.Add(product);
+            _context.Products.Add(product);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetProduct", new { id = product.Id }, product);
@@ -151,13 +152,13 @@ namespace savings_app_backend.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteProduct(Guid id)
         {
-            var product = await _context.Product.FindAsync(id);
+            var product = await _context.Products.FindAsync(id);
             if (product == null)
             {
                 return NotFound();
             }
 
-            _context.Product.Remove(product);
+            _context.Products.Remove(product);
             await _context.SaveChangesAsync();
 
             return NoContent();
@@ -165,7 +166,7 @@ namespace savings_app_backend.Controllers
 
         private bool ProductExists(Guid id)
         {
-            return _context.Product.Any(e => e.Id == id);
+            return _context.Products.Any(e => e.Id == id);
         }
     }
 }

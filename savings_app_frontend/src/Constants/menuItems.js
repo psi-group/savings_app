@@ -4,10 +4,6 @@ const MENU_ITEMS = [
     url: "/",
   },
   {
-    title: "Log in/Sign up",
-    url: "/register",
-  },
-  {
     title: "Order history",
     url: "/orders",
   },

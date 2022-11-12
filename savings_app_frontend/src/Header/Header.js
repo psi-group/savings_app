@@ -9,6 +9,7 @@ const Header = (props) => {
           Logo
         </Link>
         <Navbar
+          
           selector={props.selector}
           setSelector={props.setSelector}
           searchas={props.searchas}

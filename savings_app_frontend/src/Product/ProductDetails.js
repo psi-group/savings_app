@@ -26,26 +26,29 @@ function ProductDetails(props) {
   };
 
   const setItemPickup = (pickup) => {
-    console.log(pickup);
+    console.log("aaaa" + pickup);
     setItemPickupTime(pickup);
     setErrorVisible(false);
   };
 
   const handleSubmit = (event) => {
-    event.preventDefault();
-    if (itemPickupTime == "") {
+      event.preventDefault();
+      console.log(itemPickupTime);
+      if (itemPickupTime == {}) {
       setErrorVisible(true);
     } else {
-      props.addCartItem(
+        props.addCartItem(
         capitalizeFirst(productName),
         itemPickupTime,
         itemQuantity,
         capitalizeFirst(quantityType),
         itemQuantity * product.amountPerUnit,
         imgURL,
-        product.price
+        product.price,
+            restaurant,
+            product
       );
-    }
+      }
   };
 
   React.useEffect(() => {

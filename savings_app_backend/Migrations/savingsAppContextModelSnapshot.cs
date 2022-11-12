@@ -22,22 +22,65 @@ namespace savings_app_backend.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
+            modelBuilder.Entity("savings_app_backend.Models.Entities.Address", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("AppartmentNumber")
+                        .HasColumnType("int");
+
+                    b.Property<string>("City")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Country")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("HouseNumber")
+                        .HasColumnType("int");
+
+                    b.Property<int>("PostalCode")
+                        .HasColumnType("int");
+
+                    b.Property<string>("StreetName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Addresses");
+                });
+
             modelBuilder.Entity("savings_app_backend.Models.Entities.Buyer", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("Name")
-                        .IsRequired()
+                    b.Property<Guid>("AddressId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("ImageName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Picture")
+                    b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("UserAuthId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Buyer");
+                    b.HasIndex("AddressId")
+                        .IsUnique();
+
+                    b.HasIndex("UserAuthId")
+                        .IsUnique();
+
+                    b.ToTable("Buyers");
                 });
 
             modelBuilder.Entity("savings_app_backend.Models.Entities.Order", b =>
@@ -46,64 +89,32 @@ namespace savings_app_backend.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<Guid>("BuyerId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("PickupId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("SellerId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<string>("Status")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("buyerId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("pickupTimeId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<string>("productId")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid>("sellerId")
-                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Order");
+                    b.HasIndex("BuyerId");
 
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("ca5dbb9c-60a8-43c5-9da0-a3f0d24e5108"),
-                            Status = "AwaitingPickup",
-                            buyerId = new Guid("b603db5e-6f2d-4751-b3d3-d1c864db8016"),
-                            pickupTimeId = new Guid("00000000-0000-0000-0000-000000000000"),
-                            productId = "fd6ad331-3d86-49d1-a6f7-f4ae85371e97",
-                            sellerId = new Guid("a2e5346e-b246-4578-b5cd-993af7f77d06")
-                        },
-                        new
-                        {
-                            Id = new Guid("b335acb9-985b-47cb-bae5-eb649f3101f6"),
-                            Status = "AwaitingPickup",
-                            buyerId = new Guid("b603db5e-6f2d-4751-b3d3-d1c864db8016"),
-                            pickupTimeId = new Guid("00000000-0000-0000-0000-000000000000"),
-                            productId = "fd6ad331-3d86-49d1-a6f7-f4ae85371e97",
-                            sellerId = new Guid("a2e5346e-b246-4578-b5cd-993af7f77d06")
-                        },
-                        new
-                        {
-                            Id = new Guid("ca5dbb9c-60a8-43c5-9da0-a3f0d24e5120"),
-                            Status = "AwaitingPickup",
-                            buyerId = new Guid("ca5dbb9c-60a8-43c5-9da0-a3f0d24e5108"),
-                            pickupTimeId = new Guid("00000000-0000-0000-0000-000000000000"),
-                            productId = "fd6ad331-3d86-49d1-a6f7-f4ae85371e97",
-                            sellerId = new Guid("a2e5346e-b246-4578-b5cd-993af7f77d06")
-                        },
-                        new
-                        {
-                            Id = new Guid("fd6ad331-3d86-49d1-a6f7-f4ae85371e97"),
-                            Status = "AwaitingPickup",
-                            buyerId = new Guid("b335acb9-985b-47cb-bae5-eb649f3101f6"),
-                            pickupTimeId = new Guid("00000000-0000-0000-0000-000000000000"),
-                            productId = "fd6ad331-3d86-49d1-a6f7-f4ae85371e97",
-                            sellerId = new Guid("a2e5346e-b246-4578-b5cd-993af7f77d06")
-                        });
+                    b.HasIndex("PickupId")
+                        .IsUnique();
+
+                    b.HasIndex("SellerId");
+
+                    b.ToTable("Orders");
                 });
 
             modelBuilder.Entity("savings_app_backend.Models.Entities.Pickup", b =>
@@ -112,11 +123,11 @@ namespace savings_app_backend.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<Guid?>("ProductId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<DateTime>("endTime")
                         .HasColumnType("datetime2");
-
-                    b.Property<Guid>("productId")
-                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("startTime")
                         .HasColumnType("datetime2");
@@ -127,65 +138,9 @@ namespace savings_app_backend.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Pickup");
+                    b.HasIndex("ProductId");
 
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("fd6ad331-3d86-49d1-a6f7-f4ae85371e97"),
-                            endTime = new DateTime(2017, 9, 8, 19, 1, 55, 0, DateTimeKind.Unspecified),
-                            productId = new Guid("db7d2e61-077d-40ca-a888-9e05e59dce83"),
-                            startTime = new DateTime(2017, 9, 8, 19, 1, 45, 0, DateTimeKind.Unspecified),
-                            status = "Available"
-                        },
-                        new
-                        {
-                            Id = new Guid("42fd75ec-1d4d-40ee-ae0a-e3ab79c69f02"),
-                            endTime = new DateTime(2017, 9, 8, 19, 1, 55, 0, DateTimeKind.Unspecified),
-                            productId = new Guid("1163fde0-8dae-458f-8e25-860dda25dd29"),
-                            startTime = new DateTime(2017, 9, 8, 19, 1, 45, 0, DateTimeKind.Unspecified),
-                            status = "Available"
-                        },
-                        new
-                        {
-                            Id = new Guid("168cba18-9541-4e71-8e5f-4c78be6a7c2c"),
-                            endTime = new DateTime(2017, 9, 8, 19, 1, 55, 0, DateTimeKind.Unspecified),
-                            productId = new Guid("1163fde0-8dae-458f-8e25-860dda25dd29"),
-                            startTime = new DateTime(2017, 9, 8, 19, 1, 45, 0, DateTimeKind.Unspecified),
-                            status = "Available"
-                        },
-                        new
-                        {
-                            Id = new Guid("a2e5346e-b246-4578-b5cd-993af7f77d06"),
-                            endTime = new DateTime(2017, 9, 8, 19, 1, 55, 0, DateTimeKind.Unspecified),
-                            productId = new Guid("168cba18-9541-4e71-8e5f-4c78be6a7c2c"),
-                            startTime = new DateTime(2017, 9, 8, 19, 1, 45, 0, DateTimeKind.Unspecified),
-                            status = "Available"
-                        },
-                        new
-                        {
-                            Id = new Guid("39392fad-a761-45c1-89b9-3d26f6ac96e2"),
-                            endTime = new DateTime(2017, 9, 8, 19, 1, 55, 0, DateTimeKind.Unspecified),
-                            productId = new Guid("42fd75ec-1d4d-40ee-ae0a-e3ab79c69f02"),
-                            startTime = new DateTime(2017, 9, 8, 19, 1, 45, 0, DateTimeKind.Unspecified),
-                            status = "Available"
-                        },
-                        new
-                        {
-                            Id = new Guid("39392fad-a761-45c1-89b9-3d26f6ac96f1"),
-                            endTime = new DateTime(2017, 9, 8, 19, 1, 55, 0, DateTimeKind.Unspecified),
-                            productId = new Guid("db7d2e61-077d-40ca-a888-9e05e59dce83"),
-                            startTime = new DateTime(2017, 9, 8, 19, 1, 45, 0, DateTimeKind.Unspecified),
-                            status = "Available"
-                        },
-                        new
-                        {
-                            Id = new Guid("39392fad-a761-45c1-89b9-3d26f6ac96b3"),
-                            endTime = new DateTime(2017, 9, 8, 19, 1, 55, 0, DateTimeKind.Unspecified),
-                            productId = new Guid("42fd75ec-1d4d-40ee-ae0a-e3ab79c69f02"),
-                            startTime = new DateTime(2017, 9, 8, 19, 1, 45, 0, DateTimeKind.Unspecified),
-                            status = "Available"
-                        });
+                    b.ToTable("Pickups");
                 });
 
             modelBuilder.Entity("savings_app_backend.Models.Entities.Product", b =>
@@ -213,11 +168,9 @@ namespace savings_app_backend.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PictureURL")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<float>("Price")
@@ -231,93 +184,9 @@ namespace savings_app_backend.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Product");
+                    b.HasIndex("RestaurantID");
 
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("fd6ad331-3d86-49d1-a6f7-f4ae85371e97"),
-                            AmountOfUnits = 5,
-                            AmountPerUnit = 0.5f,
-                            AmountType = "kilogram",
-                            Category = "Vegetable",
-                            Description = ".....",
-                            Name = "potatoes",
-                            PictureURL = "https://media.istockphoto.com/photos/three-potatoes-picture-id157430678?k=20&m=157430678&s=612x612&w=0&h=dfYLuPYwA50ojI90hZ4jCgKZd5TGnqf24UCVBszoZIA=",
-                            Price = 1.5f,
-                            RestaurantID = new Guid("a2e5346e-b246-4578-b5cd-993af7f77d06"),
-                            ShelfLife = new DateTime(2017, 9, 8, 19, 1, 55, 714, DateTimeKind.Local).AddTicks(9420)
-                        },
-                        new
-                        {
-                            Id = new Guid("42fd75ec-1d4d-40ee-ae0a-e3ab79c69f02"),
-                            AmountOfUnits = 9,
-                            AmountPerUnit = 2f,
-                            AmountType = "kilogram",
-                            Category = "Fruit",
-                            Description = ".....",
-                            Name = "apples",
-                            PictureURL = "https://images.pexels.com/photos/2487443/pexels-photo-2487443.jpeg?cs=srgb&dl=pexels-matheus-cenali-2487443.jpg&fm=jpg",
-                            Price = 3.2f,
-                            RestaurantID = new Guid("fd6ad331-3d86-49d1-a6f7-f4ae85371e97"),
-                            ShelfLife = new DateTime(2017, 9, 8, 19, 1, 55, 714, DateTimeKind.Local).AddTicks(9420)
-                        },
-                        new
-                        {
-                            Id = new Guid("168cba18-9541-4e71-8e5f-4c78be6a7c2c"),
-                            AmountOfUnits = 13,
-                            AmountPerUnit = 0.2f,
-                            AmountType = "kilogram",
-                            Category = "Snack",
-                            Description = ".....",
-                            Name = "french-fries",
-                            PictureURL = "https://images.pexels.com/photos/2487443/pexels-photo-2487443.jpeg?cs=srgb&dl=pexels-matheus-cenali-2487443.jpg&fm=jpg",
-                            Price = 0.5f,
-                            RestaurantID = new Guid("168cba18-9541-4e71-8e5f-4c78be6a7c2c"),
-                            ShelfLife = new DateTime(2017, 9, 8, 19, 1, 55, 714, DateTimeKind.Local).AddTicks(9420)
-                        },
-                        new
-                        {
-                            Id = new Guid("1163fde0-8dae-458f-8e25-860dda25dd29"),
-                            AmountOfUnits = 5,
-                            AmountPerUnit = 12f,
-                            AmountType = "unit",
-                            Category = "Protein",
-                            Description = ".....",
-                            Name = "eggs",
-                            PictureURL = "https://images.pexels.com/photos/2487443/pexels-photo-2487443.jpeg?cs=srgb&dl=pexels-matheus-cenali-2487443.jpg&fm=jpg",
-                            Price = 2.2f,
-                            RestaurantID = new Guid("fd6ad331-3d86-49d1-a6f7-f4ae85371e97"),
-                            ShelfLife = new DateTime(2017, 9, 8, 19, 1, 55, 714, DateTimeKind.Local).AddTicks(9420)
-                        },
-                        new
-                        {
-                            Id = new Guid("a2e5346e-b246-4578-b5cd-993af7f77d06"),
-                            AmountOfUnits = 2,
-                            AmountPerUnit = 1f,
-                            AmountType = "kilogram",
-                            Category = "Protein",
-                            Description = "asdas",
-                            Name = "Burger patties",
-                            PictureURL = "https://media.istockphoto.com/photos/stack-of-fresh-raw-burger-patty-picture-id1268023262?k=20&m=1268023262&s=612x612&w=0&h=aLMpdDBCzc31AJPfxZOFFG90HvdaZso0fpHmaJf7fw0=",
-                            Price = 5f,
-                            RestaurantID = new Guid("39392fad-a761-45c1-89b9-3d26f6ac96e2"),
-                            ShelfLife = new DateTime(2017, 9, 8, 19, 1, 55, 714, DateTimeKind.Local).AddTicks(9420)
-                        },
-                        new
-                        {
-                            Id = new Guid("db7d2e61-077d-40ca-a888-9e05e59dce83"),
-                            AmountOfUnits = 5,
-                            AmountPerUnit = 0.5f,
-                            AmountType = "litre",
-                            Category = "Dairy",
-                            Description = ",,,,",
-                            Name = "milkas",
-                            PictureURL = "linkas",
-                            Price = 0.8f,
-                            RestaurantID = new Guid("42fd75ec-1d4d-40ee-ae0a-e3ab79c69f02"),
-                            ShelfLife = new DateTime(2017, 9, 8, 19, 1, 55, 714, DateTimeKind.Local).AddTicks(9420)
-                        });
+                    b.ToTable("Products");
                 });
 
             modelBuilder.Entity("savings_app_backend.Models.Entities.Restaurant", b =>
@@ -326,96 +195,42 @@ namespace savings_app_backend.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<Guid>("AddressId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<string>("Description")
-                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageName")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("Open")
+                    b.Property<bool?>("Open")
                         .HasColumnType("bit");
 
-                    b.Property<string>("Picture")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<double>("Rating")
+                    b.Property<double?>("Rating")
                         .HasColumnType("float");
 
                     b.Property<string>("ShortDescription")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("SiteRef")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("UserAuthId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Restaurant");
+                    b.HasIndex("AddressId")
+                        .IsUnique();
 
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("a2e5346e-b246-4578-b5cd-993af7f77d06"),
-                            Description = "descriptiondescr iptiondescriptiond escriptiondes criptiondescript iondescriptiondescript iondescriptio ndescriptiondescription",
-                            Name = "Huye Magoos Fender",
-                            Open = true,
-                            Rating = 4.5,
-                            ShortDescription = "______________________________",
-                            SiteRef = "???"
-                        },
-                        new
-                        {
-                            Id = new Guid("fd6ad331-3d86-49d1-a6f7-f4ae85371e97"),
-                            Description = "descriptiondescr iptiondescriptiond escriptiondes criptiondescript iondescriptiondescript iondescriptio ndescriptiondescription",
-                            Name = "Barca",
-                            Open = true,
-                            Rating = 3.0,
-                            ShortDescription = "______________________________",
-                            SiteRef = "???"
-                        },
-                        new
-                        {
-                            Id = new Guid("42fd75ec-1d4d-40ee-ae0a-e3ab79c69f02"),
-                            Description = "descriptiondescr iptiondescriptiond escriptiondes criptiondescript iondescriptiondescript iondescriptio ndescriptiondescription",
-                            Name = "Local",
-                            Open = true,
-                            Rating = 4.5,
-                            ShortDescription = "______________________________",
-                            SiteRef = "???"
-                        },
-                        new
-                        {
-                            Id = new Guid("168cba18-9541-4e71-8e5f-4c78be6a7c2c"),
-                            Description = "descriptiondescr iptiondescriptiond escriptiondes criptiondescript iondescriptiondescript iondescriptio ndescriptiondescription",
-                            Name = "Cafe Bilhanes",
-                            Open = true,
-                            Rating = 4.5,
-                            ShortDescription = "______________________________",
-                            SiteRef = "???"
-                        },
-                        new
-                        {
-                            Id = new Guid("a2e5346e-b246-4578-b5cd-993af7f77d05"),
-                            Description = "descriptiondescr iptiondescriptiond escriptiondes criptiondescript iondescriptiondescript iondescriptio ndescriptiondescription",
-                            Name = "Ba2rca",
-                            Open = true,
-                            Rating = 4.0999999999999996,
-                            ShortDescription = "______________________________",
-                            SiteRef = "???"
-                        },
-                        new
-                        {
-                            Id = new Guid("39392fad-a761-45c1-89b9-3d26f6ac96e2"),
-                            Description = "descriptiondescr iptiondescriptiond escriptiondes criptiondescript iondescriptiondescript iondescriptio ndescriptiondescription",
-                            Name = "Corner Bistro",
-                            Open = true,
-                            Rating = 4.5,
-                            ShortDescription = "______________________________",
-                            SiteRef = "???"
-                        });
+                    b.HasIndex("UserAuthId")
+                        .IsUnique();
+
+                    b.ToTable("Restaurants");
                 });
 
             modelBuilder.Entity("savings_app_backend.Models.Entities.UserAuth", b =>
@@ -432,74 +247,109 @@ namespace savings_app_backend.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.HasKey("Id");
 
-                    b.HasIndex("UserId")
-                        .IsUnique();
-
-                    b.ToTable("UserAuth");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("b603db5e-6f2d-4751-b3d3-d1c864db8016"),
-                            Email = "aaaaa@gmail.com",
-                            Password = "aaaaaaa",
-                            UserId = new Guid("a2e5346e-b246-4578-b5cd-993af7f77d06")
-                        },
-                        new
-                        {
-                            Id = new Guid("ca5dbb9c-60a8-43c5-9da0-a3f0d24e5108"),
-                            Email = "bbb@gmail.com",
-                            Password = "bbbbbbbbb",
-                            UserId = new Guid("fd6ad331-3d86-49d1-a6f7-f4ae85371e97")
-                        },
-                        new
-                        {
-                            Id = new Guid("b335acb9-985b-47cb-bae5-eb649f3101f6"),
-                            Email = "User1@gmail.com",
-                            Password = "USER",
-                            UserId = new Guid("42fd75ec-1d4d-40ee-ae0a-e3ab79c69f02")
-                        },
-                        new
-                        {
-                            Id = new Guid("fd6ad331-3d86-49d1-a6f7-f4ae85371e97"),
-                            Email = "TestRest@mail.ru",
-                            Password = "qwert",
-                            UserId = new Guid("168cba18-9541-4e71-8e5f-4c78be6a7c2c")
-                        },
-                        new
-                        {
-                            Id = new Guid("1163fde0-8dae-458f-8e25-860dda25dd29"),
-                            Email = "asdasd@gmail.com",
-                            Password = "aadsadas",
-                            UserId = new Guid("a2e5346e-b246-4578-b5cd-993af7f77d05")
-                        },
-                        new
-                        {
-                            Id = new Guid("42fd75ec-1d4d-40ee-ae0a-e3ab79c69f02"),
-                            Email = "asdasd@gmail.com",
-                            Password = "a",
-                            UserId = new Guid("39392fad-a761-45c1-89b9-3d26f6ac96e2")
-                        });
+                    b.ToTable("UserAuths");
                 });
 
-            modelBuilder.Entity("savings_app_backend.Models.Entities.UserAuth", b =>
+            modelBuilder.Entity("savings_app_backend.Models.Entities.Buyer", b =>
                 {
-                    b.HasOne("savings_app_backend.Models.Entities.Restaurant", null)
-                        .WithOne("UserAuth")
-                        .HasForeignKey("savings_app_backend.Models.Entities.UserAuth", "UserId")
+                    b.HasOne("savings_app_backend.Models.Entities.Address", "Address")
+                        .WithOne()
+                        .HasForeignKey("savings_app_backend.Models.Entities.Buyer", "AddressId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("savings_app_backend.Models.Entities.UserAuth", "UserAuth")
+                        .WithOne()
+                        .HasForeignKey("savings_app_backend.Models.Entities.Buyer", "UserAuthId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Address");
+
+                    b.Navigation("UserAuth");
+                });
+
+            modelBuilder.Entity("savings_app_backend.Models.Entities.Order", b =>
+                {
+                    b.HasOne("savings_app_backend.Models.Entities.Buyer", "Buyer")
+                        .WithMany("Orders")
+                        .HasForeignKey("BuyerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("savings_app_backend.Models.Entities.Pickup", "Pickup")
+                        .WithOne()
+                        .HasForeignKey("savings_app_backend.Models.Entities.Order", "PickupId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("savings_app_backend.Models.Entities.Restaurant", "Restaurant")
+                        .WithMany("Orders")
+                        .HasForeignKey("SellerId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Buyer");
+
+                    b.Navigation("Pickup");
+
+                    b.Navigation("Restaurant");
+                });
+
+            modelBuilder.Entity("savings_app_backend.Models.Entities.Pickup", b =>
+                {
+                    b.HasOne("savings_app_backend.Models.Entities.Product", null)
+                        .WithMany("Pickups")
+                        .HasForeignKey("ProductId");
+                });
+
+            modelBuilder.Entity("savings_app_backend.Models.Entities.Product", b =>
+                {
+                    b.HasOne("savings_app_backend.Models.Entities.Restaurant", "Restaurant")
+                        .WithMany("Products")
+                        .HasForeignKey("RestaurantID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Restaurant");
                 });
 
             modelBuilder.Entity("savings_app_backend.Models.Entities.Restaurant", b =>
                 {
-                    b.Navigation("UserAuth")
+                    b.HasOne("savings_app_backend.Models.Entities.Address", "Address")
+                        .WithOne()
+                        .HasForeignKey("savings_app_backend.Models.Entities.Restaurant", "AddressId")
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("savings_app_backend.Models.Entities.UserAuth", "UserAuth")
+                        .WithOne()
+                        .HasForeignKey("savings_app_backend.Models.Entities.Restaurant", "UserAuthId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Address");
+
+                    b.Navigation("UserAuth");
+                });
+
+            modelBuilder.Entity("savings_app_backend.Models.Entities.Buyer", b =>
+                {
+                    b.Navigation("Orders");
+                });
+
+            modelBuilder.Entity("savings_app_backend.Models.Entities.Product", b =>
+                {
+                    b.Navigation("Pickups");
+                });
+
+            modelBuilder.Entity("savings_app_backend.Models.Entities.Restaurant", b =>
+                {
+                    b.Navigation("Orders");
+
+                    b.Navigation("Products");
                 });
 #pragma warning restore 612, 618
         }

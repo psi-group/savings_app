@@ -25,20 +25,6 @@ namespace savings_app_backend.WebSite.Services
 
             return Newtonsoft.Json.JsonConvert.DeserializeObject<Restaurant[]>(jsonFile);
         }
-        /*
-        public IEnumerable<Restaurant> GetWithSearch(string searchText)
-        {
-            SearchingList<Restaurant> restaurants = new SearchingList<Restaurant>(GetRestaurants());
-           
-            return  restaurants.Search(searchText, (Restaurant res) => res.Name);
-        }
-        */
-        public Restaurant GetById(Guid id)
-        {
-            var restaurants = GetRestaurants();
-
-            return restaurants.SingleOrDefault(r => r.Id == id);
-        }
 
     }
 }

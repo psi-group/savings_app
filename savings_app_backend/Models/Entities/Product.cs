@@ -11,12 +11,17 @@ namespace savings_app_backend.Models.Entities
     {
 
         public Guid Id { get; set; }
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         [JsonConverter(typeof(JsonStringEnumConverter))]
         [EnumDataType(typeof(Category))]
         public Category Category { get; set; }
+
         public Guid RestaurantID { get; set; }
+        public Restaurant? Restaurant { get; set; }
+
+
+        public List<Pickup>? Pickups { get; set; }
 
         [JsonConverter(typeof(JsonStringEnumConverter))]
         [EnumDataType(typeof(AmountType))]
@@ -27,10 +32,10 @@ namespace savings_app_backend.Models.Entities
 
         public float Price { get; set; }
 
-        public string PictureURL { get; set; }
+        public string? PictureURL { get; set; }
 
         public DateTime ShelfLife { get; set; }
 
-        public string Description { get; set; }
+        public string? Description { get; set; }
     }
 }

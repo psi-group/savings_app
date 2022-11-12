@@ -2,12 +2,26 @@ import React, { Component, useEffect } from "react";
 import "./App.css";
 import Main from "./Routing/Main";
 import Header from "./Header/Header";
+import { Routes, Route } from 'react-router-dom';
+import Home from './Home';
+import ProductDetails from './Product/ProductDetails';
+import Orders from "./Orders";
+import Restaurants from './Restaurant/Restaurants';
+import RestaurantDetails from './Restaurant/RestaurantDetails';
+import ShoppingCart from './ShoppingCart';
+import Register from "./Register";
+import Login from "./Login";
+import ProtectedRoute from "./ProtectedRoute";
+import Profile from "./Profile";
+import AddProduct from "./AddProduct";
 
 const App = () => {
   const [searchas, setSearchas] = React.useState("");
   const [selector, setSelector] = React.useState("");
   const [cartItems, setCartItems] = React.useState([]);
-  const [fullSum, setFullSum] = React.useState(0);
+    const [fullSum, setFullSum] = React.useState(0);
+
+
 
   useEffect(() => {
     const shoppingCartData = window.sessionStorage.getItem("SHOPPING_CART");
@@ -41,7 +55,9 @@ const App = () => {
     quantityType,
     quantity,
     image,
-    unitPrice
+      unitPrice,
+      restaurant,
+    product
   ) => {
     const itemIndex = cartItems.findIndex(
       (i) =>
@@ -74,7 +90,9 @@ const App = () => {
           quantityType: quantityType,
           unitPrice: unitPrice,
           fullPrice: unitPrice * unitQuantity,
-          unitQuantity: unitQuantity,
+            unitQuantity: unitQuantity,
+            restaurant: restaurant,
+          product: product
         },
       ]);
       setFullSum(fullSum + unitPrice * unitQuantity);
@@ -95,30 +113,48 @@ const App = () => {
     }
   }
 
-  return (
-    <div className="App">
-      <Header
-        selector={selector}
-        setSelector={setSelector}
-        searchas={searchas}
-        setSearchas={setSearchas}
-        cartItems={cartItems}
-        addCartItem={addCartItem}
-        fullSum={fullSum}
-      />
-      <Main
-        searchas={searchas}
-        selector={selector}
-        cartItems={cartItems}
-        addCartItem={addCartItem}
-        setCartItems={setCartItems}
-        removeCartItem={removeCartItem}
-        roundNumber={roundNumber}
-        fullSum={fullSum}
-        setFullSum={setFullSum}
-        isValidUrl={isValidUrl}
-      />
-    </div>
+    return (
+
+        <>
+            <Header
+                selector={selector}
+                setSelector={setSelector}
+                searchas={searchas}
+                setSearchas={setSearchas}
+                cartItems={cartItems}
+                addCartItem={addCartItem}
+                fullSum={fullSum}
+            />
+            <Routes>
+                { /* public paths */}
+
+
+                    <Route element={<ProtectedRoute />}>
+                        <Route path='/' element={<Home searchas={searchas} isValidUrl={isValidUrl} />}></Route>
+                    </Route>
+                    
+                
+                    
+                    <Route path='/register' element={<Register></Register>} ></Route>
+                    <Route path='/login' element={<Login></Login>} ></Route>
+
+                    <Route path='/products' element={<Home searchas={searchas} />}></Route>
+                    <Route path='/product/:id' element={<ProductDetails cartItems={cartItems} addCartItem={addCartItem} roundNumber={roundNumber} />}></Route>
+                    <Route path='/orders' element={<Orders />}></Route>
+                    <Route path='/restaurants' element={<Restaurants searchas={searchas} />}></Route>
+                    <Route path='/restaurants/:id' element={<RestaurantDetails />}></Route>
+
+                    <Route path='/addProduct' element={<AddProduct />}></Route>
+
+
+                    <Route path='/profile' element={<Profile />}></Route>
+
+                    <Route element={<ProtectedRoute />}>
+                        <Route path='/shoppingCart' element={<ShoppingCart cartItems={cartItems} setCartItems={setCartItems} addCartItem={addCartItem} removeCartItem={removeCartItem} fullSum={fullSum} setFullSum={setFullSum} />}></Route>
+                    </Route>
+                    
+            </Routes>
+        </>
   );
 };
 

@@ -3,26 +3,90 @@ import { Link } from "react-router-dom";
 
 export const ShoppingCart = (props) => {
 
-  const handleCheckout = () => {
+    const handleCheckout = () => {
+
+        console.log(props.cartItems);
     props.cartItems.map(cartItem=> {
-      fetch('https://localhost:7183/api/pickups/' + cartItem.pickupTime.id,
-      {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-     },
-      body: JSON.stringify(
-        {
-          id: cartItem.pickupTime.id,
-          productId: cartItem.pickupTime.productId,
-          startTime: cartItem.pickupTime.startTime,
-          endTime: cartItem.pickupTime.endTime,
-          status: "taken"
-        }
-      )
-      })
+        fetch('https://localhost:7183/api/pickups/' + cartItem.pickupTime.id,
+            {
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(
+                    {
+                        id: cartItem.pickupTime.id,
+                        productId: cartItem.pickupTime.productId,
+                        startTime: cartItem.pickupTime.startTime,
+                        endTime: cartItem.pickupTime.endTime,
+                        status: "taken"
+                    }
+                )
+            })
+            .then(res => {
+
+                let body = JSON.stringify(
+                    {
+                        status: "awaitingPickup",
+                        sellerId: cartItem.restaurant.id,
+                        BuyerId: "a2e5346e-b246-4578-b5cd-993af7f77d11",
+                        PickupId: cartItem.pickupTime.id,
+                        productId: cartItem.product.id
+                    });
+                console.log(body);
+
+                fetch('https://localhost:7183/api/orders',
+                    {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify(
+                            {
+                                status: "awaitingPickup",
+                                sellerId: cartItem.restaurant.id,
+                                BuyerId: "a2e5346e-b246-4578-b5cd-993af7f77d11",
+                                PickupId: cartItem.pickupTime.id,
+                                productId: cartItem.product.id
+                            }
+                        )
+                        
+                    })
+                    .then(res => {
+                        console.log("fetchinam produkuts " + 'https://localhost:7183/api/products/' + cartItem.product.id);
+                        fetch('https://localhost:7183/api/products/' + cartItem.product.id,
+                            {
+                                method: "PUT",
+                                headers: {
+                                    "Content-Type": "application/json",
+                                },
+                                body: JSON.stringify(
+                                    {
+                                        id: cartItem.product.id,
+                                        name: cartItem.product.name,
+                                        category: cartItem.product.category,
+                                        restaurantId: cartItem.product.restaurantID,
+                                        amountType: cartItem.product.amountType,
+                                        amountPerUnit: cartItem.product.amountPerUnit,
+                                        amountOfUnits: cartItem.product.amountOfUnits - cartItem.unitQuantity,
+                                        price: cartItem.product.price,
+                                        pictureUrl: cartItem.product.pictureUrl,
+                                        shelfLife: cartItem.product.shelfLife,
+                                        description: cartItem.product.description
+                                    }
+                                )
+                            })
+
+                    }
+                    )
+
+            })
+        
     } 
-  )
+      )
+
+  
+
   props.setCartItems([]);
   props.setFullSum(0);
 }

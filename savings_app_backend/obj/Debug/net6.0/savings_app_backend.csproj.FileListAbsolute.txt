@@ -633,3 +633,7 @@ C:\Users\justa\Desktop\savings_application\karoceVaCia\testing_database\savings_
 C:\Users\justa\Desktop\savings_application\karoceVaCia\testing_database\savings_app_backend\bin\Debug\net6.0\SeedData\Data\products.json
 C:\Users\justa\Desktop\savings_application\karoceVaCia\testing_database\savings_app_backend\bin\Debug\net6.0\SeedData\Data\restaurants.json
 C:\Users\justa\Desktop\savings_application\karoceVaCia\testing_database\savings_app_backend\bin\Debug\net6.0\SeedData\Data\users.json
+C:\Users\justa\Desktop\savings_application\karoceVaCia\testing_database\savings_app_backend\bin\Debug\net6.0\SeedData\Data\buyers.json
+C:\Users\justa\Desktop\savings_application\karoceVaCia\testing_database\savings_app_backend\bin\Debug\net6.0\savings_app_backend.staticwebassets.runtime.json
+C:\Users\justa\Desktop\savings_application\karoceVaCia\testing_database\savings_app_backend\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\justa\Desktop\savings_application\karoceVaCia\testing_database\savings_app_backend\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll

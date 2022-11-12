@@ -31,17 +31,5 @@ namespace savings_app_backend.WebSite.Services
 
             return Newtonsoft.Json.JsonConvert.DeserializeObject<Pickup[]>(jsonFile);
         }
-
-        public void UpdatePickup(Pickup pickupToUpdate)
-        {
-            var pickups = GetPickups();
-
-            ((List<Pickup>)pickups).RemoveAll((pickup) => pickup.Id == pickupToUpdate.Id);
-            ((List<Pickup>)pickups).Add(pickupToUpdate);
-
-            var pickupsJson = Newtonsoft.Json.JsonConvert.SerializeObject(pickups, Formatting.Indented);
-
-            File.WriteAllText(JsonFileName, pickupsJson.ToString());
-        }
     }
 }

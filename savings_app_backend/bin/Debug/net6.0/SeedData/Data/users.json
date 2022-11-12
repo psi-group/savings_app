@@ -2,37 +2,51 @@
   {
     "Id": "b603db5e-6f2d-4751-b3d3-d1c864db8016",
     "Password": "aaaaaaa",
-    "Email": "aaaaa@gmail.com",
-    "UserId": "a2e5346e-b246-4578-b5cd-993af7f77d06"
+    "Email": "aaaaa@gmail.com"
   },
   {
     "Id": "ca5dbb9c-60a8-43c5-9da0-a3f0d24e5108",
     "Password": "bbbbbbbbb",
-    "Email": "bbb@gmail.com",
-    "UserId": "fd6ad331-3d86-49d1-a6f7-f4ae85371e97"
+    "Email": "bbb@gmail.com"
   },
   {
     "Id": "b335acb9-985b-47cb-bae5-eb649f3101f6",
     "Password": "USER",
-    "Email": "User1@gmail.com",
-    "UserId": "42fd75ec-1d4d-40ee-ae0a-e3ab79c69f02"
+    "Email": "User1@gmail.com"
   },
   {
     "Id": "fd6ad331-3d86-49d1-a6f7-f4ae85371e97",
     "Password": "qwert",
-    "Email": "TestRest@mail.ru",
-    "UserId": "168cba18-9541-4e71-8e5f-4c78be6a7c2c"
+    "Email": "TestRest@mail.ru"
   },
   {
     "Id": "1163fde0-8dae-458f-8e25-860dda25dd29",
     "Password": "aadsadas",
-    "Email": "asdasd@gmail.com",
-    "UserId": "a2e5346e-b246-4578-b5cd-993af7f77d05"
+    "Email": "asdasd@gmail.com"
+  },
+  {
+    "Id": "42fd75ec-1d4d-40ee-ae0a-e3ab79c69f03",
+    "Password": "a",
+    "Email": "asdasd@gmail.com"
   },
   {
     "Id": "42fd75ec-1d4d-40ee-ae0a-e3ab79c69f02",
     "Password": "a",
-    "Email": "asdasd@gmail.com",
-    "UserId": "39392fad-a761-45c1-89b9-3d26f6ac96e2"
+    "Email": "asdasd@gmail.com"
+  },
+  {
+    "Id": "42fd75ec-1d4d-40ee-ae0a-e3ab79c69f04",
+    "Password": "a",
+    "Email": "asdasd@gmail.com"
+  },
+  {
+    "Id": "42fd75ec-1d4d-40ee-ae0a-e3ab79c69f05",
+    "Password": "a",
+    "Email": "asdasd@gmail.com"
+  },
+  {
+    "Id": "42fd75ec-1d4d-40ee-ae0a-e3ab79c69f06",
+    "Password": "a",
+    "Email": "asdasd@gmail.com"
   }
 ]

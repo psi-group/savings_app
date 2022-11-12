@@ -20,47 +20,12 @@ namespace savings_app_backend.WebSite.Services
             get { return WebHostEnvironment.ContentRootPath + "\\" + "SeedData\\data" + "\\" +  "users.json"; }
         }
 
-        public IEnumerable<UserAuth> GetUserAuth()
+        public IEnumerable<UserAuth> GetUserAuths()
         {
             var jsonFile = File.ReadAllText(JsonFileName);
 
             return Newtonsoft.Json.JsonConvert.DeserializeObject<UserAuth[]>(jsonFile);
         }
 
-        /*public bool DoesUserAlreadyExists(User userToRegister)
-        {
-            var users = GetUsers();
-
-            foreach (User user in users)
-            {
-                if (user.Email == userToRegister.Email)
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
-        public bool RegisterUser(User userToRegister)
-        {
-
-            userToRegister.Id = Guid.NewGuid();
-
-
-            IEnumerable<User> users = GetUsers();
-            users = users.Concat(new[] { userToRegister });
-
-            var usersJson = Newtonsoft.Json.JsonConvert.SerializeObject(users, Formatting.Indented);
-
-            File.WriteAllText(JsonFileName, usersJson.ToString());
-
-            return true;
-        }*/
-
-        /*public User GetById(Guid id)
-        {
-            var users = GetUsers();
-
-            return users.SingleOrDefault(r => r.Id == id);
-        }*/
     }
 }

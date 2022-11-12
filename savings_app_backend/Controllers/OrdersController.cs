@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using savings_app_backend.Models;
 using savings_app_backend.Models.Entities;
+using savings_app_backend.Models.Enums;
 
 namespace savings_app_backend.Controllers
 {
@@ -23,16 +24,16 @@ namespace savings_app_backend.Controllers
 
         // GET: api/Orders
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Order>>> GetOrder()
+        public async Task<ActionResult<IEnumerable<Order>>> GetOrders()
         {
-            return await _context.Order.ToListAsync();
+            return await _context.Orders.ToListAsync();
         }
 
         [HttpGet("user/{userId}")]
-        public async Task<ActionResult<IEnumerable<Order>>> GetUserOrder(Guid userId)
+        public async Task<ActionResult<IEnumerable<Order>>> GetUserOrders(Guid userId)
         {
-            return await _context.Order
-                .Where((order) => order.buyerId == userId)
+            return await _context.Orders
+                .Where((order) => order.BuyerId == userId)
                 .ToListAsync();
         }
 
@@ -40,7 +41,7 @@ namespace savings_app_backend.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Order>> GetOrder(Guid id)
         {
-            var order = await _context.Order.FindAsync(id);
+            var order = await _context.Orders.FindAsync(id);
 
             if (order == null)
             {
@@ -84,10 +85,15 @@ namespace savings_app_backend.Controllers
         // POST: api/Orders
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Order>> PostOrder(Order order)
+        public async Task<ActionResult<Order>> PostOrder([FromBody] Order order)
         {
-            _context.Order.Add(order);
-            await _context.SaveChangesAsync();
+            order.Id = Guid.NewGuid();
+            order.Status = OrderStatus.Cancelled;
+            var add = await  _context.Orders.AddAsync(order);
+            var save = await _context.SaveChangesAsync();
+            var hello = 5;
+            // DOESNT WORK WHEN DOING CHECKOUT SECOND TIME
+            // CRASHES AFTER THIS LINE
 
             return CreatedAtAction("GetOrder", new { id = order.Id }, order);
         }
@@ -96,13 +102,13 @@ namespace savings_app_backend.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteOrder(Guid id)
         {
-            var order = await _context.Order.FindAsync(id);
+            var order = await _context.Orders.FindAsync(id);
             if (order == null)
             {
                 return NotFound();
             }
 
-            _context.Order.Remove(order);
+            _context.Orders.Remove(order);
             await _context.SaveChangesAsync();
 
             return NoContent();
@@ -110,7 +116,7 @@ namespace savings_app_backend.Controllers
 
         private bool OrderExists(Guid id)
         {
-            return _context.Order.Any(e => e.Id == id);
+            return _context.Orders.Any(e => e.Id == id);
         }
     }
 }
