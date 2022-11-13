@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "UOkMCar/CJmJA/bG+rqSuQZ4RUsJKchNtsenZYYUU6s=",
+  "Hash": "7NpWZMt30xOSG/R+18off8VGylEpPrEtIDD/wz5etnE=",
   "Source": "savings_app_backend",
   "BasePath": "_content/savings_app_backend",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "savings_app_backend\\wwwroot",
       "Source": "savings_app_backend",
-      "ContentRoot": "C:\\Users\\justa\\Desktop\\savings_application\\karoceVaCia\\testing_database\\savings_app_backend\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Medas\\Desktop\\repos\\savings_app\\savings_app_backend\\wwwroot\\",
       "BasePath": "_content/savings_app_backend",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\justa\\Desktop\\savings_application\\karoceVaCia\\testing_database\\savings_app_backend\\wwwroot\\images\\16716d78-6eac-4e57-bb2a-51745cce5c34.jpg",
+      "Identity": "C:\\Users\\Medas\\Desktop\\repos\\savings_app\\savings_app_backend\\wwwroot\\images\\16716d78-6eac-4e57-bb2a-51745cce5c34.jpg",
       "SourceId": "savings_app_backend",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\justa\\Desktop\\savings_application\\karoceVaCia\\testing_database\\savings_app_backend\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Medas\\Desktop\\repos\\savings_app\\savings_app_backend\\wwwroot\\",
       "BasePath": "_content/savings_app_backend",
       "RelativePath": "images/16716d78-6eac-4e57-bb2a-51745cce5c34.jpg",
       "AssetKind": "All",
@@ -34,10 +34,10 @@
       "OriginalItemSpec": "wwwroot\\images\\16716d78-6eac-4e57-bb2a-51745cce5c34.jpg"
     },
     {
-      "Identity": "C:\\Users\\justa\\Desktop\\savings_application\\karoceVaCia\\testing_database\\savings_app_backend\\wwwroot\\images\\60fc473e-9603-4aa6-855b-51378f799a4a.jpg",
+      "Identity": "C:\\Users\\Medas\\Desktop\\repos\\savings_app\\savings_app_backend\\wwwroot\\images\\60fc473e-9603-4aa6-855b-51378f799a4a.jpg",
       "SourceId": "savings_app_backend",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\justa\\Desktop\\savings_application\\karoceVaCia\\testing_database\\savings_app_backend\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Medas\\Desktop\\repos\\savings_app\\savings_app_backend\\wwwroot\\",
       "BasePath": "_content/savings_app_backend",
       "RelativePath": "images/60fc473e-9603-4aa6-855b-51378f799a4a.jpg",
       "AssetKind": "All",
@@ -51,10 +51,10 @@
       "OriginalItemSpec": "wwwroot\\images\\60fc473e-9603-4aa6-855b-51378f799a4a.jpg"
     },
     {
-      "Identity": "C:\\Users\\justa\\Desktop\\savings_application\\karoceVaCia\\testing_database\\savings_app_backend\\wwwroot\\images\\mcdonalds.jpg",
+      "Identity": "C:\\Users\\Medas\\Desktop\\repos\\savings_app\\savings_app_backend\\wwwroot\\images\\mcdonalds.jpg",
       "SourceId": "savings_app_backend",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\justa\\Desktop\\savings_application\\karoceVaCia\\testing_database\\savings_app_backend\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Medas\\Desktop\\repos\\savings_app\\savings_app_backend\\wwwroot\\",
       "BasePath": "_content/savings_app_backend",
       "RelativePath": "images/mcdonalds.jpg",
       "AssetKind": "All",

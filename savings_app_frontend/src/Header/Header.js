@@ -4,10 +4,6 @@ import { Link } from "react-router-dom";
 const Header = (props) => {
   return (
     <header>
-      <div className="nav-area ">
-        <Link to="/" className="logo">
-          Logo
-        </Link>
         <Navbar
           
           selector={props.selector}
@@ -17,7 +13,6 @@ const Header = (props) => {
           cartItems={props.cartItems}
           fullSum={props.fullSum}
         />
-      </div>
     </header>
   );
 };
