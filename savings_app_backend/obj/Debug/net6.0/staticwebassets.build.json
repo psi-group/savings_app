@@ -1,6 +1,14 @@
 {
   "Version": 1,
+<<<<<<< HEAD
   "Hash": "+IrTaFCawMOKK3fFvqZSkQbTMWOVi6y9k4m82MdQ/xQ=",
+=======
+<<<<<<< HEAD
+  "Hash": "70XvEXTusA1EUS4ChJntDfdXaAA/VRndbInDEIwccF0=",
+=======
+  "Hash": "sp5iwz6rJtP48TinqxtoC7ZlWZdj+7R+DDfIweE4PYY=",
+>>>>>>> main
+>>>>>>> ec9fb14ea3fbf24c8c38f643349c96ceba19bd3b
   "Source": "savings_app_backend",
   "BasePath": "_content/savings_app_backend",
   "Mode": "Default",
@@ -51,7 +59,32 @@
       "OriginalItemSpec": "wwwroot\\productImg\\3508b85a-3b6c-457c-a82d-91b8f2d85018.jpg"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Users\\Medas\\Documents\\Repositories\\savings_app\\savings_app_backend\\wwwroot\\productImg\\3d1d8f70-8ae8-45fd-88d8-76aa8d631704.jpg",
+=======
+<<<<<<< HEAD
+      "Identity": "C:\\Users\\Medas\\Desktop\\repos\\savings_app\\savings_app_backend\\wwwroot\\images\\be962e5b-b775-4be5-b436-1f0709e1a254.jpg",
+      "SourceId": "savings_app_backend",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Medas\\Desktop\\repos\\savings_app\\savings_app_backend\\wwwroot\\",
+      "BasePath": "_content/savings_app_backend",
+      "RelativePath": "images/be962e5b-b775-4be5-b436-1f0709e1a254.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\be962e5b-b775-4be5-b436-1f0709e1a254.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Medas\\Desktop\\repos\\savings_app\\savings_app_backend\\wwwroot\\images\\mcdonalds.jpg",
+=======
+      "Identity": "C:\\Users\\justa\\Desktop\\savings_application\\lol\\savings_app\\savings_app_backend\\wwwroot\\productImg\\3d1d8f70-8ae8-45fd-88d8-76aa8d631704.jpg",
+>>>>>>> main
+>>>>>>> ec9fb14ea3fbf24c8c38f643349c96ceba19bd3b
       "SourceId": "savings_app_backend",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Medas\\Documents\\Repositories\\savings_app\\savings_app_backend\\wwwroot\\",

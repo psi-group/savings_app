@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ShoppingCart from "../img/shopping-cart.png";
 import { Link } from "react-router-dom";
@@ -16,6 +16,7 @@ const Navbar = (props) => {
 
   const isRestaurant = useIsRestaurant();
 
+  const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false);
   const [showCart, setShowCart] = React.useState(false);
   //const [isRestaurant, setIsRestaurant] = React.useState(false);
   const { auth } = useContext(AuthContext);
@@ -46,18 +47,28 @@ const Navbar = (props) => {
         />
         <MenuItems />
       </div>
-
       {useValidateJWT() ? (
         <>
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-20">
             <div>
-              <button onClick={(e) => navigate("/profile")}>
+              <button
+                onClick={() => setIsProfileDropdownOpen(!isProfileDropdownOpen)}
+              >
                 Hello {getName(localStorage.getItem("token"))}
               </button>
             </div>
-            <div>
-              <button onClick={handleLogout}>Log Out</button>
-            </div>
+            {isProfileDropdownOpen && (
+              <div className="w-72 bg-slate-800 border-4 border-black font-bold text-white absolute top-20 right-10 rounded-md flex flex-col flex-grow">
+                <button className=" border-b-2 h-14 hover:bg-slate-700">
+                  My Orders
+                </button>
+                <button className=" border-b-2 h-14 hover:bg-slate-700" onClick={(e) => navigate("/profile")}>
+                  My Profile
+                </button>
+                <button className=" h-14 hover:bg-slate-700" onClick={handleLogout}>Log Out</button>
+              </div>
+            )}
+            
 
             {!isRestaurant ? (
               <div className="w-12 h-12 p-1.5 right-3 top-2 hover:bg-sky-100 hover:rounded-full">
