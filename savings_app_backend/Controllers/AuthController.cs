@@ -208,7 +208,7 @@ namespace savings_app_backend.Controllers
             {
                 new Claim(ClaimTypes.NameIdentifier, user.Name),
                 //new Claim(ClaimTypes.Email, user.UserAuth.Email),
-                
+                new Claim("Id", user.Id.ToString()),
                 new Claim(ClaimTypes.Role, role)
             };
 
@@ -249,7 +249,7 @@ namespace savings_app_backend.Controllers
         [NonAction]
         private async void SaveImage(IFormFile imageFile, string imageName)
         {
-            var imagePath = Path.Combine(_webHostEnvironment.ContentRootPath, "wwwroot", "images", imageName);
+            var imagePath = System.IO.Path.Combine(_webHostEnvironment.ContentRootPath, "wwwroot", "userImg", imageName);
             using (var fileStream = new FileStream(imagePath, FileMode.Create))
             {
                 await imageFile.CopyToAsync(fileStream);

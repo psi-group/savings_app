@@ -2,7 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Security.Claims;
+using System.Security.Principal;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -17,10 +21,12 @@ namespace savings_app_backend.Controllers
     public class ProductsController : ControllerBase
     {
         private readonly savingsAppContext _context;
+        private readonly IWebHostEnvironment _webHostEnvironment;
 
-        public ProductsController(savingsAppContext context)
+        public ProductsController(savingsAppContext context, IWebHostEnvironment webHostEnvironment)
         {
             _context = context;
+            _webHostEnvironment = webHostEnvironment;
         }
 
         // GET: api/ProductContr
@@ -140,12 +146,56 @@ namespace savings_app_backend.Controllers
         // POST: api/ProductContr
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Product>> PostProduct(Product product)
+        //[Authorize(Roles = "buyer")]
+        public async Task<ActionResult<Product>> PostProduct([FromForm] Product product)
         {
+            var date = new DateTime().ToString();
+
+            product.Id = Guid.NewGuid();
+
+            if(product.Pickups != null)
+            {
+                foreach (var pickup in product.Pickups)
+                {
+                    pickup.Id = Guid.NewGuid();
+                    pickup.ProductId = product.Id;
+                    pickup.status = PickupStatus.Available;
+                    _context.Pickups.Add(pickup);
+                }
+            }
+
+
+
+
+            /*var identity = HttpContext.User.Identity as ClaimsIdentity;
+            if (identity != null)
+            {
+                IEnumerable<Claim> claims = identity.Claims;
+                // or
+                product.RestaurantID = Guid.Parse(identity.FindFirst("Id").Value);
+
+            }*/
+
+            product.RestaurantID = Guid.Parse("54ab816e-1e45-4ece-ad31-7f839129c22c");
+
+            var imageName = product.Id.ToString() + ".jpg";
+            SaveImage(product.ImageFile, imageName);
+            product.ImageName = imageName;
+
             _context.Products.Add(product);
             await _context.SaveChangesAsync();
-
+            
             return CreatedAtAction("GetProduct", new { id = product.Id }, product);
+        }
+
+        [NonAction]
+        private async void SaveImage(IFormFile imageFile, string imageName)
+        {
+            var imagePath = System.IO.Path.Combine(_webHostEnvironment.ContentRootPath, "wwwroot",  "productImg", imageName);
+            using (var fileStream = new FileStream(imagePath, FileMode.Create))
+            {
+                await imageFile.CopyToAsync(fileStream);
+            }
         }
 
         // DELETE: api/ProductContr/5

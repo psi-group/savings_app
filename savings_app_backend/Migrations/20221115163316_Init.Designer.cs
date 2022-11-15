@@ -12,7 +12,7 @@ using savings_app_backend.Models;
 namespace savings_app_backend.Migrations
 {
     [DbContext(typeof(savingsAppContext))]
-    [Migration("20221031130816_Init")]
+    [Migration("20221115163316_Init")]
     partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -65,11 +65,10 @@ namespace savings_app_backend.Migrations
                     b.Property<Guid>("AddressId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("Name")
-                        .IsRequired()
+                    b.Property<string>("ImageName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Picture")
+                    b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<Guid>("UserAuthId")
@@ -126,7 +125,7 @@ namespace savings_app_backend.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("ProductId")
+                    b.Property<Guid>("ProductId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("endTime")
@@ -136,7 +135,6 @@ namespace savings_app_backend.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("status")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -167,13 +165,12 @@ namespace savings_app_backend.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Description")
-                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageName")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PictureURL")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<float>("Price")
@@ -202,28 +199,24 @@ namespace savings_app_backend.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Description")
-                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageName")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("Open")
+                    b.Property<bool?>("Open")
                         .HasColumnType("bit");
 
-                    b.Property<string>("Picture")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<double>("Rating")
+                    b.Property<double?>("Rating")
                         .HasColumnType("float");
 
                     b.Property<string>("ShortDescription")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("SiteRef")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<Guid>("UserAuthId")
@@ -289,7 +282,7 @@ namespace savings_app_backend.Migrations
                     b.HasOne("savings_app_backend.Models.Entities.Pickup", "Pickup")
                         .WithOne()
                         .HasForeignKey("savings_app_backend.Models.Entities.Order", "PickupId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("savings_app_backend.Models.Entities.Restaurant", "Restaurant")
@@ -309,7 +302,9 @@ namespace savings_app_backend.Migrations
                 {
                     b.HasOne("savings_app_backend.Models.Entities.Product", null)
                         .WithMany("Pickups")
-                        .HasForeignKey("ProductId");
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("savings_app_backend.Models.Entities.Product", b =>
