@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
+import { useLocation } from "react-router-dom";
 
 import searchIcon from "../img/searchIcon.png";
 
 export const Searchbar = (props) => {
+  const location = useLocation();
+  const searchInputRef = useRef(null);
+
+  useEffect(() => {
+    searchInputRef.current.value = "";
+  }, [location]);
+
   function setSearch() {
     let value = document.getElementById("search").value;
     props.setSearchas(value);
@@ -40,6 +48,7 @@ export const Searchbar = (props) => {
         type="text"
         id="search"
         placeholder="Search"
+        ref={searchInputRef}
       />
       <img src={searchIcon} className="w-5 h-5" onClick={setSearch} />
     </div>
