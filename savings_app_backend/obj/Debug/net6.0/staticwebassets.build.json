@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "7NpWZMt30xOSG/R+18off8VGylEpPrEtIDD/wz5etnE=",
+  "Hash": "70XvEXTusA1EUS4ChJntDfdXaAA/VRndbInDEIwccF0=",
   "Source": "savings_app_backend",
   "BasePath": "_content/savings_app_backend",
   "Mode": "Default",
@@ -49,6 +49,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\60fc473e-9603-4aa6-855b-51378f799a4a.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Medas\\Desktop\\repos\\savings_app\\savings_app_backend\\wwwroot\\images\\be962e5b-b775-4be5-b436-1f0709e1a254.jpg",
+      "SourceId": "savings_app_backend",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Medas\\Desktop\\repos\\savings_app\\savings_app_backend\\wwwroot\\",
+      "BasePath": "_content/savings_app_backend",
+      "RelativePath": "images/be962e5b-b775-4be5-b436-1f0709e1a254.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\be962e5b-b775-4be5-b436-1f0709e1a254.jpg"
     },
     {
       "Identity": "C:\\Users\\Medas\\Desktop\\repos\\savings_app\\savings_app_backend\\wwwroot\\images\\mcdonalds.jpg",
