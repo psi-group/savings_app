@@ -123,7 +123,7 @@ namespace savings_app_backend.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("ProductId")
+                    b.Property<Guid>("ProductId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("endTime")
@@ -133,7 +133,6 @@ namespace savings_app_backend.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("status")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -164,13 +163,12 @@ namespace savings_app_backend.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Description")
-                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageName")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PictureURL")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<float>("Price")
@@ -282,7 +280,7 @@ namespace savings_app_backend.Migrations
                     b.HasOne("savings_app_backend.Models.Entities.Pickup", "Pickup")
                         .WithOne()
                         .HasForeignKey("savings_app_backend.Models.Entities.Order", "PickupId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("savings_app_backend.Models.Entities.Restaurant", "Restaurant")
@@ -302,7 +300,9 @@ namespace savings_app_backend.Migrations
                 {
                     b.HasOne("savings_app_backend.Models.Entities.Product", null)
                         .WithMany("Pickups")
-                        .HasForeignKey("ProductId");
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("savings_app_backend.Models.Entities.Product", b =>

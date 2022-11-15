@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json.Converters;
 using savings_app_backend.Models.Enums;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
@@ -32,7 +33,10 @@ namespace savings_app_backend.Models.Entities
 
         public float Price { get; set; }
 
-        public string? PictureURL { get; set; }
+        public string? ImageName { get; set; }
+
+        [NotMapped]
+        public IFormFile? ImageFile { get; set; }
 
         public DateTime ShelfLife { get; set; }
 

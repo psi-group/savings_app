@@ -7,12 +7,12 @@ namespace savings_app_backend.Models.Entities
     public class Pickup
     {
         public Guid Id { get; set; }
-        public Guid? ProductId { get; set; }
+        public Guid ProductId { get; set; }
         public DateTime startTime { get; set; }
         public DateTime endTime { get; set; }
 
         [JsonConverter(typeof(JsonStringEnumConverter))]
         [EnumDataType(typeof(PickupStatus))]
-        public PickupStatus status { get; set; }
+        public PickupStatus? status { get; set; }
     }
 }

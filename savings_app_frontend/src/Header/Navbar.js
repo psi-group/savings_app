@@ -11,6 +11,9 @@ import { Searchbar } from "./Searchbar";
 import MenuItems from "./MenuItems";
 
 const Navbar = (props) => {
+
+    console.log("navbar");
+
   const isRestaurant = useIsRestaurant();
 
   const [showCart, setShowCart] = React.useState(false);

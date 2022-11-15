@@ -75,7 +75,8 @@ namespace savings_app_backend.Models
             modelBuilder.Entity<Order>()
                 .HasOne(o => o.Pickup)
                 .WithOne()
-                .HasForeignKey<Order>(o => o.PickupId);
+                .HasForeignKey<Order>(o => o.PickupId)
+                .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<Restaurant>()
                 .HasOne(o => o.Address)
