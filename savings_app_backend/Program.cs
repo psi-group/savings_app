@@ -1,6 +1,14 @@
 using savings_app_backend.WebSite.Services;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using savings_app_backend.Models;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<savingsAppContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("savingsAppContext") ?? throw new InvalidOperationException("Connection string 'savingsAppContext' not found.")));
 
 // Add services to the container.
 
@@ -10,10 +18,11 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddTransient<DataAccessServiceProducts>();
 builder.Services.AddTransient<DataAccessServiceRestaurants>();
-builder.Services.AddTransient<DataAccessServiceCategories>();
 builder.Services.AddTransient<DataAccessServiceOrders>();
 builder.Services.AddTransient<DataAccessServicePickups>();
-builder.Services.AddTransient<DataAccessServiceUsers>();
+builder.Services.AddTransient<DataAccessServiceUserAuth>();
+builder.Services.AddTransient<DataAccessServiceBuyers>();
+
 
 
 builder.Services.AddCors(options =>
@@ -28,6 +37,23 @@ builder.Services.AddCors(options =>
                       });
 });
 
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options =>
+    {
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuer = true,
+            ValidateAudience = true,
+            ValidateLifetime = true,
+            ValidateIssuerSigningKey = true,
+            ValidIssuer = builder.Configuration["Jwt:Issuer"],
+            ValidAudience = builder.Configuration["Jwt:Audience"],
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
+        };
+    });
+
+
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -40,12 +66,22 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+
 app.UseHttpsRedirection();
+
+app.UseStaticFiles();
+
+app.UseCors(MyAllowSpecificOrigins);
+
+app.UseAuthentication();
 
 app.UseAuthorization();
 
 app.MapControllers();
 
-app.UseCors(MyAllowSpecificOrigins);
+
+
+
+
 
 app.Run();

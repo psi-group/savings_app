@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import "./App.css";
-import SearchAndDisplay from "./SearchAndDisplay";
-import SortButton from "./SortButton";
+import SearchAndDisplay from "./Search/SearchAndDisplay";
+import SortButton from "./Common/SortButton";
 
 function Home (props)  {
 
@@ -18,13 +18,12 @@ function Home (props)  {
                     <div>
 
                     <SortButton setSorting={setSorting }></SortButton>
-                    <SearchAndDisplay searchas={props.searchas} products={products} sorting={sorting }/>
+                    <SearchAndDisplay searchas={props.searchas} products={products} sorting={sorting } isValidUrl={props.isValidUrl}/>
 
                     </div>
 
                 </div>
         );
-        console.log("end of rendering helper");
     }
 
     React.useEffect(() => {

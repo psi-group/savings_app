@@ -1,6 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using savings_app_backend.Models;
-using savings_app_backend.WebSite.Services;
+using savings_app_backend.Models.Entities;
 
 namespace savings_app_backend.Controllers
 {
@@ -8,30 +14,103 @@ namespace savings_app_backend.Controllers
     [ApiController]
     public class RestaurantsController : ControllerBase
     {
-        private readonly DataAccessServiceRestaurants _dataAccessService;
-        public RestaurantsController(DataAccessServiceRestaurants dataAccessService)
+        private readonly savingsAppContext _context;
+
+        public RestaurantsController(savingsAppContext context)
         {
-            _dataAccessService = dataAccessService;
+            _context = context;
         }
 
+        // GET: api/Restaurants
         [HttpGet]
-        public IEnumerable<Restaurant> Get()
+        public async Task<ActionResult<IEnumerable<Restaurant>>> GetRestaurants()
         {
-            return _dataAccessService.GetRestaurants();
+            return await _context.Restaurants.ToListAsync();
         }
 
-        [HttpGet]
-        [Route("filter")]
-        public IEnumerable<Restaurant> Get([FromQuery] string? search)
+        [HttpGet("filter")]
+        public async Task<ActionResult<IEnumerable<Restaurant>>> GetFilteredRestaurant([FromQuery] string? search)
         {
-            return _dataAccessService.GetWithSearch(search);
+            return await _context.Restaurants
+                .Where((restaurant) => String.IsNullOrEmpty(search) || restaurant.Name.ToLower().Contains(search.ToLower()))
+                .ToListAsync();
         }
 
-
+        // GET: api/Restaurants/5
         [HttpGet("{id}")]
-        public Restaurant GetByID(Guid id)
+        public async Task<ActionResult<Restaurant>> GetRestaurant(Guid id)
         {
-            return _dataAccessService.GetById(id);
+            var restaurant = await _context.Restaurants.FindAsync(id);
+
+            if (restaurant == null)
+            {
+                return NotFound();
+            }
+
+            return restaurant;
+        }
+
+        // PUT: api/Restaurants/5
+        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        [HttpPut("{id}")]
+        public async Task<IActionResult> PutRestaurant(Guid id, Restaurant restaurant)
+        {
+            if (id != restaurant.Id)
+            {
+                return BadRequest();
+            }
+
+            _context.Entry(restaurant).State = EntityState.Modified;
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!RestaurantExists(id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return NoContent();
+        }
+
+        // POST: api/Restaurants
+        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        [HttpPost]
+        public async Task<ActionResult<Restaurant>> PostRestaurant(Restaurant restaurant)
+        {
+            _context.Restaurants.Add(restaurant);
+            await _context.SaveChangesAsync();
+
+            return CreatedAtAction("GetRestaurant", new { id = restaurant.Id }, restaurant);
+        }
+
+        // DELETE: api/Restaurants/5
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteRestaurant(Guid id)
+        {
+            var restaurant = await _context.Restaurants.FindAsync(id);
+            if (restaurant == null)
+            {
+                return NotFound();
+            }
+
+            _context.Restaurants.Remove(restaurant);
+            await _context.SaveChangesAsync();
+
+            return NoContent();
+        }
+
+        private bool RestaurantExists(Guid id)
+        {
+            return _context.Restaurants.Any(e => e.Id == id);
         }
     }
 }
