@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\savings_app_backend.props" />
+</Project>

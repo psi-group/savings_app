@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Medas\\Documents\\Repositories\\savings_app\\savings_app_backend\\savings_app_backend.csproj": {}
+    "D:\\Ps_project_1\\savings_app\\savings_app_backend\\savings_app_backend.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Medas\\Documents\\Repositories\\savings_app\\savings_app_backend\\savings_app_backend.csproj": {
+    "D:\\Ps_project_1\\savings_app\\savings_app_backend\\savings_app_backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Medas\\Documents\\Repositories\\savings_app\\savings_app_backend\\savings_app_backend.csproj",
+        "projectUniqueName": "D:\\Ps_project_1\\savings_app\\savings_app_backend\\savings_app_backend.csproj",
         "projectName": "savings_app_backend",
-        "projectPath": "C:\\Users\\Medas\\Documents\\Repositories\\savings_app\\savings_app_backend\\savings_app_backend.csproj",
-        "packagesPath": "C:\\Users\\Medas\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Medas\\Documents\\Repositories\\savings_app\\savings_app_backend\\obj\\",
+        "projectPath": "D:\\Ps_project_1\\savings_app\\savings_app_backend\\savings_app_backend.csproj",
+        "packagesPath": "C:\\Users\\NGTV\\.nuget\\packages\\",
+        "outputPath": "D:\\Ps_project_1\\savings_app\\savings_app_backend\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Medas\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\NGTV\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -102,7 +106,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

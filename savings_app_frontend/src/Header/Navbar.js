@@ -6,7 +6,7 @@ import AuthContext from "../AuthProvider";
 import { useContext } from "react";
 import useValidateJWT from "../Hooks/useValidateJWT";
 import useIsRestaurant from "../Hooks/useIsRestaurant";
-
+import logo from "../img/logo.png"
 import { Searchbar } from "./Searchbar";
 import MenuItems from "./MenuItems";
 
@@ -36,8 +36,8 @@ const Navbar = (props) => {
 
   return (
     <div className="flex py-3 px-3 justify-between items-center w-full">
-      <Link to="/" className="logo">
-        Logo
+          <Link to="/" className="logo">
+              <img width="55" src={logo} />
       </Link>
       <div className="hidden lg:flex lg:gap-5">
         <Searchbar
