@@ -1,3 +1,4 @@
+C:\Users\justa\Desktop\APPAS\savings_app\savings_app_backend\bin\Debug\net6.0\nlog.config
 C:\Users\justa\Desktop\APPAS\savings_app\savings_app_backend\bin\Debug\net6.0\appsettings.Development.json
 C:\Users\justa\Desktop\APPAS\savings_app\savings_app_backend\bin\Debug\net6.0\appsettings.json
 C:\Users\justa\Desktop\APPAS\savings_app\savings_app_backend\bin\Debug\net6.0\savings_app_backend.staticwebassets.runtime.json
@@ -7,6 +8,7 @@ C:\Users\justa\Desktop\APPAS\savings_app\savings_app_backend\bin\Debug\net6.0\sa
 C:\Users\justa\Desktop\APPAS\savings_app\savings_app_backend\bin\Debug\net6.0\savings_app_backend.dll
 C:\Users\justa\Desktop\APPAS\savings_app\savings_app_backend\bin\Debug\net6.0\savings_app_backend.pdb
 C:\Users\justa\Desktop\APPAS\savings_app\savings_app_backend\bin\Debug\net6.0\Humanizer.dll
+C:\Users\justa\Desktop\APPAS\savings_app\savings_app_backend\bin\Debug\net6.0\MailKit.dll
 C:\Users\justa\Desktop\APPAS\savings_app\savings_app_backend\bin\Debug\net6.0\MessagePack.dll
 C:\Users\justa\Desktop\APPAS\savings_app\savings_app_backend\bin\Debug\net6.0\MessagePack.Annotations.dll
 C:\Users\justa\Desktop\APPAS\savings_app\savings_app_backend\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
@@ -59,8 +61,12 @@ C:\Users\justa\Desktop\APPAS\savings_app\savings_app_backend\bin\Debug\net6.0\Mi
 C:\Users\justa\Desktop\APPAS\savings_app\savings_app_backend\bin\Debug\net6.0\Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll
 C:\Users\justa\Desktop\APPAS\savings_app\savings_app_backend\bin\Debug\net6.0\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
 C:\Users\justa\Desktop\APPAS\savings_app\savings_app_backend\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\justa\Desktop\APPAS\savings_app\savings_app_backend\bin\Debug\net6.0\MimeKit.dll
 C:\Users\justa\Desktop\APPAS\savings_app\savings_app_backend\bin\Debug\net6.0\Newtonsoft.Json.dll
 C:\Users\justa\Desktop\APPAS\savings_app\savings_app_backend\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
+C:\Users\justa\Desktop\APPAS\savings_app\savings_app_backend\bin\Debug\net6.0\NLog.dll
+C:\Users\justa\Desktop\APPAS\savings_app\savings_app_backend\bin\Debug\net6.0\NLog.Extensions.Logging.dll
+C:\Users\justa\Desktop\APPAS\savings_app\savings_app_backend\bin\Debug\net6.0\NLog.Web.AspNetCore.dll
 C:\Users\justa\Desktop\APPAS\savings_app\savings_app_backend\bin\Debug\net6.0\NuGet.Common.dll
 C:\Users\justa\Desktop\APPAS\savings_app\savings_app_backend\bin\Debug\net6.0\NuGet.Configuration.dll
 C:\Users\justa\Desktop\APPAS\savings_app\savings_app_backend\bin\Debug\net6.0\NuGet.DependencyResolver.Core.dll
@@ -70,6 +76,7 @@ C:\Users\justa\Desktop\APPAS\savings_app\savings_app_backend\bin\Debug\net6.0\Nu
 C:\Users\justa\Desktop\APPAS\savings_app\savings_app_backend\bin\Debug\net6.0\NuGet.ProjectModel.dll
 C:\Users\justa\Desktop\APPAS\savings_app\savings_app_backend\bin\Debug\net6.0\NuGet.Protocol.dll
 C:\Users\justa\Desktop\APPAS\savings_app\savings_app_backend\bin\Debug\net6.0\NuGet.Versioning.dll
+C:\Users\justa\Desktop\APPAS\savings_app\savings_app_backend\bin\Debug\net6.0\BouncyCastle.Crypto.dll
 C:\Users\justa\Desktop\APPAS\savings_app\savings_app_backend\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\justa\Desktop\APPAS\savings_app\savings_app_backend\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\justa\Desktop\APPAS\savings_app\savings_app_backend\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
@@ -269,10 +276,3 @@ C:\Users\justa\Desktop\APPAS\savings_app\savings_app_backend\obj\Debug\net6.0\re
 C:\Users\justa\Desktop\APPAS\savings_app\savings_app_backend\obj\Debug\net6.0\savings_app_backend.pdb
 C:\Users\justa\Desktop\APPAS\savings_app\savings_app_backend\obj\Debug\net6.0\savings_app_backend.genruntimeconfig.cache
 C:\Users\justa\Desktop\APPAS\savings_app\savings_app_backend\obj\Debug\net6.0\ref\savings_app_backend.dll
-C:\Users\justa\Desktop\APPAS\savings_app\savings_app_backend\bin\Debug\net6.0\MailKit.dll
-C:\Users\justa\Desktop\APPAS\savings_app\savings_app_backend\bin\Debug\net6.0\MimeKit.dll
-C:\Users\justa\Desktop\APPAS\savings_app\savings_app_backend\bin\Debug\net6.0\BouncyCastle.Crypto.dll
-C:\Users\justa\Desktop\APPAS\savings_app\savings_app_backend\bin\Debug\net6.0\nlog.config
-C:\Users\justa\Desktop\APPAS\savings_app\savings_app_backend\bin\Debug\net6.0\NLog.dll
-C:\Users\justa\Desktop\APPAS\savings_app\savings_app_backend\bin\Debug\net6.0\NLog.Extensions.Logging.dll
-C:\Users\justa\Desktop\APPAS\savings_app\savings_app_backend\bin\Debug\net6.0\NLog.Web.AspNetCore.dll

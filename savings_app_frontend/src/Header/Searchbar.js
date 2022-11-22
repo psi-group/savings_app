@@ -34,17 +34,17 @@ export const Searchbar = (props) => {
     props.setSelector(text);
   }
   return (
-    <div className="flex items-center rounded-xl bg-slate-300 border-1 px-3 py-1">
+    <div className="flex items-center rounded-xl bg-white border-1 border-sky-500 px-3 py-2 w-[50%]">
       <select
         id="selector"
-        className="text-center border-r-4 h-full border-transparent font-bold focus:outline-none outline-none bg-slate-300"
+        className="text-center text-sky-500 border-r-4 h-full border-transparent font-bold focus:outline-none outline-none"
         onChange={setSelect}
       >
         <option>Products</option>
         <option>Restaurants</option>
       </select>
       <input
-        className="bg-transparent focus:outline-none w-full"
+        className="bg-transparent focus:outline-none w-full text-black"
         type="text"
         id="search"
         placeholder="Search"
