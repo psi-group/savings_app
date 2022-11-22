@@ -22,9 +22,9 @@ namespace savings_app_backend.Controllers
     [ApiController]
     public class PathFinderController : ControllerBase
     {
-        private readonly savingsAppContext _context;
+        private readonly SavingsAppContext _context;
 
-        public PathFinderController(savingsAppContext context)
+        public PathFinderController(SavingsAppContext context)
         {
             _context = context;
         }
@@ -82,7 +82,7 @@ namespace savings_app_backend.Controllers
             {
                 pickups[i] = _context.Pickups
                     .Where(pickup => pickup.ProductId == productId[i])
-                    .Where(pickup => (minTime == null || pickup.startTime >= minTime) && (maxTime == null || pickup.endTime < maxTime))
+                    .Where(pickup => (minTime == null || pickup.StartTime >= minTime) && (maxTime == null || pickup.EndTime < maxTime))
                     .ToList();
                 placeIds[i] = GetPlaceId(_context.Products.Find(productId[i]).Restaurant.Address);
             }
@@ -94,8 +94,8 @@ namespace savings_app_backend.Controllers
                 urlParameters += "placeId=" + placeIds[i] + "&visitAmount=" + pickups[i].Count;
                 foreach (var pickup in pickups[i])
                 {
-                    urlParameters += "&pickupId=" + pickup.Id + "&startTime=" + pickup.startTime.ToString()
-                        + "&endTime=" + pickup.endTime.ToString();
+                    urlParameters += "&pickupId=" + pickup.Id + "&startTime=" + pickup.StartTime.ToString()
+                        + "&endTime=" + pickup.EndTime.ToString();
                 }
             }
 

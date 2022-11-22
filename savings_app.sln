@@ -5,7 +5,9 @@ VisualStudioVersion = 17.3.32825.248
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "savings_app_frontend", "savings_app_frontend\savings_app_frontend.esproj", "{2EF21B9B-EF5D-45EB-BF21-D5F586AA8134}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "savings_app_backend", "savings_app_backend\savings_app_backend.csproj", "{8D21D039-A69C-4AA9-8E17-0633EC0BE215}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "savings_app_backend", "savings_app_backend\savings_app_backend.csproj", "{8D21D039-A69C-4AA9-8E17-0633EC0BE215}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "savings_app_tests", "savings_app_tests\savings_app_tests.csproj", "{B7B317DD-E54B-4976-B883-4DA8ADDC39D7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,6 +25,10 @@ Global
 		{8D21D039-A69C-4AA9-8E17-0633EC0BE215}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8D21D039-A69C-4AA9-8E17-0633EC0BE215}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8D21D039-A69C-4AA9-8E17-0633EC0BE215}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7B317DD-E54B-4976-B883-4DA8ADDC39D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7B317DD-E54B-4976-B883-4DA8ADDC39D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7B317DD-E54B-4976-B883-4DA8ADDC39D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7B317DD-E54B-4976-B883-4DA8ADDC39D7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

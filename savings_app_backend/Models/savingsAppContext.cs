@@ -7,33 +7,16 @@ using Microsoft.EntityFrameworkCore;
 using savings_app_backend.Extention;
 using savings_app_backend.Models.Entities;
 using savings_app_backend.Models.Enums;
-using savings_app_backend.WebSite.Services;
 
 namespace savings_app_backend.Models
 {
-    public class savingsAppContext : DbContext
+    public class SavingsAppContext : DbContext
     {
-        private DataAccessServiceProducts _dataAccessServiceProducts;
-        private DataAccessServiceRestaurants _dataAccessServiceRestaurants;
-        private DataAccessServiceOrders _dataAccessServiceOrders;
-        private DataAccessServicePickups _dataAccessServicePickups;
-        private DataAccessServiceUserAuth _dataAccessServiceUserAuth;
-        private DataAccessServiceBuyers _dataAccessServiceBuyers;
-        public savingsAppContext(DbContextOptions<savingsAppContext> options,
-            DataAccessServiceProducts dataAccessServiceProducts,
-            DataAccessServiceOrders dataAccessServiceOrders,
-            DataAccessServiceRestaurants dataAccessServiceRestaurants,
-            DataAccessServicePickups dataAccessServicePickups,
-            DataAccessServiceUserAuth dataAccessServiceUserAuth,
-            DataAccessServiceBuyers dataAccessServiceBuyers)
+        
+        public SavingsAppContext(DbContextOptions<SavingsAppContext> options)
             : base(options)
         {
-            _dataAccessServiceProducts = dataAccessServiceProducts;
-            _dataAccessServiceOrders = dataAccessServiceOrders;
-            _dataAccessServicePickups = dataAccessServicePickups;
-            _dataAccessServiceRestaurants = dataAccessServiceRestaurants;
-            _dataAccessServiceUserAuth = dataAccessServiceUserAuth;
-            _dataAccessServiceBuyers = dataAccessServiceBuyers;
+
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -87,14 +70,6 @@ namespace savings_app_backend.Models
                 .HasOne(o => o.Address)
                 .WithOne()
                 .HasForeignKey<Buyer>(o => o.AddressId);
-
-            /*modelBuilder.SeedUserAuth(_dataAccessServiceUserAuth);
-            
-            modelBuilder.SeedPickups(_dataAccessServicePickups);
-            modelBuilder.SeedRestaurants(_dataAccessServiceRestaurants);
-            modelBuilder.SeedProducts(_dataAccessServiceProducts);
-            modelBuilder.SeedBuyers(_dataAccessServiceBuyers);
-            modelBuilder.SeedOrders(_dataAccessServiceOrders);*/
             
             modelBuilder
                 .Entity<Product>()
@@ -112,7 +87,7 @@ namespace savings_app_backend.Models
 
             modelBuilder
                 .Entity<Order>()
-                .Property(e => e.Status)
+                .Property(e => e.OrderStatus)
                 .HasConversion(
                     v => v.ToString(),
                     v => (OrderStatus)Enum.Parse(typeof(OrderStatus), v));
@@ -121,20 +96,22 @@ namespace savings_app_backend.Models
 
             modelBuilder
                 .Entity<Pickup>()
-                .Property(e => e.status)
+                .Property(e => e.Status)
                 .HasConversion(
                     v => v.ToString(),
                     v => (PickupStatus)Enum.Parse(typeof(PickupStatus), v));
         }
 
-        public DbSet<Product> Products { get; set; } = default!;
+        public DbSet<Product> Products { get; set; }
 
         public DbSet<Order> Orders { get; set; }
 
         public DbSet<Pickup> Pickups { get; set; }
 
         public DbSet<Restaurant> Restaurants { get; set; }
+
         public DbSet<Buyer> Buyers { get; set; }
+
         public DbSet<UserAuth> UserAuths { get; set; }
 
         public DbSet<Address> Addresses { get; set; }

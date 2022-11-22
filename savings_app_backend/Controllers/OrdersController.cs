@@ -5,9 +5,11 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using savings_app_backend.Exceptions;
 using savings_app_backend.Models;
 using savings_app_backend.Models.Entities;
 using savings_app_backend.Models.Enums;
+using savings_app_backend.Services.Interfaces;
 
 namespace savings_app_backend.Controllers
 {
@@ -15,40 +17,37 @@ namespace savings_app_backend.Controllers
     [ApiController]
     public class OrdersController : ControllerBase
     {
-        private readonly savingsAppContext _context;
+        private readonly IOrderService _orderService;
+        private readonly ILogger<OrdersController> _logger;
 
-        public OrdersController(savingsAppContext context)
+
+        public OrdersController(IOrderService orderService,
+            ILogger<OrdersController> logger)
         {
-            _context = context;
+            _orderService = orderService;
+            _logger = logger;
         }
 
         // GET: api/Orders
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Order>>> GetOrders()
         {
-            return await _context.Orders.ToListAsync();
-        }
-
-        [HttpGet("user/{userId}")]
-        public async Task<ActionResult<IEnumerable<Order>>> GetUserOrders(Guid userId)
-        {
-            return await _context.Orders
-                .Where((order) => order.BuyerId == userId)
-                .ToListAsync();
+            return Ok(await _orderService.GetOrders());
         }
 
         // GET: api/Orders/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Order>> GetOrder(Guid id)
         {
-            var order = await _context.Orders.FindAsync(id);
-
-            if (order == null)
+            try
             {
+                return Ok(await _orderService.GetOrder(id));
+            }
+            catch(RecourseNotFoundException e)
+            {
+                _logger.LogError(e.ToString());
                 return NotFound();
             }
-
-            return order;
         }
 
         // PUT: api/Orders/5
@@ -56,30 +55,20 @@ namespace savings_app_backend.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutOrder(Guid id, Order order)
         {
-            if (id != order.Id)
-            {
-                return BadRequest();
-            }
-
-            _context.Entry(order).State = EntityState.Modified;
-
             try
             {
-                await _context.SaveChangesAsync();
+                return Ok(await _orderService.PutOrder(id, order));
             }
-            catch (DbUpdateConcurrencyException)
+            catch(InvalidRequestArgumentsException e)
             {
-                if (!OrderExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
+                _logger.LogError(e.ToString());
+                return BadRequest();
             }
-
-            return NoContent();
+            catch(RecourseNotFoundException e)
+            {
+                _logger.LogError(e.ToString());
+                return NotFound();
+            }
         }
 
         // POST: api/Orders
@@ -87,36 +76,22 @@ namespace savings_app_backend.Controllers
         [HttpPost]
         public async Task<ActionResult<Order>> PostOrder([FromBody] Order order)
         {
-            order.Id = Guid.NewGuid();
-            order.Status = OrderStatus.Cancelled;
-            var add = await  _context.Orders.AddAsync(order);
-            var save = await _context.SaveChangesAsync();
-            var hello = 5;
-            // DOESNT WORK WHEN DOING CHECKOUT SECOND TIME
-            // CRASHES AFTER THIS LINE
-
-            return CreatedAtAction("GetOrder", new { id = order.Id }, order);
+            return Ok(await _orderService.PostOrder(order));
         }
 
         // DELETE: api/Orders/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteOrder(Guid id)
         {
-            var order = await _context.Orders.FindAsync(id);
-            if (order == null)
+            try
             {
+                return Ok(await _orderService.DeleteOrder(id));
+            }
+            catch(RecourseNotFoundException e)
+            {
+                _logger.LogError(e.ToString());
                 return NotFound();
             }
-
-            _context.Orders.Remove(order);
-            await _context.SaveChangesAsync();
-
-            return NoContent();
-        }
-
-        private bool OrderExists(Guid id)
-        {
-            return _context.Orders.Any(e => e.Id == id);
         }
     }
 }

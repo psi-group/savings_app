@@ -1,0 +1,12 @@
+C:\Users\justa\Desktop\APPAS\savings_app\LoggingService\bin\Debug\net6.0\LoggingService.deps.json
+C:\Users\justa\Desktop\APPAS\savings_app\LoggingService\bin\Debug\net6.0\LoggingService.dll
+C:\Users\justa\Desktop\APPAS\savings_app\LoggingService\bin\Debug\net6.0\LoggingService.pdb
+C:\Users\justa\Desktop\APPAS\savings_app\LoggingService\obj\Debug\net6.0\LoggingService.csproj.AssemblyReference.cache
+C:\Users\justa\Desktop\APPAS\savings_app\LoggingService\obj\Debug\net6.0\LoggingService.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\justa\Desktop\APPAS\savings_app\LoggingService\obj\Debug\net6.0\LoggingService.AssemblyInfoInputs.cache
+C:\Users\justa\Desktop\APPAS\savings_app\LoggingService\obj\Debug\net6.0\LoggingService.AssemblyInfo.cs
+C:\Users\justa\Desktop\APPAS\savings_app\LoggingService\obj\Debug\net6.0\LoggingService.csproj.CoreCompileInputs.cache
+C:\Users\justa\Desktop\APPAS\savings_app\LoggingService\obj\Debug\net6.0\LoggingService.dll
+C:\Users\justa\Desktop\APPAS\savings_app\LoggingService\obj\Debug\net6.0\refint\LoggingService.dll
+C:\Users\justa\Desktop\APPAS\savings_app\LoggingService\obj\Debug\net6.0\LoggingService.pdb
+C:\Users\justa\Desktop\APPAS\savings_app\LoggingService\obj\Debug\net6.0\ref\LoggingService.dll
