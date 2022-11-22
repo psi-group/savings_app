@@ -187,33 +187,25 @@ export const ShoppingCart = (props) => {
             )}
           </div>
         </div>
-        <div className="bg-sky-700 w-1/3 min-h-screen p-10 pt-24 flex flex-col gap-3">
+        <div className="bg-sky-700 w-1/3 min-h-screen p-10 pt-24 flex flex-col justify-between">
+          <div>
           <h1 className="text-2xl text-white">Summary</h1>
-          <div className="bg-white h-1"></div>
-          <div className="flex flex-col">
-            <h3 className="text-lg text-white">Do You Have A Promo Code?</h3>
-            <form className="flex">
-              <input
-                type="text"
-                className="bg-transparent border-2 border-white text-white active:border-0 active:outline-none focus:outline-none"
-              ></input>
-              <button type="button" className="bg-white p-2 font-bold">
-                APPLY
-              </button>
-            </form>
-          </div>
           <div className="bg-white h-1 mt-2"></div>
+          </div>
+          <div className="pb-24 flex flex-col gap-2">
+
+          
           <div className="flex justify-between justify-self-end items-center">
             <h1 className="text-white text-2xl ">Total </h1>
             <h1 className="font-bold text-white text-2xl">
               {props.fullSum} Eur
             </h1>
           </div>
-          <div className="bg-white h-1 mt-2"></div>
-
+          <div className="bg-white h-1 mb-2"></div>
+          
           <button
             type="button"
-            className="bg-white p-2 pt-2 font-bold justify-self-end "
+            className="bg-white p-2 pt-2 font-bold justify-self-end mb-2"
             onClick={handleCheckout}
           >
             Checkout
@@ -225,6 +217,7 @@ export const ShoppingCart = (props) => {
           >
             Calculate pickup times
           </button>
+          </div>
         </div>
       </div>
     </>

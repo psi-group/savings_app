@@ -9,25 +9,18 @@ import useIsRestaurant from "../Hooks/useIsRestaurant";
 import logo from "../img/logo.png"
 import { Searchbar } from "./Searchbar";
 import MenuItems from "./MenuItems";
+import userIcon from "../img/userIcon.png";
+import restaurantIcon from "../img/restaurantIcon.png";
 
 const Navbar = (props) => {
-
-    console.log("navbar");
 
   const isRestaurant = useIsRestaurant();
 
   const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false);
   const [showCart, setShowCart] = React.useState(false);
   //const [isRestaurant, setIsRestaurant] = React.useState(false);
-  const { auth } = useContext(AuthContext);
   const navigate = useNavigate();
 
-  function getName(token) {
-    console.log(JSON.parse(window.atob(token.split(".")[1])));
-    return JSON.parse(window.atob(token.split(".")[1]))[
-      "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier"
-    ];
-  }
 
   function handleLogout() {
     localStorage.removeItem("token");
@@ -39,33 +32,36 @@ const Navbar = (props) => {
           <Link to="/" className="logo">
               <img width="55" src={logo} />
       </Link>
-      <div className="hidden lg:flex lg:gap-5">
+      <div className="hidden lg:flex lg:gap-1 lg:flex-col lg:items-center w-full ">
         <Searchbar
           setSearchas={props.setSearchas}
           navigate={navigate}
           setSelector={props.setSelector}
         />
-        <MenuItems />
+        {/* <MenuItems /> */}
       </div>
       {useValidateJWT() ? (
         <>
-          <div className="flex items-center gap-20">
+          <div className="flex items-center gap-1" >
             <div>
-              <button
-                onClick={() => setIsProfileDropdownOpen(!isProfileDropdownOpen)}
-              >
-                Hello {getName(localStorage.getItem("token"))}
-              </button>
+              <Link to="/restaurants">
+              <img src={restaurantIcon} className="w-[48px] pb-2 p-1 hover:bg-sky-100 hover:rounded-full"/> 
+              </Link>
+            </div>
+            <div>
+                <img src={userIcon} className="w-[48px] pb-2 p-1 hover:bg-sky-100 hover:rounded-full" onMouseEnter={() => setIsProfileDropdownOpen(true)}
+                    onMouseLeave={() => setIsProfileDropdownOpen(false)}/>
             </div>
             {isProfileDropdownOpen && (
-              <div className="w-72 bg-slate-800 border-4 border-black font-bold text-white absolute top-20 right-10 rounded-md flex flex-col flex-grow">
-                <button className=" border-b-2 h-14 hover:bg-slate-700">
+              <div className="w-64 bg-white border-2 border-sky-500 font-bold text-sky-500 absolute top-14 right-1 rounded-md flex flex-col flex-grow" onMouseEnter={() => setIsProfileDropdownOpen(true)}
+              onMouseLeave={() => setIsProfileDropdownOpen(false)}>
+                <button className=" border-b-2 h-14 hover:bg-sky-500 hover:text-white">
                   My Orders
                 </button>
-                <button className=" border-b-2 h-14 hover:bg-slate-700" onClick={(e) => navigate("/profile")}>
+                <button className=" border-b-2 h-14 hover:bg-sky-500 hover:text-white" onClick={(e) => navigate("/profile")}>
                   My Profile
                 </button>
-                <button className=" h-14 hover:bg-slate-700" onClick={handleLogout}>Log Out</button>
+                <button className=" h-14 hover:bg-sky-500 hover:text-white" onClick={handleLogout}>Log Out</button>
               </div>
             )}
             
@@ -81,7 +77,7 @@ const Navbar = (props) => {
                 </Link>
                 {showCart && (
                   <div
-                    className="absolute w-96 p-3 h-96 bg-white right-1 z-20 rounded-lg flex flex-col border-sky-500 border-2"
+                    className="absolute top-14 w-96 p-3 h-96 bg-white right-1 z-20 rounded-lg flex flex-col border-sky-500 border-2"
                     onMouseEnter={() => setShowCart(true)}
                     onMouseLeave={() => setShowCart(false)}
                   >
@@ -163,9 +159,12 @@ const Navbar = (props) => {
           </div>
         </>
       ) : (
-        <div className="flex items-center">
-          <Link className="text-black text-center" to="/register">
-            Login/Sign Up
+        <div className="flex items-center gap-3">
+          <Link className="text-black flex w-12 hover:text-sky-500" to="/login">
+            Log In
+          </Link>
+          <Link className="text-white text-center bg-sky-500 p-2 rounded-xl hover:bg-sky-700" to="/register">
+            Register
           </Link>
         </div>
       )}
