@@ -49,12 +49,7 @@ const Register = () => {
         formData.append('address[appartmentNumber]', address.appartmentNumber);
         formData.append('address[postalCode]', address.postalCode);
 
-
-
-
-
-
-        fetch("https://localhost:7183/api/auth/register/buyer",
+        fetch("https://localhost:7183/api/buyers",
             {
                 method: "POST",
                 headers: { "Access-Control-Allow-Origin": "*" },

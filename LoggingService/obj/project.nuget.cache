@@ -1,0 +1,20 @@
+{
+  "version": 2,
+  "dgSpecHash": "x2PGcks57HYz8rSCQm//HMhMGT2QrOZ82GpYYvsvAQZg8xZgfmGS813nnCPkLgm48e/oYqz6TRlQLgdjombq8Q==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\justa\\Desktop\\APPAS\\savings_app\\LoggingService\\LoggingService.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\justa\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\6.0.0\\microsoft.extensions.configuration.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\justa\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\6.0.0\\microsoft.extensions.dependencyinjection.6.0.0.nupkg.sha512",
+    "C:\\Users\\justa\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\justa\\.nuget\\packages\\microsoft.extensions.logging\\6.0.0\\microsoft.extensions.logging.6.0.0.nupkg.sha512",
+    "C:\\Users\\justa\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\6.0.0\\microsoft.extensions.logging.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\justa\\.nuget\\packages\\microsoft.extensions.options\\6.0.0\\microsoft.extensions.options.6.0.0.nupkg.sha512",
+    "C:\\Users\\justa\\.nuget\\packages\\microsoft.extensions.primitives\\6.0.0\\microsoft.extensions.primitives.6.0.0.nupkg.sha512",
+    "C:\\Users\\justa\\.nuget\\packages\\nlog\\5.0.5\\nlog.5.0.5.nupkg.sha512",
+    "C:\\Users\\justa\\.nuget\\packages\\nlog.extensions.logging\\5.1.0\\nlog.extensions.logging.5.1.0.nupkg.sha512",
+    "C:\\Users\\justa\\.nuget\\packages\\system.diagnostics.diagnosticsource\\6.0.0\\system.diagnostics.diagnosticsource.6.0.0.nupkg.sha512",
+    "C:\\Users\\justa\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

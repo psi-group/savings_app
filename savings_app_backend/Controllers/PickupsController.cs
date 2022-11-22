@@ -5,8 +5,10 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using savings_app_backend.Exceptions;
 using savings_app_backend.Models;
 using savings_app_backend.Models.Entities;
+using savings_app_backend.Services.Interfaces;
 
 namespace savings_app_backend.Controllers
 {
@@ -14,71 +16,61 @@ namespace savings_app_backend.Controllers
     [ApiController]
     public class PickupsController : ControllerBase
     {
-        private readonly savingsAppContext _context;
+        private readonly IPickupService _pickupService;
+        private readonly ILogger<PickupsController> _logger;
 
-        public PickupsController(savingsAppContext context)
+        public PickupsController(IPickupService pickupService,
+            ILogger<PickupsController> logger)
         {
-            _context = context;
+            _pickupService = pickupService;
+            _logger = logger;
         }
 
         // GET: api/Pickups
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Pickup>>> GetPickups()
         {
-            return await _context.Pickups.ToListAsync();
+            return Ok(await _pickupService.GetPickups());
         }
 
         [HttpGet("{id}")]
         public async Task<ActionResult<Pickup>> GetPickup(Guid id)
         {
-            var pickup = await _context.Pickups.FindAsync(id);
-
-            if (pickup == null)
+            try
             {
+                return Ok(await _pickupService.GetPickups());
+            }
+            catch(RecourseNotFoundException e)
+            {
+                _logger.LogError(e.ToString());
                 return NotFound();
             }
-
-            return pickup;
         }
 
         // GET: api/Pickups/5
         [HttpGet("product/{productId}")]
         public async Task<ActionResult<IEnumerable<Pickup>>> GetProductPickups(Guid productId)
         {
-            return await _context.Pickups
-                .Where((pickup) => pickup.ProductId == productId)
-                .ToListAsync();
+            return Ok(await _pickupService.GetProductPickups(productId));
         }
 
-        // PUT: api/Pickups/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutPickup(Guid id, Pickup pickup)
+        public async Task<ActionResult<Pickup>> PutPickup(Guid id, Pickup pickup)
         {
-            if (id != pickup.Id)
-            {
-                return BadRequest();
-            }
-
-            _context.Entry(pickup).State = EntityState.Modified;
-
             try
             {
-                await _context.SaveChangesAsync();
+                return Ok(await _pickupService.PutPickup(id, pickup));
             }
-            catch (DbUpdateConcurrencyException)
+            catch(InvalidRequestArgumentsException e)
             {
-                if (!PickupExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
+                _logger.LogError(e.ToString());
+                return BadRequest();
             }
-
-            return NoContent();
+            catch(RecourseAlreadyExistsException e)
+            {
+                _logger.LogError(e.ToString());
+                return BadRequest();
+            }
         }
 
         // POST: api/Pickups
@@ -86,31 +78,22 @@ namespace savings_app_backend.Controllers
         [HttpPost]
         public async Task<ActionResult<Pickup>> PostPickup(Pickup pickup)
         {
-            _context.Pickups.Add(pickup);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction("GetPickup", new { id = pickup.Id }, pickup);
+            return Ok(await _pickupService.PostPickup(pickup));
         }
 
         // DELETE: api/Pickups/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeletePickup(Guid id)
+        public async Task<ActionResult<Pickup>> DeletePickup(Guid id)
         {
-            var pickup = await _context.Pickups.FindAsync(id);
-            if (pickup == null)
+            try
             {
+                return Ok(await _pickupService.DeletePickup(id));
+            }
+            catch(RecourseNotFoundException e)
+            {
+                _logger.LogError(e.ToString());
                 return NotFound();
             }
-
-            _context.Pickups.Remove(pickup);
-            await _context.SaveChangesAsync();
-
-            return NoContent();
-        }
-
-        private bool PickupExists(Guid id)
-        {
-            return _context.Pickups.Any(e => e.Id == id);
         }
     }
 }
