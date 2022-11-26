@@ -26,7 +26,7 @@ namespace savings_app_backend.Repositories.Implementations
 
         public async Task<UserAuth?> GetUserAuth(Guid id)
         {
-            return await _appContext.UserAuths.FindAsync();
+            return await _appContext.UserAuths.FindAsync(id);
         }
 
         public async Task<IEnumerable<UserAuth>> GetUserAuths()

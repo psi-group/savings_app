@@ -47,7 +47,7 @@ namespace savings_app_backend.Models.Entities
         public Category Category { get; set; }
 
         public Guid RestaurantID { get; set; }
-        public Restaurant? Restaurant { get; set; }
+        public Restaurant Restaurant { get; set; }
 
         public List<Pickup>? Pickups { get; set; }
 

@@ -10,7 +10,8 @@ const SearchAndDisplay = (props) => {
   return (
     <div>
       <Filter filters={filters} setFilters={setFilters} />
-      <FilterDisplay filters={filters} setFilters={setFilters} />
+          <FilterDisplay filters={filters} setFilters={setFilters} />
+          <hr className="mt-10"></hr>
       <List
         searched={props.searchas}
         products={props.products}

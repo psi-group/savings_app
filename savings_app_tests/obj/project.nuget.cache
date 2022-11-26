@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Wrij99AXYlfqoeveZx6C0JuJTWLOcaHVfwQqCiweebWOUKidgiGRRm+ONyzxkCaXBviyfUIWf9F55Z4XYIM4IQ==",
+  "dgSpecHash": "z0NyjNwPCdAnxu9UoM/ZWCfkXbLTTYMJZG3vfTP/zXMFw7woxC1oay5SO+zalQw1hsLUqHiJ0vcDf4BamIr/hw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\justa\\Desktop\\APPAS\\savings_app\\savings_app_tests\\savings_app_tests.csproj",
+  "projectFilePath": "C:\\Users\\justa\\Desktop\\APPAS\\real\\savings_app\\savings_app_tests\\savings_app_tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\justa\\.nuget\\packages\\castle.core\\5.0.0\\castle.core.5.0.0.nupkg.sha512",
     "C:\\Users\\justa\\.nuget\\packages\\coverlet.collector\\3.1.2\\coverlet.collector.3.1.2.nupkg.sha512",

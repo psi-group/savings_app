@@ -27,7 +27,7 @@ namespace savings_app_backend.Repositories.Implementations
 
         public async Task<Restaurant?> GetRestaurant(Guid id)
         {
-            return await _appContext.Restaurants.FindAsync();
+            return await _appContext.Restaurants.FindAsync(id);
         }
 
         public async Task<IEnumerable<Restaurant>> GetRestaurants()

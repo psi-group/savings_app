@@ -6,6 +6,8 @@ import { useContext } from "react";
 import useAuth from "./useAuth";
 
 const Login = () => {
+
+    const navigate = useNavigate();
   const { setAuth } = useAuth();
 
   const [errorMsg, setErrMsg] = useState("");
@@ -39,7 +41,8 @@ const Login = () => {
 
                 setAuth({ token, name, role });*/
 
-        localStorage.setItem("token", token);
+          localStorage.setItem("token", token);
+          navigate("/");
       })
       .catch((error) => {
         setErrMsg(error);
