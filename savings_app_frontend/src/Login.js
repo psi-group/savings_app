@@ -50,11 +50,11 @@ const Login = () => {
     <div className="grid h-screen place-items-center pb-40 ">
       <div className="text-[18px] w-[350px] sm:w-[400px] flex flex-col border-sky-500 border-2 px-6 py-3 rounded-xl shadow-xl">
         <h1 className="text-center font-bold  mb-3 text-3xl">Log In</h1>
-        <form onSubmit={handleRegister}>
+        <form onSubmit={handleRegister} className="[&>div>input]:border-[1px]">
           <div className="flex-col flex">
             <label className="pl-1">Email:</label>
             <input
-              className=" border-2 border-sky-500 rounded-xl p-1"
+              className=" focus:border-2  outline-none border-sky-500 rounded-xl p-1"
               type="text"
               placeholder="Email"
               id="email"
@@ -65,7 +65,7 @@ const Login = () => {
           <div className="flex flex-col">
             <label className="pl-1">Password:</label>
             <input
-              className=" border-2 border-sky-500 rounded-xl p-1"
+              className="outline-none focus:border-2 border-sky-500 rounded-xl p-1"
               type="password"
               placeholder="Password"
               id="password"
@@ -77,8 +77,8 @@ const Login = () => {
             Sign In
           </button>
         </form>
-        <div className="mt-5 mb-5 bg-sky-500 h-[2px] w-full"></div>
-      <h1 className="text-center font-bold font-serif">Don't have an account yet?</h1>
+        <div className="mt-3 mb-3 bg-sky-500 h-[2px] w-full"></div>
+      <h1 className="text-center font-bold">Don't have an account yet?</h1>
       <Link to="/register" className="text-center text-sky-500 hover-sky:700">Register here</Link>
       </div>
       
