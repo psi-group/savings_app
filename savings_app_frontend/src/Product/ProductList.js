@@ -43,9 +43,6 @@ export default class List extends Component {
   render() {
     return (
       <div>
-        <h4 className="text-sky-800 font-bold text-xl mt-3">
-          Searching for: {this.props.searched}
-        </h4>
         <ul>
           <div className="grid w-full grid-flow-row-dense grid-cols-4  mt-16 px-32 gap-10">
             {this.state.products.map((product) => (

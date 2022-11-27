@@ -50,7 +50,7 @@ namespace savings_app_backend.Repositories.Implementations
 
         public async Task<Product?> GetProduct(Guid id)
         {
-            return await _appContext.Products.FindAsync();
+            return await _appContext.Products.FindAsync(id);
         }
 
         public async Task<IEnumerable<Product>> GetProducts()

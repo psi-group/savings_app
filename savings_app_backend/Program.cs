@@ -48,9 +48,11 @@ try
 
     builder.Services.AddTransient<IBuyerService, BuyerService>();
 
-    //builder.Services.AddTransient<IAddressService, AddressService>();
+    builder.Services.AddTransient<IAddressService, AddressService>();
 
     builder.Services.AddTransient<IUserAuthService, UserAuthService>();
+
+    builder.Services.AddTransient<IAuthService, AuthService>();
 
     builder.Services.AddTransient<IEmailSender, EmailSender>();
 
@@ -62,8 +64,7 @@ try
     builder.Services.AddScoped<IBuyerRepository, BuyerRepository>();
 
     //builder.Logging.ClearProviders();
-    builder.Host.UseNLog();
-
+    
 
     builder.Services.AddCors(options =>
     {
@@ -103,8 +104,6 @@ try
         app.UseSwagger();
         app.UseSwaggerUI();
     }
-
-    app.UseLoggingMiddleware();
     app.UseStatisticsMiddleware();
 
     app.UseHttpsRedirection();

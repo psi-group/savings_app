@@ -1,4 +1,4 @@
-﻿/*using Microsoft.AspNetCore.Hosting;
+﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using savings_app_backend.Exceptions;
 using savings_app_backend.Models;
@@ -22,7 +22,7 @@ namespace savings_app_backend.Services.Implementations
             _config = config;
         }
 
-        /*public async Task<Address> DeleteAddress(Guid id)
+        public async Task<Address> DeleteAddress(Guid id)
         {
             var address = await _context.Addresses.FindAsync(id);
             if (address == null)
@@ -36,7 +36,7 @@ namespace savings_app_backend.Services.Implementations
             /*if (restaurant.Id !=
                 Guid.Parse(((ClaimsIdentity)_httpContext.User.Identity).FindFirst("Id").Value))
                 throw new InvalidIdentityException();*/
-/*
+
             _context.Addresses.Remove(address);
             await _context.SaveChangesAsync();
             return address;
@@ -102,4 +102,3 @@ namespace savings_app_backend.Services.Implementations
         }
     }
 }
-*/
