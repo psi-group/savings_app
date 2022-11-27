@@ -10654,19 +10654,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Medas\\.nuget\\packages\\": {}
+    "C:\\Users\\justa\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Medas\\Desktop\\repos\\savings_app\\savings_app_tests\\savings_app_tests.csproj",
+      "projectUniqueName": "C:\\Users\\justa\\Desktop\\APPAS\\real\\savings_app\\savings_app_tests\\savings_app_tests.csproj",
       "projectName": "savings_app_tests",
-      "projectPath": "C:\\Users\\Medas\\Desktop\\repos\\savings_app\\savings_app_tests\\savings_app_tests.csproj",
-      "packagesPath": "C:\\Users\\Medas\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Medas\\Desktop\\repos\\savings_app\\savings_app_tests\\obj\\",
+      "projectPath": "C:\\Users\\justa\\Desktop\\APPAS\\real\\savings_app\\savings_app_tests\\savings_app_tests.csproj",
+      "packagesPath": "C:\\Users\\justa\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\justa\\Desktop\\APPAS\\real\\savings_app\\savings_app_tests\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Medas\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\justa\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -10680,8 +10680,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\Medas\\Desktop\\repos\\savings_app\\savings_app_backend\\savings_app_backend.csproj": {
-              "projectPath": "C:\\Users\\Medas\\Desktop\\repos\\savings_app\\savings_app_backend\\savings_app_backend.csproj"
+            "C:\\Users\\justa\\Desktop\\APPAS\\real\\savings_app\\savings_app_backend\\savings_app_backend.csproj": {
+              "projectPath": "C:\\Users\\justa\\Desktop\\APPAS\\real\\savings_app\\savings_app_backend\\savings_app_backend.csproj"
             }
           }
         }
@@ -10745,11 +10745,17 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   },
   "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\justa\\Desktop\\APPAS\\real\\savings_app\\savings_app_tests\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    },
     {
       "code": "NU1608",
       "level": "Warning",

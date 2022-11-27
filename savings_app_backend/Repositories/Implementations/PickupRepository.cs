@@ -26,7 +26,7 @@ namespace savings_app_backend.Repositories.Implementations
 
         public async Task<Pickup?> GetPickup(Guid id)
         {
-            return await _appContext.Pickups.FindAsync();
+            return await _appContext.Pickups.FindAsync(id);
         }
 
         public async Task<IEnumerable<Pickup>> GetPickups()

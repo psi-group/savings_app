@@ -75,12 +75,12 @@ namespace savings_app_backend.Controllers
         public async Task<IEnumerable<Models.Entities.Path>> GetPath([FromQuery] Guid[] productId, DateTime? minTime, DateTime? maxTime)
         {
 
-            List<Pickup>[] pickups = new List<Pickup>[productId.Length];
+            Lazy<List<Pickup>[]> lazyPickups = new Lazy<List<Pickup>[]>(() => new List<Pickup>[productId.Length]);
             string[] placeIds = new string[productId.Length];
 
             for (int i = 0; i < productId.Length; ++i)
             {
-                pickups[i] = _context.Pickups
+                lazyPickups.Value[i] = _context.Pickups
                     .Where(pickup => pickup.ProductId == productId[i])
                     .Where(pickup => (minTime == null || pickup.StartTime >= minTime) && (maxTime == null || pickup.EndTime < maxTime))
                     .ToList();
@@ -89,10 +89,10 @@ namespace savings_app_backend.Controllers
 
             string urlParameters = "?";
             
-            for(int i = 0; i < pickups.Length; ++i)
+            for(int i = 0; i < lazyPickups.Value.Length; ++i)
             {
-                urlParameters += "placeId=" + placeIds[i] + "&visitAmount=" + pickups[i].Count;
-                foreach (var pickup in pickups[i])
+                urlParameters += "placeId=" + placeIds[i] + "&visitAmount=" + lazyPickups.Value[i].Count;
+                foreach (var pickup in lazyPickups.Value[i])
                 {
                     urlParameters += "&pickupId=" + pickup.Id + "&startTime=" + pickup.StartTime.ToString()
                         + "&endTime=" + pickup.EndTime.ToString();

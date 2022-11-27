@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Hj7ZcnPr7oeT3OBjMV2HsDiZsRcUw2MxmnE41nZ04+8=",
+  "Hash": "ZMa+5i+hv/+CVoQWntBd8Tq4ybzzCTX+HOXy1e4+4zc=",
   "Source": "savings_app_backend",
   "BasePath": "_content/savings_app_backend",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "savings_app_backend\\wwwroot",
       "Source": "savings_app_backend",
-      "ContentRoot": "C:\\Users\\Medas\\Desktop\\repos\\savings_app\\savings_app_backend\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\justa\\Desktop\\APPAS\\real\\savings_app\\savings_app_backend\\wwwroot\\",
       "BasePath": "_content/savings_app_backend",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\Medas\\Desktop\\repos\\savings_app\\savings_app_backend\\wwwroot\\images\\be962e5b-b775-4be5-b436-1f0709e1a254.jpg",
+      "Identity": "C:\\Users\\justa\\Desktop\\APPAS\\real\\savings_app\\savings_app_backend\\wwwroot\\images\\be962e5b-b775-4be5-b436-1f0709e1a254.jpg",
       "SourceId": "savings_app_backend",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Medas\\Desktop\\repos\\savings_app\\savings_app_backend\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\justa\\Desktop\\APPAS\\real\\savings_app\\savings_app_backend\\wwwroot\\",
       "BasePath": "_content/savings_app_backend",
       "RelativePath": "images/be962e5b-b775-4be5-b436-1f0709e1a254.jpg",
       "AssetKind": "All",
@@ -34,10 +34,10 @@
       "OriginalItemSpec": "wwwroot\\images\\be962e5b-b775-4be5-b436-1f0709e1a254.jpg"
     },
     {
-      "Identity": "C:\\Users\\Medas\\Desktop\\repos\\savings_app\\savings_app_backend\\wwwroot\\productImg\\27c49731-c37d-4c26-8ac1-21853e03a95d.jpg",
+      "Identity": "C:\\Users\\justa\\Desktop\\APPAS\\real\\savings_app\\savings_app_backend\\wwwroot\\productImg\\27c49731-c37d-4c26-8ac1-21853e03a95d.jpg",
       "SourceId": "savings_app_backend",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Medas\\Desktop\\repos\\savings_app\\savings_app_backend\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\justa\\Desktop\\APPAS\\real\\savings_app\\savings_app_backend\\wwwroot\\",
       "BasePath": "_content/savings_app_backend",
       "RelativePath": "productImg/27c49731-c37d-4c26-8ac1-21853e03a95d.jpg",
       "AssetKind": "All",
@@ -51,10 +51,10 @@
       "OriginalItemSpec": "wwwroot\\productImg\\27c49731-c37d-4c26-8ac1-21853e03a95d.jpg"
     },
     {
-      "Identity": "C:\\Users\\Medas\\Desktop\\repos\\savings_app\\savings_app_backend\\wwwroot\\productImg\\3508b85a-3b6c-457c-a82d-91b8f2d85018.jpg",
+      "Identity": "C:\\Users\\justa\\Desktop\\APPAS\\real\\savings_app\\savings_app_backend\\wwwroot\\productImg\\3508b85a-3b6c-457c-a82d-91b8f2d85018.jpg",
       "SourceId": "savings_app_backend",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Medas\\Desktop\\repos\\savings_app\\savings_app_backend\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\justa\\Desktop\\APPAS\\real\\savings_app\\savings_app_backend\\wwwroot\\",
       "BasePath": "_content/savings_app_backend",
       "RelativePath": "productImg/3508b85a-3b6c-457c-a82d-91b8f2d85018.jpg",
       "AssetKind": "All",
@@ -68,10 +68,10 @@
       "OriginalItemSpec": "wwwroot\\productImg\\3508b85a-3b6c-457c-a82d-91b8f2d85018.jpg"
     },
     {
-      "Identity": "C:\\Users\\Medas\\Desktop\\repos\\savings_app\\savings_app_backend\\wwwroot\\productImg\\3d1d8f70-8ae8-45fd-88d8-76aa8d631704.jpg",
+      "Identity": "C:\\Users\\justa\\Desktop\\APPAS\\real\\savings_app\\savings_app_backend\\wwwroot\\productImg\\3d1d8f70-8ae8-45fd-88d8-76aa8d631704.jpg",
       "SourceId": "savings_app_backend",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Medas\\Desktop\\repos\\savings_app\\savings_app_backend\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\justa\\Desktop\\APPAS\\real\\savings_app\\savings_app_backend\\wwwroot\\",
       "BasePath": "_content/savings_app_backend",
       "RelativePath": "productImg/3d1d8f70-8ae8-45fd-88d8-76aa8d631704.jpg",
       "AssetKind": "All",
@@ -85,10 +85,10 @@
       "OriginalItemSpec": "wwwroot\\productImg\\3d1d8f70-8ae8-45fd-88d8-76aa8d631704.jpg"
     },
     {
-      "Identity": "C:\\Users\\Medas\\Desktop\\repos\\savings_app\\savings_app_backend\\wwwroot\\productImg\\4318ea3a-132f-408e-bd4a-5c5480bb0904.jpg",
+      "Identity": "C:\\Users\\justa\\Desktop\\APPAS\\real\\savings_app\\savings_app_backend\\wwwroot\\productImg\\4318ea3a-132f-408e-bd4a-5c5480bb0904.jpg",
       "SourceId": "savings_app_backend",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Medas\\Desktop\\repos\\savings_app\\savings_app_backend\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\justa\\Desktop\\APPAS\\real\\savings_app\\savings_app_backend\\wwwroot\\",
       "BasePath": "_content/savings_app_backend",
       "RelativePath": "productImg/4318ea3a-132f-408e-bd4a-5c5480bb0904.jpg",
       "AssetKind": "All",
@@ -102,10 +102,10 @@
       "OriginalItemSpec": "wwwroot\\productImg\\4318ea3a-132f-408e-bd4a-5c5480bb0904.jpg"
     },
     {
-      "Identity": "C:\\Users\\Medas\\Desktop\\repos\\savings_app\\savings_app_backend\\wwwroot\\productImg\\55b48feb-de0d-466f-a275-85f0f7f7c3b2.jpg",
+      "Identity": "C:\\Users\\justa\\Desktop\\APPAS\\real\\savings_app\\savings_app_backend\\wwwroot\\productImg\\55b48feb-de0d-466f-a275-85f0f7f7c3b2.jpg",
       "SourceId": "savings_app_backend",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Medas\\Desktop\\repos\\savings_app\\savings_app_backend\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\justa\\Desktop\\APPAS\\real\\savings_app\\savings_app_backend\\wwwroot\\",
       "BasePath": "_content/savings_app_backend",
       "RelativePath": "productImg/55b48feb-de0d-466f-a275-85f0f7f7c3b2.jpg",
       "AssetKind": "All",
@@ -119,10 +119,10 @@
       "OriginalItemSpec": "wwwroot\\productImg\\55b48feb-de0d-466f-a275-85f0f7f7c3b2.jpg"
     },
     {
-      "Identity": "C:\\Users\\Medas\\Desktop\\repos\\savings_app\\savings_app_backend\\wwwroot\\productImg\\7b44ca84-7abe-43f0-a3c4-35a02a9ddd8b.jpg",
+      "Identity": "C:\\Users\\justa\\Desktop\\APPAS\\real\\savings_app\\savings_app_backend\\wwwroot\\productImg\\7b44ca84-7abe-43f0-a3c4-35a02a9ddd8b.jpg",
       "SourceId": "savings_app_backend",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Medas\\Desktop\\repos\\savings_app\\savings_app_backend\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\justa\\Desktop\\APPAS\\real\\savings_app\\savings_app_backend\\wwwroot\\",
       "BasePath": "_content/savings_app_backend",
       "RelativePath": "productImg/7b44ca84-7abe-43f0-a3c4-35a02a9ddd8b.jpg",
       "AssetKind": "All",
@@ -136,10 +136,10 @@
       "OriginalItemSpec": "wwwroot\\productImg\\7b44ca84-7abe-43f0-a3c4-35a02a9ddd8b.jpg"
     },
     {
-      "Identity": "C:\\Users\\Medas\\Desktop\\repos\\savings_app\\savings_app_backend\\wwwroot\\productImg\\ebfb5d55-9421-4d04-9ef4-96130a4ac284.jpg",
+      "Identity": "C:\\Users\\justa\\Desktop\\APPAS\\real\\savings_app\\savings_app_backend\\wwwroot\\productImg\\ebfb5d55-9421-4d04-9ef4-96130a4ac284.jpg",
       "SourceId": "savings_app_backend",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Medas\\Desktop\\repos\\savings_app\\savings_app_backend\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\justa\\Desktop\\APPAS\\real\\savings_app\\savings_app_backend\\wwwroot\\",
       "BasePath": "_content/savings_app_backend",
       "RelativePath": "productImg/ebfb5d55-9421-4d04-9ef4-96130a4ac284.jpg",
       "AssetKind": "All",
@@ -153,10 +153,10 @@
       "OriginalItemSpec": "wwwroot\\productImg\\ebfb5d55-9421-4d04-9ef4-96130a4ac284.jpg"
     },
     {
-      "Identity": "C:\\Users\\Medas\\Desktop\\repos\\savings_app\\savings_app_backend\\wwwroot\\userImg\\54ab816e-1e45-4ece-ad31-7f839129c23c.jpg",
+      "Identity": "C:\\Users\\justa\\Desktop\\APPAS\\real\\savings_app\\savings_app_backend\\wwwroot\\userImg\\54ab816e-1e45-4ece-ad31-7f839129c23c.jpg",
       "SourceId": "savings_app_backend",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Medas\\Desktop\\repos\\savings_app\\savings_app_backend\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\justa\\Desktop\\APPAS\\real\\savings_app\\savings_app_backend\\wwwroot\\",
       "BasePath": "_content/savings_app_backend",
       "RelativePath": "userImg/54ab816e-1e45-4ece-ad31-7f839129c23c.jpg",
       "AssetKind": "All",

@@ -26,7 +26,7 @@ namespace savings_app_backend.Repositories.Implementations
 
         public async Task<Buyer?> GetBuyer(Guid id)
         {
-            return await _appContext.Buyers.FindAsync();
+            return await _appContext.Buyers.FindAsync(id);
         }
 
         public async Task<IEnumerable<Buyer>> GetBuyers()

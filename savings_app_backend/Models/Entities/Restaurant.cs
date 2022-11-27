@@ -32,5 +32,10 @@ namespace savings_app_backend.Models.Entities
         public string ShortDescription { get; set; }
 
         public string SiteRef { get; set; }
+
+        public static implicit operator Restaurant(Task<Restaurant?> v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

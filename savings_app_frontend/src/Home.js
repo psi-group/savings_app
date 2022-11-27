@@ -13,11 +13,12 @@ function Home (props)  {
     const renderForecastsTable = (products) => {
 
         return (
-                <div className="main ml-20 mr-20">
+                <div className="main ml-20 mr-20 mt-10">
 
-                    <div>
+                    <div >
 
-                    <SortButton setSorting={setSorting }></SortButton>
+                    <SortButton setSorting={setSorting}></SortButton>
+                    
                     <SearchAndDisplay searchas={props.searchas} products={products} sorting={sorting } isValidUrl={props.isValidUrl}/>
 
                     </div>
@@ -43,7 +44,6 @@ function Home (props)  {
 
     return (
         <div>
-            <h1 id="tabelLabel" className='text-center  text-bold text-5xl bg-gradient-to-r from-sky-300 to-sky-700 bg-clip-text text-transparent'>Savings app</h1>
             {contents}
         </div>
     );

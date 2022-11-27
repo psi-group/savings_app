@@ -4,6 +4,7 @@ using savings_app_backend.Exceptions;
 using savings_app_backend.Models;
 using savings_app_backend.Models.Entities;
 using savings_app_backend.Repositories.Interfaces;
+using savings_app_backend.SavingToFile;
 using savings_app_backend.Services.Interfaces;
 using System.Security.Claims;
 
@@ -11,6 +12,8 @@ namespace savings_app_backend.Services.Implementations
 {
     public class RestaurantService : IRestaurantService
     {
+
+        private readonly IFileSaver _fileSaver;
         private readonly IHttpContextAccessor _httpContext;
         private readonly IWebHostEnvironment _webHostEnvironment;
         private readonly IConfiguration _config;
@@ -72,10 +75,14 @@ namespace savings_app_backend.Services.Implementations
 
             var imageName = restaurant.Id.ToString();
 
-            Task saveImageTask = SaveImage(restaurant.ImageFile, imageName,
+            var file = restaurant.ImageFile;
+
+            
+
+            Task saveImageTask = _fileSaver.SaveImage(restaurant.ImageFile, imageName,
                     _config["ImageStorage:ImageFoldersPaths:UserImages"],
                     _config["ImageStorage:ImageFoldersPaths:ImageExtention"]);
-
+            
             restaurant.ImageName = imageName;
 
             await saveImageTask;
@@ -84,16 +91,6 @@ namespace savings_app_backend.Services.Implementations
             
 
             return restaurant;
-        }
-
-        private async Task SaveImage(IFormFile imageFile, string imageName, string path, string extention)
-        {
-            var imagePath = System.IO.Path.Combine(_webHostEnvironment.ContentRootPath, path, imageName, extention);
-
-            using (FileStream filestream = new FileStream(imagePath, FileMode.Create))
-            {
-                await imageFile.CopyToAsync(filestream);
-            }
         }
 
         public async Task<Restaurant> PutRestaurant(Guid id, Restaurant restaurant)

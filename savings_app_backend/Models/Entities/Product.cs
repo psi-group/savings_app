@@ -34,11 +34,14 @@ namespace savings_app_backend.Models.Entities
 
         }
 
+
         public delegate void ProductSoldOutEventHandler(Product product, string sellerEmail);
         public event ProductSoldOutEventHandler ProductSoldOut;
 
         public EventHandler<ProductSoldEventArgs> ProductSold;
         public Guid Id { get; set; }
+
+
 
         public string Name { get; set; }
 
@@ -47,7 +50,7 @@ namespace savings_app_backend.Models.Entities
         public Category Category { get; set; }
 
         public Guid RestaurantID { get; set; }
-        public Restaurant? Restaurant { get; set; }
+        public Restaurant Restaurant { get; set; }
 
         public List<Pickup>? Pickups { get; set; }
 
@@ -71,7 +74,8 @@ namespace savings_app_backend.Models.Entities
 
         public void ReduceAmount(int amount)
         {
-            if(amount > AmountOfUnits)
+
+            if (amount > AmountOfUnits)
             {
                 throw new NotEnoughProductAmountException();
             }
