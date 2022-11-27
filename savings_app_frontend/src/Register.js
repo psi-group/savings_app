@@ -85,8 +85,8 @@ const Register = () => {
 
 
   return (
-    <div className="grid h-screen place-items-center pt-20">
-      <div className="text-[18px] min-w[380px] w-[80%] sm:w-[600px] flex flex-col border-sky-500 border-2 px-6 py-3 rounded-xl shadow-xl">
+    <div className="grid h-screen place-items-center sm:pt-20">
+      <div className="text-[18px] w-full sm:w-[600px] flex flex-col sm:border-sky-500 border-2 px-6 py-3 rounded-xl shadow-xl">
         <h1 className="text-center font-bold  mb-3 text-3xl">Register</h1>
         <h3 className="text-center font-bold text-sky-500 mb-3 font-mono">
           {errorMsg}
