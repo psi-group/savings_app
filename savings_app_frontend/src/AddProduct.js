@@ -156,12 +156,16 @@ const AddProduct = () => {
 
           <div className="flex flex-col sm:flex-row sm:justify-evenly gap-3">
             <div className="flex flex-col sm:items-center">
-              <label >Amount Type</label>
-              <input
-                type="text"
-                className="focus:border-2 border-[1px] outline-none border-sky-500 rounded-xl"
-                onChange={(e) => setAmountType(e.target.value)}
-              ></input>
+                          <label >Amount Type</label>
+
+                    <select onChange={(e) => console.log(e.target.value)} className="focus:border-2 border-[1px] outline-none border-sky-500 rounded-xl" name="cars" id="cars">
+                    <option value="unit">Unit</option>
+                    <option value="kilogram">Kilogram</option>
+                    <option value="litre">Litre</option>
+                  
+                </select>
+
+            
             </div>
             <div className="flex flex-col sm:items-center">
               <label>Amount of Units</label>
