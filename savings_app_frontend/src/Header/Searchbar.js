@@ -17,7 +17,6 @@ export const Searchbar = (props) => {
 
     var selected = document.getElementById("selector");
     var text = selected.options[selected.selectedIndex].text;
-
     var currentUrl =
       window.location.href === "https://localhost:3000/"
         ? window.location.href + "products"
