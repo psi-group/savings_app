@@ -6,12 +6,12 @@ const FilterDisplay = ({ filters, setFilters }) => {
   };
 
   return (
-    <div className=" flex flex-auto gap-1">
+    <div className=" flex flex-auto gap-1 py-2">
       {filters &&
         setFilters &&
         filters.map((filter) => {
           return (
-            <div className="rounded-full bg-black text-white pl-2 pr-2 flex justify-between gap-2">
+            <div className="rounded-full bg-sky-500 text-white pl-2 pr-2 flex justify-between gap-2 ">
               <p>{filter}</p>
               <button type="button" onClick={() => removeElement(filter)}>
                 x

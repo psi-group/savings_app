@@ -276,6 +276,7 @@ C:\Users\justa\Desktop\APPAS\real\savings_app\savings_app_backend\obj\Debug\net6
 C:\Users\justa\Desktop\APPAS\real\savings_app\savings_app_backend\obj\Debug\net6.0\savings_app_backend.pdb
 C:\Users\justa\Desktop\APPAS\real\savings_app\savings_app_backend\obj\Debug\net6.0\savings_app_backend.genruntimeconfig.cache
 C:\Users\justa\Desktop\APPAS\real\savings_app\savings_app_backend\obj\Debug\net6.0\ref\savings_app_backend.dll
+<<<<<<< HEAD
 C:\Users\Medas\Desktop\repos\savings_app\savings_app_backend\bin\Debug\net6.0\nlog.config
 C:\Users\Medas\Desktop\repos\savings_app\savings_app_backend\bin\Debug\net6.0\appsettings.Development.json
 C:\Users\Medas\Desktop\repos\savings_app\savings_app_backend\bin\Debug\net6.0\appsettings.json
@@ -554,3 +555,5 @@ C:\Users\Medas\Desktop\repos\savings_app\savings_app_backend\obj\Debug\net6.0\re
 C:\Users\Medas\Desktop\repos\savings_app\savings_app_backend\obj\Debug\net6.0\savings_app_backend.pdb
 C:\Users\Medas\Desktop\repos\savings_app\savings_app_backend\obj\Debug\net6.0\savings_app_backend.genruntimeconfig.cache
 C:\Users\Medas\Desktop\repos\savings_app\savings_app_backend\obj\Debug\net6.0\ref\savings_app_backend.dll
+=======
+>>>>>>> ec75fc8758a0caaa54a4d8234d32cc9ae9b83ebf

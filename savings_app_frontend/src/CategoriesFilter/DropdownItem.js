@@ -14,17 +14,17 @@ const DropdownItem = (props) => {
   return (
     <a
       href="#"
-      className="menu-item"
+      className="h-[50px] text-[20px] flex justify-between items-center transition-[background] duration-300 p-1 rounded-md hover:bg-sky-600 text-white border-b-[3px] last:border-0 border-white"
       onClick={() => props.goToMenu && props.setActiveMenu(props.goToMenu)}
     >
       {props.children}
-      {props.activeMenu === "main" && <img src={props.arrow} />}
+      {props.activeMenu === "main" && <img src={props.arrow} className="w-[24px]  h-[24px] invert brightness-0"/>}
       {props.activeMenu !== "main" &&
         props.filters &&
         !props.filters.includes(props.children) && (
           <input
             type="checkbox"
-            className="addFilterCheckbox"
+            className="w-[25px] h-[25px] accent-black"
             onChange={handleChange}
           ></input>
         )}
@@ -33,7 +33,7 @@ const DropdownItem = (props) => {
         props.filters.includes(props.children) && (
           <input
             type="checkbox"
-            className="addFilterCheckbox"
+            className="w-[25px] h-[25px] accent-black"
             checked
             onChange={handleChange}
           ></input>
