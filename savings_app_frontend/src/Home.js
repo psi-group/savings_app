@@ -19,7 +19,7 @@ function Home(props) {
           <div className="border-b-[1px] py-2 border-sky-500 flex gap-3">
             <SortButton setSorting={setSorting}></SortButton>
             <Filter filters={filters} setFilters={setFilters} />
-            <PriceFilter />
+            {/* <PriceFilter /> */}
           </div>
           <FilterDisplay filters={filters} setFilters={setFilters} />
 

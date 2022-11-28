@@ -8,7 +8,6 @@ const SearchAndDisplay = (props) => {
 
   return (
     <div>
-
       <List
         searched={props.searchas}
         products={props.products}
