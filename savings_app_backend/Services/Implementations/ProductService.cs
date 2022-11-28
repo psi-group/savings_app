@@ -154,9 +154,11 @@ namespace savings_app_backend.Services.Implementations
             */
 
             var product = await _productRepository.GetProduct(id);
-            var restaurant = _restaurantRepository.GetRestaurant(product.RestaurantID);
-            var userAuth = _userAuthRepository.GetUserAuth(id);
-
+            var restaurant = await _restaurantRepository.GetRestaurant(product.RestaurantID);
+            var userAuth = await _userAuthRepository.GetUserAuth(restaurant.UserAuthId);
+            restaurant.UserAuth = userAuth;
+            product.Restaurant = restaurant;
+            
 
             product.ProductSold += _emailSender.NotifyRestaurantSoldProduct;
 
@@ -165,6 +167,12 @@ namespace savings_app_backend.Services.Implementations
             product.ReduceAmount(amount);
 
             await _productRepository.UpdateProduct(product);
+
+            product.ProductSold -= _emailSender.NotifyRestaurantSoldProduct;
+
+            product.ProductSoldOut -= _emailSender.NotifyRestaurantSoldOutProduct;
+
+            product.Restaurant = null;
 
             return product;
         }

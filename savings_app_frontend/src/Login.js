@@ -6,6 +6,8 @@ import { useContext } from "react";
 import useAuth from "./useAuth";
 
 const Login = () => {
+
+    const navigate = useNavigate();
   const { setAuth } = useAuth();
 
   const [errorMsg, setErrMsg] = useState("");
@@ -28,9 +30,18 @@ const Login = () => {
         password: password,
       }),
     })
-      .then((res) => res.text())
+        .then(async (res) => {
+            const text = await res.text();
+            if (res.status == 200) {
+                return text;
+            }
+            return Promise.reject(text);
+            
+        })
       .then((response) => {
-        console.log(response);
+          console.log(response);
+
+          //if(response.stat)
 
         const token = response;
         /*
@@ -39,17 +50,21 @@ const Login = () => {
 
                 setAuth({ token, name, role });*/
 
-        localStorage.setItem("token", token);
+          localStorage.setItem("token", token);
+          navigate("/");
       })
-      .catch((error) => {
-        setErrMsg(error);
+        .catch((error) => {
+            console.log("errroas " + error);
+            setErrMsg(error);
+            
       });
   };
 
   return (
-    <div className="grid h-screen place-items-center pb-40 ">
+      <div className="grid h-screen place-items-center pb-40 ">
       <div className="text-[18px] w-[350px] sm:w-[400px] flex flex-col border-sky-500 border-2 px-6 py-3 rounded-xl shadow-xl">
-        <h1 className="text-center font-bold  mb-3 text-3xl">Log In</h1>
+              <p className = "text-red-500">{errorMsg}</p>
+              <h1 className="text-center font-bold  mb-3 text-3xl">Log In</h1>
         <form onSubmit={handleRegister} className="[&>div>input]:border-[1px]">
           <div className="flex-col flex">
             <label className="pl-1">Email:</label>

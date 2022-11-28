@@ -26,7 +26,7 @@ namespace savings_app_backend.Repositories.Implementations
 
         public async Task<Order?> GetOrder(Guid id)
         {
-            return await _appContext.Orders.FindAsync();
+            return await _appContext.Orders.FindAsync(id);
         }
 
         public async Task<IEnumerable<Order>> GetOrders()

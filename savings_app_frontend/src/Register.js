@@ -42,7 +42,11 @@ const Register = () => {
     formData.append("address[appartmentNumber]", address.appartmentNumber);
     formData.append("address[postalCode]", address.postalCode);
 
-    fetch("https://localhost:7183/api/auth/register/buyer", {
+      console.log(isRestaurant);
+
+      const link = "https://localhost:7183/api/" + (isRestaurant ? "restaurants" : "buyers")
+
+    fetch(link, {
       method: "POST",
       headers: { "Access-Control-Allow-Origin": "*" },
       body: formData,
