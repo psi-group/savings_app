@@ -1,4 +1,6 @@
-C:\Users\justa\Desktop\APPAS\savings_app\savings_app_frontend\obj\Debug\savings_app_frontend.esproj.SuggestedBindingRedirects.cache
-C:\Users\justa\Desktop\APPAS\savings_app\savings_app_frontend\obj\Debug\savings_app_frontend.esproj.CoreCompileInputs.cache
 C:\Users\justa\Desktop\APPAS\real\savings_app\savings_app_frontend\obj\Debug\savings_app_frontend.esproj.SuggestedBindingRedirects.cache
 C:\Users\justa\Desktop\APPAS\real\savings_app\savings_app_frontend\obj\Debug\savings_app_frontend.esproj.CoreCompileInputs.cache
+C:\Users\justa\Desktop\APPAS\real - Copy\savings_app\savings_app_frontend\obj\Debug\savings_app_frontend.esproj.SuggestedBindingRedirects.cache
+C:\Users\justa\Desktop\APPAS\real - Copy\savings_app\savings_app_frontend\obj\Debug\savings_app_frontend.esproj.CoreCompileInputs.cache
+C:\Users\justa\Desktop\APPAS\real - Copy - Copy\savings_app\savings_app_frontend\obj\Debug\savings_app_frontend.esproj.SuggestedBindingRedirects.cache
+C:\Users\justa\Desktop\APPAS\real - Copy - Copy\savings_app\savings_app_frontend\obj\Debug\savings_app_frontend.esproj.CoreCompileInputs.cache

@@ -1,295 +1,248 @@
 import { useState } from "react";
-import Switch from "react-switch";
 import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
 
 const Register = () => {
-    const navigate = useNavigate();
 
-    const defaultImageSrc = "/images/profilePic.jpg";
+  const defaultImageSrc = "/images/profilePic.jpg";
 
-    const [errorMsg, setErrMsg] = useState("");
+  const [errorMsg, setErrMsg] = useState("");
 
-    const [isRestaurant, setIsRestaurant] = useState(false);
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [name, setName] = useState("");
-    const [imageSrc, setImageSrc] = useState(defaultImageSrc);
-    const [imageFile, setImageFile] = useState();
+  const [isRestaurant, setIsRestaurant] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
+  const [imageSrc, setImageSrc] = useState(defaultImageSrc);
+  const [imageFile, setImageFile] = useState();
 
-    const [address, setAddress] = useState({
-        country: "",
-        city: "",
-        streetName: "",
-        houseNumber: 0,
-        appartmentNumber: 0,
-        postalCode: 0,
-    });
+  const [address, setAddress] = useState({
+    country: "",
+    city: "",
+    streetName: "",
+    houseNumber: 0,
+    appartmentNumber: 0,
+    postalCode: 0,
+  });
 
-    const handleRegister = (e) => {
-        e.preventDefault();
-        console.log("regiter");
-        const formData = new FormData();
+  const handleRegister = (e) => {
+    e.preventDefault();
+    console.log("regiter");
+    const formData = new FormData();
 
-        //let userAuth = { 'email': email, "password": password };
-        formData.append("userAuth[email]", email);
-        formData.append("userAuth[password]", password);
-        formData.append("name", name);
-        formData.append("imageFile", imageFile);
-        console.log(address);
-        formData.append("address[country]", address.country);
-        formData.append("address[city]", address.city);
-        formData.append("address[streetName]", address.streetName);
-        formData.append("address[houseNumber]", address.houseNumber);
-        formData.append("address[appartmentNumber]", address.appartmentNumber);
-        formData.append("address[postalCode]", address.postalCode);
+    //let userAuth = { 'email': email, "password": password };
+    formData.append("userAuth[email]", email);
+    formData.append("userAuth[password]", password);
+    formData.append("name", name);
+    formData.append("imageFile", imageFile);
+    console.log(address);
+    formData.append("address[country]", address.country);
+    formData.append("address[city]", address.city);
+    formData.append("address[streetName]", address.streetName);
+    formData.append("address[houseNumber]", address.houseNumber);
+    formData.append("address[appartmentNumber]", address.appartmentNumber);
+    formData.append("address[postalCode]", address.postalCode);
 
-        fetch("https://localhost:7183/api/auth/register/buyer", {
-            method: "POST",
-            headers: { "Access-Control-Allow-Origin": "*" },
-            body: formData,
-        })
-            .then(async (response) => {
-                const isJson = response.headers
-                    .get("content-type")
-                    ?.includes("application/json");
+    fetch("https://localhost:7183/api/auth/register/buyer", {
+      method: "POST",
+      headers: { "Access-Control-Allow-Origin": "*" },
+      body: formData,
+    })
+      .then(async (response) => {
+        const isJson = response.headers
+          .get("content-type")
+          ?.includes("application/json");
 
-                console.log(isJson);
+        console.log(isJson);
 
-                console.log(response);
-                if (!response.ok) {
-                    console.log(response.statusText);
-                    setErrMsg("Incorrect register inputs");
-                } else {
-                    setErrMsg("");
-                }
-            })
-            .catch((error) => {
-                setErrMsg(error);
-            });
-    };
-
-    const handleImageChange = (e) => {
-        console.log("change");
-        if (e.target.files && e.target.files[0]) {
-            let imageFile = e.target.files[0];
-            const reader = new FileReader();
-            reader.onload = (x) => {
-                setImageFile(imageFile);
-                setImageSrc(x.target.result);
-                console.log(x.target.result);
-            };
-            reader.readAsDataURL(imageFile);
+        console.log(response);
+        if (!response.ok) {
+          console.log(response.statusText);
+          setErrMsg("Incorrect register inputs");
         } else {
-            setImageFile(null);
-            setImageSrc(defaultImageSrc);
+          setErrMsg("");
         }
-    };
+      })
+      .catch((error) => {
+        setErrMsg(error);
+      });
+  };
 
-    const redirectToLogin = () => {
-        navigate("/login");
-    };
-
-    return (
-        <div className="flex  flex-col justify-center mx-96">
-            <div className="mt-3 flex flex-col align-middle gap-3">
-                <h1 className="text-center font-bold">Already registered?</h1>
-                <button
-                    onClick={redirectToLogin}
-                    className="border-3 border-sky-800 font-bold hover:bg-sky-800 hover:text-white h-10"
-                >
-                    Login
-                </button>
-            </div>
-
-            <div className="bg-sky-800 h-[2px] w-full mt-3 mb-3"></div>
-
-            <label className="text-center font-bold text-red-800 mb-3 font-mono">
-                {errorMsg}
-            </label>
-
-            <div className="flex flex-col gap-2">
-                <h1 className="font-bold">Are You registering a restaurant?</h1>
-                <Switch
-                    className="pb-3"
-                    onChange={(e) => setIsRestaurant(e)}
-                    checked={isRestaurant}
-                />
-            </div>
-
-            <div className="text-[20px]">
-                <form
-                    onSubmit={handleRegister}
-                    className="flex flex-col justify-center [&>div>input]:border-2 [&>div>input]:border-sky-800 
-          [&>div>label]:border-2 [&>div>label]:border-black [&>div>label]:border-b-0 [&>div>label]:whitespace-pre [&>div>label]:w-[170px] [&>div>label]:text-[16px] 
-          [&>div>label]:font-serif"
-                >
-                    <div className="grid">
-                        <input
-                            className="peer"
-                            type="text"
-                            id="email"
-                            onChange={(e) => setEmail(e.target.value)}
-                            placeholder="Email"
-                        ></input>
-                        <br></br>
-                        <label
-                            className="peer-focus:bg-sky-800 row-start-1 peer-focus:text-white "
-                            htmlFor="email"
-                        >
-                            Email:
-                        </label>
-                    </div>
-
-                    <div className="grid">
-                        <input
-                            className="peer"
-                            type="password"
-                            id="password"
-                            placeholder="Password"
-                            onChange={(e) => setPassword(e.target.value)}
-                        ></input>
-                        <br></br>
-                        <label className="peer-focus:bg-sky-800 row-start-1 peer-focus:text-white ">
-                            Password:
-                        </label>
-                    </div>
-
-                    <div className="grid">
-                        <input
-                            className="peer"
-                            type="text"
-                            placeholder="Name"
-                            id="name"
-                            onChange={(e) => setName(e.target.value)}
-                        ></input>
-                        <label className="peer-focus:bg-sky-800 row-start-1 peer-focus:text-white ">
-                            Name:
-                        </label>
-                    </div>
-                    <br></br>
-
-                    <div className="grid">
-                        <input
-                            className="peer"
-                            type="text"
-                            placeholder="Country"
-                            id="country"
-                            onChange={(e) =>
-                                setAddress({ ...address, country: e.target.value })
-                            }
-                        ></input>
-                        <label className="peer-focus:bg-sky-800 row-start-1 peer-focus:text-white ">
-                            Country:
-                        </label>
-                    </div>
-                    <br></br>
-
-                    <div className="grid">
-                        <input
-                            type="text"
-                            id="city"
-                            className="peer"
-                            placeholder="City"
-                            onChange={(e) => setAddress({ ...address, city: e.target.value })}
-                        ></input>
-                        <label className="peer-focus:bg-sky-800 row-start-1 peer-focus:text-white ">
-                            City:
-                        </label>
-                    </div>
-                    <br></br>
-
-                    <div className="grid">
-                        <input
-                            className="peer"
-                            type="text"
-                            placeholder="Street Name"
-                            id="streetName"
-                            onChange={(e) =>
-                                setAddress({ ...address, streetName: e.target.value })
-                            }
-                        ></input>
-                        <label className="peer-focus:bg-sky-800 row-start-1 peer-focus:text-white ">
-                            Street Name:
-                        </label>
-                    </div>
-                    <br></br>
-
-                    <div className="grid">
-                        <input
-                            type="text"
-                            className="peer"
-                            id="houseNumber"
-                            placeholder="House Number"
-                            onChange={(e) =>
-                                setAddress({
-                                    ...address,
-                                    houseNumber: parseInt(e.target.value),
-                                })
-                            }
-                        ></input>
-                        <label className="peer-focus:bg-sky-800 row-start-1 peer-focus:text-white ">
-                            House Number:
-                        </label>
-                    </div>
-                    <br></br>
-
-                    <div className="grid">
-                        <input
-                            type="text"
-                            className="peer"
-                            id="country"
-                            placeholder="Country"
-                            onChange={(e) =>
-                                setAddress({
-                                    ...address,
-                                    appartmentNumber: parseInt(e.target.value),
-                                })
-                            }
-                        ></input>
-                        <label className="peer-focus:bg-sky-800 row-start-1 peer-focus:text-white ">
-                            Appartment Number:
-                        </label>
-                    </div>
-                    <br></br>
-
-                    <div className="grid">
-                        <input
-                            type="text"
-                            className="peer"
-                            placeholder="City"
-                            id="city"
-                            onChange={(e) =>
-                                setAddress({ ...address, postalCode: parseInt(e.target.value) })
-                            }
-                        ></input>
-                        <label className="peer-focus:bg-sky-800 row-start-1 peer-focus:text-white ">
-                            Postal Code:
-                        </label>
-                    </div>
-                    <br></br>
-
-                    <div className="grid">
+  const handleImageChange = (e) => {
+    console.log("change");
+    if (e.target.files && e.target.files[0]) {
+      let imageFile = e.target.files[0];
+      const reader = new FileReader();
+      reader.onload = (x) => {
+        setImageFile(imageFile);
+        setImageSrc(x.target.result);
+        console.log(x.target.result);
+      };
+      reader.readAsDataURL(imageFile);
+    } else {
+      setImageFile(null);
+      setImageSrc(defaultImageSrc);
+    }
+  };
 
 
-                        <input
-                            accept="image/*"
-                            type="file"
-                            id="picture"
-                            className="peer"
-                            placeholder="Picture"
-                            onChange={handleImageChange}
-                        ></input>
-                        <label className="peer-focus:bg-sky-800 row-start-1 peer-focus:text-white ">Profile Picture:</label>
-                    </div>
-                    <br></br>
-                    <img src={imageSrc}></img>
+  return (
+    <div className="grid h-screen place-items-center pt-20">
+      <div className="text-[18px] min-w[380px] w-[80%] sm:w-[600px] flex flex-col border-sky-500 border-2 px-6 py-3 rounded-xl shadow-xl">
+        <h1 className="text-center font-bold  mb-3 text-3xl">Register</h1>
+        <h3 className="text-center font-bold text-sky-500 mb-3 font-mono">
+          {errorMsg}
+        </h3>
+        <form
+          onSubmit={handleRegister}
+          className="[&>div]:flex [&>div]:flex-col [&>div>label]:pl-1 [&>div>input]:border-[1px] [&>div>input]:outline-none [&>div>input]:border-sky-500 [&>div>input]:rounded-xl [&>div>input]:p-1 flex flex-col gap-4"
+        >
+          <div>
+            <label className="pl-1">Email:</label>
+            <input
+              type="text"
+              id="email"
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Email"
+              className="focus:border-2"
+            ></input>
+          </div>
 
-                    <button className="border-3 border-sky-800 font-bold hover:bg-sky-800 hover:text-white h-10 my-3">Sign Up</button>
-                </form>
-            </div>
-        </div>
-    );
+          <div>
+            <label>Name:</label>
+            <input
+              type="text"
+              placeholder="Name"
+              id="name"
+              onChange={(e) => setName(e.target.value)}
+              className="focus:border-2"
+            ></input>
+          </div>
+
+          <div>
+            <label>Password:</label>
+            <input
+              type="password"
+              id="password"
+              placeholder="Password"
+              onChange={(e) => setPassword(e.target.value)}
+            ></input>
+          </div>
+          <div>
+            <label>Country: </label>
+            <input
+              type="text"
+              placeholder="Country"
+              id="country"
+              onChange={(e) =>
+                setAddress({ ...address, country: e.target.value })
+              }
+              className="focus:border-2"
+            ></input>
+          </div>
+
+          <div>
+            <label>City: </label>
+            <input
+              type="text"
+              id="city"
+              placeholder="City"
+              onChange={(e) => setAddress({ ...address, city: e.target.value })}
+              className="focus:border-2"
+            ></input>
+          </div>
+
+          <div>
+            <label>Street Name: </label>
+            <input
+              type="text"
+              placeholder="Street Name"
+              id="streetName"
+              onChange={(e) =>
+                setAddress({ ...address, streetName: e.target.value })
+              }
+              className="focus:border-2"
+            ></input>
+          </div>
+
+          <div>
+            <label>House Number: </label>
+            <input
+              type="text"
+              id="houseNumber"
+              placeholder="House Number"
+              onChange={(e) =>
+                setAddress({
+                  ...address,
+                  houseNumber: parseInt(e.target.value),
+                })
+              }
+              className="focus:border-2"
+            ></input>
+          </div>
+
+          <div>
+            <label>Apartment Number: </label>
+            <input
+              type="text"
+              id="apartmentNumber"
+              placeholder="Apartment Number"
+              onChange={(e) =>
+                setAddress({
+                  ...address,
+                  appartmentNumber: parseInt(e.target.value),
+                })
+              }
+              className="focus:border-2"
+            ></input>
+          </div>
+
+          <div>
+            <label>Postal Code: </label>
+            <input
+              type="text"
+              placeholder="Postal Code"
+              id="postalCode"
+              onChange={(e) =>
+                setAddress({ ...address, postalCode: parseInt(e.target.value) })
+              }
+              className="focus:border-2"
+            ></input>
+          </div>
+
+          <div>
+            <label>Profile Picture: </label>
+            <input
+              accept="image/*"
+              type="file"
+              id="picture"
+              placeholder="Picture"
+              onChange={handleImageChange}
+              className="focus:border-2"
+            ></input>
+            <img
+              src={imageSrc}
+              className="mt-4 w-36 self-center rounded-full border-3 border-sky-500 "
+            ></img>
+          </div>
+          <div className="flex flex-col gap-2">
+          <button type="button" className=" border-2 border-sky-500 rounded-xl" onClick={() => setIsRestaurant(!isRestaurant)} >
+             <p className="text-[16px]">You are registering as a <p className="text-sky-500 inline-block font-bold">{isRestaurant ? "restaurant" : "customer"}</p>  </p>
+             <p className="text-[12px]">Click here to change</p>
+          </button>
+          <button className=" bg-sky-500 text-white rounded-xl font-bold hover:bg-sky-800 hover:text-white h-10 w-full">
+            Register
+          </button>
+          </div>
+          
+
+        </form>
+        <div className="mt-3 mb-3 bg-sky-500 h-[2px] w-full"></div>
+        <h1 className="text-center font-bold">Already have an account?</h1>
+        <Link to="/login" className="text-center text-sky-500 hover-sky:700">
+          Log In here
+        </Link>
+      </div>
+    </div>
+  );
 };
 
 export default Register;

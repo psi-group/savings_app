@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
+﻿using Application.Services.Interfaces;
+using Domain.Entities;
+using Domain.Exceptions;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using savings_app_backend.Exceptions;
-using savings_app_backend.Models;
-using savings_app_backend.Models.Entities;
-using savings_app_backend.Services.Interfaces;
 
 namespace savings_app_backend.Controllers
 {
