@@ -55,7 +55,7 @@ const Navbar = (props) => {
             {isProfileDropdownOpen && (
               <div className="w-64 bg-white border-2 border-sky-500 font-bold text-sky-500 absolute top-14 right-1 rounded-md flex flex-col flex-grow" onMouseEnter={() => setIsProfileDropdownOpen(true)}
               onMouseLeave={() => setIsProfileDropdownOpen(false)}>
-                <button className=" border-b-2 h-14 hover:bg-sky-500 hover:text-white">
+                              <button className=" border-b-2 h-14 hover:bg-sky-500 hover:text-white" onClick={(e) => navigate("/orders")} >
                   My Orders
                 </button>
                 <button className=" border-b-2 h-14 hover:bg-sky-500 hover:text-white" onClick={(e) => navigate("/profile")}>
