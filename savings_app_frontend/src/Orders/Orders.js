@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import "./Orders.css";
-import SearchAndDisplay from "./Search/SearchAndDisplay";
+import SearchAndDisplay from "../Search/SearchAndDisplay";
 
 export default class Orders extends Component {
 
