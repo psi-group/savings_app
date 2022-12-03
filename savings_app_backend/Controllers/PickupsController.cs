@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
+﻿using Application.Services.Interfaces;
+using Domain.DTOs.Request;
+using Domain.Entities;
+using Domain.Exceptions;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using savings_app_backend.Exceptions;
-using savings_app_backend.Models;
-using savings_app_backend.Models.Entities;
-using savings_app_backend.Services.Interfaces;
 
 namespace savings_app_backend.Controllers
 {
@@ -76,7 +70,7 @@ namespace savings_app_backend.Controllers
         // POST: api/Pickups
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Pickup>> PostPickup(Pickup pickup)
+        public async Task<ActionResult<Pickup>> PostPickup([FromBody] PickupDTORequest pickup)
         {
             return Ok(await _pickupService.PostPickup(pickup));
         }

@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 
 function getId(token) {
     console.log(JSON.parse(window.atob(token.split(".")[1])));
@@ -14,6 +15,21 @@ function getName(token) {
 }
 
 const Profile = () => {
+
+
+    useEffect(() => {
+        fetch(`https://localhost:7183/api/restaurants/` + getId(localStorage.getItem("token")))
+            .then(async (response) => {
+                if (!response.ok) {
+                    throw new Error(
+                        `This is an HTTP error: The status is ${response.status}`
+                    );
+                }
+                console.log(await response.json());
+            })
+            .catch((err) => {
+            })
+    }, [])
 
 
     return (

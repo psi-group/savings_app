@@ -25,7 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\savings_app_backend\savings_app_backend.csproj" />
+    <ProjectReference Include="..\savings_app_backend\WebAPI.csproj" />
   </ItemGroup>
 
 </Project>

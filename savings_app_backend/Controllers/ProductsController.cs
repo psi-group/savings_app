@@ -1,25 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Net.Security;
-using System.Security.Claims;
-using System.Security.Principal;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Application.Services.Interfaces;
+using Domain.DTOs.Request;
+using Domain.Entities;
+using Domain.Enums;
+using Domain.Exceptions;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using savings_app_backend.EmailSender;
-using savings_app_backend.Exceptions;
-using savings_app_backend.Extention;
-using savings_app_backend.Models;
-using savings_app_backend.Models.Entities;
-using savings_app_backend.Models.Enums;
-using savings_app_backend.Services.Implementations;
-using savings_app_backend.Services.Interfaces;
 
 namespace savings_app_backend.Controllers
 {
@@ -46,7 +31,9 @@ namespace savings_app_backend.Controllers
 
         [HttpGet("filter")]
         public async Task<ActionResult<IEnumerable<Product>>> GetFilteredProducts(
-            [FromQuery] List<Category> category, [FromQuery] string? search, [FromQuery] string? order = "by_id")
+            [FromQuery] List<Category> category,
+            [FromQuery] string? search,
+            [FromQuery] string? order = "by_id")
         {
             try
             {
@@ -84,7 +71,7 @@ namespace savings_app_backend.Controllers
         // PUT: api/ProductContr/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
 
-        [HttpPost("buy")]
+        /*[HttpPost("buy")]
         //[Authorize(Roles = "buyer")]
         public async Task<ActionResult<Product>> BuyProduct([FromBody] Guid id,
             [FromQuery] int amount)
@@ -114,11 +101,11 @@ namespace savings_app_backend.Controllers
                 _logger.LogError(e.ToString());
                 return NotFound();
             }
-        }
+        }*/
 
         [HttpPut("{id}")]
         [Authorize(Roles = "seller")]
-        public async Task<ActionResult<Product>> PutProduct(Guid id, Product product)
+        public async Task<ActionResult<Product>> PutProduct(Guid id, [FromForm] ProductDTORequest product)
         {
             try
             {
@@ -143,8 +130,11 @@ namespace savings_app_backend.Controllers
 
         [HttpPost]
         [Authorize(Roles = "seller")]
-        public async Task<ActionResult<Product>> PostProduct(Product product)
+        public async Task<ActionResult<Product>> PostProduct(
+            [FromForm] ProductDTORequest product)
         {
+            var a = DateTime.Now;
+            //throw new NotImplementedException();
             try
             {
                 return Ok(await _productService.PostProduct(product));

@@ -61,7 +61,7 @@ const RestaurantDetails = () => {
             <>
                 <h1 className="text-[35px] text-center mt-3 font-bold mb-5" >{dataRestaurant.name}</h1>
                 <div>
-                    <img className=" align-middle w-[400px] h-[350px] border-sky-500 border-5 ml-auto mb-7 mr-auto" src={"../" + dataRestaurant.picture} alt={dataRestaurant.name} />
+                    <img className=" align-middle w-[400px] h-[350px] border-sky-500 border-5 ml-auto mb-7 mr-auto" src={"https://localhost:7183/userImg/" + dataRestaurant.id + ".jpg"} alt={dataRestaurant.name} />
                     <div className="w-[150px] ml-auto mr-auto">
                           <Rating name="half-rating" value={dataRestaurant.rating} precision={0.5}  size="large" />
                     </div>

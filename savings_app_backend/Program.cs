@@ -1,19 +1,17 @@
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
-using savings_app_backend.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
-using savings_app_backend.Services.Interfaces;
-using savings_app_backend.Services.Implementations;
-using savings_app_backend.EmailSender;
 using NLog.Web;
 using NLog;
-using savings_app_backend;
-using savings_app_backend.Statistics;
-using savings_app_backend.Repositories.Interfaces;
-using savings_app_backend.Repositories.Implementations;
-using savings_app_backend.SavingToFile;
+using Infrastructure;
+using Domain.Interfaces;
+using Infrastructure.Services;
+using Application.Services.Interfaces;
+using Application.Services.Implementations;
+using Domain.Interfaces.Repositories;
+using Infrastructure.Repositories;
+using Microsoft.AspNetCore.Localization;
 
 var logger = NLog.LogManager.Setup().LoadConfigurationFromAppSettings().GetCurrentClassLogger();
 
@@ -48,17 +46,12 @@ try
 
     builder.Services.AddTransient<IBuyerService, BuyerService>();
 
-    builder.Services.AddTransient<IAddressService, AddressService>();
-
-    builder.Services.AddTransient<IUserAuthService, UserAuthService>();
-
     builder.Services.AddTransient<IAuthService, AuthService>();
 
     builder.Services.AddTransient<IEmailSender, EmailSender>();
 
     builder.Services.AddScoped<IProductRepository, ProductRepository>();
     builder.Services.AddScoped<IRestaurantRepository, RestaurantRepository>();
-    builder.Services.AddScoped<IUserAuthRepository, UserAuthRepository>();
     builder.Services.AddScoped<IOrderRepository, OrderRepository>();
     builder.Services.AddScoped<IPickupRepository, PickupRepository>();
     builder.Services.AddScoped<IBuyerRepository, BuyerRepository>();
@@ -104,7 +97,11 @@ try
         app.UseSwagger();
         app.UseSwaggerUI();
     }
-    app.UseStatisticsMiddleware();
+
+    app.UseRequestLocalization(new RequestLocalizationOptions
+    {
+        DefaultRequestCulture = new RequestCulture("en-US")
+    });
 
     app.UseHttpsRedirection();
 

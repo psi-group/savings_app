@@ -128,8 +128,8 @@ export const ShoppingCart = (props) => {
                   <>
                     <div className="flex justify-between border-b-2 border-zinc-500 pb-2">
                       <div className="flex gap-5">
-                        <img
-                          src={cartItem.image}
+                                <img
+                                    src={"https://localhost:7183/productImg/" + cartItem.product.id + ".jpg"}
                           className="w-24 h-20 rounded-md border-zinc-500 border-2"
                         />
                         <div className="flex flex-col">
