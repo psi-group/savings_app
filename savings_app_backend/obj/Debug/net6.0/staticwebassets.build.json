@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "RPxGihom6tbXEHDpXA8PCySe9Qz09XPXw7izm2t8MuI=",
+  "Hash": "SIX4IX1TpdridpaEUCPpBWlxP3Ps2UmULbg14NqZ5Cs=",
   "Source": "WebAPI",
   "BasePath": "_content/WebAPI",
   "Mode": "Default",
@@ -16,6 +16,23 @@
     }
   ],
   "Assets": [
+    {
+      "Identity": "C:\\Users\\justa\\Desktop\\APPAS\\geriausias\\savings_app\\savings_app_backend\\wwwroot\\productImg\\18fac9fa-2d61-4a20-889c-b61628a21975.jpg",
+      "SourceId": "WebAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\justa\\Desktop\\APPAS\\geriausias\\savings_app\\savings_app_backend\\wwwroot\\",
+      "BasePath": "_content/WebAPI",
+      "RelativePath": "productImg/18fac9fa-2d61-4a20-889c-b61628a21975.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\productImg\\18fac9fa-2d61-4a20-889c-b61628a21975.jpg"
+    },
     {
       "Identity": "C:\\Users\\justa\\Desktop\\APPAS\\geriausias\\savings_app\\savings_app_backend\\wwwroot\\productImg\\1e1c8840-25d2-4d41-afab-d04c96021c87.jpg",
       "SourceId": "WebAPI",
@@ -51,6 +68,23 @@
       "OriginalItemSpec": "wwwroot\\productImg\\46bdf4fb-9fd1-48cb-a346-8025b4c3a382.jpg"
     },
     {
+      "Identity": "C:\\Users\\justa\\Desktop\\APPAS\\geriausias\\savings_app\\savings_app_backend\\wwwroot\\productImg\\5843398d-418e-4d73-ae8e-9ef6256b7814.jpg",
+      "SourceId": "WebAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\justa\\Desktop\\APPAS\\geriausias\\savings_app\\savings_app_backend\\wwwroot\\",
+      "BasePath": "_content/WebAPI",
+      "RelativePath": "productImg/5843398d-418e-4d73-ae8e-9ef6256b7814.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\productImg\\5843398d-418e-4d73-ae8e-9ef6256b7814.jpg"
+    },
+    {
       "Identity": "C:\\Users\\justa\\Desktop\\APPAS\\geriausias\\savings_app\\savings_app_backend\\wwwroot\\productImg\\5f70a6cb-88c3-4e91-8672-3ebdaa463572.jpg",
       "SourceId": "WebAPI",
       "SourceType": "Discovered",
@@ -66,6 +100,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\productImg\\5f70a6cb-88c3-4e91-8672-3ebdaa463572.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\justa\\Desktop\\APPAS\\geriausias\\savings_app\\savings_app_backend\\wwwroot\\productImg\\69d60ee0-0667-4e51-a59a-946232a952d8.jpg",
+      "SourceId": "WebAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\justa\\Desktop\\APPAS\\geriausias\\savings_app\\savings_app_backend\\wwwroot\\",
+      "BasePath": "_content/WebAPI",
+      "RelativePath": "productImg/69d60ee0-0667-4e51-a59a-946232a952d8.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\productImg\\69d60ee0-0667-4e51-a59a-946232a952d8.jpg"
     },
     {
       "Identity": "C:\\Users\\justa\\Desktop\\APPAS\\geriausias\\savings_app\\savings_app_backend\\wwwroot\\productImg\\8880669c-2cb5-40f7-9000-c9ed72101df9.jpg",
@@ -85,6 +136,23 @@
       "OriginalItemSpec": "wwwroot\\productImg\\8880669c-2cb5-40f7-9000-c9ed72101df9.jpg"
     },
     {
+      "Identity": "C:\\Users\\justa\\Desktop\\APPAS\\geriausias\\savings_app\\savings_app_backend\\wwwroot\\productImg\\9336f23c-679c-4131-9ded-91c8945046e6.jpg",
+      "SourceId": "WebAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\justa\\Desktop\\APPAS\\geriausias\\savings_app\\savings_app_backend\\wwwroot\\",
+      "BasePath": "_content/WebAPI",
+      "RelativePath": "productImg/9336f23c-679c-4131-9ded-91c8945046e6.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\productImg\\9336f23c-679c-4131-9ded-91c8945046e6.jpg"
+    },
+    {
       "Identity": "C:\\Users\\justa\\Desktop\\APPAS\\geriausias\\savings_app\\savings_app_backend\\wwwroot\\productImg\\9e8c3d8c-2846-475a-8165-112d283944ab.jpg",
       "SourceId": "WebAPI",
       "SourceType": "Discovered",
@@ -100,6 +168,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\productImg\\9e8c3d8c-2846-475a-8165-112d283944ab.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\justa\\Desktop\\APPAS\\geriausias\\savings_app\\savings_app_backend\\wwwroot\\productImg\\a56a29e2-6551-4a7d-b424-23f353ceba5b.jpg",
+      "SourceId": "WebAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\justa\\Desktop\\APPAS\\geriausias\\savings_app\\savings_app_backend\\wwwroot\\",
+      "BasePath": "_content/WebAPI",
+      "RelativePath": "productImg/a56a29e2-6551-4a7d-b424-23f353ceba5b.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\productImg\\a56a29e2-6551-4a7d-b424-23f353ceba5b.jpg"
     },
     {
       "Identity": "C:\\Users\\justa\\Desktop\\APPAS\\geriausias\\savings_app\\savings_app_backend\\wwwroot\\productImg\\d5f1bbe5-70f9-4299-9f02-010f3ae459cf.jpg",

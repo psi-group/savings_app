@@ -723,6 +723,7 @@ C:\Users\justa\Desktop\APPAS\real\savings_app\savings_app_tests\obj\Debug\net6.0
 C:\Users\justa\Desktop\APPAS\real\savings_app\savings_app_tests\obj\Debug\net6.0\savings_app_tests.genruntimeconfig.cache
 C:\Users\justa\Desktop\APPAS\real\savings_app\savings_app_tests\obj\Debug\net6.0\ref\savings_app_tests.dll
 <<<<<<< HEAD
+<<<<<<< HEAD
 C:\Users\justa\Desktop\APPAS\real - Copy - Copy\savings_app\savings_app_tests\bin\Debug\net6.0\CoverletSourceRootsMapping
 C:\Users\justa\Desktop\APPAS\real - Copy - Copy\savings_app\savings_app_tests\obj\Debug\net6.0\savings_app_tests.csproj.AssemblyReference.cache
 C:\Users\justa\Desktop\APPAS\real - Copy - Copy\savings_app\savings_app_tests\obj\Debug\net6.0\savings_app_tests.GeneratedMSBuildEditorConfig.editorconfig
@@ -1093,6 +1094,8 @@ C:\Users\justa\Desktop\APPAS\real - Copy - Copy\savings_app\savings_app_tests\ob
 C:\Users\justa\Desktop\APPAS\real - Copy - Copy\savings_app\savings_app_tests\obj\Debug\net6.0\ref\savings_app_tests.dll
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> main
 C:\Users\Medas\Desktop\repos\savings_app\savings_app_tests\bin\Debug\net6.0\CoverletSourceRootsMapping
 C:\Users\Medas\Desktop\repos\savings_app\savings_app_tests\bin\Debug\net6.0\nlog.config
 C:\Users\Medas\Desktop\repos\savings_app\savings_app_tests\bin\Debug\net6.0\appsettings.Development.json
@@ -1457,4 +1460,7 @@ C:\Users\Medas\Desktop\repos\savings_app\savings_app_tests\obj\Debug\net6.0\savi
 C:\Users\Medas\Desktop\repos\savings_app\savings_app_tests\obj\Debug\net6.0\ref\savings_app_tests.dll
 =======
 >>>>>>> ec75fc8758a0caaa54a4d8234d32cc9ae9b83ebf
+<<<<<<< HEAD
+>>>>>>> main
+=======
 >>>>>>> main

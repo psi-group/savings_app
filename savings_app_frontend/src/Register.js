@@ -1,13 +1,9 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-
+import { Link } from "react-router-dom";
 
 const Register = () => {
-
-    const navigate = useNavigate();
     const defaultImageSrc = "/images/profilePic.jpg";
-    const [sitePage, setSitePage] = useState("");
-    const [description, setDescription] = useState("");
+
     const [errorMsg, setErrMsg] = useState("");
 
     const [isRestaurant, setIsRestaurant] = useState(false);
@@ -20,41 +16,31 @@ const Register = () => {
     const [imageFile, setImageFile] = useState();
 
     const [address, setAddress] = useState({
-        country: null,
-        city: null,
-        streetName: null,
-        houseNumber: null,
-        appartmentNumber: null,
-        postalCode: null,
+        country: "",
+        city: "",
+        streetName: "",
+        houseNumber: 0,
+        appartmentNumber: 0,
+        postalCode: 0,
     });
 
     const handleRegister = (e) => {
         e.preventDefault();
         console.log("regiter");
-        console.log(imageFile);
         const formData = new FormData();
 
-        
+        //let userAuth = { 'email': email, "password": password };
         formData.append("userAuth[email]", email);
         formData.append("userAuth[password]", password);
         formData.append("name", name);
-        formData.append("image", imageFile);
+        formData.append("imageFile", imageFile);
         console.log(address);
-
-        if (isAddressInformationVisible) {
-            formData.append("address[country]", address.country);
-            formData.append("address[city]", address.city);
-            formData.append("address[streetName]", address.streetName);
-            formData.append("address[houseNumber]", address.houseNumber);
-            formData.append("address[appartmentNumber]", address.appartmentNumber);
-            formData.append("address[postalCode]", address.postalCode);
-        }
-
-        if (isRestaurant) {
-            formData.append("description", description);
-            formData.append("siteRef", sitePage);
-        }
-        
+        formData.append("address[country]", address.country);
+        formData.append("address[city]", address.city);
+        formData.append("address[streetName]", address.streetName);
+        formData.append("address[houseNumber]", address.houseNumber);
+        formData.append("address[appartmentNumber]", address.appartmentNumber);
+        formData.append("address[postalCode]", address.postalCode);
 
         console.log(isRestaurant);
 
@@ -77,11 +63,8 @@ const Register = () => {
                     console.log(response.statusText);
                     setErrMsg("Incorrect register inputs");
                 } else {
-                    
                     setErrMsg("");
-                    navigate("/login");
                 }
-                
             })
             .catch((error) => {
                 setErrMsg(error);
@@ -255,8 +238,6 @@ const Register = () => {
                                     className="focus:border-2"
                                     placeholder="Description"
                                     id="description"
-                                    onChange={(e) =>
-                                        setDescription(e.target.value)}
                                 ></input>
                             </div>
                             <div className="flex flex-col">
@@ -266,8 +247,6 @@ const Register = () => {
                                     className="focus:border-2"
                                     placeholder="Restaurant Page"
                                     id="restaurantPage"
-                                    onChange={(e) =>
-                                        setSitePage(e.target.value)}
                                 ></input>
                             </div>
                         </div>
