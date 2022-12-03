@@ -1,5 +1,6 @@
 ﻿using Domain.Entities;
 using Domain.Interfaces.Specifications;
+using System.Linq.Expressions;
 
 namespace Domain.Interfaces.Repositories
 {
@@ -9,8 +10,8 @@ namespace Domain.Interfaces.Repositories
         public Task<Restaurant?> GetRestaurantAsync(Guid id);
 
 
-        public Task<Restaurant?> GetRestaurantAsync(Predicate<Restaurant> predicate);
-        public Restaurant? GetRestaurant(Predicate<Restaurant> predicate);
+        public Task<Restaurant?> GetRestaurantAsync(Expression<Func<Restaurant, bool>> predicate);
+        public Restaurant? GetRestaurant(Expression<Func<Restaurant, bool>> predicate);
 
         public IEnumerable<Restaurant> GetRestaurants();
         public Task<IEnumerable<Restaurant>> GetRestaurantsAsync();

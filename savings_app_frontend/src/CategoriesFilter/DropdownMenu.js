@@ -25,7 +25,7 @@ const DropdownMenu = ({ categories, setFilters, filters }) => {
 
   return (
     <div
-      className="dropdown"
+      className="absolute z-10 bg-sky-500 w-[250px]  block left-0 p-1 border-[1px] border-sky-500 overflow-hidden rounded-xl transition:[height] duration-200 ease-in"
       style={{ height: menuHeight + 25 }}
       ref={dropdownRef}
     >
@@ -60,15 +60,15 @@ const DropdownMenu = ({ categories, setFilters, filters }) => {
           classNames="menu-secondary"
           onEnter={calcHeight}
         >
-          <div className="menu">
-            <div className="menu-item goBack" goToMenu="main">
+          <div className="w-full z-1">
+            <div className="h-[50px] transition-[background] duration-300 padding-1 rounded-md  relative flex justify-center items-center self-center text-white" goToMenu="main">
               <div
-                className="goBackButton"
+                className="absolute ml-[5px] bottom-[12px] left-0 w-[30px] h-[30px] flex justify-center items-center"
                 onClick={() => setActiveMenu("main")}
               >
-                <img src={arrow} className="flippedArrow" />
+                <img src={arrow} className="-scale-x-100 !h-[30px] !w-[30px] hue-rotate-[50%] hover:bg-white rounded-lg" />
               </div>
-              <h3>{category.category.toUpperCase()}</h3>
+              <h3 className="font-bold text-[30px]">{category.category.toUpperCase()}</h3>
             </div>
             {category.subCategories &&
               category.subCategories.map((sub) => {

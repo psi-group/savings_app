@@ -1,4 +1,5 @@
-﻿using Domain.Enums;
+﻿using Domain.Entities.OrderAggregate;
+using Domain.Enums;
 using Domain.Interfaces.Entities;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
@@ -21,7 +22,10 @@ namespace Domain.Entities
             Status = status;
         }
         
+
+
         public Guid ProductId { get; private set; }
+        public OrderItem? OrderItem { get; private set; }
         public DateTime StartTime { get; private set; }
         public DateTime EndTime { get; private set; }
 

@@ -2,6 +2,7 @@
 using Domain.Interfaces.Repositories;
 using Domain.Interfaces.Specifications;
 using Microsoft.EntityFrameworkCore;
+using System.Linq.Expressions;
 
 namespace Infrastructure.Repositories
 {
@@ -119,14 +120,17 @@ namespace Infrastructure.Repositories
             _appContext.SaveChanges();
         }
 
-        public async Task<Buyer?> GetBuyerAsync(Predicate<Buyer> predicate)
+        public async Task<Buyer?> GetBuyerAsync(Expression<Func<Buyer, bool>> predicate)
         {
-            return await _appContext.Buyers.FirstOrDefaultAsync(e => predicate(e));
+            return await _appContext.Buyers.FirstOrDefaultAsync(predicate);
         }
 
-        public Buyer? GetBuyer(Predicate<Buyer> predicate)
+        public Buyer? GetBuyer(Expression<Func<Buyer, bool>> predicate)
         {
-            return _appContext.Buyers.FirstOrDefault(e => predicate(e));
+            var buyers = _appContext.Buyers.ToList();
+            
+            //var t = Expression.Invoke(predicate, buyers[0]);
+            return _appContext.Buyers.FirstOrDefault(predicate);
         }
     }
 }

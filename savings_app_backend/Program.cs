@@ -11,6 +11,7 @@ using Application.Services.Interfaces;
 using Application.Services.Implementations;
 using Domain.Interfaces.Repositories;
 using Infrastructure.Repositories;
+using Microsoft.AspNetCore.Localization;
 
 var logger = NLog.LogManager.Setup().LoadConfigurationFromAppSettings().GetCurrentClassLogger();
 
@@ -96,6 +97,11 @@ try
         app.UseSwagger();
         app.UseSwaggerUI();
     }
+
+    app.UseRequestLocalization(new RequestLocalizationOptions
+    {
+        DefaultRequestCulture = new RequestCulture("en-US")
+    });
 
     app.UseHttpsRedirection();
 

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "DK8fSLiORRkUSuYulxmKfPiXlnqQorp7bc3sE2sqmW2GLnemcJlpz/dR+k/AQ5zFFRlUDdm1NM38kIAKAn6+1w==",
+  "dgSpecHash": "X/yUHCbdFtOExND432zKuIJrwkv16XBCwFk/kMCTGX8XSfO6sft3VOQlzF8+J+7MkCyu+pimm5z4c6RWBOZnxA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\justa\\Desktop\\APPAS\\real - Copy - Copy\\savings_app\\Infrastructure\\Infrastructure.csproj",
+  "projectFilePath": "C:\\Users\\justa\\Desktop\\APPAS\\geriausias\\savings_app\\Infrastructure\\Infrastructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\justa\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\justa\\.nuget\\packages\\mailkit\\3.4.2\\mailkit.3.4.2.nupkg.sha512",

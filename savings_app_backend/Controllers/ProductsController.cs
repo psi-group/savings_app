@@ -31,7 +31,9 @@ namespace savings_app_backend.Controllers
 
         [HttpGet("filter")]
         public async Task<ActionResult<IEnumerable<Product>>> GetFilteredProducts(
-            [FromQuery] List<Category> category, [FromQuery] string? search, [FromQuery] string? order = "by_id")
+            [FromQuery] List<Category> category,
+            [FromQuery] string? search,
+            [FromQuery] string? order = "by_id")
         {
             try
             {
@@ -103,7 +105,7 @@ namespace savings_app_backend.Controllers
 
         [HttpPut("{id}")]
         [Authorize(Roles = "seller")]
-        public async Task<ActionResult<Product>> PutProduct(Guid id, Product product)
+        public async Task<ActionResult<Product>> PutProduct(Guid id, [FromForm] ProductDTORequest product)
         {
             try
             {
@@ -128,8 +130,11 @@ namespace savings_app_backend.Controllers
 
         [HttpPost]
         [Authorize(Roles = "seller")]
-        public async Task<ActionResult<Product>> PostProduct(ProductDTORequest product)
+        public async Task<ActionResult<Product>> PostProduct(
+            [FromForm] ProductDTORequest product)
         {
+            var a = DateTime.Now;
+            //throw new NotImplementedException();
             try
             {
                 return Ok(await _productService.PostProduct(product));

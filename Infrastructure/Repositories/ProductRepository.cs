@@ -64,6 +64,7 @@ namespace Infrastructure.Repositories
             // return the result of the query using the specification's criteria expression
             return secondaryResult
                             .Where(spec.Criteria)
+                            .OrderBy(spec.OrderBy)
                             .ToList();
         }
         public async Task<IEnumerable<Product>> GetProductsAsync(ISpecification<Product> spec)
@@ -78,9 +79,11 @@ namespace Infrastructure.Repositories
                 .Aggregate(queryableResultWithIncludes,
                     (current, include) => current.Include(include));
 
+
+            var a = _appContext.Products.ToList();
             // return the result of the query using the specification's criteria expression
             return await secondaryResult
-                            .Where(spec.Criteria)
+                            //.Where(spec.Criteria)
                             .ToListAsync();
         }
 

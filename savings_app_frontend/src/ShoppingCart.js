@@ -3,13 +3,40 @@ import { Link } from "react-router-dom";
 
 export const ShoppingCart = (props) => {
   const [isSelectTimeOpen, setIsSelectTimeOpen] = useState(false);
+    const [isPathFinderReady, setIsPathFinderReady] = useState(null);
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
     console.log(e.target[0].value);
     console.log(e.target[1].value);
     setIsSelectTimeOpen(false);
-  };
+    };
+
+
+    const handlePlanVisits = (e) => {
+        e.preventDefault();
+        console.log(e.target[0].value);
+        console.log(e.target[1].value);
+
+        setIsPathFinderReady(false);
+
+        console.log("ready? " + isPathFinderReady);
+
+        fetch("https://localhost:7183/api/pathfinder", {
+            method: "GET",
+
+        })
+            .then(async res => {
+                console.log(await res.json());
+                console.log("ready? " + isPathFinderReady);
+
+                setIsPathFinderReady(true);
+                console.log("ready? " + isPathFinderReady);
+            })
+
+        
+    }
+
   const handleCheckout = () => {
     console.log(props.cartItems);
     props.cartItems.map((cartItem) => {
@@ -101,8 +128,8 @@ export const ShoppingCart = (props) => {
                   <>
                     <div className="flex justify-between border-b-2 border-zinc-500 pb-2">
                       <div className="flex gap-5">
-                        <img
-                          src={cartItem.image}
+                                <img
+                                    src={"https://localhost:7183/productImg/" + cartItem.product.id + ".jpg"}
                           className="w-24 h-20 rounded-md border-zinc-500 border-2"
                         />
                         <div className="flex flex-col">
@@ -155,7 +182,7 @@ export const ShoppingCart = (props) => {
                 <button className="text-xl absolute top-1 right-3" onClick={() => setIsSelectTimeOpen(false)}>X</button>
                 <form
                   className="flex justify-center items-center h-full flex-col gap-2"
-                  onSubmit={handleFormSubmit}
+                                  onSubmit={handlePlanVisits}
                 >
                   <h1 className="font-bold text-sky-600 text-xl">
                     Select time
@@ -177,12 +204,16 @@ export const ShoppingCart = (props) => {
                     ></input>
                   </div>
                   <button
-                    type="submit"
-                    className="bg-sky-700 active:text-black text-white  border-2 active:border-black hover:bg-sky-800 p-2 pt-2 font-bold self-center w-[50%]"
+                                      type="submit"
+                                      className="bg-sky-700 active:text-black text-white  border-2 active:border-black hover:bg-sky-800 p-2 pt-2 font-bold self-center w-[50%]"
+                                      
                   >
-                    Confirm
+                                      Confirm
                   </button>
-                </form>
+                              </form>
+                              <div>
+                                  {(!isPathFinderReady && isPathFinderReady != null) ? (<div id="load"><p>Loading....</p></div>) : (<></>)}
+                                  </div>
               </div>
             )}
           </div>

@@ -1,5 +1,6 @@
 ﻿
 
+using Domain.DTOs.Request;
 using Domain.Entities;
 
 namespace Application.Services.Interfaces
@@ -20,7 +21,7 @@ namespace Application.Services.Interfaces
 
         Task<Pickup> DeletePickup(Guid id);
 
-        Task<Pickup> PostPickup(Pickup Pickup);
+        Task<Pickup> PostPickup(PickupDTORequest Pickup);
 
     }
 }

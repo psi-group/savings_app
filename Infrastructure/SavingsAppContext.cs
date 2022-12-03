@@ -29,7 +29,6 @@ namespace Infrastructure
                 .WithOne(prd => prd.Restaurant)
                 .HasForeignKey(fk => fk.RestaurantID);
 
-
             modelBuilder.Entity<Product>()
                 .HasMany(rest => rest.Pickups)
                 .WithOne()
@@ -47,7 +46,15 @@ namespace Infrastructure
                 .HasForeignKey(o => o.ProductId)
                 .OnDelete(DeleteBehavior.NoAction);
 
+            modelBuilder.Entity<OrderItem>()
+                .HasOne(oi => oi.Order)
+                .WithMany(order => order.OrderItems)
+                .HasForeignKey(oi => oi.OrderId);
 
+            modelBuilder.Entity<OrderItem>()
+                .HasOne(oi => oi.Pickup)
+                .WithOne(pickup => pickup.OrderItem)
+                .HasForeignKey<OrderItem>(oi => oi.PickupId);
 
             modelBuilder
                 .Entity<Product>()

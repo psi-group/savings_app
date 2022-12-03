@@ -149,8 +149,9 @@ const App = () => {
 
                     <Route path='/profile' element={<Profile />}></Route>
 
+                <Route path='/shoppingCart' element={<ShoppingCart cartItems={cartItems} setCartItems={setCartItems} addCartItem={addCartItem} removeCartItem={removeCartItem} fullSum={fullSum} setFullSum={setFullSum} />}></Route>
                     <Route element={<ProtectedRoute />}>
-                        <Route path='/shoppingCart' element={<ShoppingCart cartItems={cartItems} setCartItems={setCartItems} addCartItem={addCartItem} removeCartItem={removeCartItem} fullSum={fullSum} setFullSum={setFullSum} />}></Route>
+                        
                     </Route>
                     
             </Routes>

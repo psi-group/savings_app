@@ -1,4 +1,5 @@
 ﻿using Application.Services.Interfaces;
+using Application.Specifications;
 using Domain.DTOs.Request;
 using Domain.Entities;
 using Domain.Enums;
@@ -61,35 +62,9 @@ namespace Application.Services.Implementations
         public async Task<IEnumerable<Product>> GetFilteredProducts(List<Category> category,
             string? search, string? order)
         {
-            throw new NotImplementedException();
-            /*Func<Product, Object> sortingOrderDelegate;
-            
-            switch (order)
-            {
-                case null:
-                    sortingOrderDelegate = null;
-                    break;
-                case "by_id":
-                    sortingOrderDelegate = (product) => product.Id;
-                    break;
-                case "by_name":
-                    sortingOrderDelegate = (product) => product.Name;
-                    break;
-                case "by_price":
-                    sortingOrderDelegate = (product) => product.Price;
-                    break;
-                default:
-                    throw new InvalidRequestArgumentsException();
-            }
+            var spec = new ProductFIlterSpecification(category, search, order);
 
-            var products = _productRepository.GetFilteredProducts(sortingOrderDelegate,
-                product => SearchUtility.SearchObject(
-                    product, search, (product) => product.Name, (product) => product.Description),
-                product => (category.Count() == 0 || category.Contains(product.Category))
-                    );
-            
-
-            return await products;*/
+            return await _productRepository.GetProductsAsync(spec);
         }
 
         public async Task<Product> GetProduct(Guid id)
@@ -114,30 +89,32 @@ namespace Application.Services.Implementations
 
         public async Task<Product> PostProduct(ProductDTORequest productToPost)
         {
+
+            //throw new NotImplementedException();
+
             if (productToPost.RestaurantID !=
                 Guid.Parse(((ClaimsIdentity)_httpContext.HttpContext.User.Identity!).FindFirst("Id")!.Value))
                 throw new InvalidIdentityException();
             
             var id = Guid.NewGuid();
-
+            
             var product = new Product(
                 id,
-                productToPost.Name,
-                productToPost.Category,
-                productToPost.RestaurantID,
-                productToPost.AmountType,
-                productToPost.AmountPerUnit,
-                productToPost.AmountOfUnits,
-                productToPost.Price,
+                productToPost.Name!,
+                (Category)productToPost.Category!,
+                (Guid)productToPost.RestaurantID,
+                null,
+                (AmountType)productToPost.AmountType!,
+                (float)productToPost.AmountPerUnit!,
+                (int)productToPost.AmountOfUnits!,
+                (float)productToPost.Price!,
                 id.ToString(),
-                productToPost.ShelfLife,
+                (DateTime)productToPost.ShelfLife!,
                 productToPost.Description);
 
-            
-
             Task saveImageTask = _fileSaver.SaveImage(productToPost.Image, product.ImageName,
-                    _webHostEnvironment.WebRootPath + _config["ImageStorage:ImageFoldersPaths:ProductImages"],
-                    _config["ImageStorage:ImageFoldersPaths:ImageExtention"]);
+                    _webHostEnvironment.ContentRootPath + _config["ImageStorage:ImageFoldersPaths:ProductImages"],
+                    _config["ImageStorage:ImageExtention"]);
 
             await saveImageTask;
             await _productRepository.AddProductAsync(product);
@@ -181,21 +158,34 @@ namespace Application.Services.Implementations
             return product;*/
         }
 
-        public async Task<Product> PutProduct(Guid id, Product product)
+        public async Task<Product> PutProduct(Guid id, ProductDTORequest productToChange)
         {
-            if (product.RestaurantID !=
+
+            var c = productToChange.Name;
+
+            if (productToChange.RestaurantID !=
                 Guid.Parse(((ClaimsIdentity)_httpContext.HttpContext.User.Identity).FindFirst("Id").Value))
                 throw new InvalidIdentityException();
-
-            if (id != product.Id)
-            {
-                throw new InvalidRequestArgumentsException();
-            }
 
             if (!await _productRepository.ProductExistsAsync(id))
             {
                 throw new RecourseNotFoundException();
             }
+
+
+            var product = new Product(
+                id,
+                productToChange.Name!,
+                (Category)productToChange.Category!,
+                (Guid)productToChange.RestaurantID,
+                null,
+                (AmountType)productToChange.AmountType!,
+                (float)productToChange.AmountPerUnit!,
+                (int)productToChange.AmountOfUnits!,
+                (float)productToChange.Price!,
+                id.ToString(),
+                (DateTime)productToChange.ShelfLife!,
+                productToChange.Description);
 
             _productRepository.UpdateProduct(product);
             await _productRepository.SaveChangesAsync();

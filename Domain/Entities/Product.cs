@@ -29,6 +29,7 @@ namespace Domain.Entities
         public AmountType AmountType { get; private set; }
 
         public float AmountPerUnit { get; private set; }
+
         public int AmountOfUnits { get; private set; }
 
         public float Price { get; private set; }
@@ -39,14 +40,15 @@ namespace Domain.Entities
 
         public string? Description { get; private set; }
 
-        public Product(Guid id, string name, Category category, Guid restaurantId, AmountType amountType,
-            float amountPerUnit, int amountOfUnits, float price, string imageName, DateTime shelfLife,
-            string? description)
+        public Product(Guid id, string name, Category category, Guid restaurantId, List<Pickup>? pickups,
+            AmountType amountType, float amountPerUnit, int amountOfUnits, float price,
+            string imageName, DateTime shelfLife, string? description)
         {
             Id = id;
             Name = name;
             Category = category;
             RestaurantID = restaurantId;
+            Pickups = pickups;
             AmountType = amountType;
             AmountPerUnit = amountPerUnit;
             AmountOfUnits = amountOfUnits;

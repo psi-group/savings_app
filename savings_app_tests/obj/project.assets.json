@@ -10825,11 +10825,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\justa\\Desktop\\APPAS\\real - Copy - Copy\\savings_app\\savings_app_tests\\savings_app_tests.csproj",
+      "projectUniqueName": "C:\\Users\\justa\\Desktop\\APPAS\\geriausias\\savings_app\\savings_app_tests\\savings_app_tests.csproj",
       "projectName": "savings_app_tests",
-      "projectPath": "C:\\Users\\justa\\Desktop\\APPAS\\real - Copy - Copy\\savings_app\\savings_app_tests\\savings_app_tests.csproj",
+      "projectPath": "C:\\Users\\justa\\Desktop\\APPAS\\geriausias\\savings_app\\savings_app_tests\\savings_app_tests.csproj",
       "packagesPath": "C:\\Users\\justa\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\justa\\Desktop\\APPAS\\real - Copy - Copy\\savings_app\\savings_app_tests\\obj\\",
+      "outputPath": "C:\\Users\\justa\\Desktop\\APPAS\\geriausias\\savings_app\\savings_app_tests\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\justa\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -10846,8 +10846,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\justa\\Desktop\\APPAS\\real - Copy - Copy\\savings_app\\savings_app_backend\\WebAPI.csproj": {
-              "projectPath": "C:\\Users\\justa\\Desktop\\APPAS\\real - Copy - Copy\\savings_app\\savings_app_backend\\WebAPI.csproj"
+            "C:\\Users\\justa\\Desktop\\APPAS\\geriausias\\savings_app\\savings_app_backend\\WebAPI.csproj": {
+              "projectPath": "C:\\Users\\justa\\Desktop\\APPAS\\geriausias\\savings_app\\savings_app_backend\\WebAPI.csproj"
             }
           }
         }
@@ -10916,6 +10916,12 @@
     }
   },
   "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\justa\\Desktop\\APPAS\\geriausias\\savings_app\\savings_app_tests\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    },
     {
       "code": "NU1608",
       "level": "Warning",

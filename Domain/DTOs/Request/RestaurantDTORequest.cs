@@ -6,8 +6,8 @@ namespace Domain.DTOs.Request
     public class RestaurantDTORequest
     {
         public string Name { get; set; }
-        public UserAuth UserAuth { get; set; }
-        public Address? Address { get; set; }
+        public UserAuthDTORequest UserAuth { get; set; }
+        public AddressDTORequest Address { get; set; }
         public IFormFile Image { get; set; }
 
         public bool Open { get; set; }

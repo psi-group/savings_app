@@ -5,18 +5,14 @@ import Filter from "../CategoriesFilter";
 import { FilterDisplay } from "../CategoriesFilter";
 
 const SearchAndDisplay = (props) => {
-  const [filters, setFilters] = useState([]);
 
   return (
     <div>
-      <Filter filters={filters} setFilters={setFilters} />
-          <FilterDisplay filters={filters} setFilters={setFilters} />
-          <hr className="mt-10"></hr>
       <List
         searched={props.searchas}
         products={props.products}
-        filters={filters}
-        sorting={props.sorting }
+        filters={props.filters}
+        sorting={props.sorting}
         isValidUrl={props.isValidUrl}
       />
     </div>

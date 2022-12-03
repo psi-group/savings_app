@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "zcBlLxWBLNHPIld/HIjoKuzQrZVJnQXwJ+43MuHaeZyjhY/xE3PPJQNIL7IyIJWxCGsDjB6KSP6LKfCx+Xocxg==",
+  "dgSpecHash": "1x3NmkYNVK1LuTIVzU6XSYINOy89FzHowjIV74QXGKY2r0OV1pQsvhKsg0SFgnAIFecFHTbqO73JxRbDj4mG7w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\justa\\Desktop\\APPAS\\real - Copy - Copy\\savings_app\\savings_app_backend\\WebAPI.csproj",
+  "projectFilePath": "C:\\Users\\justa\\Desktop\\APPAS\\geriausias\\savings_app\\savings_app_backend\\WebAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\justa\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\justa\\.nuget\\packages\\mailkit\\3.4.2\\mailkit.3.4.2.nupkg.sha512",

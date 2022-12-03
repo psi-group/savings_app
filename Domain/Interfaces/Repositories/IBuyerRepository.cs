@@ -1,6 +1,7 @@
 ﻿
 using Domain.Entities;
 using Domain.Interfaces.Specifications;
+using System.Linq.Expressions;
 
 namespace Domain.Interfaces.Repositories
 {
@@ -9,8 +10,8 @@ namespace Domain.Interfaces.Repositories
         public Task<Buyer?> GetBuyerAsync(Guid id);
         public Buyer? GetBuyer(Guid id);
 
-        public Task<Buyer?> GetBuyerAsync(Predicate<Buyer> predicate);
-        public Buyer? GetBuyer(Predicate<Buyer> predicate);
+        public Task<Buyer?> GetBuyerAsync(Expression<Func<Buyer, bool>> predicate);
+        public Buyer? GetBuyer(Expression<Func<Buyer, bool>> predicate);
 
         public Task<IEnumerable<Buyer>> GetBuyersAsync();
         public IEnumerable<Buyer> GetBuyers();

@@ -2,6 +2,7 @@
 using Domain.Interfaces.Repositories;
 using Domain.Interfaces.Specifications;
 using Microsoft.EntityFrameworkCore;
+using System.Linq.Expressions;
 
 namespace Infrastructure.Repositories
 {
@@ -28,14 +29,14 @@ namespace Infrastructure.Repositories
         }
 
 
-        public async Task<Restaurant?> GetRestaurantAsync(Predicate<Restaurant> predicate)
+        public async Task<Restaurant?> GetRestaurantAsync(Expression<Func<Restaurant, bool>> predicate)
         {
-            return await _appContext.Restaurants.FirstOrDefaultAsync(e => predicate(e));
+            return await _appContext.Restaurants.FirstOrDefaultAsync(predicate);
         }
 
-        public Restaurant? GetRestaurant(Predicate<Restaurant> predicate)
+        public Restaurant? GetRestaurant(Expression<Func<Restaurant, bool>> predicate)
         {
-            return _appContext.Restaurants.FirstOrDefault(e => predicate(e));
+            return _appContext.Restaurants.FirstOrDefault(predicate);
         }
 
 

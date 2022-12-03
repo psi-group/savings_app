@@ -28,6 +28,5 @@
         public List<Product>? Products { get; private set; }
         public string? ShortDescription { get; private set; }
         public string? SiteRef { get; private set; }
-
     }
 }

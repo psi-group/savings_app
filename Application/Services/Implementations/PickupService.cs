@@ -1,5 +1,8 @@
 ﻿using Application.Services.Interfaces;
+using Application.Specifications;
+using Domain.DTOs.Request;
 using Domain.Entities;
+using Domain.Enums;
 using Domain.Exceptions;
 using Domain.Interfaces.Repositories;
 using Microsoft.AspNetCore.Http;
@@ -25,13 +28,11 @@ namespace Application.Services.Implementations
 
         public async Task<Pickup> BookPickup(Guid pickupId)
         {
-            throw new NotImplementedException();
-            /*var pickup = await GetPickup(pickupId);
+            var pickup = await GetPickup(pickupId);
             pickup.Book();
-            pickup.Status = PickupStatus.Taken;
             await PutPickup(pickupId, pickup);
 
-            return pickup;*/
+            return pickup;
         }
 
         public async Task<Pickup> DeletePickup(Guid id)
@@ -56,7 +57,9 @@ namespace Application.Services.Implementations
 
         public async Task<IEnumerable<Pickup>> GetBuyerPickups(Guid buyerId)
         {
-            throw new NotImplementedException();
+            var spec = new BuyerPickupSpecification(buyerId);
+
+            return await _pickupRepository.GetPickupsAsync(spec);
         }
 
         public async Task<Pickup> GetPickup(Guid id)
@@ -80,13 +83,20 @@ namespace Application.Services.Implementations
 
         public async Task<IEnumerable<Pickup>> GetProductPickups(Guid productId)
         {
-            throw new NotImplementedException();
+            var spec = new ProductPickupSpecification(productId);
+
+            return await _pickupRepository.GetPickupsAsync(spec);
         }
 
-        public async Task<Pickup> PostPickup(Pickup pickup)
+        public async Task<Pickup> PostPickup(PickupDTORequest pickupToPost)
         {
-            pickup.GenerateId();
-            //pickup.Id = Guid.NewGuid();
+            var pickup = new Pickup(
+                Guid.NewGuid(),
+                (Guid)pickupToPost.ProductId!,
+                (DateTime)pickupToPost.StartTime!,
+                (DateTime)pickupToPost.EndTime!,
+                (PickupStatus)pickupToPost.Status!
+                );
 
             await _pickupRepository.AddPickupAsync(pickup);
             await _pickupRepository.SaveChangesAsync();
@@ -100,8 +110,6 @@ namespace Application.Services.Implementations
             {
                 throw new InvalidRequestArgumentsException();
             }
-
-            
 
             if (!await _pickupRepository.PickupExistsAsync(id))
             {

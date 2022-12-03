@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using System.Security.Claims;
-
+using System.Transactions;
 
 namespace Application.Services.Implementations
 {
@@ -69,21 +69,42 @@ namespace Application.Services.Implementations
 
         public async Task<Buyer> PostBuyer(BuyerDTORequest buyerToPost)
         {
-
             var id = Guid.NewGuid();
-            var buyer = new Buyer(id, buyerToPost.Name, buyerToPost.UserAuth, buyerToPost.Address, id.ToString());
+
+            var buyer = new Buyer(
+                id,
+                buyerToPost.Name,
+                new UserAuth(
+                    buyerToPost.UserAuth.Password,
+                    buyerToPost.UserAuth.Email),
+                buyerToPost.Address == null ?
+                    null :
+                    new Address(
+                        buyerToPost.Address.Country,
+                        buyerToPost.Address.City,
+                        buyerToPost.Address.StreetName,
+                        buyerToPost.Address.HouseNumber,
+                        buyerToPost.Address.AppartmentNumber,
+                        buyerToPost.Address.PostalCode),
+                id.ToString());
 
             //buyer.GenerateId();
 
-            Task saveImageTask = _fileSaver.SaveImage(buyerToPost.Image, buyer.ImageName,
-                    _webHostEnvironment.WebRootPath + _config["ImageStorage:ImageFoldersPaths:UserImages"],
-                    _config["ImageStorage:ImageFoldersPaths:ImageExtention"]);
-            
 
-            await saveImageTask;
-            await _buyerRepository.AddBuyerAsync(buyer);
-            await _buyerRepository.SaveChangesAsync();
+            using (TransactionScope scope = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled))
+            {
 
+                Task saveImageTask = _fileSaver.SaveImage(buyerToPost.Image, buyer.ImageName,
+                    _webHostEnvironment.ContentRootPath + _config["ImageStorage:ImageFoldersPaths:UserImages"],
+                    _config["ImageStorage:ImageExtention"]);
+
+
+                await saveImageTask;
+                await _buyerRepository.AddBuyerAsync(buyer);
+                await _buyerRepository.SaveChangesAsync();
+
+                scope.Complete();
+            }
             return buyer;
         }
 

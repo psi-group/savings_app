@@ -74,6 +74,7 @@ namespace savings_app_backend.Controllers
         [HttpPost]
         public async Task<ActionResult<Buyer>> PostBuyer([FromForm] BuyerDTORequest Buyer)
         {
+            //throw new NotImplementedException();
             return Ok(await _buyerService.PostBuyer(Buyer));
         }
 

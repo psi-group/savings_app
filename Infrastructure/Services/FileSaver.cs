@@ -7,7 +7,7 @@ namespace Infrastructure.Services
     {
         public async Task SaveImage(IFormFile imageFile, string imageName, string path, string extention)
         {
-            var imagePath = System.IO.Path.Combine(path, imageName, extention);
+            var imagePath = System.IO.Path.Combine(path, imageName) + extention;
 
             using (FileStream filestream = new FileStream(imagePath, FileMode.Create))
             {

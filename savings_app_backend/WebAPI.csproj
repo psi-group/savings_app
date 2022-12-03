@@ -25,13 +25,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\userImg\" />
-    <Folder Include="wwwroot\productImg\" />
+    <ProjectReference Include="..\Application\Application.csproj" />
+    <ProjectReference Include="..\Infrastructure\Infrastructure.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Application\Application.csproj" />
-    <ProjectReference Include="..\Infrastructure\Infrastructure.csproj" />
+    <Folder Include="wwwroot\productImg\" />
+    <Folder Include="wwwroot\userImg\" />
   </ItemGroup>
 
   <ProjectExtensions><VisualStudio><UserProperties /></VisualStudio></ProjectExtensions>

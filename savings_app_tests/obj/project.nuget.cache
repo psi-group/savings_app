@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "/KoQ9UAw8xcogOgqYUDIPLNbs1qSCn5BEutDJ8soAnTVmX+i78//ucW35kgxEXf49N3idR/1+LJLzv6REoPyLg==",
+  "dgSpecHash": "zWMyuhu2THgU/Tve1wnDxpahXY4DH4rmwehBPR8/+RPRNo9Cbjm+sqEUSr90ZdOYBA52BVfZlHUz3zRdpYV11A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\justa\\Desktop\\APPAS\\real - Copy - Copy\\savings_app\\savings_app_tests\\savings_app_tests.csproj",
+  "projectFilePath": "C:\\Users\\justa\\Desktop\\APPAS\\geriausias\\savings_app\\savings_app_tests\\savings_app_tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\justa\\.nuget\\packages\\castle.core\\5.0.0\\castle.core.5.0.0.nupkg.sha512",
     "C:\\Users\\justa\\.nuget\\packages\\coverlet.collector\\3.1.2\\coverlet.collector.3.1.2.nupkg.sha512",
@@ -195,6 +195,12 @@
     "C:\\Users\\justa\\.nuget\\packages\\xunit.runner.visualstudio\\2.4.3\\xunit.runner.visualstudio.2.4.3.nupkg.sha512"
   ],
   "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\justa\\Desktop\\APPAS\\geriausias\\savings_app\\savings_app_tests\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    },
     {
       "code": "NU1608",
       "level": "Warning",

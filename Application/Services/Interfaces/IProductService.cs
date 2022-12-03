@@ -11,7 +11,7 @@ namespace Application.Services.Interfaces
 
         Task<Product> GetProduct(Guid id);
 
-        Task<Product> PutProduct(Guid id, Product product);
+        Task<Product> PutProduct(Guid id, ProductDTORequest product);
 
         Task<Product> DeleteProduct(Guid id);
 

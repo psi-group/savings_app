@@ -10,7 +10,10 @@ namespace Domain.Entities.OrderAggregate
         public Order? Order { get; private set; }
 
         public Guid ProductId { get; private set; }
-        public Product Product { get; private set; }
+        public Product? Product { get; private set; }
+
+        public Guid PickupId { get; private set; }
+        public Pickup? Pickup { get; private set; }
 
         public int UnitsOrdered { get; private set; }
 
@@ -20,10 +23,13 @@ namespace Domain.Entities.OrderAggregate
         [EnumDataType(typeof(OrderItemStatus))]
         public OrderItemStatus OrderItemStatus { get; set; }
 
-        public OrderItem(Guid id, Guid productId, int unitsOrdered, float price, OrderItemStatus orderItemStatus)
+        public OrderItem(Guid id, Guid orderId, Guid productId, Guid pickupId, int unitsOrdered,
+            float price, OrderItemStatus orderItemStatus)
         {
             Id = id;
+            OrderId = orderId;
             ProductId = productId;
+            PickupId = pickupId;
             UnitsOrdered = unitsOrdered;
             Price = price;
             OrderItemStatus = orderItemStatus;

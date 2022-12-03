@@ -1,4 +1,5 @@
 ﻿using Application.Services.Interfaces;
+using Application.Specifications;
 using Domain.DTOs.Request;
 using Domain.Entities;
 using Domain.Exceptions;
@@ -21,12 +22,14 @@ namespace Application.Services.Implementations
         private readonly IRestaurantRepository _restaurantRepository;
 
         public RestaurantService(IHttpContextAccessor httpContext,
-            IWebHostEnvironment webHostEnvironment, IConfiguration config, IRestaurantRepository restaurantRepository)
+            IWebHostEnvironment webHostEnvironment, IConfiguration config,
+            IRestaurantRepository restaurantRepository, IFileSaver fileSaver)
         {
             _restaurantRepository = restaurantRepository;
             _httpContext = httpContext;
             _webHostEnvironment = webHostEnvironment;
             _config = config;
+            _fileSaver = fileSaver;
         }
 
         public async Task<Restaurant> DeleteRestaurant(Guid id)
@@ -48,9 +51,8 @@ namespace Application.Services.Implementations
 
         public async Task<IEnumerable<Restaurant>> GetFilteredRestaurants(string? search)
         {
-            throw new NotImplementedException();
-            //return await _restaurantRepository.GetFilteredRestaurants(
-            //    (restaurant) => String.IsNullOrEmpty(search) || restaurant.Name.ToLower().Contains(search.ToLower()));
+            var spec = new RestaurantFilterSpecification(search);
+            return _restaurantRepository.GetRestaurants(spec);
         }
 
         public async Task<Restaurant> GetRestaurant(Guid id)
@@ -79,18 +81,28 @@ namespace Application.Services.Implementations
             var restaurant = new Restaurant(
                 id,
                 restaurantToPost.Name,
-                restaurantToPost.UserAuth,
-                restaurantToPost.Address,
+                new UserAuth(
+                    restaurantToPost.UserAuth.Password,
+                    restaurantToPost.UserAuth.Email),
+                new Address(
+                    restaurantToPost.Address.Country,
+                    restaurantToPost.Address.City,
+                    restaurantToPost.Address.StreetName,
+                    restaurantToPost.Address.HouseNumber,
+                    restaurantToPost.Address.AppartmentNumber,
+                    restaurantToPost.Address.PostalCode),
                 id.ToString(),
                 restaurantToPost.Open,
                 restaurantToPost.Description,
                 restaurantToPost.ShortDescription,
                 restaurantToPost.SiteRef);
 
+            var a = _config["ImageStorage:ImageExtention"];
+            var b = _webHostEnvironment.ContentRootPath + _config["ImageStorage:ImageFoldersPaths:UserImages"];
 
             Task saveImageTask = _fileSaver.SaveImage(restaurantToPost.Image, restaurant.ImageName,
-                    _webHostEnvironment.WebRootPath + _config["ImageStorage:ImageFoldersPaths:UserImages"],
-                    _config["ImageStorage:ImageFoldersPaths:ImageExtention"]);
+                    _webHostEnvironment.ContentRootPath + _config["ImageStorage:ImageFoldersPaths:UserImages"],
+                    _config["ImageStorage:ImageExtention"]);
             
             
 

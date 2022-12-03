@@ -8,10 +8,10 @@ const CategoriesFilter = (props) => {
 
   return (
     <>
-      <div class="filterContainer">
+      <div class="relative">
         <button
           type="button"
-          className={open ? "dropdownButtonBlack" : "dropdownButton"}
+          className={open ? "p-1 italic bg-sky-500 rounded-md text-white border-sky-500 border-[1px]" : "p-1 bg-white italic rounded-md border-[1px] border-sky-500 hover:!bg-sky-100"}
           onClick={() => setOpen(!open)}
         >
           Categories

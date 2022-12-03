@@ -10,7 +10,7 @@
             Password = password;
             Email = email;
         }
-        private UserAuth()
+        public UserAuth()
         {
 
         }

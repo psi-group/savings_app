@@ -1,8 +1,6 @@
-﻿
-using Application.Services.Interfaces;
+﻿using Application.Services.Interfaces;
 using Domain.DTOs.Request;
 using Domain.Exceptions;
-using Infrastructure;
 using Microsoft.AspNetCore.Mvc;
 
 namespace savings_app_backend.Controllers
@@ -11,16 +9,11 @@ namespace savings_app_backend.Controllers
     [ApiController]
     public class AuthController : ControllerBase
     {
-        private readonly SavingsAppContext _context;
-        private readonly IConfiguration _config;
         private readonly IAuthService _authService;
 
-        public AuthController(SavingsAppContext context,
-           IConfiguration config, IAuthService authService)
+        public AuthController(IAuthService authService)
         {
             _authService = authService;
-            _context = context;
-            _config = config;
         }
 
         [HttpPost("login")]

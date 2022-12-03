@@ -37,7 +37,6 @@ namespace Application.Services.Implementations
             {
                 throw new InvalidLoginCredentialsException();
             }
-            
         }
 
         public string GenerateToken(User user)
@@ -66,7 +65,7 @@ namespace Application.Services.Implementations
                 _config["Jwt:Issuer"],
                 _config["Jwt:Audience"],
                 claims,
-                expires: DateTime.Now.AddMinutes(15),
+                expires: DateTime.Now.AddHours(10),
                 signingCredentials: credentials);
 
             return new JwtSecurityTokenHandler().WriteToken(token);
@@ -74,11 +73,14 @@ namespace Application.Services.Implementations
 
         private User? AuthenticateUser(UserLoginDTO userLogin)
         {
+            //var buyer = _buyerRepository.GetBuyer(user => !String.IsNullOrEmpty(user.UserAuth.Email));
+            //var buyer = _buyerRepository.GetBuyer(user => user.UserAuth.Email.ToLower() == "jon@gmail.com");
             var buyer = _buyerRepository.GetBuyer(user => user.UserAuth.Email.ToLower() == userLogin.Email.ToLower() &&
                 user.UserAuth.Password == userLogin.Password);
 
             if (buyer != null)
             {
+                //throw new InvalidOperationException();
                 return buyer;
             }
             else

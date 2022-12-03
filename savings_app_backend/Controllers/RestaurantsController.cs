@@ -79,7 +79,8 @@ namespace savings_app_backend.Controllers
         // POST: api/Restaurants
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Restaurant>> PostRestaurant(RestaurantDTORequest restaurant)
+        public async Task<ActionResult<Restaurant>> PostRestaurant(
+            [FromForm] RestaurantDTORequest restaurant)
         {
             return Ok(await _restaurantService.PostRestaurant(restaurant));
         }

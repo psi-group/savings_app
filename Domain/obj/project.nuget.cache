@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "s5gf11mvCpBBUQHpOszNd4kiurRC72JRfxY20QR/penDsxN2CqaYOfJkNMw+UbxA4KL8Gp70V8NezQUDnb4xAA==",
+  "dgSpecHash": "LKtGH8JXOi/aG++3F64pBvIIY/L2VdmjRvxlccAEhT2U/CtG7LMcXS6gJvCdJITi2xKhlbYtb8XBUiFI5jTxcA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\justa\\Desktop\\APPAS\\real - Copy - Copy\\savings_app\\Domain\\Domain.csproj",
+  "projectFilePath": "C:\\Users\\justa\\Desktop\\APPAS\\geriausias\\savings_app\\Domain\\Domain.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\justa\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.17\\microsoft.aspnetcore.http.features.5.0.17.nupkg.sha512",
     "C:\\Users\\justa\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.1\\microsoft.extensions.primitives.5.0.1.nupkg.sha512",
