@@ -35,8 +35,8 @@ namespace Application.Specifications
                 }
             }
 
-            ApplyCriteria(product => String.IsNullOrEmpty(search) ||
-                (product.Name.Contains(search) ||
+            ApplyCriteria(product => (String.IsNullOrEmpty(search) ||
+                product.Name.Contains(search) ||
                 (!String.IsNullOrEmpty(product.Description) && product.Description.Contains(search))) &&
                 (categories.Count() == 0 || categories.Contains(product.Category)));
         }

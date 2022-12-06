@@ -5,6 +5,8 @@ export const ShoppingCart = (props) => {
   const [isSelectTimeOpen, setIsSelectTimeOpen] = useState(false);
     const [isPathFinderReady, setIsPathFinderReady] = useState(null);
 
+    console.log(props.cartItems);
+
   const handleFormSubmit = (e) => {
     e.preventDefault();
     console.log(e.target[0].value);
@@ -12,6 +14,13 @@ export const ShoppingCart = (props) => {
     setIsSelectTimeOpen(false);
     };
 
+    const getId = (token) => {
+        //console.log(JSON.parse(window.atob(token.split(".")[1])));
+        return JSON.parse(window.atob(token.split(".")[1]))[
+            "Id"
+        ];
+    }
+    
 
     const handlePlanVisits = (e) => {
         e.preventDefault();
@@ -38,7 +47,38 @@ export const ShoppingCart = (props) => {
     }
 
   const handleCheckout = () => {
-    console.log(props.cartItems);
+      console.log(props.cartItems);
+      
+      const productsToBuy = [];
+      props.cartItems.map(
+          (cartItem) => {
+              productsToBuy.push({
+                  id: cartItem.product.id,
+                  pickupId: cartItem.pickupTime.id,
+                  amount: cartItem.quantity
+              })
+          }
+      );
+
+      console.log(JSON.stringify({
+          productsToBuy: productsToBuy,
+          buyerId: getId(localStorage.getItem("token"))
+      }));
+
+      console.log(productsToBuy);
+      fetch("https://localhost:7183/api/shop/checkout", {
+          method: "POST",
+          headers: {
+              "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+              productsToBuy: productsToBuy,
+              buyerId: getId(localStorage.getItem("token"))
+          }),
+      });
+
+      return;
+
     props.cartItems.map((cartItem) => {
       fetch("https://localhost:7183/api/pickups/" + cartItem.pickupTime.id, {
         method: "PUT",

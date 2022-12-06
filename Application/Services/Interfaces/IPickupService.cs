@@ -1,27 +1,28 @@
 ﻿
 
 using Domain.DTOs.Request;
+using Domain.DTOs.Response;
 using Domain.Entities;
 
 namespace Application.Services.Interfaces
 {
     public interface IPickupService
     {
-        Task<IEnumerable<Pickup>> GetPickups();
+        Task<IEnumerable<PickupDTOResponse>> GetPickups();
 
-        Task<IEnumerable<Pickup>> GetBuyerPickups(Guid buyerId);
+        Task<IEnumerable<PickupDTOResponse>> GetBuyerPickups(Guid buyerId);
 
-        Task<IEnumerable<Pickup>> GetProductPickups(Guid productId);
+        Task<IEnumerable<PickupDTOResponse>> GetProductPickups(Guid productId);
 
-        Task<Pickup> BookPickup(Guid pickupId);
+        Task<PickupDTOResponse> BookPickup(Guid pickupId);
 
-        Task<Pickup> GetPickup(Guid id);
+        Task<PickupDTOResponse> GetPickup(Guid id);
 
-        Task<Pickup> PutPickup(Guid id, Pickup Pickup);
+        Task<PickupDTOResponse> PutPickup(Guid id, PickupDTORequest Pickup);
 
-        Task<Pickup> DeletePickup(Guid id);
+        Task<PickupDTOResponse> DeletePickup(Guid id);
 
-        Task<Pickup> PostPickup(PickupDTORequest Pickup);
+        Task<PickupDTOResponse> PostPickup(PickupDTORequest Pickup);
 
     }
 }

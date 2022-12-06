@@ -11,7 +11,7 @@ namespace Infrastructure.Services
 {
     public class EmailSender : IEmailSender
     {
-        public void NotifyRestaurantSoldProduct(Object sender, ProductSoldEventArgs args)
+        public void NotifyRestaurantSoldProduct(Object? sender, ProductSoldEventArgs args)
         {
             var emailForBuyer = new MimeMessage();
             emailForBuyer.From.Add(MailboxAddress.Parse("savingsapplicationps@gmail.com"));
@@ -41,7 +41,7 @@ namespace Infrastructure.Services
             smtp.Disconnect(true);
         }
 
-        public void NotifyRestaurantSoldOutProduct(Object sender, ProductSoldOutEventArgs args)
+        public void NotifyRestaurantSoldOutProduct(Object? sender, ProductSoldOutEventArgs args)
         {
             var email = new MimeMessage();
             email.From.Add(MailboxAddress.Parse("savingsapplicationps@gmail.com"));

@@ -8,8 +8,8 @@ namespace Domain.DTOs.Request
 {
     public class ProductToBuyDTORequest
     {
-        public Guid ProductId { get; private set; }
-
-        public int Amount { get; private set; }
+        public Guid Id { get; set; }
+        public Guid PickupId { get; set; }
+        public int Amount { get; set; }
     }
 }

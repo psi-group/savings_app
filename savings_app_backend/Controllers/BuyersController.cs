@@ -1,5 +1,6 @@
 ﻿using Application.Services.Interfaces;
 using Domain.DTOs.Request;
+using Domain.DTOs.Response;
 using Domain.Entities;
 using Domain.Exceptions;
 using Microsoft.AspNetCore.Authorization;
@@ -23,13 +24,13 @@ namespace savings_app_backend.Controllers
 
         // GET: api/Buyers
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Buyer>>> GetBuyers()
+        public async Task<ActionResult<IEnumerable<BuyerDTOResponse>>> GetBuyers()
         {
             return Ok(await _buyerService.GetBuyers());
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Buyer>> GetBuyer(Guid id)
+        public async Task<ActionResult<BuyerDTOResponse>> GetBuyer(Guid id)
         {
             try
             {
@@ -46,7 +47,7 @@ namespace savings_app_backend.Controllers
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
         [Authorize(Roles = "buyer")]
-        public async Task<IActionResult> PutBuyer(Guid id, Buyer Buyer)
+        public async Task<ActionResult<BuyerDTOResponse>> PutBuyer(Guid id, BuyerDTORequest Buyer)
         {
             try
             {
@@ -72,7 +73,7 @@ namespace savings_app_backend.Controllers
         // POST: api/Buyers
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Buyer>> PostBuyer([FromForm] BuyerDTORequest Buyer)
+        public async Task<ActionResult<BuyerDTOResponse>> PostBuyer([FromForm] BuyerDTORequest Buyer)
         {
             //throw new NotImplementedException();
             return Ok(await _buyerService.PostBuyer(Buyer));
@@ -81,7 +82,7 @@ namespace savings_app_backend.Controllers
         // DELETE: api/Buyers/5
         [HttpDelete("{id}")]
         [Authorize(Roles = "buyer")]
-        public async Task<ActionResult<Buyer>> DeleteBuyer(Guid id)
+        public async Task<ActionResult<BuyerDTOResponse>> DeleteBuyer(Guid id)
         {
             try
             {

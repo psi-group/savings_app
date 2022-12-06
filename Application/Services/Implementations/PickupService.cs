@@ -1,6 +1,7 @@
 ﻿using Application.Services.Interfaces;
 using Application.Specifications;
 using Domain.DTOs.Request;
+using Domain.DTOs.Response;
 using Domain.Entities;
 using Domain.Enums;
 using Domain.Exceptions;
@@ -26,16 +27,33 @@ namespace Application.Services.Implementations
             _httpContext = httpContext;
         }
 
-        public async Task<Pickup> BookPickup(Guid pickupId)
+        public async Task<PickupDTOResponse> BookPickup(Guid pickupId)
         {
-            var pickup = await GetPickup(pickupId);
-            pickup.Book();
-            await PutPickup(pickupId, pickup);
+            var pickup = await _pickupRepository.GetPickupAsync(pickupId);
 
-            return pickup;
+            if (pickup == null)
+            {
+                throw new RecourseNotFoundException();
+            }
+            else
+            {
+                pickup.Book();
+                _pickupRepository.UpdatePickup(pickup);
+                await _pickupRepository.SaveChangesAsync();
+
+                var pickupResponse = new PickupDTOResponse(
+                        pickup.Id,
+                        pickup.ProductId,
+                        pickup.StartTime,
+                        pickup.EndTime,
+                        pickup.Status
+                        );
+
+                return pickupResponse;
+            }
         }
 
-        public async Task<Pickup> DeletePickup(Guid id)
+        public async Task<PickupDTOResponse> DeletePickup(Guid id)
         {
             var pickup = await _pickupRepository.GetPickupAsync(id);
             if (pickup == null)
@@ -52,17 +70,40 @@ namespace Application.Services.Implementations
 
             _pickupRepository.RemovePickup(pickup);
             await _pickupRepository.SaveChangesAsync();
-            return pickup;
+
+            var pickupResponse = new PickupDTOResponse(
+                    pickup.Id,
+                    pickup.ProductId,
+                    pickup.StartTime,
+                    pickup.EndTime,
+                    pickup.Status
+                    );
+
+            return pickupResponse;
         }
 
-        public async Task<IEnumerable<Pickup>> GetBuyerPickups(Guid buyerId)
+        public async Task<IEnumerable<PickupDTOResponse>> GetBuyerPickups(Guid buyerId)
         {
             var spec = new BuyerPickupSpecification(buyerId);
 
-            return await _pickupRepository.GetPickupsAsync(spec);
+            var pickups = await _pickupRepository.GetPickupsAsync(spec);
+
+            var pickupsResponse = new List<PickupDTOResponse>();
+            foreach (var pickup in pickups)
+            {
+                var pickupResponse = new PickupDTOResponse(
+                pickup.Id,
+                pickup.ProductId,
+                pickup.StartTime,
+                pickup.EndTime,
+                pickup.Status
+                );
+                pickupsResponse.Add(pickupResponse);
+            }
+            return pickupsResponse;
         }
 
-        public async Task<Pickup> GetPickup(Guid id)
+        public async Task<PickupDTOResponse> GetPickup(Guid id)
         {
             var pickup = await _pickupRepository.GetPickupAsync(id);
 
@@ -72,23 +113,58 @@ namespace Application.Services.Implementations
             }
             else
             {
-                return pickup;
+                var pickupResponse = new PickupDTOResponse(
+                    pickup.Id,
+                    pickup.ProductId,
+                    pickup.StartTime,
+                    pickup.EndTime,
+                    pickup.Status
+                    );
+                return pickupResponse;
             }
         }
 
-        public async Task<IEnumerable<Pickup>> GetPickups()
+        public async Task<IEnumerable<PickupDTOResponse>> GetPickups()
         {
-            return await _pickupRepository.GetPickupsAsync();
+            var pickups =  await _pickupRepository.GetPickupsAsync();
+
+            var pickupsResponse = new List<PickupDTOResponse>();
+            foreach (var pickup in pickups)
+            {
+                var pickupResponse = new PickupDTOResponse(
+                pickup.Id,
+                pickup.ProductId,
+                pickup.StartTime,
+                pickup.EndTime,
+                pickup.Status
+                );
+                pickupsResponse.Add(pickupResponse);
+            }
+            return pickupsResponse;
         }
 
-        public async Task<IEnumerable<Pickup>> GetProductPickups(Guid productId)
+        public async Task<IEnumerable<PickupDTOResponse>> GetProductPickups(Guid productId)
         {
             var spec = new ProductPickupSpecification(productId);
 
-            return await _pickupRepository.GetPickupsAsync(spec);
+            var pickups = await _pickupRepository.GetPickupsAsync(spec);
+
+            var pickupsResponse = new List<PickupDTOResponse>();
+            foreach(var pickup in pickups)
+            {
+                var pickupResponse = new PickupDTOResponse(
+                pickup.Id,
+                pickup.ProductId,
+                pickup.StartTime,
+                pickup.EndTime,
+                pickup.Status
+                );
+                pickupsResponse.Add(pickupResponse);
+            }
+            return pickupsResponse;
         }
 
-        public async Task<Pickup> PostPickup(PickupDTORequest pickupToPost)
+        public async Task<PickupDTOResponse> PostPickup(PickupDTORequest pickupToPost)
         {
             var pickup = new Pickup(
                 Guid.NewGuid(),
@@ -101,24 +177,44 @@ namespace Application.Services.Implementations
             await _pickupRepository.AddPickupAsync(pickup);
             await _pickupRepository.SaveChangesAsync();
 
-            return pickup;
+            var pickupResponse = new PickupDTOResponse(
+                pickup.Id,
+                pickup.ProductId,
+                pickup.StartTime,
+                pickup.EndTime,
+                pickup.Status
+                );
+
+            return pickupResponse;
         }
 
-        public async Task<Pickup> PutPickup(Guid id, Pickup pickup)
+        public async Task<PickupDTOResponse> PutPickup(Guid id, PickupDTORequest pickupToUpdate)
         {
-            if (id != pickup.Id)
-            {
-                throw new InvalidRequestArgumentsException();
-            }
-
             if (!await _pickupRepository.PickupExistsAsync(id))
             {
                 throw new RecourseAlreadyExistsException();
             }
 
+            var pickup = new Pickup(
+                Guid.NewGuid(),
+                (Guid)pickupToUpdate.ProductId!,
+                (DateTime)pickupToUpdate.StartTime!,
+                (DateTime)pickupToUpdate.EndTime!,
+                (PickupStatus)pickupToUpdate.Status!
+                );
+
             _pickupRepository.UpdatePickup(pickup);
             await _pickupRepository.SaveChangesAsync();
-            return pickup;
+
+            var pickupResponse = new PickupDTOResponse(
+                pickup.Id,
+                pickup.ProductId,
+                pickup.StartTime,
+                pickup.EndTime,
+                pickup.Status
+                );
+
+            return pickupResponse;
         }
 
     }

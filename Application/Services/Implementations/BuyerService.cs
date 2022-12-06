@@ -1,5 +1,6 @@
 ﻿using Application.Services.Interfaces;
 using Domain.DTOs.Request;
+using Domain.DTOs.Response;
 using Domain.Entities;
 using Domain.Exceptions;
 using Domain.Interfaces;
@@ -30,7 +31,7 @@ namespace Application.Services.Implementations
             _fileSaver = fileSaver;
         }
 
-        public async Task<Buyer> DeleteBuyer(Guid id)
+        public async Task<BuyerDTOResponse> DeleteBuyer(Guid id)
         {
             if (id !=
                 Guid.Parse(((ClaimsIdentity)_httpContext.HttpContext.User.Identity).FindFirst("Id").Value))
@@ -45,10 +46,17 @@ namespace Application.Services.Implementations
 
             _buyerRepository.RemoveBuyer(buyer);
             await _buyerRepository.SaveChangesAsync();
-            return buyer;
+
+            var buyerResponse = new BuyerDTOResponse(
+                buyer.Id,
+                buyer.Name,
+                buyer.ImageName
+                );
+
+            return buyerResponse;
         }
 
-        public async Task<Buyer> GetBuyer(Guid id)
+        public async Task<BuyerDTOResponse> GetBuyer(Guid id)
         {
             var buyer = await _buyerRepository.GetBuyerAsync(id);
 
@@ -58,16 +66,32 @@ namespace Application.Services.Implementations
             }
             else
             {
-                return buyer;
+                var buyerResponse = new BuyerDTOResponse(
+                buyer.Id,
+                buyer.Name,
+                buyer.ImageName
+                );
+                return buyerResponse;
             }
         }
 
-        public async Task<IEnumerable<Buyer>> GetBuyers()
+        public async Task<IEnumerable<BuyerDTOResponse>> GetBuyers()
         {
-            return await _buyerRepository.GetBuyersAsync();
+            var buyers =  await _buyerRepository.GetBuyersAsync();
+            var buyersResponse = new List<BuyerDTOResponse>();
+            foreach(var buyer in buyers)
+            {
+                var buyerResponse = new BuyerDTOResponse(
+                buyer.Id,
+                buyer.Name,
+                buyer.ImageName
+                );
+                buyersResponse.Add(buyerResponse);
+            }
+            return buyersResponse;
         }
 
-        public async Task<Buyer> PostBuyer(BuyerDTORequest buyerToPost)
+        public async Task<BuyerDTOResponse> PostBuyer(BuyerDTORequest buyerToPost)
         {
             var id = Guid.NewGuid();
 
@@ -105,19 +129,21 @@ namespace Application.Services.Implementations
 
                 scope.Complete();
             }
-            return buyer;
+
+            var buyerResponse = new BuyerDTOResponse(
+                buyer.Id,
+                buyer.Name,
+                buyer.ImageName
+                ) ;
+
+            return buyerResponse;
         }
 
-        public async Task<Buyer> PutBuyer(Guid id, Buyer buyer)
+        public async Task<BuyerDTOResponse> PutBuyer(Guid id, BuyerDTORequest buyerToUpdate)
         {
             if (id !=
                 Guid.Parse(((ClaimsIdentity)_httpContext.HttpContext.User.Identity).FindFirst("Id").Value))
                 throw new InvalidIdentityException();
-
-            if (id != buyer.Id)
-            {
-                throw new InvalidRequestArgumentsException();
-            }
 
 
             if (!await _buyerRepository.BuyerExistsAsync(id))
@@ -125,9 +151,33 @@ namespace Application.Services.Implementations
                 throw new RecourseAlreadyExistsException();
             }
 
+            var buyer = new Buyer(
+                id,
+                buyerToUpdate.Name,
+                new UserAuth(
+                    buyerToUpdate.UserAuth.Password,
+                    buyerToUpdate.UserAuth.Email),
+                buyerToUpdate.Address == null ?
+                    null :
+                    new Address(
+                        buyerToUpdate.Address.Country,
+                        buyerToUpdate.Address.City,
+                        buyerToUpdate.Address.StreetName,
+                        buyerToUpdate.Address.HouseNumber,
+                        buyerToUpdate.Address.AppartmentNumber,
+                        buyerToUpdate.Address.PostalCode),
+                id.ToString());
+
             _buyerRepository.UpdateBuyer(buyer);
             await _buyerRepository.SaveChangesAsync();
-            return buyer;
+
+            var buyerResponse = new BuyerDTOResponse(
+                buyer.Id,
+                buyer.Name,
+                buyer.ImageName
+                );
+
+            return buyerResponse;
         }
     }
 }
