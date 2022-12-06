@@ -12,6 +12,10 @@ function Home(props) {
   const [sorting, setSorting] = React.useState("by_id");
   const [filters, setFilters] = React.useState([]);
 
+    console.log("bandom");
+    console.log(props);
+    console.log(props.isValidUrl("hello"));
+
   const renderForecastsTable = (products) => {
     return (
       <div className="main ml-20 mr-20 mt-10">

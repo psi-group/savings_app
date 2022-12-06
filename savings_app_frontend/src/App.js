@@ -111,7 +111,10 @@ const App = () => {
     } catch (err) {
       return false;
     }
-  }
+    }
+
+    console.log("pradzia");
+    console.log(isValidUrl("HELLO"));
 
     return (
 
@@ -138,7 +141,7 @@ const App = () => {
                     <Route path='/register' element={<Register></Register>} ></Route>
                     <Route path='/login' element={<Login></Login>} ></Route>
 
-                    <Route path='/products' element={<Home searchas={searchas} />}></Route>
+                    <Route path='/products' element={<Home searchas={searchas} isValidUrl={isValidUrl} />}></Route>
                     <Route path='/product/:id' element={<ProductDetails cartItems={cartItems} addCartItem={addCartItem} roundNumber={roundNumber} />}></Route>
                     <Route path='/orders' element={<Orders />}></Route>
                     <Route path='/restaurants' element={<Restaurants searchas={searchas} />}></Route>

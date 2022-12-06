@@ -34,7 +34,18 @@ namespace Infrastructure.Repositories
         }
         public async Task<Product?> GetProductAsync(Guid id)
         {
-            return await _appContext.Products.FindAsync(id);
+            try
+            {
+                //var product = /*await*/ _appContext.Products.FindAsync(id);
+                //return await _appContext.Products.FindAsync(id);
+                var res = _appContext.Products.FirstOrDefaultAsync(product => product.Id == id);
+                return await res;
+                
+            }
+            catch(Exception ex)
+            {
+                return null;
+            }
         }
 
 
@@ -83,7 +94,8 @@ namespace Infrastructure.Repositories
             var a = _appContext.Products.ToList();
             // return the result of the query using the specification's criteria expression
             return await secondaryResult
-                            //.Where(spec.Criteria)
+                            .Where(spec.Criteria)
+                            .OrderBy(spec.OrderBy)
                             .ToListAsync();
         }
 
@@ -107,7 +119,15 @@ namespace Infrastructure.Repositories
 
         public Product UpdateProduct(Product product)
         {
-            _appContext.Entry(product).State = EntityState.Modified;
+            try
+            {
+                _appContext.Entry(product).State = EntityState.Modified;
+            }
+            catch(Exception e)
+            {
+                return null;
+            }
+            
 
             return product;
         }

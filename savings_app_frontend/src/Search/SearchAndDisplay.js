@@ -6,6 +6,10 @@ import { FilterDisplay } from "../CategoriesFilter";
 
 const SearchAndDisplay = (props) => {
 
+
+    console.log("Wtf");
+    console.log("va " + props.isValidUrl("hello"));
+
   return (
     <div>
       <List

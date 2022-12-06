@@ -59,6 +59,9 @@ namespace Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<Guid>("PickupId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<float>("Price")
                         .HasColumnType("real");
 
@@ -71,6 +74,9 @@ namespace Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("OrderId");
+
+                    b.HasIndex("PickupId")
+                        .IsUnique();
 
                     b.HasIndex("ProductId");
 
@@ -224,6 +230,12 @@ namespace Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("Domain.Entities.Pickup", "Pickup")
+                        .WithOne("OrderItem")
+                        .HasForeignKey("Domain.Entities.OrderAggregate.OrderItem", "PickupId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("Domain.Entities.Product", "Product")
                         .WithMany()
                         .HasForeignKey("ProductId")
@@ -231,6 +243,8 @@ namespace Infrastructure.Migrations
                         .IsRequired();
 
                     b.Navigation("Order");
+
+                    b.Navigation("Pickup");
 
                     b.Navigation("Product");
                 });
@@ -339,6 +353,11 @@ namespace Infrastructure.Migrations
             modelBuilder.Entity("Domain.Entities.OrderAggregate.Order", b =>
                 {
                     b.Navigation("OrderItems");
+                });
+
+            modelBuilder.Entity("Domain.Entities.Pickup", b =>
+                {
+                    b.Navigation("OrderItem");
                 });
 
             modelBuilder.Entity("Domain.Entities.Product", b =>

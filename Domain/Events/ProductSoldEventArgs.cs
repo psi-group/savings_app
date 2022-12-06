@@ -4,12 +4,12 @@
     {
         public int Amount { get; set; }
 
-        public string BuyerEmail { get; set; }
+        public Guid BuyerId { get; set; }
 
-        public ProductSoldEventArgs(int amount, string buyerEmail)
+        public ProductSoldEventArgs(int amount, Guid buyerId)
         {
             Amount = amount;
-            BuyerEmail = buyerEmail;
+            BuyerId = buyerId;
         }
     }
 }

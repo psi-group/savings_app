@@ -1,18 +1,19 @@
 ﻿using Domain.DTOs.Request;
+using Domain.DTOs.Response;
 using Domain.Entities;
 
 namespace Application.Services.Interfaces
 {
     public interface IBuyerService
     {
-        Task<IEnumerable<Buyer>> GetBuyers();
+        Task<IEnumerable<BuyerDTOResponse>> GetBuyers();
 
-        Task<Buyer> GetBuyer(Guid id);
+        Task<BuyerDTOResponse> GetBuyer(Guid id);
 
-        Task<Buyer> PutBuyer(Guid id, Buyer buyer);
+        Task<BuyerDTOResponse> PutBuyer(Guid id, BuyerDTORequest buyer);
 
-        Task<Buyer> DeleteBuyer(Guid id);
+        Task<BuyerDTOResponse> DeleteBuyer(Guid id);
 
-        Task<Buyer> PostBuyer(BuyerDTORequest buyer);
+        Task<BuyerDTOResponse> PostBuyer(BuyerDTORequest buyer);
     }
 }

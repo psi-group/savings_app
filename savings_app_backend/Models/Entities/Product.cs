@@ -63,7 +63,7 @@ namespace Domain.Entities
 
         }
 
-        public void BuyAmount(int amount, string buyerEmail)
+        public void BuyAmount(int amount, Guid buyerId)
         {
             if (amount > AmountOfUnits)
             {
@@ -73,7 +73,7 @@ namespace Domain.Entities
             {
                 AmountOfUnits -= amount;
                 if (ProductSold != null)
-                    ProductSold(this, new ProductSoldEventArgs(amount, buyerEmail));
+                    ProductSold(this, new ProductSoldEventArgs(amount, buyerId));
 
 
                 if (AmountOfUnits == 0)

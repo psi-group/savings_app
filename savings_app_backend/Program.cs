@@ -36,28 +36,31 @@ try
 
     // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 
-    builder.Services.AddSingleton<IFileSaver, FileSaver>();
-    builder.Services.AddTransient<IRestaurantService, RestaurantService>();
-    builder.Services.AddTransient<IProductService, ProductService>();
+    builder.Services.AddScoped<IFileSaver, FileSaver>();
+    builder.Services.AddScoped<IRestaurantService, RestaurantService>();
+    builder.Services.AddScoped<IProductService, ProductService>();
 
-    builder.Services.AddTransient<IPickupService, PickupService>();
+    builder.Services.AddScoped<IPickupService, PickupService>();
 
-    builder.Services.AddTransient<IOrderService, OrderService>();
+    builder.Services.AddScoped<IOrderService, OrderService>();
 
-    builder.Services.AddTransient<IBuyerService, BuyerService>();
+    builder.Services.AddScoped<IShopService, ShopService>();
 
-    builder.Services.AddTransient<IAuthService, AuthService>();
+    builder.Services.AddScoped<IBuyerService, BuyerService>();
 
-    builder.Services.AddTransient<IEmailSender, EmailSender>();
+    builder.Services.AddScoped<IAuthService, AuthService>();
+
+    builder.Services.AddScoped<IEmailSender, EmailSender>();
 
     builder.Services.AddScoped<IProductRepository, ProductRepository>();
     builder.Services.AddScoped<IRestaurantRepository, RestaurantRepository>();
     builder.Services.AddScoped<IOrderRepository, OrderRepository>();
     builder.Services.AddScoped<IPickupRepository, PickupRepository>();
     builder.Services.AddScoped<IBuyerRepository, BuyerRepository>();
+    
 
     //builder.Logging.ClearProviders();
-    
+
 
     builder.Services.AddCors(options =>
     {

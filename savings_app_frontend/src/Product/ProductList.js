@@ -9,7 +9,12 @@ export default class List extends Component {
     this.state = { products: [] };
   }
 
-  async populateProductsData() {
+    async populateProductsData() {
+
+        console.log("kvieciam");
+        console.log(this.props.isValidUrl());
+        console.log("kvieciam");
+
     let url =
       "https://localhost:7183/api/products/filter?search=" +
       this.props.searched +
@@ -57,7 +62,7 @@ export default class List extends Component {
                     </h1>
                     <img
                       src={
-                                    this.props.isValidUrl(("https://localhost:7183/productImg/" + product.id + ".jpg"))
+                                    ("https://localhost:7183/productImg/" + product.id + ".jpg")
                           ? ("https://localhost:7183/productImg/" + product.id + ".jpg")
                           : productImageSkeleton
                       }
