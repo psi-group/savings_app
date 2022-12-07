@@ -1,6 +1,7 @@
 ﻿using Application.Services.Interfaces;
 using Application.Specifications;
 using Domain.DTOs.Request;
+using Domain.DTOs.Response;
 using Domain.Entities;
 using Domain.Exceptions;
 using Domain.Interfaces;
@@ -32,10 +33,11 @@ namespace Application.Services.Implementations
             _fileSaver = fileSaver;
         }
 
-        public async Task<Restaurant> DeleteRestaurant(Guid id)
+        public async Task<RestaurantDTOResponse> DeleteRestaurant(Guid id)
         {
             if (id !=
-                Guid.Parse(((ClaimsIdentity)_httpContext.HttpContext.User.Identity).FindFirst("Id").Value))
+                Guid.Parse(((ClaimsIdentity)_httpContext.HttpContext!.User.Identity!).
+                FindFirst("Id")!.Value))
                 throw new InvalidIdentityException();
             
             var restaurant = await _restaurantRepository.GetRestaurantAsync(id);
@@ -46,16 +48,60 @@ namespace Application.Services.Implementations
 
             _restaurantRepository.RemoveRestaurant(restaurant);
             await _restaurantRepository.SaveChangesAsync();
-            return restaurant;
+
+            var restaurantDTO = new RestaurantDTOResponse(
+                restaurant.Id,
+                restaurant.Name,
+                new AddressDTOResponse(
+                    restaurant.Address.Country,
+                    restaurant.Address.City,
+                    restaurant.Address.StreetName,
+                    restaurant.Address.HouseNumber,
+                    restaurant.Address.AppartmentNumber,
+                    restaurant.Address.PostalCode
+                    ),
+                restaurant.ImageName,
+                restaurant.Open,
+                restaurant.Description,
+                restaurant.ShortDescription,
+                restaurant.SiteRef
+                );
+
+            return restaurantDTO;
         }
 
-        public async Task<IEnumerable<Restaurant>> GetFilteredRestaurants(string? search)
+        public async Task<IEnumerable<RestaurantDTOResponse>> GetFilteredRestaurants(string? search)
         {
             var spec = new RestaurantFilterSpecification(search);
-            return _restaurantRepository.GetRestaurants(spec);
+            var restaurants = _restaurantRepository.GetRestaurants(spec);
+            var restaurantsDTO = new List<RestaurantDTOResponse>();
+            foreach(var restaurant in restaurants)
+            {
+                var restaurantDTO = new RestaurantDTOResponse(
+                restaurant.Id,
+                restaurant.Name,
+                new AddressDTOResponse(
+                    restaurant.Address.Country,
+                    restaurant.Address.City,
+                    restaurant.Address.StreetName,
+                    restaurant.Address.HouseNumber,
+                    restaurant.Address.AppartmentNumber,
+                    restaurant.Address.PostalCode
+                    ),
+                restaurant.ImageName,
+                restaurant.Open,
+                restaurant.Description,
+                restaurant.ShortDescription,
+                restaurant.SiteRef
+                );
+
+                restaurantsDTO.Add(restaurantDTO);
+            }
+
+            return restaurantsDTO;
         }
 
-        public async Task<Restaurant> GetRestaurant(Guid id)
+        public async Task<RestaurantDTOResponse> GetRestaurant(Guid id)
         {
             var restaurant = await _restaurantRepository.GetRestaurantAsync(id);
 
@@ -65,40 +111,82 @@ namespace Application.Services.Implementations
             }
             else
             {
-                return restaurant;
+                var restaurantDTO = new RestaurantDTOResponse(
+                restaurant.Id,
+                restaurant.Name,
+                new AddressDTOResponse(
+                    restaurant.Address.Country,
+                    restaurant.Address.City,
+                    restaurant.Address.StreetName,
+                    restaurant.Address.HouseNumber,
+                    restaurant.Address.AppartmentNumber,
+                    restaurant.Address.PostalCode
+                    ),
+                restaurant.ImageName,
+                restaurant.Open,
+                restaurant.Description,
+                restaurant.ShortDescription,
+                restaurant.SiteRef
+                );
+
+                return restaurantDTO;
             }
         }
 
-        public async Task<IEnumerable<Restaurant>> GetRestaurants()
+        public async Task<IEnumerable<RestaurantDTOResponse>> GetRestaurants()
         {
-            return await _restaurantRepository.GetRestaurantsAsync();
+            var restaurants = await _restaurantRepository.GetRestaurantsAsync();
+            var restaurantsDTO = new List<RestaurantDTOResponse>();
+            foreach (var restaurant in restaurants)
+            {
+                var restaurantDTO = new RestaurantDTOResponse(
+                restaurant.Id,
+                restaurant.Name,
+                new AddressDTOResponse(
+                    restaurant.Address.Country,
+                    restaurant.Address.City,
+                    restaurant.Address.StreetName,
+                    restaurant.Address.HouseNumber,
+                    restaurant.Address.AppartmentNumber,
+                    restaurant.Address.PostalCode
+                    ),
+                restaurant.ImageName,
+                restaurant.Open,
+                restaurant.Description,
+                restaurant.ShortDescription,
+                restaurant.SiteRef
+                );
+
+                restaurantsDTO.Add(restaurantDTO);
+            }
+
+            return restaurantsDTO;
+
         }
 
-        public async Task<Restaurant> PostRestaurant(RestaurantDTORequest restaurantToPost)
+        public async Task<RestaurantDTOResponse> PostRestaurant(RestaurantDTORequest restaurantToPost)
         {
 
             var id = Guid.NewGuid();
             var restaurant = new Restaurant(
                 id,
-                restaurantToPost.Name,
+                restaurantToPost.Name!,
                 new UserAuth(
-                    restaurantToPost.UserAuth.Password,
-                    restaurantToPost.UserAuth.Email),
+                    restaurantToPost.UserAuth!.Password!,
+                    restaurantToPost.UserAuth!.Email!),
                 new Address(
-                    restaurantToPost.Address.Country,
-                    restaurantToPost.Address.City,
-                    restaurantToPost.Address.StreetName,
-                    restaurantToPost.Address.HouseNumber,
+                    restaurantToPost.Address!.Country!,
+                    restaurantToPost.Address.City!,
+                    restaurantToPost.Address.StreetName!,
+                    (int)restaurantToPost.Address.HouseNumber!,
                     restaurantToPost.Address.AppartmentNumber,
-                    restaurantToPost.Address.PostalCode),
+                    (int)restaurantToPost.Address.PostalCode!),
                 id.ToString(),
-                restaurantToPost.Open,
+                (bool)restaurantToPost.Open!,
                 restaurantToPost.Description,
                 restaurantToPost.ShortDescription,
                 restaurantToPost.SiteRef);
 
-            var a = _config["ImageStorage:ImageExtention"];
-            var b = _webHostEnvironment.ContentRootPath + _config["ImageStorage:ImageFoldersPaths:UserImages"];
 
             Task saveImageTask = _fileSaver.SaveImage(restaurantToPost.Image, restaurant.ImageName,
                     _webHostEnvironment.ContentRootPath + _config["ImageStorage:ImageFoldersPaths:UserImages"],
@@ -110,19 +198,32 @@ namespace Application.Services.Implementations
             await _restaurantRepository.AddRestaurantAsync(restaurant);
             await _restaurantRepository.SaveChangesAsync();
 
-            return restaurant;
+            var restaurantDTO = new RestaurantDTOResponse(
+                restaurant.Id,
+                restaurant.Name,
+                new AddressDTOResponse(
+                    restaurant.Address.Country,
+                    restaurant.Address.City,
+                    restaurant.Address.StreetName,
+                    restaurant.Address.HouseNumber,
+                    restaurant.Address.AppartmentNumber,
+                    restaurant.Address.PostalCode
+                    ),
+                restaurant.ImageName,
+                restaurant.Open,
+                restaurant.Description,
+                restaurant.ShortDescription,
+                restaurant.SiteRef
+                );
+
+            return restaurantDTO;
         }
 
-        public async Task<Restaurant> PutRestaurant(Guid id, Restaurant restaurant)
+        public async Task<RestaurantDTOResponse> PutRestaurant(Guid id, RestaurantDTORequest restaurantToUpdate)
         {
             if (id !=
                 Guid.Parse(((ClaimsIdentity)_httpContext.HttpContext.User.Identity).FindFirst("Id").Value))
                 throw new InvalidIdentityException();
-            
-            if (id != restaurant.Id)
-            {
-                throw new InvalidRequestArgumentsException();
-            }
 
 
             if (!await _restaurantRepository.RestaurantExistsAsync(id))
@@ -130,9 +231,48 @@ namespace Application.Services.Implementations
                 throw new RecourseAlreadyExistsException();
             }
 
+            var restaurant = new Restaurant(
+                id,
+                restaurantToUpdate.Name!,
+                new UserAuth(
+                    restaurantToUpdate.UserAuth!.Password!,
+                    restaurantToUpdate.UserAuth!.Email!),
+                new Address(
+                    restaurantToUpdate.Address!.Country!,
+                    restaurantToUpdate.Address.City!,
+                    restaurantToUpdate.Address.StreetName!,
+                    (int)restaurantToUpdate.Address.HouseNumber!,
+                    restaurantToUpdate.Address.AppartmentNumber,
+                    (int)restaurantToUpdate.Address.PostalCode!),
+                id.ToString(),
+                (bool)restaurantToUpdate.Open!,
+                restaurantToUpdate.Description,
+                restaurantToUpdate.ShortDescription,
+                restaurantToUpdate.SiteRef);
+
             _restaurantRepository.UpdateRestaurant(restaurant);
             await _restaurantRepository.SaveChangesAsync();
-            return restaurant;
+
+
+            var restaurantDTO = new RestaurantDTOResponse(
+                restaurant.Id,
+                restaurant.Name,
+                new AddressDTOResponse(
+                    restaurant.Address.Country,
+                    restaurant.Address.City,
+                    restaurant.Address.StreetName,
+                    restaurant.Address.HouseNumber,
+                    restaurant.Address.AppartmentNumber,
+                    restaurant.Address.PostalCode
+                    ),
+                restaurant.ImageName,
+                restaurant.Open,
+                restaurant.Description,
+                restaurant.ShortDescription,
+                restaurant.SiteRef
+                );
+
+            return restaurantDTO;
         }
     }
 }

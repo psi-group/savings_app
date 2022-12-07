@@ -34,14 +34,9 @@ namespace Infrastructure.Migrations
                     b.Property<DateTime>("OrderDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid?>("RestaurantId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.HasKey("Id");
 
                     b.HasIndex("BuyerId");
-
-                    b.HasIndex("RestaurantId");
 
                     b.ToTable("Orders");
                 });
@@ -215,10 +210,6 @@ namespace Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Domain.Entities.Restaurant", null)
-                        .WithMany("Orders")
-                        .HasForeignKey("RestaurantId");
-
                     b.Navigation("Buyer");
                 });
 
@@ -271,40 +262,6 @@ namespace Infrastructure.Migrations
 
             modelBuilder.Entity("Domain.Entities.User", b =>
                 {
-                    b.OwnsOne("Domain.Entities.Address", "Address", b1 =>
-                        {
-                            b1.Property<Guid>("UserId")
-                                .HasColumnType("uniqueidentifier");
-
-                            b1.Property<int>("AppartmentNumber")
-                                .HasColumnType("int");
-
-                            b1.Property<string>("City")
-                                .IsRequired()
-                                .HasColumnType("nvarchar(max)");
-
-                            b1.Property<string>("Country")
-                                .IsRequired()
-                                .HasColumnType("nvarchar(max)");
-
-                            b1.Property<int>("HouseNumber")
-                                .HasColumnType("int");
-
-                            b1.Property<int>("PostalCode")
-                                .HasColumnType("int");
-
-                            b1.Property<string>("StreetName")
-                                .IsRequired()
-                                .HasColumnType("nvarchar(max)");
-
-                            b1.HasKey("UserId");
-
-                            b1.ToTable("Users");
-
-                            b1.WithOwner()
-                                .HasForeignKey("UserId");
-                        });
-
                     b.OwnsOne("Domain.Entities.UserAuth", "UserAuth", b1 =>
                         {
                             b1.Property<Guid>("UserId")
@@ -326,8 +283,6 @@ namespace Infrastructure.Migrations
                                 .HasForeignKey("UserId");
                         });
 
-                    b.Navigation("Address");
-
                     b.Navigation("UserAuth")
                         .IsRequired();
                 });
@@ -339,6 +294,42 @@ namespace Infrastructure.Migrations
                         .HasForeignKey("Domain.Entities.Buyer", "Id")
                         .OnDelete(DeleteBehavior.ClientCascade)
                         .IsRequired();
+
+                    b.OwnsOne("Domain.Entities.Address", "Address", b1 =>
+                        {
+                            b1.Property<Guid>("BuyerId")
+                                .HasColumnType("uniqueidentifier");
+
+                            b1.Property<int?>("AppartmentNumber")
+                                .HasColumnType("int");
+
+                            b1.Property<string>("City")
+                                .IsRequired()
+                                .HasColumnType("nvarchar(max)");
+
+                            b1.Property<string>("Country")
+                                .IsRequired()
+                                .HasColumnType("nvarchar(max)");
+
+                            b1.Property<int>("HouseNumber")
+                                .HasColumnType("int");
+
+                            b1.Property<int>("PostalCode")
+                                .HasColumnType("int");
+
+                            b1.Property<string>("StreetName")
+                                .IsRequired()
+                                .HasColumnType("nvarchar(max)");
+
+                            b1.HasKey("BuyerId");
+
+                            b1.ToTable("Buyers");
+
+                            b1.WithOwner()
+                                .HasForeignKey("BuyerId");
+                        });
+
+                    b.Navigation("Address");
                 });
 
             modelBuilder.Entity("Domain.Entities.Restaurant", b =>
@@ -347,6 +338,43 @@ namespace Infrastructure.Migrations
                         .WithOne()
                         .HasForeignKey("Domain.Entities.Restaurant", "Id")
                         .OnDelete(DeleteBehavior.ClientCascade)
+                        .IsRequired();
+
+                    b.OwnsOne("Domain.Entities.Address", "Address", b1 =>
+                        {
+                            b1.Property<Guid>("RestaurantId")
+                                .HasColumnType("uniqueidentifier");
+
+                            b1.Property<int?>("AppartmentNumber")
+                                .HasColumnType("int");
+
+                            b1.Property<string>("City")
+                                .IsRequired()
+                                .HasColumnType("nvarchar(max)");
+
+                            b1.Property<string>("Country")
+                                .IsRequired()
+                                .HasColumnType("nvarchar(max)");
+
+                            b1.Property<int>("HouseNumber")
+                                .HasColumnType("int");
+
+                            b1.Property<int>("PostalCode")
+                                .HasColumnType("int");
+
+                            b1.Property<string>("StreetName")
+                                .IsRequired()
+                                .HasColumnType("nvarchar(max)");
+
+                            b1.HasKey("RestaurantId");
+
+                            b1.ToTable("Restaurants");
+
+                            b1.WithOwner()
+                                .HasForeignKey("RestaurantId");
+                        });
+
+                    b.Navigation("Address")
                         .IsRequired();
                 });
 
@@ -372,8 +400,6 @@ namespace Infrastructure.Migrations
 
             modelBuilder.Entity("Domain.Entities.Restaurant", b =>
                 {
-                    b.Navigation("Orders");
-
                     b.Navigation("Products");
                 });
 #pragma warning restore 612, 618

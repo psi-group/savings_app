@@ -1,6 +1,7 @@
 ﻿using Application.Services.Interfaces;
 using Application.Specifications;
 using Domain.DTOs.Request;
+using Domain.DTOs.Response;
 using Domain.Entities;
 using Domain.Enums;
 using Domain.Exceptions;
@@ -18,29 +19,23 @@ namespace Application.Services.Implementations
     {
 
         private readonly IProductRepository _productRepository;
-        private readonly IRestaurantRepository _restaurantRepository;
-
         private readonly IFileSaver _fileSaver;
         private readonly IWebHostEnvironment _webHostEnvironment;
         private readonly IConfiguration _config;
         private readonly IHttpContextAccessor _httpContext;
-        private readonly IEmailSender _emailSender;
 
         public ProductService(IWebHostEnvironment webHostEnvironment,
-            IConfiguration config, IHttpContextAccessor httpContext, IEmailSender emailSender,
-            IProductRepository productRepository,
-            IRestaurantRepository restaurantRepository, IFileSaver fileSaver)
+            IConfiguration config, IHttpContextAccessor httpContext,
+            IProductRepository productRepository, IFileSaver fileSaver)
         {
-            _restaurantRepository = restaurantRepository;
             _productRepository = productRepository;
             _fileSaver = fileSaver;
             _webHostEnvironment = webHostEnvironment;
             _config = config;
             _httpContext = httpContext;
-            _emailSender = emailSender;
         }
 
-        public async Task<Product> DeleteProduct(Guid id)
+        public async Task<ProductDTOResponse> DeleteProduct(Guid id)
         {
             var product = await _productRepository.GetProductAsync(id);
 
@@ -56,18 +51,56 @@ namespace Application.Services.Implementations
 
             _productRepository.RemoveProduct(product);
             await _productRepository.SaveChangesAsync();
-            return product;
+
+            var productDTO = new ProductDTOResponse(
+                product.Id,
+                product.Name,
+                product.IsHidden,
+                product.Category,
+                product.RestaurantID,
+                product.AmountType,
+                product.AmountPerUnit,
+                product.AmountOfUnits,
+                product.Price,
+                product.ImageName,
+                product.ShelfLife,
+                product.Description
+                );
+
+            return productDTO;
         }
 
-        public async Task<IEnumerable<Product>> GetFilteredProducts(List<Category> category,
+        public async Task<IEnumerable<ProductDTOResponse>> GetFilteredProducts(List<Category> category,
             string? search, string? order)
         {
             var spec = new ProductFIlterSpecification(category, search, order);
 
-            return await _productRepository.GetProductsAsync(spec);
+            var products = await _productRepository.GetProductsAsync(spec);
+            var productsDTO = new List<ProductDTOResponse>();
+            foreach(var product in products)
+            {
+                var productDTO = new ProductDTOResponse(
+                product.Id,
+                product.Name,
+                product.IsHidden,
+                product.Category,
+                product.RestaurantID,
+                product.AmountType,
+                product.AmountPerUnit,
+                product.AmountOfUnits,
+                product.Price,
+                product.ImageName,
+                product.ShelfLife,
+                product.Description
+                );
+
+                productsDTO.Add(productDTO);
+            }
+
+            return productsDTO;
         }
 
-        public async Task<Product> GetProduct(Guid id)
+        public async Task<ProductDTOResponse> GetProduct(Guid id)
         {
             var product = await _productRepository.GetProductAsync(id);
 
@@ -77,17 +110,54 @@ namespace Application.Services.Implementations
             }
             else
             {
-                return product;
+                var productDTO = new ProductDTOResponse(
+                product.Id,
+                product.Name,
+                product.IsHidden,
+                product.Category,
+                product.RestaurantID,
+                product.AmountType,
+                product.AmountPerUnit,
+                product.AmountOfUnits,
+                product.Price,
+                product.ImageName,
+                product.ShelfLife,
+                product.Description
+                );
+
+                return productDTO;
             }
         }
 
-        public async Task<IEnumerable<Product>> GetProducts()
+        public async Task<IEnumerable<ProductDTOResponse>> GetProducts()
         {
-            return await _productRepository.GetProductsAsync();
+            var products = await _productRepository.GetProductsAsync();
+            var productsDTO = new List<ProductDTOResponse>();
+            foreach (var product in products)
+            {
+                var productDTO = new ProductDTOResponse(
+                product.Id,
+                product.Name,
+                product.IsHidden,
+                product.Category,
+                product.RestaurantID,
+                product.AmountType,
+                product.AmountPerUnit,
+                product.AmountOfUnits,
+                product.Price,
+                product.ImageName,
+                product.ShelfLife,
+                product.Description
+                );
+
+                productsDTO.Add(productDTO);
+            }
+
+            return productsDTO;
         }
 
 
-        public async Task<Product> PostProduct(ProductDTORequest productToPost)
+        public async Task<ProductDTOResponse> PostProduct(ProductDTORequest productToPost)
         {
 
             //throw new NotImplementedException();
@@ -95,9 +165,9 @@ namespace Application.Services.Implementations
             if (productToPost.RestaurantID !=
                 Guid.Parse(((ClaimsIdentity)_httpContext.HttpContext.User.Identity!).FindFirst("Id")!.Value))
                 throw new InvalidIdentityException();
-            
+
             var id = Guid.NewGuid();
-            
+
             var product = new Product(
                 id,
                 productToPost.Name!,
@@ -119,46 +189,25 @@ namespace Application.Services.Implementations
             await saveImageTask;
             await _productRepository.AddProductAsync(product);
             await _productRepository.SaveChangesAsync();
-            return product;
+
+            var productDTO = new ProductDTOResponse(
+                product.Id,
+                product.Name,
+                product.IsHidden,
+                product.Category,
+                product.RestaurantID,
+                product.AmountType,
+                product.AmountPerUnit,
+                product.AmountOfUnits,
+                product.Price,
+                product.ImageName,
+                product.ShelfLife,
+                product.Description
+                );
+
+            return productDTO;
         }
-
-        
-
-        public async Task<Product> Buy(Guid id, int amount)
-        {
-            throw new NotImplementedException();
-            // before repository pattern
-            /*var product = _context.Products
-                .Include(product => product.Restaurant)
-                .Include(product => product.Restaurant.UserAuth)
-                .GetById(id);
-            */
-            /*
-            var product = await _productRepository.GetProduct(id);
-            var restaurant = await _restaurantRepository.GetRestaurant(product.RestaurantID);
-            var userAuth = await _userAuthRepository.GetUserAuth(restaurant.UserAuthId);
-            restaurant.UserAuth = userAuth;
-            product.Restaurant = restaurant;
-            
-
-            product.ProductSold += _emailSender.NotifyRestaurantSoldProduct;
-
-            product.ProductSoldOut += _emailSender.NotifyRestaurantSoldOutProduct;
-
-            product.ReduceAmount(amount);
-
-            await _productRepository.UpdateProduct(product);
-
-            product.ProductSold -= _emailSender.NotifyRestaurantSoldProduct;
-
-            product.ProductSoldOut -= _emailSender.NotifyRestaurantSoldOutProduct;
-
-            product.Restaurant = null;
-
-            return product;*/
-        }
-
-        public async Task<Product> PutProduct(Guid id, ProductDTORequest productToChange)
+        public async Task<ProductDTOResponse> PutProduct(Guid id, ProductDTORequest productToChange)
         {
 
             var c = productToChange.Name;
@@ -190,8 +239,22 @@ namespace Application.Services.Implementations
             _productRepository.UpdateProduct(product);
             await _productRepository.SaveChangesAsync();
 
+            var productDTO = new ProductDTOResponse(
+                product.Id,
+                product.Name,
+                product.IsHidden,
+                product.Category,
+                product.RestaurantID,
+                product.AmountType,
+                product.AmountPerUnit,
+                product.AmountOfUnits,
+                product.Price,
+                product.ImageName,
+                product.ShelfLife,
+                product.Description
+                );
 
-            return product;
+            return productDTO;
         }
     }
 }

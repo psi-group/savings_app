@@ -1,4 +1,6 @@
 ﻿using Application.Services.Interfaces;
+using Domain.DTOs.Request;
+using Domain.DTOs.Response;
 using Domain.Entities.OrderAggregate;
 using Domain.Exceptions;
 using Domain.Interfaces.Repositories;
@@ -13,7 +15,7 @@ namespace Application.Services.Implementations
             _orderRepository = orderRepository;
         }
 
-        public async Task<Order> DeleteOrder(Guid id)
+        public async Task<OrderDTOResponse> DeleteOrder(Guid id)
         {
             var order = await _orderRepository.GetOrderAsync(id);
             if (order == null)
@@ -30,7 +32,14 @@ namespace Application.Services.Implementations
 
             _orderRepository.RemoveOrder(order);
             await _orderRepository.SaveChangesAsync();
-            return order;
+
+            var orderDTO = new OrderDTOResponse(
+                order.Id,
+                order.BuyerId,
+                new List<OrderItem>(order.OrderItems)
+                );
+
+            return orderDTO;
         }
 
         public Task<IEnumerable<Order>> GetBuyerOrders(Guid buyerId)
@@ -38,7 +47,7 @@ namespace Application.Services.Implementations
             throw new NotImplementedException();
         }
 
-        public async Task<Order> GetOrder(Guid id)
+        public async Task<OrderDTOResponse> GetOrder(Guid id)
         {
             var order = await _orderRepository.GetOrderAsync(id);
 
@@ -48,33 +57,62 @@ namespace Application.Services.Implementations
             }
             else
             {
-                return order;
+                var orderDTO = new OrderDTOResponse(
+                order.Id,
+                order.BuyerId,
+                new List<OrderItem>(order.OrderItems)
+                );
+
+                return orderDTO;
             }
         }
 
-        public async Task<IEnumerable<Order>> GetOrders()
+        public async Task<IEnumerable<OrderDTOResponse>> GetOrders()
         {
-            return await _orderRepository.GetOrdersAsync();
+            var orders = await _orderRepository.GetOrdersAsync();
+
+            var ordersResponse = new List<OrderDTOResponse>();
+            foreach(var order in orders)
+            {
+                var orderDTO = new OrderDTOResponse(
+                order.Id,
+                order.BuyerId,
+                new List<OrderItem>(order.OrderItems)
+                );
+                ordersResponse.Add(orderDTO);
+            }
+
+            return ordersResponse;
         }
 
-        public async Task<Order> PostOrder(Order order)
+        public async Task<OrderDTOResponse> PostOrder(OrderDTORequest orderToPost)
         {
-            order.GenerateId();
-            //order.Id = Guid.NewGuid();
+            var id = Guid.NewGuid();
+            var order = new Order(
+                id,
+                (Guid)orderToPost.BuyerId!,
+                (List<OrderItem>)orderToPost.OrderItems!
+                );
 
             await _orderRepository.AddOrderAsync(order);
             await _orderRepository.SaveChangesAsync();
-            return order;
+
+            var orderDTO = new OrderDTOResponse(
+                order.Id,
+                order.BuyerId,
+                new List<OrderItem>(order.OrderItems)
+                );
+
+            return orderDTO;
         }
 
-        public async Task<Order> PutOrder(Guid id, Order order)
+        public async Task<OrderDTOResponse> PutOrder(Guid id, OrderDTORequest orderToUpdate)
         {
-            if (id != order.Id)
-            {
-                throw new InvalidRequestArgumentsException();
-            }
-
-            
+            var order = new Order(
+                id,
+                (Guid)orderToUpdate.BuyerId!,
+                (List<OrderItem>)orderToUpdate.OrderItems!
+                );
 
             if (!await _orderRepository.OrderExistsAsync(id))
             {
@@ -83,7 +121,14 @@ namespace Application.Services.Implementations
 
             _orderRepository.UpdateOrder(order);
             await _orderRepository.SaveChangesAsync();
-            return order;
+
+            var orderDTO = new OrderDTOResponse(
+                order.Id,
+                order.BuyerId,
+                new List<OrderItem>(order.OrderItems)
+                );
+
+            return orderDTO;
         }
     }
 }

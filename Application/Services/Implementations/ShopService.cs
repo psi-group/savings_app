@@ -87,15 +87,15 @@ namespace Application.Services.Implementations
                 scope.Complete();
             }*/
 
-            foreach (var product in checkout.productsToBuy)
+            foreach (var product in checkout.productsToBuy!)
             {
-                var productBeingBought = await _productRepository.GetProductAsync(product.Id);
+                var productBeingBought = await _productRepository.GetProductAsync((Guid)product.Id!);
                 
                 productBeingBought.ProductSold += _emailSender.NotifyRestaurantSoldProduct;
                 
                 productBeingBought.ProductSoldOut += _emailSender.NotifyRestaurantSoldOutProduct;
                 
-                productBeingBought.Buy(product.Amount, checkout.buyerId);
+                productBeingBought.Buy((int)product.Amount!, (Guid)checkout.buyerId!);
 
 
                 productBeingBought.ProductSold -= _emailSender.NotifyRestaurantSoldProduct;
@@ -103,15 +103,15 @@ namespace Application.Services.Implementations
 
                 var boughtProduct = _productRepository.UpdateProduct(productBeingBought);
 
-                var pickup = await _pickupRepository.GetPickupAsync(product.PickupId);
+                var pickup = await _pickupRepository.GetPickupAsync((Guid)product.PickupId!);
                 pickup.Book();
 
                 var orderItem = new OrderItem(
                     Guid.NewGuid(),
                     orderId,
-                    product.Id,
-                    product.PickupId,
-                    product.Amount,
+                    (Guid)product.Id,
+                    (Guid)product.PickupId,
+                    (int)product.Amount,
                     productBeingBought.Price,
                     OrderItemStatus.AwaitingPickup
                     );
@@ -119,7 +119,7 @@ namespace Application.Services.Implementations
                 orderItemList.Add(orderItem);
             }
 
-            var order = new Order(orderId, checkout.buyerId, orderItemList);
+            var order = new Order(orderId, (Guid)checkout.buyerId!, orderItemList);
             await _orderRepository.AddOrderAsync(order);
             try
             {

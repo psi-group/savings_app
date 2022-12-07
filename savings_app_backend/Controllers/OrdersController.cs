@@ -1,4 +1,6 @@
 ﻿using Application.Services.Interfaces;
+using Domain.DTOs.Request;
+using Domain.DTOs.Response;
 using Domain.Entities.OrderAggregate;
 using Domain.Exceptions;
 using Microsoft.AspNetCore.Mvc;
@@ -12,7 +14,6 @@ namespace savings_app_backend.Controllers
         private readonly IOrderService _orderService;
         private readonly ILogger<OrdersController> _logger;
 
-
         public OrdersController(IOrderService orderService,
             ILogger<OrdersController> logger)
         {
@@ -20,16 +21,14 @@ namespace savings_app_backend.Controllers
             _logger = logger;
         }
 
-        // GET: api/Orders
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Order>>> GetOrders()
+        public async Task<ActionResult<IEnumerable<OrderDTOResponse>>> GetOrders()
         {
             return Ok(await _orderService.GetOrders());
         }
 
-        // GET: api/Orders/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Order>> GetOrder(Guid id)
+        public async Task<ActionResult<OrderDTOResponse>> GetOrder(Guid id)
         {
             try
             {
@@ -42,10 +41,8 @@ namespace savings_app_backend.Controllers
             }
         }
 
-        // PUT: api/Orders/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutOrder(Guid id, Order order)
+        public async Task<ActionResult<OrderDTOResponse>> PutOrder(Guid id, OrderDTORequest order)
         {
             try
             {
@@ -63,17 +60,14 @@ namespace savings_app_backend.Controllers
             }
         }
 
-        // POST: api/Orders
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Order>> PostOrder([FromBody] Order order)
+        public async Task<ActionResult<OrderDTOResponse>> PostOrder(OrderDTORequest order)
         {
             return Ok(await _orderService.PostOrder(order));
         }
 
-        // DELETE: api/Orders/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteOrder(Guid id)
+        public async Task<ActionResult<OrderDTOResponse>> DeleteOrder(Guid id)
         {
             try
             {

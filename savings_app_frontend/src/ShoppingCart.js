@@ -64,6 +64,7 @@ export const ShoppingCart = (props) => {
 
     console.log("ready? " + isPathFinderReady);
 
+
     fetch("https://localhost:7183/api/pathfinder", {
       method: "GET",
       headers: {
