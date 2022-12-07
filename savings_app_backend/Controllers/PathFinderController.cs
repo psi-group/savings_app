@@ -1,20 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
-using System.Net.Http.Headers;
-using System.Security.Claims;
-using System.Security.Policy;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
+﻿using System.Net.Http.Headers;
+using Domain.Entities;
+using Infrastructure;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.CodeAnalysis;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.IdentityModel.Tokens;
-using savings_app_backend.Extention;
-using savings_app_backend.Models;
-using savings_app_backend.Models.Entities;
 
 namespace savings_app_backend.Controllers
 {
@@ -72,7 +60,8 @@ namespace savings_app_backend.Controllers
 
         // GET: api/Auth
         [HttpGet]
-        public async Task<IEnumerable<Models.Entities.Path>> GetPath([FromQuery] Guid[] productId, DateTime? minTime, DateTime? maxTime)
+        public async Task<IEnumerable<Domain.Entities.Path>> GetPath([FromQuery] Guid[] productId,
+            DateTime? minTime, DateTime? maxTime)
         {
 
             Lazy<List<Pickup>[]> lazyPickups = new Lazy<List<Pickup>[]>(() => new List<Pickup>[productId.Length]);
@@ -108,13 +97,13 @@ namespace savings_app_backend.Controllers
             client.DefaultRequestHeaders.Accept.Add(
             new MediaTypeWithQualityHeaderValue("application/json"));
 
-            IEnumerable<Models.Entities.Path> paths = null;
+            IEnumerable<Domain.Entities.Path> paths = null;
             HttpResponseMessage response = client.GetAsync(urlParameters).Result;
             if (response.IsSuccessStatusCode)
             {
                 try
                 {
-                    paths = await response.Content?.ReadFromJsonAsync<IEnumerable<Models.Entities.Path>>();
+                    paths = await response.Content?.ReadFromJsonAsync<IEnumerable<Domain.Entities.Path>>();
                 }
                 catch (Exception)
                 {

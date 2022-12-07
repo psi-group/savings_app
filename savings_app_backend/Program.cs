@@ -1,19 +1,17 @@
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
-using savings_app_backend.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
-using savings_app_backend.Services.Interfaces;
-using savings_app_backend.Services.Implementations;
-using savings_app_backend.EmailSender;
 using NLog.Web;
 using NLog;
-using savings_app_backend;
-using savings_app_backend.Statistics;
-using savings_app_backend.Repositories.Interfaces;
-using savings_app_backend.Repositories.Implementations;
-using savings_app_backend.SavingToFile;
+using Infrastructure;
+using Domain.Interfaces;
+using Infrastructure.Services;
+using Application.Services.Interfaces;
+using Application.Services.Implementations;
+using Domain.Interfaces.Repositories;
+using Infrastructure.Repositories;
+using Microsoft.AspNetCore.Localization;
 
 var logger = NLog.LogManager.Setup().LoadConfigurationFromAppSettings().GetCurrentClassLogger();
 
@@ -38,33 +36,31 @@ try
 
     // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 
-    builder.Services.AddSingleton<IFileSaver, FileSaver>();
-    builder.Services.AddTransient<IRestaurantService, RestaurantService>();
-    builder.Services.AddTransient<IProductService, ProductService>();
+    builder.Services.AddScoped<IFileSaver, FileSaver>();
+    builder.Services.AddScoped<IRestaurantService, RestaurantService>();
+    builder.Services.AddScoped<IProductService, ProductService>();
 
-    builder.Services.AddTransient<IPickupService, PickupService>();
+    builder.Services.AddScoped<IPickupService, PickupService>();
 
-    builder.Services.AddTransient<IOrderService, OrderService>();
+    builder.Services.AddScoped<IOrderService, OrderService>();
 
-    builder.Services.AddTransient<IBuyerService, BuyerService>();
+    builder.Services.AddScoped<IShopService, ShopService>();
 
-    builder.Services.AddTransient<IAddressService, AddressService>();
+    builder.Services.AddScoped<IBuyerService, BuyerService>();
 
-    builder.Services.AddTransient<IUserAuthService, UserAuthService>();
+    builder.Services.AddScoped<IAuthService, AuthService>();
 
-    builder.Services.AddTransient<IAuthService, AuthService>();
-
-    builder.Services.AddTransient<IEmailSender, EmailSender>();
+    builder.Services.AddScoped<IEmailSender, EmailSender>();
 
     builder.Services.AddScoped<IProductRepository, ProductRepository>();
     builder.Services.AddScoped<IRestaurantRepository, RestaurantRepository>();
-    builder.Services.AddScoped<IUserAuthRepository, UserAuthRepository>();
     builder.Services.AddScoped<IOrderRepository, OrderRepository>();
     builder.Services.AddScoped<IPickupRepository, PickupRepository>();
     builder.Services.AddScoped<IBuyerRepository, BuyerRepository>();
+    
 
     //builder.Logging.ClearProviders();
-    
+
 
     builder.Services.AddCors(options =>
     {
@@ -104,7 +100,11 @@ try
         app.UseSwagger();
         app.UseSwaggerUI();
     }
-    app.UseStatisticsMiddleware();
+
+    app.UseRequestLocalization(new RequestLocalizationOptions
+    {
+        DefaultRequestCulture = new RequestCulture("en-US")
+    });
 
     app.UseHttpsRedirection();
 

@@ -5,7 +5,7 @@ const SortButton = (props) => {
 
   return (
     <>
-      
+
       <select name="sort" className="border-sky-500 border-1 rounded-md px-1 outline-none hover:bg-sky-100 focus:bg-sky-500 focus:text-white" onChange={changeSort}>
         <option className="group-focus:bg-sky-600" value="by_id">Sort By</option>
         <option value="by_id">Id</option>

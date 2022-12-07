@@ -1,4 +1,4 @@
-﻿
+﻿/*
 using NSubstitute;
 using savings_app_backend.EmailSender;
 using savings_app_backend.Events;
@@ -108,3 +108,4 @@ namespace savings_app_tests
         }
     }
 }
+*/
