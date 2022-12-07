@@ -8,7 +8,7 @@ import RestaurantDetails from '../Restaurant/RestaurantDetails';
 import ShoppingCart from '../ShoppingCart';
 import Register from "../Register";
 import Login from "../Login";
-
+import OrderDetails from "../Orders/OrderDetails"
 
 const Main = (props) => {
     return (
@@ -16,7 +16,7 @@ const Main = (props) => {
             <Route path='/' element={<Home searchas={props.searchas} isValidUrl={props.isValidUrl}/>}></Route>
             <Route path='/register' element={<Register></Register>} ></Route>
             <Route path='/login' element={<Login></Login>} ></Route>
-
+            <Route path='/order/:id' element={<OrderDetails></OrderDetails>}></Route>
             <Route path='/products' element={<Home searchas={props.searchas}/>}></Route>
             <Route path='/product/:id' element={<ProductDetails cartItems={props.cartItems} addCartItem={props.addCartItem} roundNumber={props.roundNumber} />}></Route>
             <Route path='/orders' element={<Orders />}></Route>

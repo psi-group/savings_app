@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import SearchAndDisplay from "../Search/SearchAndDisplay";
+import { useNavigate } from "react-router-dom";
 
 export default class Orders extends Component {
 
@@ -10,10 +12,13 @@ export default class Orders extends Component {
     }
 
 
+    
+
+
     async getOrders() {
 
 
-        let value = document.getElementById('fname').value;
+        let value = getId(localStorage.getItem('token'))
 
         const response = await fetch('https://localhost:7183/api/orders/byBuyerId/' + value);
         const data = await response.json();
@@ -28,51 +33,43 @@ export default class Orders extends Component {
     render() {
 
 
-        let contents = this.state.loading ? 
-            <></> :
-            <table>
-                <tr>
-                    <th>Order Id</th>
-                    <th>Buyer Id</th>
-                    <th>Seller Id</th>
-                    <th>Order Status</th>
+        let contents = 
+           <table className='ml-auto mr-auto'>
+                <thead className="border-1 border-solid">
+                <tr >
+                    <th>Date</th>
+                    <th>Seller</th>
+                    <th>Status</th>
+                    <th>Price</th>
+                    <th>Action</th>
                 </tr>
-                {this.state.orders.map((order, index) => (
-
-                    <tr key={index }>
-                        <td>{order.orderId}</td>
-                        <td>{order.buyerId}</td>
-                        <td>{order.sellerId}</td>
-                        <td>{order.orderStatus}</td>
-                    </tr>
-                    
-                ))}
-            </table>
+            </thead>
+                <tbody className="u-table-alt-palette-1-light-3 u-table-body u-white u-table-body-1">
+              <tr>
+                    <td className='w-[200px]'>2012-12-12 12:22</td>
+                    <td className='w-[200px]'> <Link href='restLink'> restrNmae</Link></td>
+                    <td className='w-[150px]'>Complete</td>
+                    <td className='w-[100px]'>$???</td>
+                    <td className='w-[50px]'><button className='border-1 border-solid'>VIEW</button></td>
+              </tr>
+            </tbody>
+          </table>
 
         return (
-            <div className="main">
-                <h1>React Search</h1>
-
-                <div>
-
-                    
-
-                </div>
-
-                
-
-                <div>
-
-                    <label >Enter your user ID:</label>
-                    <input type="text" id="fname" />
-                    <button onClick={this.getOrders}>submit</button>
-
-                </div>
-
+            <>
+                <h1 className='text-xl text-center'>Your orders history</h1>
                 {contents}
-                
-
-            </div>
-        );
+            </>
+           
+        )
     }
+}
+
+
+
+function getId(token) {
+    console.log(JSON.parse(window.atob(token.split(".")[1])));
+    return JSON.parse(window.atob(token.split(".")[1]))[
+        "Id"
+    ];
 }

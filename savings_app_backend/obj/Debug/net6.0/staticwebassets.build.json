@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "EOmawIVQofBCgpyvxP0Z0C8EdWbfergY8tt2pVQKqyY=",
+  "Hash": "EOeWvHMoWTjQA08Emwcih9q5UeSwQSRy8aBAFqi9kc0=",
   "Source": "WebAPI",
   "BasePath": "_content/WebAPI",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "WebAPI\\wwwroot",
       "Source": "WebAPI",
-      "ContentRoot": "C:\\Users\\justa\\Desktop\\APPAS\\geriausias\\savings_app\\savings_app_backend\\wwwroot\\",
+      "ContentRoot": "D:\\Ps_project_1\\savings_app\\savings_app_backend\\wwwroot\\",
       "BasePath": "_content/WebAPI",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\justa\\Desktop\\APPAS\\geriausias\\savings_app\\savings_app_backend\\wwwroot\\userImg\\0289fcb6-b547-455b-87f6-e9eced20fb38.jpg",
+      "Identity": "D:\\Ps_project_1\\savings_app\\savings_app_backend\\wwwroot\\userImg\\0289fcb6-b547-455b-87f6-e9eced20fb38.jpg",
       "SourceId": "WebAPI",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\justa\\Desktop\\APPAS\\geriausias\\savings_app\\savings_app_backend\\wwwroot\\",
+      "ContentRoot": "D:\\Ps_project_1\\savings_app\\savings_app_backend\\wwwroot\\",
       "BasePath": "_content/WebAPI",
       "RelativePath": "userImg/0289fcb6-b547-455b-87f6-e9eced20fb38.jpg",
       "AssetKind": "All",
@@ -32,6 +32,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\userImg\\0289fcb6-b547-455b-87f6-e9eced20fb38.jpg"
+    },
+    {
+      "Identity": "D:\\Ps_project_1\\savings_app\\savings_app_backend\\wwwroot\\userImg\\a2ffd5f7-8c0e-47da-8fc7-3accd7469b19.jpg",
+      "SourceId": "WebAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Ps_project_1\\savings_app\\savings_app_backend\\wwwroot\\",
+      "BasePath": "_content/WebAPI",
+      "RelativePath": "userImg/a2ffd5f7-8c0e-47da-8fc7-3accd7469b19.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\userImg\\a2ffd5f7-8c0e-47da-8fc7-3accd7469b19.jpg"
     }
   ]
 }

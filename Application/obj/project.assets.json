@@ -903,19 +903,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\justa\\.nuget\\packages\\": {}
+    "C:\\Users\\NGTV\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\justa\\Desktop\\APPAS\\geriausias\\savings_app\\Application\\Application.csproj",
+      "projectUniqueName": "D:\\Ps_project_1\\savings_app\\Application\\Application.csproj",
       "projectName": "Application",
-      "projectPath": "C:\\Users\\justa\\Desktop\\APPAS\\geriausias\\savings_app\\Application\\Application.csproj",
-      "packagesPath": "C:\\Users\\justa\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\justa\\Desktop\\APPAS\\geriausias\\savings_app\\Application\\obj\\",
+      "projectPath": "D:\\Ps_project_1\\savings_app\\Application\\Application.csproj",
+      "packagesPath": "C:\\Users\\NGTV\\.nuget\\packages\\",
+      "outputPath": "D:\\Ps_project_1\\savings_app\\Application\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\justa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\NGTV\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -929,8 +934,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\justa\\Desktop\\APPAS\\geriausias\\savings_app\\Domain\\Domain.csproj": {
-              "projectPath": "C:\\Users\\justa\\Desktop\\APPAS\\geriausias\\savings_app\\Domain\\Domain.csproj"
+            "D:\\Ps_project_1\\savings_app\\Domain\\Domain.csproj": {
+              "projectPath": "D:\\Ps_project_1\\savings_app\\Domain\\Domain.csproj"
             }
           }
         }
@@ -981,7 +986,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }
