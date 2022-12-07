@@ -53,7 +53,7 @@ namespace savings_app_backend.Controllers
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
         [Authorize(Roles = "seller")]
-        public async Task<IActionResult> PutRestaurant(Guid id, Restaurant restaurant)
+        public async Task<IActionResult> PutRestaurant(Guid id, RestaurantDTORequest restaurant)
         {
             try
             {
@@ -102,7 +102,7 @@ namespace savings_app_backend.Controllers
             catch(InvalidIdentityException e)
             {
                 _logger.LogError(e.ToString());
-                return Unauthorized();
+                return Unauthorized("negalima :)");
             }
         }
     }

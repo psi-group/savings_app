@@ -1,16 +1,21 @@
 ﻿using Domain.Entities;
 using Microsoft.AspNetCore.Http;
+using System.ComponentModel.DataAnnotations;
 
 namespace Domain.DTOs.Request
 {
     public class RestaurantDTORequest
     {
-        public string Name { get; set; }
-        public UserAuthDTORequest UserAuth { get; set; }
-        public AddressDTORequest Address { get; set; }
-        public IFormFile Image { get; set; }
+        [Required]
+        public string? Name { get; set; }
+        [Required]
+        public UserAuthDTORequest? UserAuth { get; set; }
+        [Required]
+        public AddressDTORequest? Address { get; set; }
 
-        public bool Open { get; set; }
+        public IFormFile? Image { get; set; }
+
+        public bool? Open { get; set; } = true;
 
         public string? Description { get; set; }
 

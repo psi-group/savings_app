@@ -14,6 +14,7 @@ namespace Domain.Entities
 
         public string Name { get; private set; }
         public bool IsHidden { get; private set; }
+        
 
         [JsonConverter(typeof(JsonStringEnumConverter))]
         [EnumDataType(typeof(Category))]

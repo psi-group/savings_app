@@ -97,33 +97,34 @@ namespace Application.Services.Implementations
 
             var buyer = new Buyer(
                 id,
-                buyerToPost.Name,
+                buyerToPost.Name!,
                 new UserAuth(
-                    buyerToPost.UserAuth.Password,
-                    buyerToPost.UserAuth.Email),
+                    buyerToPost.UserAuth!.Password!,
+                    buyerToPost.UserAuth!.Email!),
                 buyerToPost.Address == null ?
                     null :
                     new Address(
-                        buyerToPost.Address.Country,
-                        buyerToPost.Address.City,
-                        buyerToPost.Address.StreetName,
-                        buyerToPost.Address.HouseNumber,
+                        buyerToPost.Address.Country!,
+                        buyerToPost.Address.City!,
+                        buyerToPost.Address.StreetName!,
+                        (int)buyerToPost.Address.HouseNumber!,
                         buyerToPost.Address.AppartmentNumber,
-                        buyerToPost.Address.PostalCode),
+                        (int)buyerToPost.Address.PostalCode!),
                 id.ToString());
-
-            //buyer.GenerateId();
-
 
             using (TransactionScope scope = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled))
             {
-
-                Task saveImageTask = _fileSaver.SaveImage(buyerToPost.Image, buyer.ImageName,
+                if(buyerToPost.Image != null)
+                {
+                    Task saveImageTask = _fileSaver.SaveImage(buyerToPost.Image,
+                        buyer.ImageName,
                     _webHostEnvironment.ContentRootPath + _config["ImageStorage:ImageFoldersPaths:UserImages"],
                     _config["ImageStorage:ImageExtention"]);
 
 
-                await saveImageTask;
+                    await saveImageTask;
+                }
+                
                 await _buyerRepository.AddBuyerAsync(buyer);
                 await _buyerRepository.SaveChangesAsync();
 
@@ -153,19 +154,19 @@ namespace Application.Services.Implementations
 
             var buyer = new Buyer(
                 id,
-                buyerToUpdate.Name,
+                buyerToUpdate.Name!,
                 new UserAuth(
-                    buyerToUpdate.UserAuth.Password,
-                    buyerToUpdate.UserAuth.Email),
+                    buyerToUpdate.UserAuth!.Password!,
+                    buyerToUpdate.UserAuth!.Email!),
                 buyerToUpdate.Address == null ?
                     null :
                     new Address(
-                        buyerToUpdate.Address.Country,
-                        buyerToUpdate.Address.City,
-                        buyerToUpdate.Address.StreetName,
-                        buyerToUpdate.Address.HouseNumber,
+                        buyerToUpdate.Address.Country!,
+                        buyerToUpdate.Address.City!,
+                        buyerToUpdate.Address.StreetName!,
+                        (int)buyerToUpdate.Address.HouseNumber!,
                         buyerToUpdate.Address.AppartmentNumber,
-                        buyerToUpdate.Address.PostalCode),
+                        (int)buyerToUpdate.Address.PostalCode!),
                 id.ToString());
 
             _buyerRepository.UpdateBuyer(buyer);

@@ -22,7 +22,6 @@ namespace savings_app_backend.Controllers
             _buyerService = buyerService;
         }
 
-        // GET: api/Buyers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<BuyerDTOResponse>>> GetBuyers()
         {
@@ -42,9 +41,12 @@ namespace savings_app_backend.Controllers
                 return NotFound();
             }
         }
+        
+        //
+        // how would private endpoint look for authorized buyer?
+        //
 
-        // PUT: api/Buyers/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+
         [HttpPut("{id}")]
         [Authorize(Roles = "buyer")]
         public async Task<ActionResult<BuyerDTOResponse>> PutBuyer(Guid id, BuyerDTORequest Buyer)
@@ -73,7 +75,8 @@ namespace savings_app_backend.Controllers
         // POST: api/Buyers
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<BuyerDTOResponse>> PostBuyer([FromForm] BuyerDTORequest Buyer)
+        public async Task<ActionResult<BuyerDTOResponse>> PostBuyer(
+            [FromForm] BuyerDTORequest Buyer)
         {
             //throw new NotImplementedException();
             return Ok(await _buyerService.PostBuyer(Buyer));

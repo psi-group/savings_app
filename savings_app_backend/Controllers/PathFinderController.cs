@@ -60,7 +60,8 @@ namespace savings_app_backend.Controllers
 
         // GET: api/Auth
         [HttpGet]
-        public async Task<IEnumerable<Domain.Entities.Path>> GetPath([FromQuery] Guid[] productId, DateTime? minTime, DateTime? maxTime)
+        public async Task<IEnumerable<Domain.Entities.Path>> GetPath([FromQuery] Guid[] productId,
+            DateTime? minTime, DateTime? maxTime)
         {
 
             Lazy<List<Pickup>[]> lazyPickups = new Lazy<List<Pickup>[]>(() => new List<Pickup>[productId.Length]);

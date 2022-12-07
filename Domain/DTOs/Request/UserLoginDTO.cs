@@ -1,8 +1,12 @@
-﻿namespace Domain.DTOs.Request
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Domain.DTOs.Request
 {
     public class UserLoginDTO
     {
-        public string Email { get; set; }
-        public string Password { get; set; }
+        [Required]
+        public string? Email { get; set; }
+        [Required]
+        public string? Password { get; set; }
     }
 }

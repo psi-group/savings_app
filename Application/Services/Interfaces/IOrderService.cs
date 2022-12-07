@@ -1,18 +1,20 @@
-﻿using Domain.Entities.OrderAggregate;
+﻿using Domain.DTOs.Request;
+using Domain.DTOs.Response;
+using Domain.Entities.OrderAggregate;
 
 namespace Application.Services.Interfaces
 {
     public interface IOrderService
     {
-        Task<IEnumerable<Order>> GetOrders();
+        Task<IEnumerable<OrderDTOResponse>> GetOrders();
 
-        Task<Order> GetOrder(Guid id);
+        Task<OrderDTOResponse> GetOrder(Guid id);
 
-        Task<Order> PutOrder(Guid id, Order Order);
+        Task<OrderDTOResponse> PutOrder(Guid id, OrderDTORequest Order);
 
-        Task<Order> DeleteOrder(Guid id);
+        Task<OrderDTOResponse> DeleteOrder(Guid id);
 
-        Task<Order> PostOrder(Order Order);
+        Task<OrderDTOResponse> PostOrder(OrderDTORequest Order);
 
     }
 }

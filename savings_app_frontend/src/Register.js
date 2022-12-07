@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Register = () => {
     const defaultImageSrc = "/images/profilePic.jpg";
-
+    const navigate = useNavigate();
     const [errorMsg, setErrMsg] = useState("");
 
     const [isRestaurant, setIsRestaurant] = useState(false);
@@ -20,7 +20,7 @@ const Register = () => {
         city: "",
         streetName: "",
         houseNumber: 0,
-        appartmentNumber: 0,
+        appartmentNumber: null,
         postalCode: 0,
     });
 
@@ -33,14 +33,20 @@ const Register = () => {
         formData.append("userAuth[email]", email);
         formData.append("userAuth[password]", password);
         formData.append("name", name);
-        formData.append("imageFile", imageFile);
+        formData.append("image", imageFile);
         console.log(address);
-        formData.append("address[country]", address.country);
-        formData.append("address[city]", address.city);
-        formData.append("address[streetName]", address.streetName);
-        formData.append("address[houseNumber]", address.houseNumber);
-        formData.append("address[appartmentNumber]", address.appartmentNumber);
-        formData.append("address[postalCode]", address.postalCode);
+
+        if (isAddressInformationVisible || isRestaurant) {
+            formData.append("address[country]", address.country);
+            formData.append("address[city]", address.city);
+            formData.append("address[streetName]", address.streetName);
+            formData.append("address[houseNumber]", address.houseNumber);
+            if (address.appartmentNumber != null)
+                formData.append("address[appartmentNumber]", address.appartmentNumber);
+            formData.append("address[postalCode]", address.postalCode);
+        }
+
+        console.log(formData.get("address[appartmentNumber]"));
 
         console.log(isRestaurant);
 
@@ -60,13 +66,16 @@ const Register = () => {
 
                 console.log(response);
                 if (!response.ok) {
-                    console.log(response.statusText);
+                    console.log("WTf");
+                    console.log(await response.text());
                     setErrMsg("Incorrect register inputs");
                 } else {
                     setErrMsg("");
+                    navigate("/");
                 }
             })
             .catch((error) => {
+                console.log(error);
                 setErrMsg(error);
             });
     };
@@ -130,16 +139,17 @@ const Register = () => {
                             onChange={(e) => setPassword(e.target.value)}
                         ></input>
                     </div>
-                    <button
+                    {!isRestaurant && <button
                         type="button"
                         onClick={() =>
                             setIsAddressInformationVisible(!isAddressInformationVisible)
                         }
                         className=" bg-sky-500 text-white rounded-xl font-bold hover:bg-sky-800 hover:text-white h-10 w-full"
                     >
-                        Add primary address information (Optional)
-                    </button>
-                    {isAddressInformationVisible && (
+                        Add primary address information {!isRestaurant && "(Optional)"}
+                    </button>}
+                    
+                    {(isAddressInformationVisible || isRestaurant) && (
                         <div className="flex flex-col gap-2 border-2 p-3 rounded-lg border-sky-500">
                             <div className="flex">
                                 <label>Country: </label>

@@ -1,7 +1,12 @@
-﻿namespace Domain.Entities
+﻿using Domain.Entities.OrderAggregate;
+
+namespace Domain.Entities
 {
     public class Buyer : User
     {
+        public Address? Address { get; private set; }
+        public List<Order>? Orders { get; private set; }
+
         public Buyer()
         {
 

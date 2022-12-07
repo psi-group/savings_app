@@ -1,20 +1,20 @@
 ﻿using Domain.DTOs.Request;
-using Domain.Entities;
+using Domain.DTOs.Response;
 
 namespace Application.Services.Interfaces
 {
     public interface IRestaurantService
     {
-        Task<IEnumerable<Restaurant>> GetRestaurants();
-        Task<IEnumerable<Restaurant>> GetFilteredRestaurants(string? search);
+        Task<IEnumerable<RestaurantDTOResponse>> GetRestaurants();
+        Task<IEnumerable<RestaurantDTOResponse>> GetFilteredRestaurants(string? search);
 
-        Task<Restaurant> GetRestaurant(Guid id);
+        Task<RestaurantDTOResponse> GetRestaurant(Guid id);
 
-        Task<Restaurant> PutRestaurant(Guid id, Restaurant restaurant);
+        Task<RestaurantDTOResponse> PutRestaurant(Guid id, RestaurantDTORequest restaurant);
 
-        Task<Restaurant> DeleteRestaurant(Guid id);
+        Task<RestaurantDTOResponse> DeleteRestaurant(Guid id);
 
-        Task<Restaurant> PostRestaurant(RestaurantDTORequest restaurant);
+        Task<RestaurantDTOResponse> PostRestaurant(RestaurantDTORequest restaurant);
 
     }
 }

@@ -42,8 +42,6 @@ export const ShoppingCart = (props) => {
                 setIsPathFinderReady(true);
                 console.log("ready? " + isPathFinderReady);
             })
-
-        
     }
 
   const handleCheckout = () => {

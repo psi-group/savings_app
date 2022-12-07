@@ -21,13 +21,15 @@ namespace Infrastructure
             modelBuilder.Entity<User>().ToTable("Users");
             modelBuilder.Entity<Restaurant>().ToTable("Restaurants");
 
-            modelBuilder.Entity<User>().OwnsOne(p => p.Address);
+            modelBuilder.Entity<Restaurant>().OwnsOne(p => p.Address);
+            modelBuilder.Entity<Buyer>().OwnsOne(p => p.Address);
             modelBuilder.Entity<User>().OwnsOne(p => p.UserAuth);
 
             modelBuilder.Entity<Restaurant>()
                 .HasMany(rest => rest.Products)
                 .WithOne(prd => prd.Restaurant)
-                .HasForeignKey(fk => fk.RestaurantID);
+                .HasForeignKey(fk => fk.RestaurantID)
+                .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<Product>()
                 .HasMany(rest => rest.Pickups)
