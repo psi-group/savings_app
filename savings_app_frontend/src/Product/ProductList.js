@@ -62,8 +62,8 @@ export default class List extends Component {
                     </h1>
                     <img
                       src={
-                                    ("https://localhost:7183/productImg/" + product.id + ".jpg")
-                          ? ("https://localhost:7183/productImg/" + product.id + ".jpg")
+                                    ("https://savingsapp.blob.core.windows.net/productimages/" + product.id + ".jpg")
+                                        ? ("https://savingsapp.blob.core.windows.net/productimages/" + product.id + ".jpg")
                           : productImageSkeleton
                       }
                       className="w-72 h-72 rounded-md"

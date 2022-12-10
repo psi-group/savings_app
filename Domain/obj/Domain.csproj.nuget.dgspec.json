@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\justa\\Desktop\\APPAS\\geriausias\\savings_app\\Domain\\Domain.csproj": {}
+    "C:\\Users\\justa\\Desktop\\APPAS\\good - Copy\\savings_app\\Domain\\Domain.csproj": {}
   },
   "projects": {
-    "C:\\Users\\justa\\Desktop\\APPAS\\geriausias\\savings_app\\Domain\\Domain.csproj": {
+    "C:\\Users\\justa\\Desktop\\APPAS\\good - Copy\\savings_app\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\justa\\Desktop\\APPAS\\geriausias\\savings_app\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Users\\justa\\Desktop\\APPAS\\good - Copy\\savings_app\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\Users\\justa\\Desktop\\APPAS\\geriausias\\savings_app\\Domain\\Domain.csproj",
+        "projectPath": "C:\\Users\\justa\\Desktop\\APPAS\\good - Copy\\savings_app\\Domain\\Domain.csproj",
         "packagesPath": "C:\\Users\\justa\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\justa\\Desktop\\APPAS\\geriausias\\savings_app\\Domain\\obj\\",
+        "outputPath": "C:\\Users\\justa\\Desktop\\APPAS\\good - Copy\\savings_app\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\justa\\AppData\\Roaming\\NuGet\\NuGet.Config",

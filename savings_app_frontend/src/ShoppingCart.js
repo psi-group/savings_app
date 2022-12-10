@@ -84,11 +84,12 @@ export const ShoppingCart = (props) => {
     console.log(props.cartItems);
 
     const productsToBuy = [];
-    props.cartItems.map((cartItem) => {
+      props.cartItems.map((cartItem) => {
+          console.log(cartItem);
       productsToBuy.push({
         id: cartItem.product.id,
-        pickupId: cartItem.pickupTime.id,
-        amount: cartItem.quantity,
+          pickupId: cartItem.pickupTime.id,
+          amount: cartItem.unitQuantity,
       });
     });
 
@@ -109,7 +110,9 @@ export const ShoppingCart = (props) => {
         productsToBuy: productsToBuy,
         buyerId: getId(localStorage.getItem("token")),
       }),
-    });
+    }).then(async res => {
+        console.log(await res.text());
+    })
 
     return;
 

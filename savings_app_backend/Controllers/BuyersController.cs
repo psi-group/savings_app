@@ -41,10 +41,21 @@ namespace savings_app_backend.Controllers
                 return NotFound();
             }
         }
-        
-        //
-        // how would private endpoint look for authorized buyer?
-        //
+
+        [HttpGet("private/{id}")]
+        [Authorize(Roles = "buyer")]
+        public async Task<ActionResult<BuyerPrivateDTOResponse>> GetBuyerPrivate(Guid id)
+        {
+            try
+            {
+                return Ok(await _buyerService.GetBuyerPrivate(id));
+            }
+            catch (RecourseNotFoundException e)
+            {
+                _logger.LogError(e.ToString());
+                return NotFound();
+            }
+        }
 
 
         [HttpPut("{id}")]

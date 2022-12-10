@@ -8,6 +8,10 @@ namespace Application.Services.Interfaces
     {
         Task<IEnumerable<OrderDTOResponse>> GetOrders();
 
+        Task<IEnumerable<OrderDTOResponse>> GetBuyersOrders(Guid buyerId);
+
+        Task<IEnumerable<OrderItemDTOResponse>> GetSellersOrderItems(Guid sellerId);
+
         Task<OrderDTOResponse> GetOrder(Guid id);
 
         Task<OrderDTOResponse> PutOrder(Guid id, OrderDTORequest Order);

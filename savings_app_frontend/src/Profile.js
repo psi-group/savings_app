@@ -31,7 +31,14 @@ const Profile = () => {
         const profileRole = getRole(localStorage.getItem("token")) == 'seller' ?
             "restaurants" : "buyers";
         console.log("prifle");
-        fetch('https://localhost:7183/api/' + profileRole + "/" + getId(localStorage.getItem("token")))
+        fetch('https://localhost:7183/api/' + profileRole + "/private/" + getId(localStorage.getItem("token")),
+            {
+                headers: {
+                    "Access-Control-Allow-Origin": "*",
+                    "Authorization": "Bearer " + localStorage.getItem("token")
+                }
+            }
+        )
             .then(async (response) => {
                 if (!response.ok) {
                     throw new Error(

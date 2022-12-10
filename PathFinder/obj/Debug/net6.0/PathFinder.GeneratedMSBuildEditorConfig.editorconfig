@@ -5,23 +5,12 @@ build_property.UsingMicrosoftNETSdkWeb = true
 build_property.ProjectTypeGuids = 
 build_property.InvariantGlobalization = 
 build_property.PlatformNeutralAssembly = 
-build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
-<<<<<<<< HEAD:PathFinder/obj/Debug/net6.0/PathFinder.GeneratedMSBuildEditorConfig.editorconfig
 build_property.RootNamespace = PathFinder
 build_property.RootNamespace = PathFinder
-build_property.ProjectDir = C:\Users\justa\Desktop\Personal Projects\PathFinder\PathFinder\
+build_property.ProjectDir = C:\Users\justa\Desktop\APPAS\good\savings_app\PathFinder\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\justa\Desktop\Personal Projects\PathFinder\PathFinder
-========
-build_property.RootNamespace = savings_app_backend
-build_property.RootNamespace = savings_app_backend
-build_property.ProjectDir = D:\Ps_project_1\savings_app\savings_app_backend\
-build_property.RazorLangVersion = 6.0
-build_property.SupportLocalizedComponentNames = 
-build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\Ps_project_1\savings_app\savings_app_backend
->>>>>>>> main:savings_app_backend/obj/Debug/net6.0/savings_app_backend.GeneratedMSBuildEditorConfig.editorconfig
+build_property.MSBuildProjectDirectory = C:\Users\justa\Desktop\APPAS\good\savings_app\PathFinder
 build_property._RazorSourceGeneratorDebug = 

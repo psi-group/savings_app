@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\justa\\Desktop\\Personal Projects\\PathFinder\\PathFinder\\PathFinder.csproj": {}
+    "C:\\Users\\justa\\Desktop\\APPAS\\good\\savings_app\\PathFinder\\PathFinder.csproj": {}
   },
   "projects": {
-    "C:\\Users\\justa\\Desktop\\Personal Projects\\PathFinder\\PathFinder\\PathFinder.csproj": {
+    "C:\\Users\\justa\\Desktop\\APPAS\\good\\savings_app\\PathFinder\\PathFinder.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\justa\\Desktop\\Personal Projects\\PathFinder\\PathFinder\\PathFinder.csproj",
+        "projectUniqueName": "C:\\Users\\justa\\Desktop\\APPAS\\good\\savings_app\\PathFinder\\PathFinder.csproj",
         "projectName": "PathFinder",
-        "projectPath": "C:\\Users\\justa\\Desktop\\Personal Projects\\PathFinder\\PathFinder\\PathFinder.csproj",
+        "projectPath": "C:\\Users\\justa\\Desktop\\APPAS\\good\\savings_app\\PathFinder\\PathFinder.csproj",
         "packagesPath": "C:\\Users\\justa\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\justa\\Desktop\\Personal Projects\\PathFinder\\PathFinder\\obj\\",
+        "outputPath": "C:\\Users\\justa\\Desktop\\APPAS\\good\\savings_app\\PathFinder\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\justa\\AppData\\Roaming\\NuGet\\NuGet.Config",

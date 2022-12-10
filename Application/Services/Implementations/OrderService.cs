@@ -1,18 +1,24 @@
 ﻿using Application.Services.Interfaces;
+using Application.Specifications;
 using Domain.DTOs.Request;
 using Domain.DTOs.Response;
+using Domain.Entities;
 using Domain.Entities.OrderAggregate;
 using Domain.Exceptions;
 using Domain.Interfaces.Repositories;
+using Microsoft.AspNetCore.Http;
+using System.Security.Claims;
 
 namespace Application.Services.Implementations
 {
     public class OrderService : IOrderService
     {
         private readonly IOrderRepository _orderRepository;
-        public OrderService(IOrderRepository orderRepository)
+        private readonly IHttpContextAccessor _httpContext;
+        public OrderService(IOrderRepository orderRepository, IHttpContextAccessor httpContext)
         {
             _orderRepository = orderRepository;
+            _httpContext = httpContext;
         }
 
         public async Task<OrderDTOResponse> DeleteOrder(Guid id)
@@ -23,33 +29,86 @@ namespace Application.Services.Implementations
                 throw new RecourseNotFoundException();
             }
 
-            //var product = await _context.Products.FindAsync(order.ProductId);
-            //var restaurant = await _context.Restaurants.FindAsync(product.RestaurantID);
-
-            /*if (restaurant.Id !=
-                Guid.Parse(((ClaimsIdentity)_httpContext.User.Identity).FindFirst("Id").Value))
-                throw new InvalidIdentityException();*/
+            if (order.BuyerId !=
+                Guid.Parse(((ClaimsIdentity)_httpContext.HttpContext.User.Identity).FindFirst("Id").Value))
+                throw new InvalidIdentityException();
 
             _orderRepository.RemoveOrder(order);
             await _orderRepository.SaveChangesAsync();
 
+            var orderItemListDTO = new List<OrderItemDTOResponse>();
+
+            foreach (var orderItem in order.OrderItems)
+            {
+                var orderItemDTO = new OrderItemDTOResponse(
+                    orderItem.Id,
+                    orderItem.OrderId,
+                    orderItem.ProductId,
+                    orderItem.PickupId,
+                    orderItem.UnitsOrdered,
+                    orderItem.Price,
+                    orderItem.OrderItemStatus
+                    );
+                orderItemListDTO.Add(orderItemDTO);
+            }
+
             var orderDTO = new OrderDTOResponse(
                 order.Id,
                 order.BuyerId,
-                new List<OrderItem>(order.OrderItems)
+                orderItemListDTO
                 );
 
             return orderDTO;
         }
 
-        public Task<IEnumerable<Order>> GetBuyerOrders(Guid buyerId)
+        public async Task<IEnumerable<OrderDTOResponse>> GetBuyersOrders(Guid buyerId)
         {
-            throw new NotImplementedException();
+            if (buyerId !=
+                Guid.Parse(((ClaimsIdentity)_httpContext.HttpContext.User.Identity).FindFirst("Id").Value))
+                throw new InvalidIdentityException();
+
+            var spec = new BuyersOrdersSpecification(buyerId);
+
+            var orders = await _orderRepository.GetOrdersAsync(spec);
+
+            var ordersResponse = new List<OrderDTOResponse>();
+            foreach (var order in orders)
+            {
+                var orderItemListDTO = new List<OrderItemDTOResponse>();
+
+                foreach (var orderItem in order.OrderItems)
+                {
+                    var orderItemDTO = new OrderItemDTOResponse(
+                        orderItem.Id,
+                        orderItem.OrderId,
+                        orderItem.ProductId,
+                        orderItem.PickupId,
+                        orderItem.UnitsOrdered,
+                        orderItem.Price,
+                        orderItem.OrderItemStatus
+                        );
+                    orderItemListDTO.Add(orderItemDTO);
+                }
+
+                var orderResponse = new OrderDTOResponse(
+                    order.Id,
+                    order.BuyerId,
+                    orderItemListDTO
+                );
+                ordersResponse.Add(orderResponse);
+            }
+            return ordersResponse;
         }
 
         public async Task<OrderDTOResponse> GetOrder(Guid id)
         {
+
             var order = await _orderRepository.GetOrderAsync(id);
+
+            if (order.BuyerId !=
+                Guid.Parse(((ClaimsIdentity)_httpContext.HttpContext.User.Identity).FindFirst("Id").Value))
+                throw new InvalidIdentityException();
+
 
             if (order == null)
             {
@@ -57,10 +116,26 @@ namespace Application.Services.Implementations
             }
             else
             {
+                var orderItemListDTO = new List<OrderItemDTOResponse>();
+
+                foreach (var orderItem in order.OrderItems)
+                {
+                    var orderItemDTO = new OrderItemDTOResponse(
+                        orderItem.Id,
+                        orderItem.OrderId,
+                        orderItem.ProductId,
+                        orderItem.PickupId,
+                        orderItem.UnitsOrdered,
+                        orderItem.Price,
+                        orderItem.OrderItemStatus
+                        );
+                    orderItemListDTO.Add(orderItemDTO);
+                }
+
                 var orderDTO = new OrderDTOResponse(
                 order.Id,
                 order.BuyerId,
-                new List<OrderItem>(order.OrderItems)
+                orderItemListDTO
                 );
 
                 return orderDTO;
@@ -74,15 +149,62 @@ namespace Application.Services.Implementations
             var ordersResponse = new List<OrderDTOResponse>();
             foreach(var order in orders)
             {
+                var orderItemListDTO = new List<OrderItemDTOResponse>();
+
+                foreach (var orderItem in order.OrderItems)
+                {
+                    var orderItemDTO = new OrderItemDTOResponse(
+                        orderItem.Id,
+                        orderItem.OrderId,
+                        orderItem.ProductId,
+                        orderItem.PickupId,
+                        orderItem.UnitsOrdered,
+                        orderItem.Price,
+                        orderItem.OrderItemStatus
+                        );
+                    orderItemListDTO.Add(orderItemDTO);
+                }
+
                 var orderDTO = new OrderDTOResponse(
                 order.Id,
                 order.BuyerId,
-                new List<OrderItem>(order.OrderItems)
+                orderItemListDTO
                 );
                 ordersResponse.Add(orderDTO);
             }
 
             return ordersResponse;
+        }
+
+        public async Task<IEnumerable<OrderItemDTOResponse>> GetSellersOrderItems(Guid sellerId)
+        {
+            if (sellerId !=
+                Guid.Parse(((ClaimsIdentity)_httpContext.HttpContext.User.Identity).FindFirst("Id").Value))
+                throw new InvalidIdentityException();
+
+            var spec = new SellersOrderItemsSpecification(sellerId);
+
+            var orders = await _orderRepository.GetOrdersAsync(spec);
+
+            var orderItemsResponse = new List<OrderItemDTOResponse>();
+            foreach (var order in orders)
+            {
+                foreach(var orderItem in order.OrderItems)
+                {
+                    var orderItemResponse = new OrderItemDTOResponse(
+                        orderItem.Id,
+                        orderItem.OrderId,
+                        orderItem.ProductId,
+                        orderItem.PickupId,
+                        orderItem.UnitsOrdered,
+                        orderItem.Price,
+                        orderItem.OrderItemStatus
+                );
+                    orderItemsResponse.Add(orderItemResponse);
+                }
+                
+            }
+            return orderItemsResponse;
         }
 
         public async Task<OrderDTOResponse> PostOrder(OrderDTORequest orderToPost)
@@ -91,16 +213,32 @@ namespace Application.Services.Implementations
             var order = new Order(
                 id,
                 (Guid)orderToPost.BuyerId!,
-                (List<OrderItem>)orderToPost.OrderItems!
+                orderToPost.OrderItems!
                 );
 
             await _orderRepository.AddOrderAsync(order);
             await _orderRepository.SaveChangesAsync();
 
+            var orderItemListDTO = new List<OrderItemDTOResponse>();
+
+            foreach (var orderItem in order.OrderItems)
+            {
+                var orderItemDTO = new OrderItemDTOResponse(
+                    orderItem.Id,
+                    orderItem.OrderId,
+                    orderItem.ProductId,
+                    orderItem.PickupId,
+                    orderItem.UnitsOrdered,
+                    orderItem.Price,
+                    orderItem.OrderItemStatus
+                    );
+                orderItemListDTO.Add(orderItemDTO);
+            }
+
             var orderDTO = new OrderDTOResponse(
                 order.Id,
                 order.BuyerId,
-                new List<OrderItem>(order.OrderItems)
+                orderItemListDTO
                 );
 
             return orderDTO;
@@ -111,7 +249,7 @@ namespace Application.Services.Implementations
             var order = new Order(
                 id,
                 (Guid)orderToUpdate.BuyerId!,
-                (List<OrderItem>)orderToUpdate.OrderItems!
+                orderToUpdate.OrderItems!
                 );
 
             if (!await _orderRepository.OrderExistsAsync(id))
@@ -119,13 +257,35 @@ namespace Application.Services.Implementations
                 throw new RecourseNotFoundException();
             }
 
+            var orderCheck = await _orderRepository.GetOrderAsync(id);
+
+            if (orderCheck.BuyerId !=
+                Guid.Parse(((ClaimsIdentity)_httpContext.HttpContext.User.Identity).FindFirst("Id").Value))
+                throw new InvalidIdentityException();
+
             _orderRepository.UpdateOrder(order);
             await _orderRepository.SaveChangesAsync();
+
+            var orderItemListDTO = new List<OrderItemDTOResponse>();
+
+            foreach (var orderItem in order.OrderItems)
+            {
+                var orderItemDTO = new OrderItemDTOResponse(
+                    orderItem.Id,
+                    orderItem.OrderId,
+                    orderItem.ProductId,
+                    orderItem.PickupId,
+                    orderItem.UnitsOrdered,
+                    orderItem.Price,
+                    orderItem.OrderItemStatus
+                    );
+                orderItemListDTO.Add(orderItemDTO);
+            }
 
             var orderDTO = new OrderDTOResponse(
                 order.Id,
                 order.BuyerId,
-                new List<OrderItem>(order.OrderItems)
+                orderItemListDTO
                 );
 
             return orderDTO;

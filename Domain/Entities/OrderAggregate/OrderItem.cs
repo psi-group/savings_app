@@ -21,7 +21,7 @@ namespace Domain.Entities.OrderAggregate
 
         [JsonConverter(typeof(JsonStringEnumConverter))]
         [EnumDataType(typeof(OrderItemStatus))]
-        public OrderItemStatus OrderItemStatus { get; set; }
+        public OrderItemStatus OrderItemStatus { get; private set; }
 
         public OrderItem(Guid id, Guid orderId, Guid productId, Guid pickupId, int unitsOrdered,
             float price, OrderItemStatus orderItemStatus)

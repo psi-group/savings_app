@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using System.Security.Claims;
+using System.Transactions;
 
 namespace Application.Services.Implementations
 {
@@ -18,18 +19,13 @@ namespace Application.Services.Implementations
 
         private readonly IFileSaver _fileSaver;
         private readonly IHttpContextAccessor _httpContext;
-        private readonly IWebHostEnvironment _webHostEnvironment;
-        private readonly IConfiguration _config;
         private readonly IRestaurantRepository _restaurantRepository;
 
         public RestaurantService(IHttpContextAccessor httpContext,
-            IWebHostEnvironment webHostEnvironment, IConfiguration config,
             IRestaurantRepository restaurantRepository, IFileSaver fileSaver)
         {
             _restaurantRepository = restaurantRepository;
             _httpContext = httpContext;
-            _webHostEnvironment = webHostEnvironment;
-            _config = config;
             _fileSaver = fileSaver;
         }
 
@@ -133,6 +129,45 @@ namespace Application.Services.Implementations
             }
         }
 
+        public async Task<RestaurantPrivateDTOResponse> GetRestaurantPrivate(Guid id)
+        {
+            if (id !=
+                Guid.Parse(((ClaimsIdentity)_httpContext.HttpContext.User.Identity).FindFirst("Id").Value))
+                throw new InvalidIdentityException();
+
+            var restaurant = await _restaurantRepository.GetRestaurantAsync(id);
+
+            if (restaurant == null)
+            {
+                throw new RecourseNotFoundException();
+            }
+            else
+            {
+                var restaurantDTO = new RestaurantPrivateDTOResponse(
+                restaurant.Id,
+                restaurant.Name,
+                new AddressDTOResponse(
+                    restaurant.Address.Country,
+                    restaurant.Address.City,
+                    restaurant.Address.StreetName,
+                    restaurant.Address.HouseNumber,
+                    restaurant.Address.AppartmentNumber,
+                    restaurant.Address.PostalCode
+                    ),
+                new UserAuthDTOResponse(
+                    restaurant.UserAuth.Email
+                    ),
+                restaurant.ImageName,
+                restaurant.Open,
+                restaurant.Description,
+                restaurant.ShortDescription,
+                restaurant.SiteRef
+                );
+
+                return restaurantDTO;
+            }
+        }
+
         public async Task<IEnumerable<RestaurantDTOResponse>> GetRestaurants()
         {
             var restaurants = await _restaurantRepository.GetRestaurantsAsync();
@@ -166,7 +201,11 @@ namespace Application.Services.Implementations
 
         public async Task<RestaurantDTOResponse> PostRestaurant(RestaurantDTORequest restaurantToPost)
         {
-
+            if(await _restaurantRepository.GetRestaurantAsync(
+                restaurant => restaurant.UserAuth.Email == restaurantToPost.UserAuth!.Email) != null)
+            {
+                throw new RecourseAlreadyExistsException();
+            }
             var id = Guid.NewGuid();
             var restaurant = new Restaurant(
                 id,
@@ -187,17 +226,24 @@ namespace Application.Services.Implementations
                 restaurantToPost.ShortDescription,
                 restaurantToPost.SiteRef);
 
+            using (TransactionScope scope = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled))
+            {
 
-            Task saveImageTask = _fileSaver.SaveImage(restaurantToPost.Image, restaurant.ImageName,
-                    _webHostEnvironment.ContentRootPath + _config["ImageStorage:ImageFoldersPaths:UserImages"],
-                    _config["ImageStorage:ImageExtention"]);
+                
+                await _restaurantRepository.AddRestaurantAsync(restaurant);
+                await _restaurantRepository.SaveChangesAsync();
+
+                if (restaurantToPost.Image != null)
+                {
+                    Task saveImageTask = _fileSaver.SaveImage
+                    (restaurantToPost.Image, restaurant.ImageName, false);
+                    await saveImageTask;
+
+                    
+                }
+                scope.Complete();
+            }
             
-            
-
-            await saveImageTask;
-            await _restaurantRepository.AddRestaurantAsync(restaurant);
-            await _restaurantRepository.SaveChangesAsync();
-
             var restaurantDTO = new RestaurantDTOResponse(
                 restaurant.Id,
                 restaurant.Name,
@@ -224,7 +270,6 @@ namespace Application.Services.Implementations
             if (id !=
                 Guid.Parse(((ClaimsIdentity)_httpContext.HttpContext.User.Identity).FindFirst("Id").Value))
                 throw new InvalidIdentityException();
-
 
             if (!await _restaurantRepository.RestaurantExistsAsync(id))
             {
