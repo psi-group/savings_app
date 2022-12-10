@@ -68,41 +68,6 @@ namespace savings_app_backend.Controllers
             }
         }
 
-        // PUT: api/ProductContr/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-
-        /*[HttpPost("buy")]
-        //[Authorize(Roles = "buyer")]
-        public async Task<ActionResult<Product>> BuyProduct([FromBody] Guid id,
-            [FromQuery] int amount)
-        {
-            try
-            {
-                return Ok(await _productService.Buy(id, amount));
-            }
-            catch(NotEnoughProductAmountException)
-            {
-                return BadRequest();
-            }
-            catch (InvalidIdentityException e)
-            {
-                _logger.LogError(e.ToString());
-                
-                return Unauthorized();
-            }
-            catch (InvalidRequestArgumentsException e)
-            {
-                _logger.LogError(e.ToString());
-                
-                return BadRequest();
-            }
-            catch (RecourseNotFoundException e)
-            {
-                _logger.LogError(e.ToString());
-                return NotFound();
-            }
-        }*/
-
         [HttpPut("{id}")]
         [Authorize(Roles = "seller")]
         public async Task<ActionResult<Product>> PutProduct(Guid id, [FromForm] ProductDTORequest product)

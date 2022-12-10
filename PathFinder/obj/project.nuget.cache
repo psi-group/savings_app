@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "xWBPx4+lb4uyvwiSKGGa8yhH16J+mZS5Jwocjmkh+kA7B216hU334/apT2sc1rsN4sAOqgrVZSfsYsa0ueWKxg==",
+  "dgSpecHash": "CnY6qQyCl01WxzEFd0f0y1YKVIeUcE+t8W4MeQdAXhr+ImGtUQaxo64k4zvUi+Abb0+F1QRfUwmbenm2igiApw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\justa\\Desktop\\Personal Projects\\PathFinder\\PathFinder\\PathFinder.csproj",
+  "projectFilePath": "C:\\Users\\justa\\Desktop\\APPAS\\good\\savings_app\\PathFinder\\PathFinder.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\justa\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "C:\\Users\\justa\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",

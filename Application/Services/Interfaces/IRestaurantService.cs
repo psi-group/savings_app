@@ -9,6 +9,7 @@ namespace Application.Services.Interfaces
         Task<IEnumerable<RestaurantDTOResponse>> GetFilteredRestaurants(string? search);
 
         Task<RestaurantDTOResponse> GetRestaurant(Guid id);
+        Task<RestaurantPrivateDTOResponse> GetRestaurantPrivate(Guid id);
 
         Task<RestaurantDTOResponse> PutRestaurant(Guid id, RestaurantDTORequest restaurant);
 

@@ -1,34 +1,50 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import SearchAndDisplay from "../Search/SearchAndDisplay";
 
-export default class Orders extends Component {
+const Orders = () => {
 
-    constructor(props) {
-        super(props);
-        this.state = { orders: [], loading: true };
-        this.getOrders = this.getOrders.bind(this);
+    const [loading, setLoading] = useState(true);
+
+    const getRole = (token) => {
+
+    if (token != null)
+        return JSON.parse(window.atob(token.split('.')[1]))["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"]
+    else
+        return null;
+    }
+
+    const getId = (token) => {
+    //console.log(JSON.parse(window.atob(token.split(".")[1])));
+    return JSON.parse(window.atob(token.split(".")[1]))[
+        "Id"];
     }
 
 
-    async getOrders() {
+    const getOrders = async () => {
 
+        const urlBasedOnRole = (getRole(localStorage.getItem("token")) == "seller") ?
+            ("orderItems/seller/" + getId(localStorage.getItem("token"))) :
+            "buyer/" + getId(localStorage.getItem("token"));
 
-        let value = document.getElementById('fname').value;
-
-        const response = await fetch('https://localhost:7183/api/orders/byBuyerId/' + value);
-        const data = await response.json();
-
-        this.setState({orders: data, loading : false});
-        console.log(data);
+        fetch("https://localhost:7183/api/orders/" + urlBasedOnRole, {
+            method: "GET",
+            headers: {
+                "Access-Control-Allow-Origin": "*",
+                "Content-Type": "application/json",
+                "Authorization": "Bearer " + localStorage.getItem("token")
+            }
+        }).then(async res => {
+            console.log(await res.text());
+        });
 
     }
 
     
 
-    render() {
 
 
-        let contents = this.state.loading ? 
+
+        let contents = loading ? 
             <></> :
             <table>
                 <tr>
@@ -51,21 +67,9 @@ export default class Orders extends Component {
 
         return (
             <div className="main">
-                <h1>React Search</h1>
-
                 <div>
 
-                    
-
-                </div>
-
-                
-
-                <div>
-
-                    <label >Enter your user ID:</label>
-                    <input type="text" id="fname" />
-                    <button onClick={this.getOrders}>submit</button>
+                    <button onClick={getOrders}>GET YOUR ORDERS BUTTON</button>
 
                 </div>
 
@@ -75,4 +79,6 @@ export default class Orders extends Component {
             </div>
         );
     }
-}
+
+
+export default Orders;

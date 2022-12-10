@@ -5,9 +5,7 @@ using Domain.Entities;
 using Domain.Exceptions;
 using Domain.Interfaces;
 using Domain.Interfaces.Repositories;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Configuration;
 using System.Security.Claims;
 using System.Transactions;
 
@@ -17,17 +15,13 @@ namespace Application.Services.Implementations
     {
         private readonly IBuyerRepository _buyerRepository;
         private readonly IHttpContextAccessor _httpContext;
-        private readonly IWebHostEnvironment _webHostEnvironment;
-        private readonly IConfiguration _config;
         private readonly IFileSaver _fileSaver;
 
         public BuyerService(IHttpContextAccessor httpContext,
-            IWebHostEnvironment webHostEnvironment, IConfiguration config, IBuyerRepository buyerRepository, IFileSaver fileSaver)
+            IBuyerRepository buyerRepository, IFileSaver fileSaver)
         {
             _buyerRepository = buyerRepository;
             _httpContext = httpContext;
-            _webHostEnvironment = webHostEnvironment;
-            _config = config;
             _fileSaver = fileSaver;
         }
 
@@ -54,6 +48,43 @@ namespace Application.Services.Implementations
                 );
 
             return buyerResponse;
+        }
+
+
+        public async Task<BuyerPrivateDTOResponse> GetBuyerPrivate(Guid id)
+        {
+
+            if (id !=
+                Guid.Parse(((ClaimsIdentity)_httpContext.HttpContext.User.Identity).FindFirst("Id").Value))
+                throw new InvalidIdentityException();
+
+            var buyer = await _buyerRepository.GetBuyerAsync(id);
+
+            if (buyer == null)
+            {
+                throw new RecourseNotFoundException();
+            }
+            else
+            {
+                var buyerResponse = new BuyerPrivateDTOResponse(
+                buyer.Id,
+                buyer.Name,
+                buyer.ImageName,
+                buyer.Address == null ? null :
+                new AddressDTOResponse(
+                    buyer.Address.Country,
+                    buyer.Address.City,
+                    buyer.Address.StreetName,
+                    buyer.Address.HouseNumber,
+                    buyer.Address.AppartmentNumber,
+                    buyer.Address.PostalCode
+                    ),
+                new UserAuthDTOResponse(
+                    buyer.UserAuth.Email
+                    )
+                );
+                return buyerResponse;
+            }
         }
 
         public async Task<BuyerDTOResponse> GetBuyer(Guid id)
@@ -93,6 +124,12 @@ namespace Application.Services.Implementations
 
         public async Task<BuyerDTOResponse> PostBuyer(BuyerDTORequest buyerToPost)
         {
+            if (await _buyerRepository.GetBuyerAsync(
+                buyer => buyer.UserAuth.Email == buyerToPost.UserAuth!.Email) != null)
+            {
+                throw new RecourseAlreadyExistsException();
+            }
+
             var id = Guid.NewGuid();
 
             var buyer = new Buyer(
@@ -114,19 +151,15 @@ namespace Application.Services.Implementations
 
             using (TransactionScope scope = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled))
             {
-                if(buyerToPost.Image != null)
-                {
-                    Task saveImageTask = _fileSaver.SaveImage(buyerToPost.Image,
-                        buyer.ImageName,
-                    _webHostEnvironment.ContentRootPath + _config["ImageStorage:ImageFoldersPaths:UserImages"],
-                    _config["ImageStorage:ImageExtention"]);
-
-
-                    await saveImageTask;
-                }
-                
                 await _buyerRepository.AddBuyerAsync(buyer);
                 await _buyerRepository.SaveChangesAsync();
+
+                if (buyerToPost.Image != null)
+                {
+                    Task saveImageTask = _fileSaver.SaveImage(buyerToPost.Image,
+                        buyer.ImageName, false);
+                    await saveImageTask;
+                }
 
                 scope.Complete();
             }

@@ -73,9 +73,7 @@ namespace Application.Services.Implementations
 
         private User? AuthenticateUser(UserLoginDTO userLogin)
         {
-            //var buyer = _buyerRepository.GetBuyer(user => !String.IsNullOrEmpty(user.UserAuth.Email));
-            //var buyer = _buyerRepository.GetBuyer(user => user.UserAuth.Email.ToLower() == "jon@gmail.com");
-            var buyer = _buyerRepository.GetBuyer(user => user.UserAuth.Email.ToLower() == userLogin.Email.ToLower() &&
+            var buyer = _buyerRepository.GetBuyer(user => user.UserAuth.Email.ToLower() == userLogin.Email!.ToLower() &&
                 user.UserAuth.Password == userLogin.Password);
 
             if (buyer != null)

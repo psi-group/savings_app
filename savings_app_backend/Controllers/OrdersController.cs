@@ -3,6 +3,7 @@ using Domain.DTOs.Request;
 using Domain.DTOs.Response;
 using Domain.Entities.OrderAggregate;
 using Domain.Exceptions;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace savings_app_backend.Controllers
@@ -21,13 +22,29 @@ namespace savings_app_backend.Controllers
             _logger = logger;
         }
 
+
         [HttpGet]
         public async Task<ActionResult<IEnumerable<OrderDTOResponse>>> GetOrders()
         {
             return Ok(await _orderService.GetOrders());
         }
 
+        [HttpGet("buyer/{buyerId}")]
+        [Authorize (Roles = "buyer")]
+        public async Task<ActionResult<IEnumerable<OrderDTOResponse>>> GetBuyersOrders(Guid buyerId)
+        {
+            return Ok(await _orderService.GetBuyersOrders(buyerId));
+        }
+
+        [HttpGet("orderItems/seller/{sellerId}")]
+        [Authorize(Roles = "seller")]
+        public async Task<ActionResult<IEnumerable<OrderItemDTOResponse>>>GetSellersOrderItems(Guid sellerId)
+        {
+            return Ok(await _orderService.GetSellersOrderItems(sellerId));
+        }
+
         [HttpGet("{id}")]
+        [Authorize(Roles = "buyer")]
         public async Task<ActionResult<OrderDTOResponse>> GetOrder(Guid id)
         {
             try
@@ -42,6 +59,7 @@ namespace savings_app_backend.Controllers
         }
 
         [HttpPut("{id}")]
+        [Authorize(Roles = "buyer")]
         public async Task<ActionResult<OrderDTOResponse>> PutOrder(Guid id, OrderDTORequest order)
         {
             try
@@ -61,12 +79,14 @@ namespace savings_app_backend.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "buyer")]
         public async Task<ActionResult<OrderDTOResponse>> PostOrder(OrderDTORequest order)
         {
             return Ok(await _orderService.PostOrder(order));
         }
 
         [HttpDelete("{id}")]
+        [Authorize(Roles = "buyer")]
         public async Task<ActionResult<OrderDTOResponse>> DeleteOrder(Guid id)
         {
             try

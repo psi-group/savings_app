@@ -1,6 +1,8 @@
 ﻿using Application.Services.Interfaces;
 using Domain.DTOs.Request;
+using Domain.Entities.OrderAggregate;
 using Domain.Exceptions;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace savings_app_backend.Controllers
@@ -17,11 +19,11 @@ namespace savings_app_backend.Controllers
         }
 
         [HttpPost("checkout")]
-        public async Task<ActionResult<string>> Checkout(CheckoutDTORequest checkout)
+        [Authorize(Roles = "buyer")]
+        public async Task<ActionResult<Order>> Checkout(CheckoutDTORequest checkout)
         {
             try
             {
-                
                 return Ok(await _shopService.Checkout(checkout));
             }
             catch(InvalidLoginCredentialsException)

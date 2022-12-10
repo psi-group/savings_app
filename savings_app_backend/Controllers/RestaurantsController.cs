@@ -1,5 +1,6 @@
 ﻿using Application.Services.Interfaces;
 using Domain.DTOs.Request;
+using Domain.DTOs.Response;
 using Domain.Entities;
 using Domain.Exceptions;
 using Microsoft.AspNetCore.Authorization;
@@ -24,19 +25,20 @@ namespace savings_app_backend.Controllers
 
         // GET: api/Restaurants
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Restaurant>>> GetRestaurants()
+        public async Task<ActionResult<IEnumerable<RestaurantDTOResponse>>> GetRestaurants()
         {
             return Ok(await _restaurantService.GetRestaurants());
         }
 
         [HttpGet("filter")]
-        public async Task<ActionResult<IEnumerable<Restaurant>>> GetFilteredRestaurants([FromQuery] string? search)
+        public async Task<ActionResult<IEnumerable<RestaurantDTOResponse>>> GetFilteredRestaurants([FromQuery] string? search)
         {
             return Ok(await _restaurantService.GetFilteredRestaurants(search));
         }
 
+        
         [HttpGet("{id}")]
-        public async Task<ActionResult<Restaurant>> GetRestaurant(Guid id)
+        public async Task<ActionResult<RestaurantDTOResponse>> GetRestaurant(Guid id)
         {
             try
             {
@@ -49,11 +51,24 @@ namespace savings_app_backend.Controllers
             }
         }
 
-        // PUT: api/Restaurants/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        [Authorize(Roles = "seller")]
+        [HttpGet("private/{id}")]
+        public async Task<ActionResult<RestaurantPrivateDTOResponse>> GetRestaurantPrivate(Guid id)
+        {
+            try
+            {
+                return Ok(await _restaurantService.GetRestaurantPrivate(id));
+            }
+            catch (RecourseNotFoundException e)
+            {
+                _logger.LogError(e.ToString());
+                return NotFound();
+            }
+        }
+
         [HttpPut("{id}")]
         [Authorize(Roles = "seller")]
-        public async Task<IActionResult> PutRestaurant(Guid id, RestaurantDTORequest restaurant)
+        public async Task<ActionResult<RestaurantDTOResponse>> PutRestaurant(Guid id, RestaurantDTORequest restaurant)
         {
             try
             {
@@ -79,16 +94,24 @@ namespace savings_app_backend.Controllers
         // POST: api/Restaurants
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Restaurant>> PostRestaurant(
+        public async Task<ActionResult<RestaurantDTOResponse>> PostRestaurant(
             [FromForm] RestaurantDTORequest restaurant)
         {
-            return Ok(await _restaurantService.PostRestaurant(restaurant));
+            try
+            {
+                return Ok(await _restaurantService.PostRestaurant(restaurant));
+            }
+            catch(RecourseAlreadyExistsException e)
+            {
+                return BadRequest("User with this email already exists");
+            }
+            
         }
 
         // DELETE: api/Restaurants/5
         [HttpDelete("{id}")]
         [Authorize(Roles = "seller")]
-        public async Task<ActionResult<Restaurant>> DeleteRestaurant(Guid id)
+        public async Task<ActionResult<RestaurantDTOResponse>> DeleteRestaurant(Guid id)
         {
             try
             {

@@ -4,6 +4,6 @@ namespace Domain.Interfaces
 {
     public interface IFileSaver
     {
-        public Task SaveImage(IFormFile imageFile, string imageName, string path, string extention);
+        public Task SaveImage(IFormFile imageFile, string fileName, bool isProduct);
     }
 }

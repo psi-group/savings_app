@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using System.Security.Claims;
-
+using System.Transactions;
 
 namespace Application.Services.Implementations
 {
@@ -160,8 +160,6 @@ namespace Application.Services.Implementations
         public async Task<ProductDTOResponse> PostProduct(ProductDTORequest productToPost)
         {
 
-            //throw new NotImplementedException();
-
             if (productToPost.RestaurantID !=
                 Guid.Parse(((ClaimsIdentity)_httpContext.HttpContext.User.Identity!).FindFirst("Id")!.Value))
                 throw new InvalidIdentityException();
@@ -182,13 +180,25 @@ namespace Application.Services.Implementations
                 (DateTime)productToPost.ShelfLife!,
                 productToPost.Description);
 
-            Task saveImageTask = _fileSaver.SaveImage(productToPost.Image, product.ImageName,
-                    _webHostEnvironment.ContentRootPath + _config["ImageStorage:ImageFoldersPaths:ProductImages"],
-                    _config["ImageStorage:ImageExtention"]);
+            using (TransactionScope scope = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled))
+            {
 
-            await saveImageTask;
-            await _productRepository.AddProductAsync(product);
-            await _productRepository.SaveChangesAsync();
+                await _productRepository.AddProductAsync(product);
+                await _productRepository.SaveChangesAsync();
+
+
+                if (productToPost.Image != null)
+                {
+                    Task saveImageTask = _fileSaver.SaveImage
+                    (productToPost.Image, product.ImageName, true);
+                    await saveImageTask;
+                }
+                
+
+                scope.Complete();
+            }
+
+            
 
             var productDTO = new ProductDTOResponse(
                 product.Id,
@@ -209,9 +219,6 @@ namespace Application.Services.Implementations
         }
         public async Task<ProductDTOResponse> PutProduct(Guid id, ProductDTORequest productToChange)
         {
-
-            var c = productToChange.Name;
-
             if (productToChange.RestaurantID !=
                 Guid.Parse(((ClaimsIdentity)_httpContext.HttpContext.User.Identity).FindFirst("Id").Value))
                 throw new InvalidIdentityException();

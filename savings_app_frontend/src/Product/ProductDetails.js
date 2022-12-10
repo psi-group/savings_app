@@ -104,7 +104,7 @@ function ProductDetails(props) {
     return (
       <div className="flex items-center w-full justify-center p-16 gap-10">
             {imgURL != "" ? (
-                <img src={"https://localhost:7183/productImg/" + product.id + ".jpg" } className="w-3/12 h-3/12" />
+                <img src={"https://savingsapp.blob.core.windows.net/productimages/" + product.id + ".jpg" } className="w-3/12 h-3/12" />
         ) : (
           <img src={imgSkeleton} className="w-3/12 h-3/12" />
         )}

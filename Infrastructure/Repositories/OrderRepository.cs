@@ -85,8 +85,6 @@ namespace Infrastructure.Repositories
                             .ToListAsync();
         }
 
-
-
         public bool OrderExists(Guid id)
         {
             return _appContext.Orders.Any(e => e.Id == id);
