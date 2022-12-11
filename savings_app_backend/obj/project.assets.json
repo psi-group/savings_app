@@ -10966,11 +10966,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\justa\\Desktop\\APPAS\\good - Copy\\savings_app\\savings_app_backend\\WebAPI.csproj",
+      "projectUniqueName": "C:\\Users\\justa\\Desktop\\APPAS\\klonas - Copy\\savings_app\\savings_app_backend\\WebAPI.csproj",
       "projectName": "WebAPI",
-      "projectPath": "C:\\Users\\justa\\Desktop\\APPAS\\good - Copy\\savings_app\\savings_app_backend\\WebAPI.csproj",
+      "projectPath": "C:\\Users\\justa\\Desktop\\APPAS\\klonas - Copy\\savings_app\\savings_app_backend\\WebAPI.csproj",
       "packagesPath": "C:\\Users\\justa\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\justa\\Desktop\\APPAS\\good - Copy\\savings_app\\savings_app_backend\\obj\\",
+      "outputPath": "C:\\Users\\justa\\Desktop\\APPAS\\klonas - Copy\\savings_app\\savings_app_backend\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\justa\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -10987,11 +10987,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\justa\\Desktop\\APPAS\\good - Copy\\savings_app\\Application\\Application.csproj": {
-              "projectPath": "C:\\Users\\justa\\Desktop\\APPAS\\good - Copy\\savings_app\\Application\\Application.csproj"
+            "C:\\Users\\justa\\Desktop\\APPAS\\klonas - Copy\\savings_app\\Application\\Application.csproj": {
+              "projectPath": "C:\\Users\\justa\\Desktop\\APPAS\\klonas - Copy\\savings_app\\Application\\Application.csproj"
             },
-            "C:\\Users\\justa\\Desktop\\APPAS\\good - Copy\\savings_app\\Infrastructure\\Infrastructure.csproj": {
-              "projectPath": "C:\\Users\\justa\\Desktop\\APPAS\\good - Copy\\savings_app\\Infrastructure\\Infrastructure.csproj"
+            "C:\\Users\\justa\\Desktop\\APPAS\\klonas - Copy\\savings_app\\Infrastructure\\Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\justa\\Desktop\\APPAS\\klonas - Copy\\savings_app\\Infrastructure\\Infrastructure.csproj"
             }
           }
         }

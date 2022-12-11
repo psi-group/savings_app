@@ -31,11 +31,15 @@ const Login = () => {
             }),
         })
             .then(async (res) => {
-                const text = await res.text();
+                
+                const msg = await res.json();
+                console.log(msg);
+                //const text = await res.text();
                 if (res.status == 200) {
-                    return text;
+                    return msg;
+                    //return text;
                 }
-                return Promise.reject(text);
+                return Promise.reject(msg);
 
             })
             .then((response) => {
@@ -54,8 +58,10 @@ const Login = () => {
                 navigate("/");
             })
             .catch((error) => {
-                console.log("errroas " + error);
-                setErrMsg(error);
+                console.log("errroas ");
+                console.log(error);
+                console.log(error.error);
+                setErrMsg(error.title);
 
             });
     };

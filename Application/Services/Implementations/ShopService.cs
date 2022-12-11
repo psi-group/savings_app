@@ -36,7 +36,7 @@ namespace Application.Services.Implementations
             if (checkout.buyerId !=
                 Guid.Parse(((ClaimsIdentity)_httpContext.HttpContext!.User.Identity!).
                 FindFirst("Id")!.Value))
-                throw new InvalidIdentityException();
+                throw new InvalidIdentityException("buyers id does not match your id");
 
             var orderId = Guid.NewGuid();
             var orderItemList = new List<OrderItem>();

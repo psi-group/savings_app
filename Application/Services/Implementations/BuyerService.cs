@@ -29,13 +29,13 @@ namespace Application.Services.Implementations
         {
             if (id !=
                 Guid.Parse(((ClaimsIdentity)_httpContext.HttpContext.User.Identity).FindFirst("Id").Value))
-                throw new InvalidIdentityException();
+                throw new InvalidIdentityException("you are unauthorized to delete this recource");
 
            
             var buyer = await _buyerRepository.GetBuyerAsync(id);
             if (buyer == null)
             {
-                throw new RecourseNotFoundException();
+                throw new RecourseNotFoundException("buyer with this id does not exist");
             }
 
             _buyerRepository.RemoveBuyer(buyer);
@@ -56,13 +56,13 @@ namespace Application.Services.Implementations
 
             if (id !=
                 Guid.Parse(((ClaimsIdentity)_httpContext.HttpContext.User.Identity).FindFirst("Id").Value))
-                throw new InvalidIdentityException();
+                throw new InvalidIdentityException("you are unauthorized to access this recource");
 
             var buyer = await _buyerRepository.GetBuyerAsync(id);
 
             if (buyer == null)
             {
-                throw new RecourseNotFoundException();
+                throw new RecourseNotFoundException("buyer with this id does not exist");
             }
             else
             {
@@ -93,7 +93,7 @@ namespace Application.Services.Implementations
 
             if(buyer == null)
             {
-                throw new RecourseNotFoundException();
+                throw new RecourseNotFoundException("buyer with this id does not exist");
             }
             else
             {
@@ -127,7 +127,7 @@ namespace Application.Services.Implementations
             if (await _buyerRepository.GetBuyerAsync(
                 buyer => buyer.UserAuth.Email == buyerToPost.UserAuth!.Email) != null)
             {
-                throw new RecourseAlreadyExistsException();
+                throw new RecourseAlreadyExistsException("buyer with this email already exists");
             }
 
             var id = Guid.NewGuid();
@@ -177,12 +177,17 @@ namespace Application.Services.Implementations
         {
             if (id !=
                 Guid.Parse(((ClaimsIdentity)_httpContext.HttpContext.User.Identity).FindFirst("Id").Value))
-                throw new InvalidIdentityException();
+                throw new InvalidIdentityException("you are unauthorized to update this resource");
 
+            if (await _buyerRepository.GetBuyerAsync(
+                buyer => buyer.UserAuth.Email == buyerToUpdate.UserAuth!.Email) != null)
+            {
+                throw new RecourseAlreadyExistsException("buyer with this email already exists");
+            }
 
             if (!await _buyerRepository.BuyerExistsAsync(id))
             {
-                throw new RecourseAlreadyExistsException();
+                throw new RecourseNotFoundException("buyer with this id does not exist");
             }
 
             var buyer = new Buyer(

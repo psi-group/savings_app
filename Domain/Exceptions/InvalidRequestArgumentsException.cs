@@ -1,6 +1,10 @@
-﻿namespace Domain.Exceptions
+﻿using System.Net;
+
+namespace Domain.Exceptions
 {
-    public class InvalidRequestArgumentsException : Exception
+    public class InvalidRequestArgumentsException : HttpResponseException
     {
+        public InvalidRequestArgumentsException(string message) : base(HttpStatusCode.BadRequest, message) { }
+
     }
 }

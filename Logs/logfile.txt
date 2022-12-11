@@ -1,1 +1,198 @@
-
+2022-12-11 00:26:39.3478|ERROR|WebAPI.Middlewares.MyExceptionHandlerMiddleware|Domain.Exceptions.InvalidLoginCredentialsException: incorrect password
+   at Application.Services.Implementations.AuthService.AuthenticateUser(UserLoginDTO userLogin) in C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\Application\Services\Implementations\AuthService.cs:line 87
+   at Application.Services.Implementations.AuthService.Login(UserLoginDTO userLogin) in C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\Application\Services\Implementations\AuthService.cs:line 29
+   at savings_app_backend.Controllers.AuthController.Login(UserLoginDTO userLogin) in C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\savings_app_backend\Controllers\AuthController.cs:line 22
+   at lambda_method3(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at WebAPI.Middlewares.MyExceptionHandlerMiddleware.InvokeAsync(HttpContext context) in C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\savings_app_backend\Middlewares\MyExceptionHandlerMiddleware.cs:line 24
+2022-12-11 00:30:19.3524|ERROR|WebAPI.Middlewares.MyExceptionHandlerMiddleware|Domain.Exceptions.InvalidLoginCredentialsException: incorrect password
+   at Application.Services.Implementations.AuthService.AuthenticateUser(UserLoginDTO userLogin) in C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\Application\Services\Implementations\AuthService.cs:line 87
+   at Application.Services.Implementations.AuthService.Login(UserLoginDTO userLogin) in C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\Application\Services\Implementations\AuthService.cs:line 29
+   at savings_app_backend.Controllers.AuthController.Login(UserLoginDTO userLogin) in C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\savings_app_backend\Controllers\AuthController.cs:line 22
+   at lambda_method3(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at WebAPI.Middlewares.MyExceptionHandlerMiddleware.InvokeAsync(HttpContext context) in C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\savings_app_backend\Middlewares\MyExceptionHandlerMiddleware.cs:line 24
+2022-12-11 00:32:25.8935|ERROR|WebAPI.Middlewares.MyExceptionHandlerMiddleware|Domain.Exceptions.InvalidLoginCredentialsException: no user with this email exists
+   at Application.Services.Implementations.AuthService.AuthenticateUser(UserLoginDTO userLogin) in C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\Application\Services\Implementations\AuthService.cs:line 91
+   at Application.Services.Implementations.AuthService.Login(UserLoginDTO userLogin) in C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\Application\Services\Implementations\AuthService.cs:line 29
+   at savings_app_backend.Controllers.AuthController.Login(UserLoginDTO userLogin) in C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\savings_app_backend\Controllers\AuthController.cs:line 22
+   at lambda_method3(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at WebAPI.Middlewares.MyExceptionHandlerMiddleware.InvokeAsync(HttpContext context) in C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\savings_app_backend\Middlewares\MyExceptionHandlerMiddleware.cs:line 24
+2022-12-11 00:39:11.4228|ERROR|WebAPI.Middlewares.MyExceptionHandlerMiddleware|Domain.Exceptions.InvalidLoginCredentialsException: no user with this email exists
+   at Application.Services.Implementations.AuthService.AuthenticateUser(UserLoginDTO userLogin) in C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\Application\Services\Implementations\AuthService.cs:line 91
+   at Application.Services.Implementations.AuthService.Login(UserLoginDTO userLogin) in C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\Application\Services\Implementations\AuthService.cs:line 29
+   at savings_app_backend.Controllers.AuthController.Login(UserLoginDTO userLogin) in C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\savings_app_backend\Controllers\AuthController.cs:line 22
+   at lambda_method3(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at WebAPI.Middlewares.MyExceptionHandlerMiddleware.InvokeAsync(HttpContext context) in C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\savings_app_backend\Middlewares\MyExceptionHandlerMiddleware.cs:line 24
+2022-12-11 00:39:59.4477|ERROR|WebAPI.Middlewares.MyExceptionHandlerMiddleware|Domain.Exceptions.InvalidLoginCredentialsException: incorrect password
+   at Application.Services.Implementations.AuthService.AuthenticateUser(UserLoginDTO userLogin) in C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\Application\Services\Implementations\AuthService.cs:line 87
+   at Application.Services.Implementations.AuthService.Login(UserLoginDTO userLogin) in C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\Application\Services\Implementations\AuthService.cs:line 29
+   at savings_app_backend.Controllers.AuthController.Login(UserLoginDTO userLogin) in C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\savings_app_backend\Controllers\AuthController.cs:line 22
+   at lambda_method3(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at WebAPI.Middlewares.MyExceptionHandlerMiddleware.InvokeAsync(HttpContext context) in C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\savings_app_backend\Middlewares\MyExceptionHandlerMiddleware.cs:line 24
+2022-12-11 00:53:26.0211|ERROR|WebAPI.Middlewares.MyExceptionHandlerMiddleware|Domain.Exceptions.InvalidLoginCredentialsException: no user with this email exists
+   at Application.Services.Implementations.AuthService.AuthenticateUser(UserLoginDTO userLogin) in C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\Application\Services\Implementations\AuthService.cs:line 91
+   at Application.Services.Implementations.AuthService.Login(UserLoginDTO userLogin) in C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\Application\Services\Implementations\AuthService.cs:line 29
+   at savings_app_backend.Controllers.AuthController.Login(UserLoginDTO userLogin) in C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\savings_app_backend\Controllers\AuthController.cs:line 22
+   at lambda_method3(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at WebAPI.Middlewares.MyExceptionHandlerMiddleware.InvokeAsync(HttpContext context) in C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\savings_app_backend\Middlewares\MyExceptionHandlerMiddleware.cs:line 25
+2022-12-11 01:02:35.6301|ERROR|WebAPI.Middlewares.MyExceptionHandlerMiddleware|Domain.Exceptions.InvalidLoginCredentialsException: no user with this email exists
+   at Application.Services.Implementations.AuthService.AuthenticateUser(UserLoginDTO userLogin) in C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\Application\Services\Implementations\AuthService.cs:line 91
+   at Application.Services.Implementations.AuthService.Login(UserLoginDTO userLogin) in C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\Application\Services\Implementations\AuthService.cs:line 29
+   at savings_app_backend.Controllers.AuthController.Login(UserLoginDTO userLogin) in C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\savings_app_backend\Controllers\AuthController.cs:line 22
+   at lambda_method3(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at WebAPI.Middlewares.MyExceptionHandlerMiddleware.InvokeAsync(HttpContext context) in C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\savings_app_backend\Middlewares\MyExceptionHandlerMiddleware.cs:line 25
+2022-12-11 01:04:05.5240|ERROR|WebAPI.Middlewares.MyExceptionHandlerMiddleware|Domain.Exceptions.InvalidLoginCredentialsException: no user with this email exists
+   at Application.Services.Implementations.AuthService.AuthenticateUser(UserLoginDTO userLogin) in C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\Application\Services\Implementations\AuthService.cs:line 91
+   at Application.Services.Implementations.AuthService.Login(UserLoginDTO userLogin) in C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\Application\Services\Implementations\AuthService.cs:line 29
+   at savings_app_backend.Controllers.AuthController.Login(UserLoginDTO userLogin) in C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\savings_app_backend\Controllers\AuthController.cs:line 22
+   at lambda_method3(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at WebAPI.Middlewares.MyExceptionHandlerMiddleware.InvokeAsync(HttpContext context) in C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\savings_app_backend\Middlewares\MyExceptionHandlerMiddleware.cs:line 25
+2022-12-11 01:08:00.0194|ERROR|WebAPI.Middlewares.MyExceptionHandlerMiddleware|Domain.Exceptions.InvalidLoginCredentialsException: no user with this email exists
+   at Application.Services.Implementations.AuthService.AuthenticateUser(UserLoginDTO userLogin) in C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\Application\Services\Implementations\AuthService.cs:line 91
+   at Application.Services.Implementations.AuthService.Login(UserLoginDTO userLogin) in C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\Application\Services\Implementations\AuthService.cs:line 29
+   at savings_app_backend.Controllers.AuthController.Login(UserLoginDTO userLogin) in C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\savings_app_backend\Controllers\AuthController.cs:line 22
+   at lambda_method3(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at WebAPI.Middlewares.MyExceptionHandlerMiddleware.InvokeAsync(HttpContext context) in C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\savings_app_backend\Middlewares\MyExceptionHandlerMiddleware.cs:line 25

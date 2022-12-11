@@ -26,12 +26,12 @@ namespace Application.Services.Implementations
             var order = await _orderRepository.GetOrderAsync(id);
             if (order == null)
             {
-                throw new RecourseNotFoundException();
+                throw new RecourseNotFoundException("order with this id does not exist");
             }
 
             if (order.BuyerId !=
                 Guid.Parse(((ClaimsIdentity)_httpContext.HttpContext.User.Identity).FindFirst("Id").Value))
-                throw new InvalidIdentityException();
+                throw new InvalidIdentityException("you are unauthorized to delete this resource");
 
             _orderRepository.RemoveOrder(order);
             await _orderRepository.SaveChangesAsync();
@@ -65,7 +65,7 @@ namespace Application.Services.Implementations
         {
             if (buyerId !=
                 Guid.Parse(((ClaimsIdentity)_httpContext.HttpContext.User.Identity).FindFirst("Id").Value))
-                throw new InvalidIdentityException();
+                throw new InvalidIdentityException("you are unauthorized to access this resource");
 
             var spec = new BuyersOrdersSpecification(buyerId);
 
@@ -107,12 +107,12 @@ namespace Application.Services.Implementations
 
             if (order.BuyerId !=
                 Guid.Parse(((ClaimsIdentity)_httpContext.HttpContext.User.Identity).FindFirst("Id").Value))
-                throw new InvalidIdentityException();
+                throw new InvalidIdentityException("you are unauthorized to access this resource");
 
 
             if (order == null)
             {
-                throw new RecourseNotFoundException();
+                throw new RecourseNotFoundException("order with this id does not exist");
             }
             else
             {
@@ -180,7 +180,7 @@ namespace Application.Services.Implementations
         {
             if (sellerId !=
                 Guid.Parse(((ClaimsIdentity)_httpContext.HttpContext.User.Identity).FindFirst("Id").Value))
-                throw new InvalidIdentityException();
+                throw new InvalidIdentityException("you are unauthorized to access this resource");
 
             var spec = new SellersOrderItemsSpecification(sellerId);
 
@@ -254,14 +254,14 @@ namespace Application.Services.Implementations
 
             if (!await _orderRepository.OrderExistsAsync(id))
             {
-                throw new RecourseNotFoundException();
+                throw new RecourseNotFoundException("order with this id does not exist");
             }
 
             var orderCheck = await _orderRepository.GetOrderAsync(id);
 
             if (orderCheck.BuyerId !=
                 Guid.Parse(((ClaimsIdentity)_httpContext.HttpContext.User.Identity).FindFirst("Id").Value))
-                throw new InvalidIdentityException();
+                throw new InvalidIdentityException("you are unauthorized to access this resource");
 
             _orderRepository.UpdateOrder(order);
             await _orderRepository.SaveChangesAsync();

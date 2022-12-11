@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Net;
 
 namespace Domain.Exceptions
 {
-    public class InvalidLoginCredentialsException : Exception
+    public class InvalidLoginCredentialsException : HttpResponseException
     {
+        public InvalidLoginCredentialsException(string message) : base(HttpStatusCode.BadRequest, message) { }
+
     }
 }

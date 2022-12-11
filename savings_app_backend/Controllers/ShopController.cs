@@ -22,14 +22,7 @@ namespace savings_app_backend.Controllers
         [Authorize(Roles = "buyer")]
         public async Task<ActionResult<Order>> Checkout(CheckoutDTORequest checkout)
         {
-            try
-            {
-                return Ok(await _shopService.Checkout(checkout));
-            }
-            catch(InvalidLoginCredentialsException)
-            {
-                return BadRequest("Invalid Login Credentials");
-            }
+            return Ok(await _shopService.Checkout(checkout));
         }
     }
 }

@@ -12,6 +12,8 @@ using Application.Services.Implementations;
 using Domain.Interfaces.Repositories;
 using Infrastructure.Repositories;
 using Microsoft.AspNetCore.Localization;
+using Microsoft.AspNetCore.Diagnostics;
+using WebAPI.Middlewares;
 
 var logger = NLog.LogManager.Setup().LoadConfigurationFromAppSettings().GetCurrentClassLogger();
 
@@ -19,6 +21,7 @@ try
 {
     var builder = WebApplication.CreateBuilder(args);
 
+    
     LogManager.LoadConfiguration(String.Concat(Directory.GetCurrentDirectory(), "/nlog.config"));
 
     builder.Services.AddDbContext<SavingsAppContext>(options =>
@@ -92,6 +95,9 @@ try
     builder.Services.AddEndpointsApiExplorer();
     builder.Services.AddSwaggerGen();
 
+    builder.Logging.ClearProviders();
+    builder.Host.UseNLog();
+
     var app = builder.Build();
 
     // Configure the HTTP request pipeline.
@@ -100,6 +106,8 @@ try
         app.UseSwagger();
         app.UseSwaggerUI();
     }
+
+    app.UseMiddleware<MyExceptionHandlerMiddleware>();
 
     app.UseRequestLocalization(new RequestLocalizationOptions
     {

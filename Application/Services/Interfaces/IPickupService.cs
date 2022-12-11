@@ -14,8 +14,6 @@ namespace Application.Services.Interfaces
 
         Task<IEnumerable<PickupDTOResponse>> GetProductPickups(Guid productId);
 
-        Task<PickupDTOResponse> BookPickup(Guid pickupId);
-
         Task<PickupDTOResponse> GetPickup(Guid id);
 
         Task<PickupDTOResponse> PutPickup(Guid id, PickupDTORequest Pickup);

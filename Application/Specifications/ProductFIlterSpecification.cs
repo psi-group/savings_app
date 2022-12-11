@@ -31,7 +31,7 @@ namespace Application.Specifications
                         ApplyOrderBy(product => product.Price);
                         break;
                     default:
-                        throw new InvalidRequestArgumentsException();
+                        throw new InvalidRequestArgumentsException("invalid order parameter");
                 }
             }
 
