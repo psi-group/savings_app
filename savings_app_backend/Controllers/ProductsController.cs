@@ -13,16 +13,12 @@ namespace savings_app_backend.Controllers
     public class ProductsController : ControllerBase
     {
         private readonly IProductService _productService;
-        private readonly ILogger<ProductsController> _logger;
 
-        public ProductsController(IProductService productService,
-            ILogger<ProductsController> logger)
+        public ProductsController(IProductService productService)
         {
             _productService = productService;
-            _logger = logger;
         }
 
-        // GET: api/ProductContr
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Product>>> GetProducts()
         {
@@ -35,62 +31,20 @@ namespace savings_app_backend.Controllers
             [FromQuery] string? search,
             [FromQuery] string? order = "by_id")
         {
-            try
-            {
-                return Ok(await _productService.GetFilteredProducts(category, search, order));
-            }
-            catch(InvalidEnumStringException e)
-            {
-                _logger.LogError(e.ToString());
-                return BadRequest();
-            }
-            catch(InvalidRequestArgumentsException e)
-            {
-                _logger.LogError(e.ToString());
-                return BadRequest();
-            }
-            
+            return Ok(await _productService.GetFilteredProducts(category, search, order));
         }
 
-        // GET: api/ProductContr/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Product>> GetProduct(Guid id)
         {
-            try
-            {
-                return Ok(await _productService.GetProduct(id));
-                
-            }
-            catch(RecourseNotFoundException e)
-            {
-                _logger.LogError(e.ToString());
-                return NotFound();
-            }
+            return Ok(await _productService.GetProduct(id));
         }
 
         [HttpPut("{id}")]
         [Authorize(Roles = "seller")]
         public async Task<ActionResult<Product>> PutProduct(Guid id, [FromForm] ProductDTORequest product)
         {
-            try
-            {
-                return Ok(await _productService.PutProduct(id, product));
-            }
-            catch (InvalidIdentityException e)
-            {
-                _logger.LogError(e.ToString());
-                return Unauthorized();
-            }
-            catch (InvalidRequestArgumentsException e)
-            {
-                _logger.LogError(e.ToString());
-                return BadRequest();
-            }
-            catch(RecourseNotFoundException e)
-            {
-                _logger.LogError(e.ToString());
-                return NotFound();
-            }
+            return Ok(await _productService.PutProduct(id, product));
         }
 
         [HttpPost]
@@ -98,37 +52,14 @@ namespace savings_app_backend.Controllers
         public async Task<ActionResult<Product>> PostProduct(
             [FromForm] ProductDTORequest product)
         {
-            var a = DateTime.Now;
-            //throw new NotImplementedException();
-            try
-            {
-                return Ok(await _productService.PostProduct(product));
-            }
-            catch(InvalidIdentityException e)
-            {
-                _logger.LogError(e.ToString());
-                return Unauthorized();
-            }
+            return Ok(await _productService.PostProduct(product));
         }
 
         [Authorize(Roles = "seller")]
         [HttpDelete("{id}")]
         public async Task<ActionResult<Product>> DeleteProduct(Guid id)
         {
-            try
-            {
-                return Ok(await _productService.DeleteProduct(id));
-            }
-            catch(RecourseNotFoundException e)
-            {
-                _logger.LogError(e.ToString());
-                return NotFound();
-            }
-            catch(InvalidIdentityException e)
-            {
-                _logger.LogError(e.ToString());
-                return Unauthorized();
-            }
+            return Ok(await _productService.DeleteProduct(id));
         }
     }
 }

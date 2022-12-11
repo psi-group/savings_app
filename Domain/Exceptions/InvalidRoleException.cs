@@ -1,6 +1,10 @@
-﻿namespace Domain.Exceptions
+﻿using System.Net;
+
+namespace Domain.Exceptions
 {
-    public class InvalidRoleException : Exception
+    public class InvalidRoleException : HttpResponseException
     {
+        public InvalidRoleException(string message) : base(HttpStatusCode.Unauthorized, message) { }
+
     }
 }

@@ -28,15 +28,8 @@ namespace Application.Services.Implementations
         {
             var user = AuthenticateUser(userLogin);
 
-            if (user != null)
-            {
-                var token = GenerateToken(user);
-                return token;
-            }
-            else
-            {
-                throw new InvalidLoginCredentialsException();
-            }
+            var token = GenerateToken(user);
+            return token;
         }
 
         public string GenerateToken(User user)
@@ -71,27 +64,31 @@ namespace Application.Services.Implementations
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
 
-        private User? AuthenticateUser(UserLoginDTO userLogin)
+        private User AuthenticateUser(UserLoginDTO userLogin)
         {
-            var buyer = _buyerRepository.GetBuyer(user => user.UserAuth.Email.ToLower() == userLogin.Email!.ToLower() &&
-                user.UserAuth.Password == userLogin.Password);
+            var buyer = _buyerRepository.GetBuyer(user => user.UserAuth.Email.ToLower() == userLogin.Email!.ToLower());
+
 
             if (buyer != null)
             {
-                //throw new InvalidOperationException();
-                return buyer;
+                if (buyer.UserAuth.Password.ToLower() == userLogin.Password!.ToLower())
+                    return buyer;
+                else
+                    throw new InvalidLoginCredentialsException("incorrect password");
             }
             else
             {
-                var seller = _restaurantRepository.GetRestaurant(user => user.UserAuth.Email.ToLower() == userLogin.Email.ToLower() &&
-                    user.UserAuth.Password == userLogin.Password);
+                var seller = _restaurantRepository.GetRestaurant(user => user.UserAuth.Email.ToLower() == userLogin.Email!.ToLower());
                 if (seller != null)
                 {
-                    return seller;
+                    if (seller.UserAuth.Password.ToLower() == userLogin.Password!.ToLower())
+                        return seller;
+                    else
+                        throw new InvalidLoginCredentialsException("incorrect password");
                 }
                 else
                 {
-                    return null;
+                    throw new InvalidLoginCredentialsException("no user with this email exists");
                 }
             }
         }

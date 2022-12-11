@@ -23,7 +23,7 @@ namespace savings_app_tests
 
         public ProductControllerTests()
         {
-            _sut = new ProductsController(_repository, _logger);
+            _sut = new ProductsController(_repository);
         }
 
         [Fact]

@@ -3,6 +3,7 @@ using Domain.DTOs.Request;
 using Domain.DTOs.Response;
 using Domain.Entities;
 using Domain.Exceptions;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace savings_app_backend.Controllers
@@ -12,16 +13,12 @@ namespace savings_app_backend.Controllers
     public class PickupsController : ControllerBase
     {
         private readonly IPickupService _pickupService;
-        private readonly ILogger<PickupsController> _logger;
 
-        public PickupsController(IPickupService pickupService,
-            ILogger<PickupsController> logger)
+        public PickupsController(IPickupService pickupService)
         {
             _pickupService = pickupService;
-            _logger = logger;
         }
 
-        // GET: api/Pickups
         [HttpGet]
         public async Task<ActionResult<IEnumerable<PickupDTOResponse>>> GetPickups()
         {
@@ -31,64 +28,34 @@ namespace savings_app_backend.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Pickup>> GetPickup(Guid id)
         {
-            try
-            {
-                return Ok(await _pickupService.GetPickups());
-            }
-            catch(RecourseNotFoundException e)
-            {
-                _logger.LogError(e.ToString());
-                return NotFound();
-            }
+            return Ok(await _pickupService.GetPickups());
         }
 
-        // GET: api/Pickups/5
         [HttpGet("product/{productId}")]
         public async Task<ActionResult<IEnumerable<PickupDTOResponse>>> GetProductPickups(Guid productId)
         {
             return Ok(await _pickupService.GetProductPickups(productId));
         }
 
+        [Authorize(Roles = "seller")]
         [HttpPut("{id}")]
         public async Task<ActionResult<PickupDTOResponse>> PutPickup(Guid id, PickupDTORequest pickup)
         {
-            try
-            {
-                return Ok(await _pickupService.PutPickup(id, pickup));
-            }
-            catch(InvalidRequestArgumentsException e)
-            {
-                _logger.LogError(e.ToString());
-                return BadRequest();
-            }
-            catch(RecourseAlreadyExistsException e)
-            {
-                _logger.LogError(e.ToString());
-                return BadRequest();
-            }
+            return Ok(await _pickupService.PutPickup(id, pickup));
         }
 
-        // POST: api/Pickups
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        [Authorize(Roles = "seller")]
         [HttpPost]
         public async Task<ActionResult<PickupDTOResponse>> PostPickup(PickupDTORequest pickup)
         {
             return Ok(await _pickupService.PostPickup(pickup));
         }
 
-        // DELETE: api/Pickups/5
+        [Authorize(Roles = "seller")]
         [HttpDelete("{id}")]
         public async Task<ActionResult<PickupDTOResponse>> DeletePickup(Guid id)
         {
-            try
-            {
-                return Ok(await _pickupService.DeletePickup(id));
-            }
-            catch(RecourseNotFoundException e)
-            {
-                _logger.LogError(e.ToString());
-                return NotFound();
-            }
+            return Ok(await _pickupService.DeletePickup(id));
         }
     }
 }

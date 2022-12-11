@@ -68,7 +68,7 @@ namespace Domain.Entities
         {
             if(amount > AmountOfUnits)
             {
-                throw new NotEnoughProductAmountException();
+                throw new NotEnoughProductAmountException("The amount being bought exceeds the product balance");
             }
             else
             {

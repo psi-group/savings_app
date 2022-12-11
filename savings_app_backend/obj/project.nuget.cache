@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "JdTKPuuI++iM5jYFaR0leybcOJ+HKsateeufXvHCLntxYm1yUrH0/QpQQLJayZifYhJLGvJ6zasaQnJj5RG6eA==",
+  "dgSpecHash": "6ivZHf7+Vb7wqerZ6z5HV1rUZod307m9LvmvCzIzDvSqL9dAAkFst+dGpa+kYCLEprltdnjIEqakKFEvA7VVAA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\justa\\Desktop\\APPAS\\good - Copy\\savings_app\\savings_app_backend\\WebAPI.csproj",
+  "projectFilePath": "C:\\Users\\justa\\Desktop\\APPAS\\klonas - Copy\\savings_app\\savings_app_backend\\WebAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\justa\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\justa\\.nuget\\packages\\azure.storage.blobs\\12.14.1\\azure.storage.blobs.12.14.1.nupkg.sha512",

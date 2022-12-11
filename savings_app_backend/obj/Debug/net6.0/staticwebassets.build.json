@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "k22Fq1VKDROdED5R4Ikt6qb5LJKlRZq2ZWMia0Mm5Dw=",
+  "Hash": "M6d8y0UyEF3eFSxGN687D52EDLwIemrD9qO7ZMJC5DM=",
   "Source": "WebAPI",
   "BasePath": "_content/WebAPI",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "WebAPI\\wwwroot",
       "Source": "WebAPI",
-      "ContentRoot": "C:\\Users\\justa\\Desktop\\APPAS\\good - Copy\\savings_app\\savings_app_backend\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\justa\\Desktop\\APPAS\\klonas - Copy\\savings_app\\savings_app_backend\\wwwroot\\",
       "BasePath": "_content/WebAPI",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\justa\\Desktop\\APPAS\\good - Copy\\savings_app\\savings_app_backend\\wwwroot\\productImg\\ca1207fe-9407-4b94-9a5f-093c5b1cbe8a.jpg",
+      "Identity": "C:\\Users\\justa\\Desktop\\APPAS\\klonas - Copy\\savings_app\\savings_app_backend\\wwwroot\\productImg\\ca1207fe-9407-4b94-9a5f-093c5b1cbe8a.jpg",
       "SourceId": "WebAPI",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\justa\\Desktop\\APPAS\\good - Copy\\savings_app\\savings_app_backend\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\justa\\Desktop\\APPAS\\klonas - Copy\\savings_app\\savings_app_backend\\wwwroot\\",
       "BasePath": "_content/WebAPI",
       "RelativePath": "productImg/ca1207fe-9407-4b94-9a5f-093c5b1cbe8a.jpg",
       "AssetKind": "All",
@@ -34,10 +34,10 @@
       "OriginalItemSpec": "wwwroot\\productImg\\ca1207fe-9407-4b94-9a5f-093c5b1cbe8a.jpg"
     },
     {
-      "Identity": "C:\\Users\\justa\\Desktop\\APPAS\\good - Copy\\savings_app\\savings_app_backend\\wwwroot\\productImg\\fd86026c-d98f-4fae-a008-f93730261e18.jpg",
+      "Identity": "C:\\Users\\justa\\Desktop\\APPAS\\klonas - Copy\\savings_app\\savings_app_backend\\wwwroot\\productImg\\fd86026c-d98f-4fae-a008-f93730261e18.jpg",
       "SourceId": "WebAPI",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\justa\\Desktop\\APPAS\\good - Copy\\savings_app\\savings_app_backend\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\justa\\Desktop\\APPAS\\klonas - Copy\\savings_app\\savings_app_backend\\wwwroot\\",
       "BasePath": "_content/WebAPI",
       "RelativePath": "productImg/fd86026c-d98f-4fae-a008-f93730261e18.jpg",
       "AssetKind": "All",
@@ -51,10 +51,10 @@
       "OriginalItemSpec": "wwwroot\\productImg\\fd86026c-d98f-4fae-a008-f93730261e18.jpg"
     },
     {
-      "Identity": "C:\\Users\\justa\\Desktop\\APPAS\\good - Copy\\savings_app\\savings_app_backend\\wwwroot\\userImg\\0289fcb6-b547-455b-87f6-e9eced20fb38.jpg",
+      "Identity": "C:\\Users\\justa\\Desktop\\APPAS\\klonas - Copy\\savings_app\\savings_app_backend\\wwwroot\\userImg\\0289fcb6-b547-455b-87f6-e9eced20fb38.jpg",
       "SourceId": "WebAPI",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\justa\\Desktop\\APPAS\\good - Copy\\savings_app\\savings_app_backend\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\justa\\Desktop\\APPAS\\klonas - Copy\\savings_app\\savings_app_backend\\wwwroot\\",
       "BasePath": "_content/WebAPI",
       "RelativePath": "userImg/0289fcb6-b547-455b-87f6-e9eced20fb38.jpg",
       "AssetKind": "All",
@@ -68,10 +68,10 @@
       "OriginalItemSpec": "wwwroot\\userImg\\0289fcb6-b547-455b-87f6-e9eced20fb38.jpg"
     },
     {
-      "Identity": "C:\\Users\\justa\\Desktop\\APPAS\\good - Copy\\savings_app\\savings_app_backend\\wwwroot\\userImg\\a2ffd5f7-8c0e-47da-8fc7-3accd7469b19.jpg",
+      "Identity": "C:\\Users\\justa\\Desktop\\APPAS\\klonas - Copy\\savings_app\\savings_app_backend\\wwwroot\\userImg\\a2ffd5f7-8c0e-47da-8fc7-3accd7469b19.jpg",
       "SourceId": "WebAPI",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\justa\\Desktop\\APPAS\\good - Copy\\savings_app\\savings_app_backend\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\justa\\Desktop\\APPAS\\klonas - Copy\\savings_app\\savings_app_backend\\wwwroot\\",
       "BasePath": "_content/WebAPI",
       "RelativePath": "userImg/a2ffd5f7-8c0e-47da-8fc7-3accd7469b19.jpg",
       "AssetKind": "All",

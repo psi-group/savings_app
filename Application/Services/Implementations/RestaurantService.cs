@@ -34,12 +34,12 @@ namespace Application.Services.Implementations
             if (id !=
                 Guid.Parse(((ClaimsIdentity)_httpContext.HttpContext!.User.Identity!).
                 FindFirst("Id")!.Value))
-                throw new InvalidIdentityException();
+                throw new InvalidIdentityException("you are unauthorized to delete this resource");
             
             var restaurant = await _restaurantRepository.GetRestaurantAsync(id);
             if (restaurant == null)
             {
-                throw new RecourseNotFoundException();
+                throw new RecourseNotFoundException("restaurant with this id does not exist");
             }
 
             _restaurantRepository.RemoveRestaurant(restaurant);
@@ -103,7 +103,7 @@ namespace Application.Services.Implementations
 
             if (restaurant == null)
             {
-                throw new RecourseNotFoundException();
+                throw new RecourseNotFoundException("restaurant with this id does not exist");
             }
             else
             {
@@ -133,13 +133,13 @@ namespace Application.Services.Implementations
         {
             if (id !=
                 Guid.Parse(((ClaimsIdentity)_httpContext.HttpContext.User.Identity).FindFirst("Id").Value))
-                throw new InvalidIdentityException();
+                throw new InvalidIdentityException("you are unauthorized to access this resource");
 
             var restaurant = await _restaurantRepository.GetRestaurantAsync(id);
 
             if (restaurant == null)
             {
-                throw new RecourseNotFoundException();
+                throw new RecourseNotFoundException("restaurant with this id does not exist");
             }
             else
             {
@@ -204,7 +204,7 @@ namespace Application.Services.Implementations
             if(await _restaurantRepository.GetRestaurantAsync(
                 restaurant => restaurant.UserAuth.Email == restaurantToPost.UserAuth!.Email) != null)
             {
-                throw new RecourseAlreadyExistsException();
+                throw new RecourseAlreadyExistsException("restaurant with this email already exists");
             }
             var id = Guid.NewGuid();
             var restaurant = new Restaurant(
@@ -269,11 +269,17 @@ namespace Application.Services.Implementations
         {
             if (id !=
                 Guid.Parse(((ClaimsIdentity)_httpContext.HttpContext.User.Identity).FindFirst("Id").Value))
-                throw new InvalidIdentityException();
+                throw new InvalidIdentityException("you are unauthorized to update this resource");
+
+            if (await _restaurantRepository.GetRestaurantAsync(
+                restaurant => restaurant.UserAuth.Email == restaurantToUpdate.UserAuth!.Email) != null)
+            {
+                throw new RecourseAlreadyExistsException("restaurant with this email already exists");
+            }
 
             if (!await _restaurantRepository.RestaurantExistsAsync(id))
             {
-                throw new RecourseAlreadyExistsException();
+                throw new RecourseNotFoundException("restaurant with this id does not exist");
             }
 
             var restaurant = new Restaurant(

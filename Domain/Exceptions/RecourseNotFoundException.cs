@@ -1,6 +1,10 @@
-﻿namespace Domain.Exceptions
+﻿using System.Net;
+
+namespace Domain.Exceptions
 {
-    public class RecourseNotFoundException : Exception
+    public class RecourseNotFoundException : HttpResponseException
     {
+        public RecourseNotFoundException(string message) : base(HttpStatusCode.NotFound, message) { }
+
     }
 }

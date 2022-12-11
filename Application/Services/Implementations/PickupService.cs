@@ -27,38 +27,12 @@ namespace Application.Services.Implementations
             _httpContext = httpContext;
         }
 
-        public async Task<PickupDTOResponse> BookPickup(Guid pickupId)
-        {
-            var pickup = await _pickupRepository.GetPickupAsync(pickupId);
-
-            if (pickup == null)
-            {
-                throw new RecourseNotFoundException();
-            }
-            else
-            {
-                pickup.Book();
-                _pickupRepository.UpdatePickup(pickup);
-                await _pickupRepository.SaveChangesAsync();
-
-                var pickupResponse = new PickupDTOResponse(
-                        pickup.Id,
-                        pickup.ProductId,
-                        pickup.StartTime,
-                        pickup.EndTime,
-                        pickup.Status
-                        );
-
-                return pickupResponse;
-            }
-        }
-
         public async Task<PickupDTOResponse> DeletePickup(Guid id)
         {
             var pickup = await _pickupRepository.GetPickupAsync(id);
             if (pickup == null)
             {
-                throw new RecourseNotFoundException();
+                throw new RecourseNotFoundException("pickup with this id does not exist");
             }
 
             var product = await _productRepository.GetProductAsync(pickup.ProductId);
@@ -66,7 +40,7 @@ namespace Application.Services.Implementations
 
             if (restaurant.Id !=
                 Guid.Parse(((ClaimsIdentity)_httpContext.HttpContext.User.Identity).FindFirst("Id").Value))
-                throw new InvalidIdentityException();
+                throw new InvalidIdentityException("you are unauthorized to delete this resource");
 
             _pickupRepository.RemovePickup(pickup);
             await _pickupRepository.SaveChangesAsync();
@@ -84,6 +58,10 @@ namespace Application.Services.Implementations
 
         public async Task<IEnumerable<PickupDTOResponse>> GetBuyerPickups(Guid buyerId)
         {
+            if (buyerId !=
+                Guid.Parse(((ClaimsIdentity)_httpContext.HttpContext.User.Identity).FindFirst("Id").Value))
+                throw new InvalidIdentityException("you are unauthorized to access this resource");
+
             var spec = new BuyerPickupSpecification(buyerId);
 
             var pickups = await _pickupRepository.GetPickupsAsync(spec);
@@ -109,7 +87,7 @@ namespace Application.Services.Implementations
 
             if(pickup == null)
             {
-                throw new RecourseNotFoundException();
+                throw new RecourseNotFoundException("pickup with this id does not exist");
             }
             else
             {
@@ -166,6 +144,19 @@ namespace Application.Services.Implementations
 
         public async Task<PickupDTOResponse> PostPickup(PickupDTORequest pickupToPost)
         {
+            var product = await _productRepository.GetProductAsync((Guid)pickupToPost.ProductId!);
+
+            if(product == null)
+            {
+                throw new RecourseNotFoundException("product with this id does not exist");
+            }
+
+            var restaurant = await _restaurantRepository.GetRestaurantAsync(product.RestaurantID);
+
+            if (restaurant!.Id !=
+                Guid.Parse(((ClaimsIdentity)_httpContext.HttpContext.User.Identity).FindFirst("Id").Value))
+                throw new InvalidIdentityException("you are unauthorized to create this resource");
+
             var pickup = new Pickup(
                 Guid.NewGuid(),
                 (Guid)pickupToPost.ProductId!,
@@ -192,8 +183,21 @@ namespace Application.Services.Implementations
         {
             if (!await _pickupRepository.PickupExistsAsync(id))
             {
-                throw new RecourseAlreadyExistsException();
+                throw new RecourseNotFoundException("pickup with this id does not exist");
             }
+
+            var product = await _productRepository.GetProductAsync((Guid)pickupToUpdate.ProductId!);
+
+            if (product == null)
+            {
+                throw new RecourseNotFoundException("product with this id does not exist");
+            }
+
+            var restaurant = await _restaurantRepository.GetRestaurantAsync(product.RestaurantID);
+
+            if (restaurant!.Id !=
+                Guid.Parse(((ClaimsIdentity)_httpContext.HttpContext.User.Identity).FindFirst("Id").Value))
+                throw new InvalidIdentityException("you are unauthorized to create this resource");
 
             var pickup = new Pickup(
                 Guid.NewGuid(),

@@ -41,12 +41,12 @@ namespace Application.Services.Implementations
 
             if (product == null)
             {
-                throw new RecourseNotFoundException();
+                throw new RecourseNotFoundException("product with this id does not exist");
             }
 
             if (product.RestaurantID !=
                 Guid.Parse(((ClaimsIdentity)_httpContext.HttpContext.User.Identity).FindFirst("Id").Value))
-                throw new InvalidIdentityException();
+                throw new InvalidIdentityException("you are unauthorized to delete this resource");
 
 
             _productRepository.RemoveProduct(product);
@@ -106,7 +106,7 @@ namespace Application.Services.Implementations
 
             if(product == null)
             {
-                throw new RecourseNotFoundException();
+                throw new RecourseNotFoundException("product with this id does not exist");
             }
             else
             {
@@ -162,7 +162,7 @@ namespace Application.Services.Implementations
 
             if (productToPost.RestaurantID !=
                 Guid.Parse(((ClaimsIdentity)_httpContext.HttpContext.User.Identity!).FindFirst("Id")!.Value))
-                throw new InvalidIdentityException();
+                throw new InvalidIdentityException("you are unauthorized to create this resource");
 
             var id = Guid.NewGuid();
 
@@ -221,11 +221,11 @@ namespace Application.Services.Implementations
         {
             if (productToChange.RestaurantID !=
                 Guid.Parse(((ClaimsIdentity)_httpContext.HttpContext.User.Identity).FindFirst("Id").Value))
-                throw new InvalidIdentityException();
+                throw new InvalidIdentityException("you are unauthorized to update this resource");
 
             if (!await _productRepository.ProductExistsAsync(id))
             {
-                throw new RecourseNotFoundException();
+                throw new RecourseNotFoundException("product with this id does not exist");
             }
 
 

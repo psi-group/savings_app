@@ -19,14 +19,7 @@ namespace savings_app_backend.Controllers
         [HttpPost("login")]
         public ActionResult<string> Login(UserLoginDTO userLogin)
         {
-            try
-            {
-                return Ok(_authService.Login(userLogin));
-            }
-            catch(InvalidLoginCredentialsException)
-            {
-                return BadRequest("Invalid Login Credentials");
-            }
+            return Ok(_authService.Login(userLogin));
         }
     }
 }
