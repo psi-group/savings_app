@@ -8,3 +8,5 @@ C:\Users\justa\Desktop\APPAS\klonas\savings_app\savings_app_frontend\obj\Debug\s
 C:\Users\justa\Desktop\APPAS\klonas\savings_app\savings_app_frontend\obj\Debug\savings_app_frontend.esproj.CoreCompileInputs.cache
 C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\savings_app_frontend\obj\Debug\savings_app_frontend.esproj.SuggestedBindingRedirects.cache
 C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\savings_app_frontend\obj\Debug\savings_app_frontend.esproj.CoreCompileInputs.cache
+C:\Users\Medas\Desktop\repos\savings_app\savings_app_frontend\obj\Debug\savings_app_frontend.esproj.SuggestedBindingRedirects.cache
+C:\Users\Medas\Desktop\repos\savings_app\savings_app_frontend\obj\Debug\savings_app_frontend.esproj.CoreCompileInputs.cache

@@ -2,18 +2,18 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "./List.css";
 import productImageSkeleton from "../img/productImageSkeleton.png";
+import { CircleSpinnerOverlay } from "react-spinner-overlay";
 
 export default class List extends Component {
   constructor(props) {
     super(props);
-    this.state = { products: [] };
+    this.state = { products: [], loading: true };
   }
 
-    async populateProductsData() {
-
-        console.log("kvieciam");
-        console.log(this.props.isValidUrl());
-        console.log("kvieciam");
+  async populateProductsData() {
+    console.log("kvieciam");
+    console.log(this.props.isValidUrl());
+    console.log("kvieciam");
 
     let url =
       "https://localhost:7183/api/products/filter?search=" +
@@ -29,8 +29,9 @@ export default class List extends Component {
     let data = await response.json();
 
     await this.setState({ products: data, loading: false });
+    await console.log(data);
   }
-
+  
   componentDidMount() {
     this.populateProductsData();
   }
@@ -49,10 +50,14 @@ export default class List extends Component {
     return (
       <div>
         <ul>
-          <div className="grid w-full grid-flow-row-dense grid-cols-4  mt-16 px-32 gap-10">
+          <div className="grid w-full grid-flow-row grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mt-10 gap-1 sm:gap-3">
+            <CircleSpinnerOverlay
+              loading={this.state.loading}
+              color="#0ea5e9"
+            />
             {this.state.products.map((product) => (
               <Link to={"/product/" + product.id}>
-                <div className="flex align-middle justify-center rounded-xl">
+                <div className="flex align-middle justify-center rounded-xl  sm:min-w-[200px]">
                   <li
                     key={product.id}
                     className="font-bold text-white text-xl flex flex-col items-center gap-3 border-2 hover:border-sky-400 p-3 border-sky-600 rounded-md shadow-sm shadow-sky-600"
@@ -62,15 +67,29 @@ export default class List extends Component {
                     </h1>
                     <img
                       src={
-                                    ("https://savingsapp.blob.core.windows.net/productimages/" + product.id + ".jpg")
-                                        ? ("https://savingsapp.blob.core.windows.net/productimages/" + product.id + ".jpg")
+                        "https://savingsapp.blob.core.windows.net/productimages/" +
+                        product.id +
+                        ".jpg"
+                          ? "https://savingsapp.blob.core.windows.net/productimages/" +
+                            product.id +
+                            ".jpg"
                           : productImageSkeleton
                       }
-                      className="w-72 h-72 rounded-md"
+                      className="w-60 h-60 rounded-md"
                     />
                     <div className="flex justify-between text-base flex-col items-center">
-                      <p className="text-sky-600">{product.price} Eur / {product.amountPerUnit} {product.amountType}</p>
-                      <p className="text-sky-600 text-xs">Max Quantity: {product.amountOfUnits} {product.amountType}</p>
+                    <p className="text-sky-600">
+                        {product.category}
+                      </p>
+                      <p className="text-sky-600">
+                        {product.price} Eur / {product.amountPerUnit}{" "}
+                        {product.amountType}
+                      </p>
+                      <p className="text-sky-600 text-xs">
+                        Max Quantity: {product.amountOfUnits}{" "}
+                        {product.amountType}
+                      </p>
+                      
                     </div>
                   </li>
                 </div>
