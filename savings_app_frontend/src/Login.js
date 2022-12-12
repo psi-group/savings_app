@@ -32,13 +32,12 @@ const Login = () => {
         })
             .then(async (res) => {
                 
-                const msg = await res.json();
-                console.log(msg);
-                //const text = await res.text();
                 if (res.status == 200) {
-                    return msg;
+                    return await res.text();
                     //return text;
                 }
+                const msg = await res.json();
+                console.log(msg);
                 return Promise.reject(msg);
 
             })
