@@ -4,6 +4,7 @@ import imgSkeleton from "../img/productImageSkeleton.png";
 import checkIcon from "../img/checkIcon.png";
 import "reactjs-popup/dist/index.css";
 import React from "react";
+import { CircleSpinnerOverlay } from "react-spinner-overlay";
 
 function ProductDetails(props) {
   const [product, setProduct] = React.useState(null);
@@ -99,17 +100,21 @@ function ProductDetails(props) {
           .catch((err) => console.log(err));
       });
   }, []);
+  console.log(product);
 
   if (!loading) {
     return (
-      <div className="flex items-center w-full justify-center p-16 gap-10">
+      <>
+      <div className="hidden sm:block bg-gradient-to-t from-sky-500 to-sky-100 h-44 shadow-lg"></div>
+      <div className="flex items-center w-full justify-center p-16 gap-10 flex-col sm:flex-row bg-transparent ">
             {imgURL != "" ? (
-                <img src={"https://savingsapp.blob.core.windows.net/productimages/" + product.id + ".jpg" } className="w-3/12 h-3/12" />
+                <img src={"https://savingsapp.blob.core.windows.net/productimages/" + product.id + ".jpg" } className="h-52 w-52 sm:w-60 sm:h-60" />
         ) : (
-          <img src={imgSkeleton} className="w-3/12 h-3/12" />
+          <img src={imgSkeleton} className="w-36 h-36 sm:w-3/12 sm:h-3/12" />
         )}
 
-        <div className="flex flex-col self-start gap-3">
+        <div className="flex flex-col self-start gap-3 w-full sm:items-start items-center sm:w-auto">
+        
           <div>
             <h1 className="text-5xl text-sky-500">
               {capitalizeFirst(productName)}
@@ -195,9 +200,14 @@ function ProductDetails(props) {
           </div>
         </div>
       </div>
+      <div className="h-96 bg-gradient-to-b from-sky-500 to-sky-100 w-full shadow-lg hidden sm:block"></div>
+      </>
     );
   } else {
-    return <p> Loading... </p>;
+    return  <CircleSpinnerOverlay
+    loading={loading}
+    color="#0ea5e9"
+  />;
   }
 }
 

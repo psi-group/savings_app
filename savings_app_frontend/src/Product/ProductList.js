@@ -9,11 +9,8 @@ export default class List extends Component {
     super(props);
     this.state = { products: [], loading: true };
   }
-
+  
   async populateProductsData() {
-    console.log("kvieciam");
-    console.log(this.props.isValidUrl());
-    console.log("kvieciam");
 
     let url =
       "https://localhost:7183/api/products/filter?search=" +

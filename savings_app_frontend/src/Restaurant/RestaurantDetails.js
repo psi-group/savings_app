@@ -12,7 +12,7 @@ const RestaurantDetails = () => {
     const [dataRestaurant, setRData] = useState(null);
     const [dataProducts, setPData] = useState(null);
 
-    const imgURL = window.location.protocol + "//" + window.location.host + "/";
+    const imgURL = "https://savingsapp.blob.core.windows.net/userimages/"
 
     useEffect(() => {
         fetch(`https://localhost:7183/api/restaurants/` + params.id)
@@ -47,11 +47,41 @@ const RestaurantDetails = () => {
 
         if (product.restaurantID == dataRestaurant.id) {
             return (
-                <Link to={"/product/" + product.id} >
-                    <div className="border-2 mb-6 w-[25%] float-left ml-7 mt-6 align-middle border-sky-500 flex  justify-center p-5 drop-shadow-xl rounded-xl bg-gradient-to-l from-sky-400 to-sky-900">
-                        <li key={product.id} className="font-bold text-white text-xl  list-none	">{product.name.toUpperCase()}</li>
+                <Link to={"/product/" + product.id}>
+                <div className="flex align-middle justify-center rounded-xl min-w-[200px]">
+                  <li
+                    key={product.id}
+                    className="font-bold text-white text-xl flex flex-col items-center gap-3 border-2 hover:border-sky-400 p-3 border-sky-600 rounded-md shadow-sm shadow-sky-600"
+                  >
+                    <h1 className="font-extrabold text-transparent text-xl bg-clip-text bg-gradient-to-r from-sky-400 to-sky-700">
+                      {product.name.toUpperCase()}
+                    </h1>
+                    <img
+                      src={
+                        "https://savingsapp.blob.core.windows.net/productimages/" +
+                        product.id +
+                        ".jpg"
+                         
+                      }
+                      className="w-60 h-60 rounded-md"
+                    />
+                    <div className="flex justify-between text-base flex-col items-center">
+                    <p className="text-sky-600">
+                        {product.category}
+                      </p>
+                      <p className="text-sky-600">
+                        {product.price} Eur / {product.amountPerUnit}{" "}
+                        {product.amountType}
+                      </p>
+                      <p className="text-sky-600 text-xs">
+                        Max Quantity: {product.amountOfUnits}{" "}
+                        {product.amountType}
+                      </p>
+                      
                     </div>
-                </Link>
+                  </li>
+                </div>
+              </Link>
             )
         }
        
@@ -61,7 +91,7 @@ const RestaurantDetails = () => {
             <>
                 <h1 className="text-[35px] text-center mt-3 font-bold mb-5" >{dataRestaurant.name}</h1>
                 <div>
-                    <img className=" align-middle w-[400px] h-[350px] border-sky-500 border-5 ml-auto mb-7 mr-auto" src={"https://localhost:7183/userImg/" + dataRestaurant.id + ".jpg"} alt={dataRestaurant.name} />
+                    <img className=" rounded-lg align-middle w-[400px] h-[350px] border-sky-500 border-5 ml-auto mb-7 mr-auto" src={"https://savingsapp.blob.core.windows.net/userimages/" + dataRestaurant.id + ".jpg"} alt={dataRestaurant.name} />
                     <div className="w-[150px] ml-auto mr-auto">
                           <Rating name="half-rating" value={dataRestaurant.rating} precision={0.5}  size="large" />
                     </div>
@@ -71,7 +101,7 @@ const RestaurantDetails = () => {
                     </div>
                    
                     <h3 className="text-[20px] font-bold ml-7">Offered products:</h3>
-                    <div>
+                    <div className='mx-10 grid gap-3 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mt-2 mb-20'>
                         {dataProducts.map(product =>
                             <>{ProductList(product)}</>
                         )}
