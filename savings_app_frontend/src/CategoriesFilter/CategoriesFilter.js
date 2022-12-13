@@ -11,7 +11,7 @@ const CategoriesFilter = (props) => {
       <div class="relative">
         <button
           type="button"
-          className={open ? "p-1 italic bg-sky-500 rounded-md text-white border-sky-500 border-[1px]" : "p-1 bg-white italic rounded-md border-[1px] border-sky-500 hover:!bg-sky-100"}
+          className={open ? "p-1 px-4 italic bg-sky-500 rounded-md text-white border-sky-500 border-[1px]" : "p-1 px-4 bg-white italic rounded-md border-[1px] border-sky-500 hover:!bg-sky-100"}
           onClick={() => setOpen(!open)}
         >
           Categories

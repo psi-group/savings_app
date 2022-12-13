@@ -5,6 +5,8 @@ import PriceFilter from "./Common/PriceFilter";
 import "./App.css";
 import SearchAndDisplay from "./Search/SearchAndDisplay";
 import SortButton from "./Common/SortButton";
+import { Link } from "react-router-dom";
+import MaxResults from "./Common/MaxResults";
 
 function Home(props) {
   const [content, setContent] = React.useState([]);
@@ -18,12 +20,15 @@ function Home(props) {
 
   const renderForecastsTable = (products) => {
     return (
-      <div className="main ml-20 mr-20 mt-10">
+      <div className="main mx-1 md:!mx-auto mt-10 max-w-[700px] lg:max-w-[900px]">
+        <h1 className="text-4xl mb-4 text-sky-500">Products</h1>
         <div>
-          <div className="border-b-[1px] py-2 border-sky-500 flex gap-3">
+          <div className="border-y-[1px] py-2 border-sky-500  items-center flex md:gap-3 pl-4">
             <SortButton setSorting={setSorting}></SortButton>
             <Filter filters={filters} setFilters={setFilters} />
-            {/* <PriceFilter /> */}
+             {/* <PriceFilter />  */}
+             <MaxResults />
+            <Link to="/restaurants" className="border-sky-500 border-1 rounded-md px-4 p-1 outline-none hover:bg-sky-100 hidden md:block">Switch to restaurants</Link>
           </div>
           <FilterDisplay filters={filters} setFilters={setFilters} />
 
@@ -66,6 +71,8 @@ function Home(props) {
   );
 
   return <div>{renderForecastsTable(content)}</div>;
+
 }
+
 
 export default Home;

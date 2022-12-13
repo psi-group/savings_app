@@ -47,7 +47,7 @@ export default class List extends Component {
     return (
       <div>
         <ul>
-          <div className="grid w-full grid-flow-row grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mt-10 gap-1 sm:gap-3">
+        <div className="grid w-full grid-flow-row grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 mt-10 gap-1 sm:gap-3">
             <CircleSpinnerOverlay
               loading={this.state.loading}
               color="#0ea5e9"
