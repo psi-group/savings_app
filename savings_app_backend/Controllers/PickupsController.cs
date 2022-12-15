@@ -26,9 +26,9 @@ namespace savings_app_backend.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Pickup>> GetPickup(Guid id)
+        public async Task<ActionResult<PickupDTOResponse>> GetPickup(Guid id)
         {
-            return Ok(await _pickupService.GetPickups());
+            return Ok(await _pickupService.GetPickup(id));
         }
 
         [HttpGet("product/{productId}")]

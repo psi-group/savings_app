@@ -11,13 +11,13 @@ namespace Domain.DTOs.Response
 {
     public class RestaurantDTOResponse
     {
-        public RestaurantDTOResponse(Guid id, string name, AddressDTOResponse address, string imageName,
+        public RestaurantDTOResponse(Guid id, string name, AddressDTOResponse address, string? imageUrl,
             bool open, string? description, string? shortDescription, string? siteRef)
         {
             Id = id;
             Name = name;
             Address = address;
-            ImageName = imageName;
+            ImageUrl = imageUrl;
             Open = open;
             Description = description;
             ShortDescription = shortDescription;
@@ -27,7 +27,7 @@ namespace Domain.DTOs.Response
         public Guid Id { get; set; }
         public string Name { get; set; }
         public AddressDTOResponse Address { get; set; }
-        public string ImageName { get; set; }
+        public string? ImageUrl { get; set; }
         public bool Open { get; set; }
         public double Rating { get; set; }
         public string? Description { get; set; }

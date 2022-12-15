@@ -56,7 +56,7 @@ namespace Application.Services.Implementations
                     restaurant.Address.AppartmentNumber,
                     restaurant.Address.PostalCode
                     ),
-                restaurant.ImageName,
+                restaurant.ImageUrl,
                 restaurant.Open,
                 restaurant.Description,
                 restaurant.ShortDescription,
@@ -84,7 +84,7 @@ namespace Application.Services.Implementations
                     restaurant.Address.AppartmentNumber,
                     restaurant.Address.PostalCode
                     ),
-                restaurant.ImageName,
+                restaurant.ImageUrl,
                 restaurant.Open,
                 restaurant.Description,
                 restaurant.ShortDescription,
@@ -118,7 +118,7 @@ namespace Application.Services.Implementations
                     restaurant.Address.AppartmentNumber,
                     restaurant.Address.PostalCode
                     ),
-                restaurant.ImageName,
+                restaurant.ImageUrl,
                 restaurant.Open,
                 restaurant.Description,
                 restaurant.ShortDescription,
@@ -157,7 +157,7 @@ namespace Application.Services.Implementations
                 new UserAuthDTOResponse(
                     restaurant.UserAuth.Email
                     ),
-                restaurant.ImageName,
+                restaurant.ImageUrl,
                 restaurant.Open,
                 restaurant.Description,
                 restaurant.ShortDescription,
@@ -185,7 +185,7 @@ namespace Application.Services.Implementations
                     restaurant.Address.AppartmentNumber,
                     restaurant.Address.PostalCode
                     ),
-                restaurant.ImageName,
+                restaurant.ImageUrl,
                 restaurant.Open,
                 restaurant.Description,
                 restaurant.ShortDescription,
@@ -220,7 +220,8 @@ namespace Application.Services.Implementations
                     (int)restaurantToPost.Address.HouseNumber!,
                     restaurantToPost.Address.AppartmentNumber,
                     (int)restaurantToPost.Address.PostalCode!),
-                id.ToString(),
+                restaurantToPost.Image == null ? null :
+                "https://savingsapp.blob.core.windows.net/userimages/" + id + ".jpg",
                 (bool)restaurantToPost.Open!,
                 restaurantToPost.Description,
                 restaurantToPost.ShortDescription,
@@ -236,7 +237,7 @@ namespace Application.Services.Implementations
                 if (restaurantToPost.Image != null)
                 {
                     Task saveImageTask = _fileSaver.SaveImage
-                    (restaurantToPost.Image, restaurant.ImageName, false);
+                    (restaurantToPost.Image, restaurant.Id.ToString(), false);
                     await saveImageTask;
 
                     
@@ -255,7 +256,7 @@ namespace Application.Services.Implementations
                     restaurant.Address.AppartmentNumber,
                     restaurant.Address.PostalCode
                     ),
-                restaurant.ImageName,
+                restaurant.ImageUrl,
                 restaurant.Open,
                 restaurant.Description,
                 restaurant.ShortDescription,
@@ -316,7 +317,7 @@ namespace Application.Services.Implementations
                     restaurant.Address.AppartmentNumber,
                     restaurant.Address.PostalCode
                     ),
-                restaurant.ImageName,
+                restaurant.ImageUrl,
                 restaurant.Open,
                 restaurant.Description,
                 restaurant.ShortDescription,

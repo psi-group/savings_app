@@ -53,36 +53,88 @@ namespace Infrastructure.Repositories
         public IEnumerable<Order> GetOrders(ISpecification<Order> spec)
         {
             // fetch a Queryable that includes all expression-based includes
-            var queryableResultWithIncludes = spec.Includes
+            var res = spec.Includes
                 .Aggregate(_appContext.Orders.AsQueryable(),
                     (current, include) => current.Include(include));
 
             // modify the IQueryable to include any string-based include statements
-            var secondaryResult = spec.IncludeStrings
-                .Aggregate(queryableResultWithIncludes,
+            res = spec.IncludeStrings
+                .Aggregate(res,
                     (current, include) => current.Include(include));
 
             // return the result of the query using the specification's criteria expression
-            return secondaryResult
-                            .Where(spec.Criteria)
-                            .ToList();
+
+
+            if (spec.IsPagingEnabled)
+            {
+                res = res.Skip(spec.Skip)
+                             .Take(spec.Take);
+            }
+
+            if (spec.Criteria != null)
+            {
+                res = res.Where(spec.Criteria);
+            }
+
+            if (spec.OrderBy != null)
+            {
+                res = res.OrderBy(spec.OrderBy);
+            }
+
+            if (spec.OrderByDescending != null)
+            {
+                res = res.OrderByDescending(spec.OrderByDescending);
+            }
+
+            if (spec.GroupBy != null)
+            {
+                res = res.GroupBy(spec.GroupBy).SelectMany(x => x);
+            }
+
+            return res.ToList();
         }
         public async Task<IEnumerable<Order>> GetOrdersAsync(ISpecification<Order> spec)
         {
             // fetch a Queryable that includes all expression-based includes
-            var queryableResultWithIncludes = spec.Includes
+            var res = spec.Includes
                 .Aggregate(_appContext.Orders.AsQueryable(),
                     (current, include) => current.Include(include));
 
             // modify the IQueryable to include any string-based include statements
-            var secondaryResult = spec.IncludeStrings
-                .Aggregate(queryableResultWithIncludes,
+            res = spec.IncludeStrings
+                .Aggregate(res,
                     (current, include) => current.Include(include));
 
             // return the result of the query using the specification's criteria expression
-            return await secondaryResult
-                            .Where(spec.Criteria)
-                            .ToListAsync();
+
+
+            if (spec.IsPagingEnabled)
+            {
+                res = res.Skip(spec.Skip)
+                             .Take(spec.Take);
+            }
+
+            if (spec.Criteria != null)
+            {
+                res = res.Where(spec.Criteria);
+            }
+
+            if (spec.OrderBy != null)
+            {
+                res = res.OrderBy(spec.OrderBy);
+            }
+
+            if (spec.OrderByDescending != null)
+            {
+                res = res.OrderByDescending(spec.OrderByDescending);
+            }
+
+            if (spec.GroupBy != null)
+            {
+                res = res.GroupBy(spec.GroupBy).SelectMany(x => x);
+            }
+
+            return await res.ToListAsync();
         }
 
         public bool OrderExists(Guid id)

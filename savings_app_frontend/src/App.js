@@ -14,13 +14,18 @@ import Login from "./Login";
 import ProtectedRoute from "./ProtectedRoute";
 import Profile from "./Profile";
 import AddProduct from "./AddProduct";
+import UnauthorizedSeller from "./UnauthorizedSeller";
+import UnauthorizedBuyer from "./UnauthorizedBuyer";
+import Unauthorized from "./Unauthorized";
+import Snackbar from '@mui/material/Snackbar';
 
 const App = () => {
   const [searchas, setSearchas] = React.useState("");
   const [selector, setSelector] = React.useState("");
   const [cartItems, setCartItems] = React.useState([]);
     const [fullSum, setFullSum] = React.useState(0);
-
+    const [snackOn, setSnackOn] = React.useState(false);
+    const [snackMessage, setSnackMessage] = React.useState("");
 
 
   useEffect(() => {
@@ -113,8 +118,11 @@ const App = () => {
     }
     }
 
+  
+
     console.log("pradzia");
     console.log(isValidUrl("HELLO"));
+
 
     return (
 
@@ -127,37 +135,49 @@ const App = () => {
                 cartItems={cartItems}
                 addCartItem={addCartItem}
                 fullSum={fullSum}
+                setSnackOn={setSnackOn}
+                setSnackMessage={setSnackMessage}
             />
             <Routes>
-                { /* public paths */}
 
+                    <Route path='/unauthorized' element={<Unauthorized></Unauthorized>} ></Route>
+                    <Route path='/unauthorizedSeller' element={<UnauthorizedSeller></UnauthorizedSeller>} ></Route>
+                    <Route path='/unauthorizedBuyer' element={<UnauthorizedBuyer></UnauthorizedBuyer>} ></Route>
 
-                    <Route element={<ProtectedRoute />}>
-                        <Route path='/' element={<Home searchas={searchas} isValidUrl={isValidUrl} />}></Route>
-                    </Route>
                     
-                
+                    <Route path='/' element={<Home searchas={searchas} isValidUrl={isValidUrl} />}></Route>
                     
-                    <Route path='/register' element={<Register></Register>} ></Route>
-                    <Route path='/login' element={<Login></Login>} ></Route>
+                    
 
-                    <Route path='/products' element={<Home searchas={searchas} isValidUrl={isValidUrl} />}></Route>
+                    <Route path='/register' element={<Register setSnackOn={setSnackOn} setSnackMessage={setSnackMessage}></Register>} ></Route>
+                    <Route path='/login' element={<Login setSnackOn={setSnackOn} setSnackMessage={setSnackMessage}></Login>} ></Route>
+                    
                     <Route path='/product/:id' element={<ProductDetails cartItems={cartItems} addCartItem={addCartItem} roundNumber={roundNumber} />}></Route>
                     <Route path='/orders' element={<Orders />}></Route>
                     <Route path='/restaurants' element={<Restaurants searchas={searchas} />}></Route>
                     <Route path='/restaurants/:id' element={<RestaurantDetails />}></Route>
 
-                    <Route path='/addProduct' element={<AddProduct />}></Route>
+                    <Route element={<ProtectedRoute roles={["seller"]} />}>
+                        <Route path='/addProduct' element={<AddProduct setSnackOn={setSnackOn} setSnackMessage={setSnackMessage} />}></Route>
+                    </Route>
+                    
+                    <Route element={<ProtectedRoute roles={["seller", "buyer"]} />}>
+                        <Route path='/profile' element={<Profile />}></Route>
+                    </Route>
 
-
-                    <Route path='/profile' element={<Profile />}></Route>
-
-                <Route path='/shoppingCart' element={<ShoppingCart cartItems={cartItems} setCartItems={setCartItems} addCartItem={addCartItem} removeCartItem={removeCartItem} fullSum={fullSum} setFullSum={setFullSum} />}></Route>
-                    <Route element={<ProtectedRoute />}>
-                        
+                    <Route element={<ProtectedRoute roles={["buyer"]} />}>
+                        <Route path='/shoppingCart' element={<ShoppingCart setSnackOn={setSnackOn} setSnackMessage={setSnackMessage} cartItems={cartItems} setCartItems={setCartItems} addCartItem={addCartItem} removeCartItem={removeCartItem} fullSum={fullSum} setFullSum={setFullSum} />}></Route>
                     </Route>
                     
             </Routes>
+            <Snackbar
+                open={snackOn}
+                autoHideDuration={4000}
+                message={snackMessage}
+                onClose={(e) => {
+                    setSnackOn(false);
+                }}
+            />
         </>
   );
 };

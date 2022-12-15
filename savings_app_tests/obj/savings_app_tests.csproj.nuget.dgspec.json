@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\justa\\Desktop\\APPAS\\klonas - Copy\\savings_app\\savings_app_tests\\savings_app_tests.csproj": {}
+    "C:\\Users\\justa\\Desktop\\APPAS\\gerascia\\savings_app\\savings_app_tests\\savings_app_tests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\justa\\Desktop\\APPAS\\klonas - Copy\\savings_app\\Application\\Application.csproj": {
+    "C:\\Users\\justa\\Desktop\\APPAS\\gerascia\\savings_app\\Application\\Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\justa\\Desktop\\APPAS\\klonas - Copy\\savings_app\\Application\\Application.csproj",
+        "projectUniqueName": "C:\\Users\\justa\\Desktop\\APPAS\\gerascia\\savings_app\\Application\\Application.csproj",
         "projectName": "Application",
-        "projectPath": "C:\\Users\\justa\\Desktop\\APPAS\\klonas - Copy\\savings_app\\Application\\Application.csproj",
+        "projectPath": "C:\\Users\\justa\\Desktop\\APPAS\\gerascia\\savings_app\\Application\\Application.csproj",
         "packagesPath": "C:\\Users\\justa\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\justa\\Desktop\\APPAS\\klonas - Copy\\savings_app\\Application\\obj\\",
+        "outputPath": "C:\\Users\\justa\\Desktop\\APPAS\\gerascia\\savings_app\\Application\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\justa\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,8 +28,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\justa\\Desktop\\APPAS\\klonas - Copy\\savings_app\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\justa\\Desktop\\APPAS\\klonas - Copy\\savings_app\\Domain\\Domain.csproj"
+              "C:\\Users\\justa\\Desktop\\APPAS\\gerascia\\savings_app\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\justa\\Desktop\\APPAS\\gerascia\\savings_app\\Domain\\Domain.csproj"
               }
             }
           }
@@ -84,14 +84,14 @@
         }
       }
     },
-    "C:\\Users\\justa\\Desktop\\APPAS\\klonas - Copy\\savings_app\\Domain\\Domain.csproj": {
+    "C:\\Users\\justa\\Desktop\\APPAS\\gerascia\\savings_app\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\justa\\Desktop\\APPAS\\klonas - Copy\\savings_app\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Users\\justa\\Desktop\\APPAS\\gerascia\\savings_app\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\Users\\justa\\Desktop\\APPAS\\klonas - Copy\\savings_app\\Domain\\Domain.csproj",
+        "projectPath": "C:\\Users\\justa\\Desktop\\APPAS\\gerascia\\savings_app\\Domain\\Domain.csproj",
         "packagesPath": "C:\\Users\\justa\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\justa\\Desktop\\APPAS\\klonas - Copy\\savings_app\\Domain\\obj\\",
+        "outputPath": "C:\\Users\\justa\\Desktop\\APPAS\\gerascia\\savings_app\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\justa\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -145,14 +145,14 @@
         }
       }
     },
-    "C:\\Users\\justa\\Desktop\\APPAS\\klonas - Copy\\savings_app\\Infrastructure\\Infrastructure.csproj": {
+    "C:\\Users\\justa\\Desktop\\APPAS\\gerascia\\savings_app\\Infrastructure\\Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\justa\\Desktop\\APPAS\\klonas - Copy\\savings_app\\Infrastructure\\Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\justa\\Desktop\\APPAS\\gerascia\\savings_app\\Infrastructure\\Infrastructure.csproj",
         "projectName": "Infrastructure",
-        "projectPath": "C:\\Users\\justa\\Desktop\\APPAS\\klonas - Copy\\savings_app\\Infrastructure\\Infrastructure.csproj",
+        "projectPath": "C:\\Users\\justa\\Desktop\\APPAS\\gerascia\\savings_app\\Infrastructure\\Infrastructure.csproj",
         "packagesPath": "C:\\Users\\justa\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\justa\\Desktop\\APPAS\\klonas - Copy\\savings_app\\Infrastructure\\obj\\",
+        "outputPath": "C:\\Users\\justa\\Desktop\\APPAS\\gerascia\\savings_app\\Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\justa\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -169,8 +169,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\justa\\Desktop\\APPAS\\klonas - Copy\\savings_app\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\justa\\Desktop\\APPAS\\klonas - Copy\\savings_app\\Domain\\Domain.csproj"
+              "C:\\Users\\justa\\Desktop\\APPAS\\gerascia\\savings_app\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\justa\\Desktop\\APPAS\\gerascia\\savings_app\\Domain\\Domain.csproj"
               }
             }
           }
@@ -236,14 +236,14 @@
         }
       }
     },
-    "C:\\Users\\justa\\Desktop\\APPAS\\klonas - Copy\\savings_app\\savings_app_backend\\WebAPI.csproj": {
+    "C:\\Users\\justa\\Desktop\\APPAS\\gerascia\\savings_app\\savings_app_backend\\WebAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\justa\\Desktop\\APPAS\\klonas - Copy\\savings_app\\savings_app_backend\\WebAPI.csproj",
+        "projectUniqueName": "C:\\Users\\justa\\Desktop\\APPAS\\gerascia\\savings_app\\savings_app_backend\\WebAPI.csproj",
         "projectName": "WebAPI",
-        "projectPath": "C:\\Users\\justa\\Desktop\\APPAS\\klonas - Copy\\savings_app\\savings_app_backend\\WebAPI.csproj",
+        "projectPath": "C:\\Users\\justa\\Desktop\\APPAS\\gerascia\\savings_app\\savings_app_backend\\WebAPI.csproj",
         "packagesPath": "C:\\Users\\justa\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\justa\\Desktop\\APPAS\\klonas - Copy\\savings_app\\savings_app_backend\\obj\\",
+        "outputPath": "C:\\Users\\justa\\Desktop\\APPAS\\gerascia\\savings_app\\savings_app_backend\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\justa\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -260,11 +260,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\justa\\Desktop\\APPAS\\klonas - Copy\\savings_app\\Application\\Application.csproj": {
-                "projectPath": "C:\\Users\\justa\\Desktop\\APPAS\\klonas - Copy\\savings_app\\Application\\Application.csproj"
+              "C:\\Users\\justa\\Desktop\\APPAS\\gerascia\\savings_app\\Application\\Application.csproj": {
+                "projectPath": "C:\\Users\\justa\\Desktop\\APPAS\\gerascia\\savings_app\\Application\\Application.csproj"
               },
-              "C:\\Users\\justa\\Desktop\\APPAS\\klonas - Copy\\savings_app\\Infrastructure\\Infrastructure.csproj": {
-                "projectPath": "C:\\Users\\justa\\Desktop\\APPAS\\klonas - Copy\\savings_app\\Infrastructure\\Infrastructure.csproj"
+              "C:\\Users\\justa\\Desktop\\APPAS\\gerascia\\savings_app\\Infrastructure\\Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\justa\\Desktop\\APPAS\\gerascia\\savings_app\\Infrastructure\\Infrastructure.csproj"
               }
             }
           }
@@ -353,14 +353,14 @@
         }
       }
     },
-    "C:\\Users\\justa\\Desktop\\APPAS\\klonas - Copy\\savings_app\\savings_app_tests\\savings_app_tests.csproj": {
+    "C:\\Users\\justa\\Desktop\\APPAS\\gerascia\\savings_app\\savings_app_tests\\savings_app_tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\justa\\Desktop\\APPAS\\klonas - Copy\\savings_app\\savings_app_tests\\savings_app_tests.csproj",
+        "projectUniqueName": "C:\\Users\\justa\\Desktop\\APPAS\\gerascia\\savings_app\\savings_app_tests\\savings_app_tests.csproj",
         "projectName": "savings_app_tests",
-        "projectPath": "C:\\Users\\justa\\Desktop\\APPAS\\klonas - Copy\\savings_app\\savings_app_tests\\savings_app_tests.csproj",
+        "projectPath": "C:\\Users\\justa\\Desktop\\APPAS\\gerascia\\savings_app\\savings_app_tests\\savings_app_tests.csproj",
         "packagesPath": "C:\\Users\\justa\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\justa\\Desktop\\APPAS\\klonas - Copy\\savings_app\\savings_app_tests\\obj\\",
+        "outputPath": "C:\\Users\\justa\\Desktop\\APPAS\\gerascia\\savings_app\\savings_app_tests\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\justa\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -377,8 +377,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\justa\\Desktop\\APPAS\\klonas - Copy\\savings_app\\savings_app_backend\\WebAPI.csproj": {
-                "projectPath": "C:\\Users\\justa\\Desktop\\APPAS\\klonas - Copy\\savings_app\\savings_app_backend\\WebAPI.csproj"
+              "C:\\Users\\justa\\Desktop\\APPAS\\gerascia\\savings_app\\savings_app_backend\\WebAPI.csproj": {
+                "projectPath": "C:\\Users\\justa\\Desktop\\APPAS\\gerascia\\savings_app\\savings_app_backend\\WebAPI.csproj"
               }
             }
           }

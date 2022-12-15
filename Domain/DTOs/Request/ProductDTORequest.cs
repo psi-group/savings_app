@@ -35,7 +35,6 @@ namespace Domain.DTOs.Request
         public DateTime? ShelfLife { get; set; }
         
         public string? Description { get; set; }
-        [Required]
         public IFormFile? Image { get; set; }
     }
 }

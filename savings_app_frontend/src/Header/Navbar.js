@@ -95,7 +95,9 @@ const Navbar = (props) => {
                               </h1>
                               <div className="flex gap-2">
                                 <img
-                                  src={cartItem.image}
+                                          src={cartItem.product.imageUrl == null ?
+                                              "https://savingsapp.blob.core.windows.net/productimages/foodDefault.jpg" :
+                                              cartItem.product.imageUrl}
                                   className="w-16 h-16 rounded-md border-2 border-black self-center"
                                 />
                                 <div className="flex flex-col">

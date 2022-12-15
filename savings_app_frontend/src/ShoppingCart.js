@@ -4,7 +4,9 @@ import { Link } from "react-router-dom";
 export const ShoppingCart = (props) => {
   const [isSelectTimeOpen, setIsSelectTimeOpen] = useState(false);
   const [isPathVisible, setIsPathVisible] = useState(false);
-  const [isPathFinderReady, setIsPathFinderReady] = useState(null);
+    const [isPathFinderReady, setIsPathFinderReady] = useState(null);
+    const [loading, setLoading] = useState(false);
+    const [errorMsg, setErrMsg] = useState("");
 
   console.log(props.cartItems);
 
@@ -16,7 +18,6 @@ export const ShoppingCart = (props) => {
   };
 
   const getId = (token) => {
-    //console.log(JSON.parse(window.atob(token.split(".")[1])));
     return JSON.parse(window.atob(token.split(".")[1]))["Id"];
   };
   const MOCK_VISIT = {
@@ -80,7 +81,10 @@ export const ShoppingCart = (props) => {
     });
   };
 
-  const handleCheckout = () => {
+    const handleCheckout = () => {
+        setErrMsg("");
+
+        setLoading(true);
     console.log(props.cartItems);
 
     const productsToBuy = [];
@@ -104,82 +108,32 @@ export const ShoppingCart = (props) => {
     fetch("https://localhost:7183/api/shop/checkout", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
+          "Content-Type": "application/json",
+          "Authorization": "Bearer " + localStorage.getItem("token")
       },
       body: JSON.stringify({
         productsToBuy: productsToBuy,
         buyerId: getId(localStorage.getItem("token")),
       }),
-    }).then(async res => {
-        console.log(await res.text());
+    }).then(async response => {
+
+        const json = await response.json();
+        console.log(json);
+
+        if (!response.ok) {
+            return Promise.reject(json);
+        }
+
+
+        props.setSnackMessage("Order created successfully");
+        props.setSnackOn(true);
+        setLoading(false);
+
     })
-
-    return;
-
-    props.cartItems.map((cartItem) => {
-      fetch("https://localhost:7183/api/pickups/" + cartItem.pickupTime.id, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          id: cartItem.pickupTime.id,
-          productId: cartItem.pickupTime.productId,
-          startTime: cartItem.pickupTime.startTime,
-          endTime: cartItem.pickupTime.endTime,
-          status: "taken",
-        }),
-      }).then((res) => {
-        let body = JSON.stringify({
-          status: "awaitingPickup",
-          sellerId: cartItem.restaurant.id,
-          BuyerId: "a2e5346e-b246-4578-b5cd-993af7f77d11",
-          PickupId: cartItem.pickupTime.id,
-          productId: cartItem.product.id,
-        });
-        console.log(body);
-
-        fetch("https://localhost:7183/api/orders", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            status: "awaitingPickup",
-            sellerId: cartItem.restaurant.id,
-            BuyerId: "a2e5346e-b246-4578-b5cd-993af7f77d11",
-            PickupId: cartItem.pickupTime.id,
-            productId: cartItem.product.id,
-          }),
-        }).then((res) => {
-          console.log(
-            "fetchinam produkuts " +
-              "https://localhost:7183/api/products/" +
-              cartItem.product.id
-          );
-          fetch("https://localhost:7183/api/products/" + cartItem.product.id, {
-            method: "PUT",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              id: cartItem.product.id,
-              name: cartItem.product.name,
-              category: cartItem.product.category,
-              restaurantId: cartItem.product.restaurantID,
-              amountType: cartItem.product.amountType,
-              amountPerUnit: cartItem.product.amountPerUnit,
-              amountOfUnits:
-                cartItem.product.amountOfUnits - cartItem.unitQuantity,
-              price: cartItem.product.price,
-              pictureUrl: cartItem.product.pictureUrl,
-              shelfLife: cartItem.product.shelfLife,
-              description: cartItem.product.description,
-            }),
-          });
-        });
-      });
-    });
+        .catch(error => {
+            setLoading(false);
+            setErrMsg(error.title);
+        })
 
     props.setCartItems([]);
     props.setFullSum(0);
@@ -188,7 +142,8 @@ export const ShoppingCart = (props) => {
   return (
     <>
       <div className="flex w-full h-full">
-        <div className="bg-white w-2/3 p-16 flex flex-col relative">
+              <div className="bg-white w-2/3 p-16 flex flex-col relative">
+                  <p className="text-red-500">{errorMsg}</p>
           <h1 className="text-2xl font-bold">MY SHOPPING CART</h1>
           <div className="bg-zinc-700 h-1"></div>
           <div className="flex justify-between pt-5">
@@ -206,11 +161,9 @@ export const ShoppingCart = (props) => {
                     <div className="flex justify-between border-b-2 border-zinc-500 pb-2">
                       <div className="flex gap-5">
                         <img
-                          src={
-                            "https://localhost:7183/productImg/" +
-                            cartItem.product.id +
-                            ".jpg"
-                          }
+                                    src={cartItem.product.imageUrl == null ?
+                                        "https://savingsapp.blob.core.windows.net/productimages/foodDefault.jpg" :
+                                        cartItem.product.imageUrl}
                           className="w-24 h-20 rounded-md border-zinc-500 border-2"
                         />
                         <div className="flex flex-col">
@@ -231,8 +184,12 @@ export const ShoppingCart = (props) => {
                             </p>
                           </div>
                           <button
-                            className="self-start text-sm text-zinc-500"
-                            onClick={() => props.removeCartItem(index)}
+                                        className="self-start text-sm text-zinc-500"
+                                        onClick={() => {
+                                            props.removeCartItem(index);
+                                            props.setSnackOn(true);
+                                            props.setSnackMessage("Product removed from cart");
+                                        }}
                           >
                             Remove
                           </button>
@@ -369,11 +326,25 @@ export const ShoppingCart = (props) => {
             <div className="bg-white h-1 mb-2"></div>
 
             <button
-              type="button"
-              className="bg-white p-2 pt-2 font-bold justify-self-end mb-2"
-              onClick={handleCheckout}
-            >
-              Checkout
+                          type="button"
+                          className="bg-white p-2 pt-2 font-bold justify-self-end mb-2"
+                          onClick={handleCheckout}
+                          disabled={loading }
+                      >
+
+
+                          <>
+
+                              {loading && <div>
+                                  <i
+                                      className="fa fa-refresh fa-spin"
+
+                                  />
+                              </div>}
+                              Checkout
+
+
+                          </>
             </button>
             <button
               type="button"

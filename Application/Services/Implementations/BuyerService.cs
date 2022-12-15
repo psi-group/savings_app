@@ -44,7 +44,7 @@ namespace Application.Services.Implementations
             var buyerResponse = new BuyerDTOResponse(
                 buyer.Id,
                 buyer.Name,
-                buyer.ImageName
+                buyer.ImageUrl
                 );
 
             return buyerResponse;
@@ -69,7 +69,7 @@ namespace Application.Services.Implementations
                 var buyerResponse = new BuyerPrivateDTOResponse(
                 buyer.Id,
                 buyer.Name,
-                buyer.ImageName,
+                buyer.ImageUrl,
                 buyer.Address == null ? null :
                 new AddressDTOResponse(
                     buyer.Address.Country,
@@ -100,7 +100,7 @@ namespace Application.Services.Implementations
                 var buyerResponse = new BuyerDTOResponse(
                 buyer.Id,
                 buyer.Name,
-                buyer.ImageName
+                buyer.ImageUrl
                 );
                 return buyerResponse;
             }
@@ -115,7 +115,7 @@ namespace Application.Services.Implementations
                 var buyerResponse = new BuyerDTOResponse(
                 buyer.Id,
                 buyer.Name,
-                buyer.ImageName
+                buyer.ImageUrl
                 );
                 buyersResponse.Add(buyerResponse);
             }
@@ -147,7 +147,9 @@ namespace Application.Services.Implementations
                         (int)buyerToPost.Address.HouseNumber!,
                         buyerToPost.Address.AppartmentNumber,
                         (int)buyerToPost.Address.PostalCode!),
-                id.ToString());
+                buyerToPost.Image == null ? null : 
+                "https://savingsapp.blob.core.windows.net/userimages/" + id + ".jpg"
+                );
 
             using (TransactionScope scope = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled))
             {
@@ -157,7 +159,7 @@ namespace Application.Services.Implementations
                 if (buyerToPost.Image != null)
                 {
                     Task saveImageTask = _fileSaver.SaveImage(buyerToPost.Image,
-                        buyer.ImageName, false);
+                        buyer.Id.ToString(), false);
                     await saveImageTask;
                 }
 
@@ -167,7 +169,7 @@ namespace Application.Services.Implementations
             var buyerResponse = new BuyerDTOResponse(
                 buyer.Id,
                 buyer.Name,
-                buyer.ImageName
+                buyer.ImageUrl
                 ) ;
 
             return buyerResponse;
@@ -213,7 +215,7 @@ namespace Application.Services.Implementations
             var buyerResponse = new BuyerDTOResponse(
                 buyer.Id,
                 buyer.Name,
-                buyer.ImageName
+                buyer.ImageUrl
                 );
 
             return buyerResponse;

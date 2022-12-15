@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-const Register = () => {
+
+const Register = ({ setSnackOn, setSnackMessage }) => {
     const defaultImageSrc = "/images/profilePic.jpg";
     const navigate = useNavigate();
     const [errorMsg, setErrMsg] = useState("");
@@ -15,6 +16,8 @@ const Register = () => {
     const [imageSrc, setImageSrc] = useState(defaultImageSrc);
     const [imageFile, setImageFile] = useState();
 
+    const [loading, setLoading] = useState(false);
+
     const [address, setAddress] = useState({
         country: "",
         city: "",
@@ -25,6 +28,9 @@ const Register = () => {
     });
 
     const handleRegister = (e) => {
+        
+        setLoading(true);
+
         e.preventDefault();
         console.log("regiter");
         const formData = new FormData();
@@ -58,25 +64,25 @@ const Register = () => {
             body: formData,
         })
             .then(async (response) => {
-                const isJson = response.headers
-                    .get("content-type")
-                    ?.includes("application/json");
 
-                console.log(isJson);
-
-                console.log(response);
                 if (!response.ok) {
-                    console.log("WTf");
-                    console.log(await response.text());
-                    setErrMsg("Incorrect register inputs");
+                    const msg = await response.json();
+                    console.log(msg);
+                    setLoading(false);
+                    return Promise.reject(msg);
+                    
                 } else {
                     setErrMsg("");
-                    navigate("/");
+                    setLoading(false);
+                    setSnackOn(true);
+                    setSnackMessage("Registered successfully");
+                    navigate("/login");
                 }
             })
             .catch((error) => {
                 console.log(error);
-                setErrMsg(error);
+                setErrMsg(error.title);
+                setLoading(false);
             });
     };
 
@@ -101,7 +107,7 @@ const Register = () => {
         <div className="grid h-screen place-items-center sm:pt-20">
             <div className="text-[18px] w-full sm:w-[600px] flex flex-col sm:border-sky-500 sm:border-2 px-6 py-3 sm:rounded-xl shadow-xl">
                 <h1 className="text-center font-bold  mb-3 text-3xl">Register</h1>
-                <h3 className="text-center font-bold text-sky-500 mb-3 font-mono">
+                <h3 className="text-center font-bold text-red-500 mb-3 font-mono">
                     {errorMsg}
                 </h3>
                 <form
@@ -291,7 +297,18 @@ const Register = () => {
                             </p>
                             <p className="text-[12px]">Click here to change</p>
                         </button>
-                        <button className=" bg-sky-500 text-white rounded-xl font-bold hover:bg-sky-800 hover:text-white h-10 w-full">
+                        <button className=" bg-sky-500 text-white rounded-xl font-bold hover:bg-sky-800 hover:text-white h-10 w-full"
+                            disabled={loading}
+                        >
+                            <>
+
+                                {loading && <div>
+                                    <i
+                                        className="fa fa-refresh fa-spin"
+
+                                    />
+                                </div>}
+                            </>
                             Register
                         </button>
                     </div>

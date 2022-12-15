@@ -1,5 +1,6 @@
 ﻿using Application.Services.Interfaces;
 using Domain.DTOs.Request;
+using Domain.DTOs.Response;
 using Domain.Entities;
 using Domain.Enums;
 using Domain.Exceptions;
@@ -26,7 +27,7 @@ namespace savings_app_backend.Controllers
         }
 
         [HttpGet("filter")]
-        public async Task<ActionResult<IEnumerable<Product>>> GetFilteredProducts(
+        public async Task<ActionResult<IEnumerable<ProductDTOResponse>>> GetFilteredProducts(
             [FromQuery] List<Category> category,
             [FromQuery] string? search,
             [FromQuery] string? order = "by_id")

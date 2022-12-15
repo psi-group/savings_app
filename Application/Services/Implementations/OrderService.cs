@@ -54,6 +54,7 @@ namespace Application.Services.Implementations
 
             var orderDTO = new OrderDTOResponse(
                 order.Id,
+                order.OrderDate,
                 order.BuyerId,
                 orderItemListDTO
                 );
@@ -92,6 +93,7 @@ namespace Application.Services.Implementations
 
                 var orderResponse = new OrderDTOResponse(
                     order.Id,
+                    order.OrderDate,
                     order.BuyerId,
                     orderItemListDTO
                 );
@@ -134,6 +136,7 @@ namespace Application.Services.Implementations
 
                 var orderDTO = new OrderDTOResponse(
                 order.Id,
+                order.OrderDate,
                 order.BuyerId,
                 orderItemListDTO
                 );
@@ -167,6 +170,7 @@ namespace Application.Services.Implementations
 
                 var orderDTO = new OrderDTOResponse(
                 order.Id,
+                order.OrderDate,
                 order.BuyerId,
                 orderItemListDTO
                 );
@@ -237,6 +241,7 @@ namespace Application.Services.Implementations
 
             var orderDTO = new OrderDTOResponse(
                 order.Id,
+                order.OrderDate,
                 order.BuyerId,
                 orderItemListDTO
                 );
@@ -284,6 +289,7 @@ namespace Application.Services.Implementations
 
             var orderDTO = new OrderDTOResponse(
                 order.Id,
+                order.OrderDate,
                 order.BuyerId,
                 orderItemListDTO
                 );
