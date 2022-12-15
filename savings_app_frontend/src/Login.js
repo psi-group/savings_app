@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import useAuth from "./useAuth";
 
-const Login = () => {
+const Login = ({ setSnackOn, setSnackMessage }) => {
 
     const navigate = useNavigate();
     const { setAuth } = useAuth();
@@ -15,8 +15,13 @@ const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
+    const [loadingAuth, setLoadingAuth] = useState(false);
+
     const handleRegister = (e) => {
+        setLoadingAuth(true);
         e.preventDefault();
+
+        
 
         console.log(email + "|" + password);
         fetch("https://localhost:7183/api/auth/login", {
@@ -32,7 +37,7 @@ const Login = () => {
         })
             .then(async (res) => {
                 
-                if (res.status == 200) {
+                if (res.ok) {
                     return await res.text();
                     //return text;
                 }
@@ -54,9 +59,13 @@ const Login = () => {
                         setAuth({ token, name, role });*/
 
                 localStorage.setItem("token", token);
+                setLoadingAuth(false);
+                setSnackMessage("Logged in successfully\n");
+                setSnackOn(true);
                 navigate("/");
             })
             .catch((error) => {
+                setLoadingAuth(false);
                 console.log("errroas ");
                 console.log(error);
                 console.log(error.error);
@@ -93,9 +102,25 @@ const Login = () => {
                         ></input>
                         <br></br>
                     </div>
-                    <button className="mt-3 bg-sky-500 text-white rounded-xl font-bold hover:bg-sky-800 hover:text-white h-10 w-full">
-                        Sign In
+                    <button className="mt-3 bg-sky-500 text-white rounded-xl font-bold hover:bg-sky-800 hover:text-white h-10 w-full"
+                        disabled={loadingAuth}
+                        
+                    >
+                        <>
+                            
+                            {loadingAuth && <div>
+                                <i
+                                    className="fa fa-refresh fa-spin"
+
+                                />
+                            </div>}
+                            Sign in
+                            
+                            
+                        </>
+                        
                     </button>
+                    
                 </form>
                 <div className="mt-3 mb-3 bg-sky-500 h-[2px] w-full"></div>
                 <h1 className="text-center font-bold">Don't have an account yet?</h1>

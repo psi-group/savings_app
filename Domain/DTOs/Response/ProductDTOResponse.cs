@@ -15,7 +15,7 @@ namespace Domain.DTOs.Response
     {
         public ProductDTOResponse(Guid id, string name, bool isHidden, Category category,
             Guid restaurantId, AmountType amountType, float amountPerUnit, int amountOfUnits,
-            float price, string imageName, DateTime shelfLife, string? description)
+            float price, string? imageUrl, DateTime shelfLife, string? description)
         {
             Id = id;
             Name = name;
@@ -26,7 +26,7 @@ namespace Domain.DTOs.Response
             AmountPerUnit = amountPerUnit;
             AmountOfUnits = amountOfUnits;
             Price = price;
-            ImageName = imageName;
+            ImageUrl = imageUrl;
             ShelfLife = shelfLife;
             Description = description;
         }
@@ -51,7 +51,7 @@ namespace Domain.DTOs.Response
 
         public float Price { get; set; }
 
-        public string ImageName { get; set; }
+        public string? ImageUrl { get; set; }
 
         public DateTime ShelfLife { get; set; }
 

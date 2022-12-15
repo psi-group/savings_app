@@ -32,10 +32,14 @@ function ProductDetails(props) {
     setErrorVisible(false);
   };
 
-  const handleSubmit = (event) => {
+    const handleSubmit = (event) => {
+
+        console.log("submitas");
+
       event.preventDefault();
       console.log(itemPickupTime);
-      if (itemPickupTime == {}) {
+        if (Object.keys(itemPickupTime).length === 0) {
+            console.log("yra");
       setErrorVisible(true);
     } else {
         props.addCartItem(
@@ -104,11 +108,12 @@ function ProductDetails(props) {
 
   if (!loading) {
     return (
-      <>
-      <div className="hidden sm:block bg-gradient-to-t from-sky-500 to-sky-100 h-44 shadow-lg"></div>
+        <>
       <div className="flex items-center w-full justify-center p-16 gap-10 flex-col sm:flex-row bg-transparent ">
             {imgURL != "" ? (
-                <img src={"https://savingsapp.blob.core.windows.net/productimages/" + product.id + ".jpg" } className="h-52 w-52 sm:w-60 sm:h-60" />
+                    <img src={product.imageUrl == null ?
+                        "https://savingsapp.blob.core.windows.net/productimages/foodDefault.jpg" :
+                        product.imageUrl} className="h-52 w-52 sm:w-60 sm:h-60" />
         ) : (
           <img src={imgSkeleton} className="w-36 h-36 sm:w-3/12 sm:h-3/12" />
         )}
@@ -134,7 +139,8 @@ function ProductDetails(props) {
                   >
                     <input
                       className="peer opacity-0 absolute "
-                      type="radio"
+                          type="radio"
+                          
                       name="pickUpTime"
                       onChange={() => setItemPickup(pickUpTime)}
                     ></input>
@@ -151,7 +157,7 @@ function ProductDetails(props) {
                 
               ))}
               {errorVisible && (
-                <h3 className="text-sky-500 text-lg font-bold">
+                                <h3 className="text-red-500 text-lg font-bold">
                   Please select a pickup time
                 </h3>
               )}
@@ -200,7 +206,6 @@ function ProductDetails(props) {
           </div>
         </div>
       </div>
-      <div className="h-96 bg-gradient-to-b from-sky-500 to-sky-100 w-full shadow-lg hidden sm:block"></div>
       </>
     );
   } else {

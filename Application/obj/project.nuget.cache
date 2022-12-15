@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "EaqbFtZWEruX9g+RT7LpOn04l7oHEVDPnT66F4/Q8mdzOOOlmY//KNVespT7ajI67X9f3i1lJkURz4o7mx33UQ==",
+  "dgSpecHash": "rnSPRrzcXz4PhykJr3SayCZQOOvXjeljSsqsuAy+JiT+GhenC8fxzNNJqK0mhiYbPhyJgOYjb+iOu/SUJvH/ow==",
   "success": true,
-  "projectFilePath": "C:\\Users\\justa\\Desktop\\APPAS\\klonas - Copy\\savings_app\\Application\\Application.csproj",
+  "projectFilePath": "C:\\Users\\justa\\Desktop\\APPAS\\gerascia\\savings_app\\Application\\Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\justa\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\2.2.0\\microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\justa\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.17\\microsoft.aspnetcore.http.features.5.0.17.nupkg.sha512",

@@ -12,7 +12,9 @@ const RestaurantDetails = () => {
     const [dataRestaurant, setRData] = useState(null);
     const [dataProducts, setPData] = useState(null);
 
-    const imgURL = "https://savingsapp.blob.core.windows.net/userimages/"
+    const imgURL = dataRestaurant == null || dataRestaurant.imageUrl == null ?
+        "https://savingsapp.blob.core.windows.net/userimages/profilePic.jpg" :
+        dataRestaurant.imageUrl
 
     useEffect(() => {
         fetch(`https://localhost:7183/api/restaurants/` + params.id)
@@ -58,10 +60,9 @@ const RestaurantDetails = () => {
                     </h1>
                     <img
                       src={
-                        "https://savingsapp.blob.core.windows.net/productimages/" +
-                        product.id +
-                        ".jpg"
-                         
+                                    product.imageUrl == null ?
+                                        "https://savingsapp.blob.core.windows.net/productimages/foodDefault.jpg" :
+                                        product.imageUrl
                       }
                       className="w-60 h-60 rounded-md"
                     />

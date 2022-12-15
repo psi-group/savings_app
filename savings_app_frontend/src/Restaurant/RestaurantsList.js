@@ -20,9 +20,9 @@ const RestaurantsList = (props) => {
             <img
               className=""
               src={
-                "https://savingsapp.blob.core.windows.net/userimages/" +
-                restaurant.id +
-                ".jpg"
+                  restaurant.imageUrl == null ?
+                      "https://savingsapp.blob.core.windows.net/userimages/profilePic.jpg" :
+                      restaurant.imageUrl
               }
               alt={restaurant.name}
             />

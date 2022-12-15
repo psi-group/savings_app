@@ -2,17 +2,19 @@ import { useLocation, Navigate, Outlet } from "react-router-dom";
 //import useAuth from "../hooks/useAuth";
 import useValidateJWT from "./Hooks/useValidateJWT";
 
-const ProtectedRoute = () => {
+const ProtectedRoute = ({roles }) => {
     //const { auth } = useAuth();
     const location = useLocation();
-    
 
-    
+    const role = useValidateJWT();
 
     return (
-        useValidateJWT()
+        roles.includes(role)
             ? <Outlet />
-            : <Navigate to="/login" />
+            : role == null ?
+                <Navigate to="/unauthorized" /> :
+                <Navigate to={"/unauthorized" + (role == "seller" ? "buyer" : "seller")} />
+            
     );
 }
 

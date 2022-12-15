@@ -62,7 +62,7 @@ namespace Application.Services.Implementations
                 product.AmountPerUnit,
                 product.AmountOfUnits,
                 product.Price,
-                product.ImageName,
+                product.ImageUrl,
                 product.ShelfLife,
                 product.Description
                 );
@@ -89,7 +89,7 @@ namespace Application.Services.Implementations
                 product.AmountPerUnit,
                 product.AmountOfUnits,
                 product.Price,
-                product.ImageName,
+                product.ImageUrl,
                 product.ShelfLife,
                 product.Description
                 );
@@ -120,7 +120,7 @@ namespace Application.Services.Implementations
                 product.AmountPerUnit,
                 product.AmountOfUnits,
                 product.Price,
-                product.ImageName,
+                product.ImageUrl,
                 product.ShelfLife,
                 product.Description
                 );
@@ -145,7 +145,7 @@ namespace Application.Services.Implementations
                 product.AmountPerUnit,
                 product.AmountOfUnits,
                 product.Price,
-                product.ImageName,
+                product.ImageUrl,
                 product.ShelfLife,
                 product.Description
                 );
@@ -176,7 +176,8 @@ namespace Application.Services.Implementations
                 (float)productToPost.AmountPerUnit!,
                 (int)productToPost.AmountOfUnits!,
                 (float)productToPost.Price!,
-                id.ToString(),
+                productToPost.Image == null ? null :
+                "https://savingsapp.blob.core.windows.net/productimages/" + id + ".jpg",
                 (DateTime)productToPost.ShelfLife!,
                 productToPost.Description);
 
@@ -190,7 +191,7 @@ namespace Application.Services.Implementations
                 if (productToPost.Image != null)
                 {
                     Task saveImageTask = _fileSaver.SaveImage
-                    (productToPost.Image, product.ImageName, true);
+                    (productToPost.Image, product.Id.ToString(), true);
                     await saveImageTask;
                 }
                 
@@ -210,7 +211,7 @@ namespace Application.Services.Implementations
                 product.AmountPerUnit,
                 product.AmountOfUnits,
                 product.Price,
-                product.ImageName,
+                product.ImageUrl,
                 product.ShelfLife,
                 product.Description
                 );
@@ -239,7 +240,8 @@ namespace Application.Services.Implementations
                 (float)productToChange.AmountPerUnit!,
                 (int)productToChange.AmountOfUnits!,
                 (float)productToChange.Price!,
-                id.ToString(),
+                productToChange.Image == null ? null :
+                "https://savingsapp.blob.core.windows.net/productimages/" + id + ".jpg",
                 (DateTime)productToChange.ShelfLife!,
                 productToChange.Description);
 
@@ -256,7 +258,7 @@ namespace Application.Services.Implementations
                 product.AmountPerUnit,
                 product.AmountOfUnits,
                 product.Price,
-                product.ImageName,
+                product.ImageUrl,
                 product.ShelfLife,
                 product.Description
                 );

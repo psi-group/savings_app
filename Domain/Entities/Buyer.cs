@@ -11,13 +11,13 @@ namespace Domain.Entities
         {
 
         }
-        public Buyer(Guid id, string name, UserAuth userAuth, Address? address, string imageName)
+        public Buyer(Guid id, string name, UserAuth userAuth, Address? address, string? imageUrl)
         {
             Id = id;
             Name = name;
             UserAuth = userAuth;
             Address = address;
-            ImageName = imageName;
+            ImageUrl = imageUrl;
         }
     }
 }

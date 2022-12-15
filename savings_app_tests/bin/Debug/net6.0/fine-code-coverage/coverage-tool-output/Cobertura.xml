@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
-<coverage line-rate="0.00373482726423903" branch-rate="0" lines-covered="8" lines-valid="2142" branches-covered="0" branches-valid="190" complexity="533" version="0" timestamp="1670717552">
+<coverage line-rate="0.0050251256281407" branch-rate="0" lines-covered="12" lines-valid="2388" branches-covered="0" branches-valid="204" complexity="590" version="0" timestamp="1670987052">
   <sources>
     <source>C:\Users\justa\</source>
   </sources>
   <packages>
-    <package name="Application" line-rate="0" branch-rate="0" complexity="203">
+    <package name="Application" line-rate="0" branch-rate="0" complexity="211">
       <classes>
-        <class name="Application.Services.Implementations.AuthService" filename="C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\Application\Services\Implementations\AuthService.cs" line-rate="0" branch-rate="0" complexity="12">
+        <class name="Application.Services.Implementations.AuthService" filename="C:\Users\justa\Desktop\APPAS\gerascia\savings_app\Application\Services\Implementations\AuthService.cs" line-rate="0" branch-rate="0" complexity="12">
           <methods>
             <method name="Login" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -135,7 +135,7 @@
             <line number="94" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Application.Services.Implementations.BuyerService" filename="C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\Application\Services\Implementations\BuyerService.cs" line-rate="0" branch-rate="0" complexity="31">
+        <class name="Application.Services.Implementations.BuyerService" filename="C:\Users\justa\Desktop\APPAS\gerascia\savings_app\Application\Services\Implementations\BuyerService.cs" line-rate="0" branch-rate="0" complexity="33">
           <methods>
             <method name=".ctor" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -236,7 +236,7 @@
                 <line number="123" hits="0" branch="false" />
               </lines>
             </method>
-            <method name="PostBuyer" signature="()" line-rate="0" branch-rate="0" complexity="8">
+            <method name="PostBuyer" signature="()" line-rate="0" branch-rate="0" complexity="10">
               <lines>
                 <line number="126" hits="0" branch="true" condition-coverage="0% (0/2)" />
                 <line number="127" hits="0" branch="true" condition-coverage="0% (0/2)" />
@@ -244,7 +244,7 @@
                 <line number="129" hits="0" branch="false" />
                 <line number="130" hits="0" branch="false" />
                 <line number="133" hits="0" branch="false" />
-                <line number="135" hits="0" branch="true" condition-coverage="0% (0/2)" />
+                <line number="135" hits="0" branch="true" condition-coverage="0% (0/4)" />
                 <line number="136" hits="0" branch="false" />
                 <line number="137" hits="0" branch="false" />
                 <line number="138" hits="0" branch="false" />
@@ -260,43 +260,43 @@
                 <line number="148" hits="0" branch="false" />
                 <line number="149" hits="0" branch="false" />
                 <line number="150" hits="0" branch="false" />
+                <line number="151" hits="0" branch="false" />
                 <line number="152" hits="0" branch="false" />
-                <line number="153" hits="0" branch="false" />
                 <line number="154" hits="0" branch="false" />
                 <line number="155" hits="0" branch="false" />
-                <line number="157" hits="0" branch="true" condition-coverage="0% (0/2)" />
-                <line number="158" hits="0" branch="false" />
-                <line number="159" hits="0" branch="false" />
+                <line number="156" hits="0" branch="false" />
+                <line number="157" hits="0" branch="false" />
+                <line number="159" hits="0" branch="true" condition-coverage="0% (0/2)" />
                 <line number="160" hits="0" branch="false" />
                 <line number="161" hits="0" branch="false" />
                 <line number="162" hits="0" branch="false" />
+                <line number="163" hits="0" branch="false" />
                 <line number="164" hits="0" branch="false" />
-                <line number="165" hits="0" branch="false" />
+                <line number="166" hits="0" branch="false" />
                 <line number="167" hits="0" branch="false" />
-                <line number="168" hits="0" branch="false" />
                 <line number="169" hits="0" branch="false" />
                 <line number="170" hits="0" branch="false" />
                 <line number="171" hits="0" branch="false" />
+                <line number="172" hits="0" branch="false" />
                 <line number="173" hits="0" branch="false" />
-                <line number="174" hits="0" branch="false" />
+                <line number="175" hits="0" branch="false" />
+                <line number="176" hits="0" branch="false" />
               </lines>
             </method>
             <method name="PutBuyer" signature="()" line-rate="0" branch-rate="0" complexity="8">
               <lines>
-                <line number="177" hits="0" branch="false" />
-                <line number="178" hits="0" branch="true" condition-coverage="0% (0/2)" />
                 <line number="179" hits="0" branch="false" />
-                <line number="180" hits="0" branch="false" />
-                <line number="182" hits="0" branch="true" condition-coverage="0% (0/2)" />
-                <line number="183" hits="0" branch="false" />
-                <line number="184" hits="0" branch="false" />
+                <line number="180" hits="0" branch="true" condition-coverage="0% (0/2)" />
+                <line number="181" hits="0" branch="false" />
+                <line number="182" hits="0" branch="false" />
+                <line number="184" hits="0" branch="true" condition-coverage="0% (0/2)" />
                 <line number="185" hits="0" branch="false" />
-                <line number="188" hits="0" branch="true" condition-coverage="0% (0/2)" />
-                <line number="189" hits="0" branch="false" />
-                <line number="190" hits="0" branch="false" />
-                <line number="193" hits="0" branch="true" condition-coverage="0% (0/2)" />
-                <line number="194" hits="0" branch="false" />
-                <line number="195" hits="0" branch="false" />
+                <line number="186" hits="0" branch="false" />
+                <line number="187" hits="0" branch="false" />
+                <line number="190" hits="0" branch="true" condition-coverage="0% (0/2)" />
+                <line number="191" hits="0" branch="false" />
+                <line number="192" hits="0" branch="false" />
+                <line number="195" hits="0" branch="true" condition-coverage="0% (0/2)" />
                 <line number="196" hits="0" branch="false" />
                 <line number="197" hits="0" branch="false" />
                 <line number="198" hits="0" branch="false" />
@@ -310,15 +310,17 @@
                 <line number="206" hits="0" branch="false" />
                 <line number="207" hits="0" branch="false" />
                 <line number="208" hits="0" branch="false" />
+                <line number="209" hits="0" branch="false" />
                 <line number="210" hits="0" branch="false" />
-                <line number="211" hits="0" branch="false" />
+                <line number="212" hits="0" branch="false" />
                 <line number="213" hits="0" branch="false" />
-                <line number="214" hits="0" branch="false" />
                 <line number="215" hits="0" branch="false" />
                 <line number="216" hits="0" branch="false" />
                 <line number="217" hits="0" branch="false" />
+                <line number="218" hits="0" branch="false" />
                 <line number="219" hits="0" branch="false" />
-                <line number="220" hits="0" branch="false" />
+                <line number="221" hits="0" branch="false" />
+                <line number="222" hits="0" branch="false" />
               </lines>
             </method>
           </methods>
@@ -408,7 +410,7 @@
             <line number="129" hits="0" branch="false" />
             <line number="130" hits="0" branch="false" />
             <line number="133" hits="0" branch="false" />
-            <line number="135" hits="0" branch="true" condition-coverage="0% (0/2)" />
+            <line number="135" hits="0" branch="true" condition-coverage="0% (0/4)" />
             <line number="136" hits="0" branch="false" />
             <line number="137" hits="0" branch="false" />
             <line number="138" hits="0" branch="false" />
@@ -424,39 +426,39 @@
             <line number="148" hits="0" branch="false" />
             <line number="149" hits="0" branch="false" />
             <line number="150" hits="0" branch="false" />
+            <line number="151" hits="0" branch="false" />
             <line number="152" hits="0" branch="false" />
-            <line number="153" hits="0" branch="false" />
             <line number="154" hits="0" branch="false" />
             <line number="155" hits="0" branch="false" />
-            <line number="157" hits="0" branch="true" condition-coverage="0% (0/2)" />
-            <line number="158" hits="0" branch="false" />
-            <line number="159" hits="0" branch="false" />
+            <line number="156" hits="0" branch="false" />
+            <line number="157" hits="0" branch="false" />
+            <line number="159" hits="0" branch="true" condition-coverage="0% (0/2)" />
             <line number="160" hits="0" branch="false" />
             <line number="161" hits="0" branch="false" />
             <line number="162" hits="0" branch="false" />
+            <line number="163" hits="0" branch="false" />
             <line number="164" hits="0" branch="false" />
-            <line number="165" hits="0" branch="false" />
+            <line number="166" hits="0" branch="false" />
             <line number="167" hits="0" branch="false" />
-            <line number="168" hits="0" branch="false" />
             <line number="169" hits="0" branch="false" />
             <line number="170" hits="0" branch="false" />
             <line number="171" hits="0" branch="false" />
+            <line number="172" hits="0" branch="false" />
             <line number="173" hits="0" branch="false" />
-            <line number="174" hits="0" branch="false" />
-            <line number="177" hits="0" branch="false" />
-            <line number="178" hits="0" branch="true" condition-coverage="0% (0/2)" />
+            <line number="175" hits="0" branch="false" />
+            <line number="176" hits="0" branch="false" />
             <line number="179" hits="0" branch="false" />
-            <line number="180" hits="0" branch="false" />
-            <line number="182" hits="0" branch="true" condition-coverage="0% (0/2)" />
-            <line number="183" hits="0" branch="false" />
-            <line number="184" hits="0" branch="false" />
+            <line number="180" hits="0" branch="true" condition-coverage="0% (0/2)" />
+            <line number="181" hits="0" branch="false" />
+            <line number="182" hits="0" branch="false" />
+            <line number="184" hits="0" branch="true" condition-coverage="0% (0/2)" />
             <line number="185" hits="0" branch="false" />
-            <line number="188" hits="0" branch="true" condition-coverage="0% (0/2)" />
-            <line number="189" hits="0" branch="false" />
-            <line number="190" hits="0" branch="false" />
-            <line number="193" hits="0" branch="true" condition-coverage="0% (0/2)" />
-            <line number="194" hits="0" branch="false" />
-            <line number="195" hits="0" branch="false" />
+            <line number="186" hits="0" branch="false" />
+            <line number="187" hits="0" branch="false" />
+            <line number="190" hits="0" branch="true" condition-coverage="0% (0/2)" />
+            <line number="191" hits="0" branch="false" />
+            <line number="192" hits="0" branch="false" />
+            <line number="195" hits="0" branch="true" condition-coverage="0% (0/2)" />
             <line number="196" hits="0" branch="false" />
             <line number="197" hits="0" branch="false" />
             <line number="198" hits="0" branch="false" />
@@ -470,18 +472,20 @@
             <line number="206" hits="0" branch="false" />
             <line number="207" hits="0" branch="false" />
             <line number="208" hits="0" branch="false" />
+            <line number="209" hits="0" branch="false" />
             <line number="210" hits="0" branch="false" />
-            <line number="211" hits="0" branch="false" />
+            <line number="212" hits="0" branch="false" />
             <line number="213" hits="0" branch="false" />
-            <line number="214" hits="0" branch="false" />
             <line number="215" hits="0" branch="false" />
             <line number="216" hits="0" branch="false" />
             <line number="217" hits="0" branch="false" />
+            <line number="218" hits="0" branch="false" />
             <line number="219" hits="0" branch="false" />
-            <line number="220" hits="0" branch="false" />
+            <line number="221" hits="0" branch="false" />
+            <line number="222" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Application.Services.Implementations.OrderService" filename="C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\Application\Services\Implementations\OrderService.cs" line-rate="0" branch-rate="0" complexity="37">
+        <class name="Application.Services.Implementations.OrderService" filename="C:\Users\justa\Desktop\APPAS\gerascia\savings_app\Application\Services\Implementations\OrderService.cs" line-rate="0" branch-rate="0" complexity="37">
           <methods>
             <method name=".ctor" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -953,7 +957,7 @@
             <line number="292" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Application.Services.Implementations.PickupService" filename="C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\Application\Services\Implementations\PickupService.cs" line-rate="0" branch-rate="0" complexity="25">
+        <class name="Application.Services.Implementations.PickupService" filename="C:\Users\justa\Desktop\APPAS\gerascia\savings_app\Application\Services\Implementations\PickupService.cs" line-rate="0" branch-rate="0" complexity="25">
           <methods>
             <method name=".ctor" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -1299,7 +1303,7 @@
             <line number="222" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Application.Services.Implementations.ProductService" filename="C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\Application\Services\Implementations\ProductService.cs" line-rate="0" branch-rate="0" complexity="27">
+        <class name="Application.Services.Implementations.ProductService" filename="C:\Users\justa\Desktop\APPAS\gerascia\savings_app\Application\Services\Implementations\ProductService.cs" line-rate="0" branch-rate="0" complexity="31">
           <methods>
             <method name=".ctor" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -1426,14 +1430,14 @@
                 <line number="157" hits="0" branch="false" />
               </lines>
             </method>
-            <method name="PostProduct" signature="()" line-rate="0" branch-rate="0" complexity="8">
+            <method name="PostProduct" signature="()" line-rate="0" branch-rate="0" complexity="10">
               <lines>
                 <line number="161" hits="0" branch="false" />
                 <line number="163" hits="0" branch="true" condition-coverage="0% (0/6)" />
                 <line number="164" hits="0" branch="false" />
                 <line number="165" hits="0" branch="false" />
                 <line number="167" hits="0" branch="false" />
-                <line number="169" hits="0" branch="false" />
+                <line number="169" hits="0" branch="true" condition-coverage="0% (0/2)" />
                 <line number="170" hits="0" branch="false" />
                 <line number="171" hits="0" branch="false" />
                 <line number="172" hits="0" branch="false" />
@@ -1446,19 +1450,19 @@
                 <line number="179" hits="0" branch="false" />
                 <line number="180" hits="0" branch="false" />
                 <line number="181" hits="0" branch="false" />
-                <line number="183" hits="0" branch="false" />
+                <line number="182" hits="0" branch="false" />
                 <line number="184" hits="0" branch="false" />
-                <line number="186" hits="0" branch="false" />
+                <line number="185" hits="0" branch="false" />
                 <line number="187" hits="0" branch="false" />
-                <line number="190" hits="0" branch="true" condition-coverage="0% (0/2)" />
-                <line number="191" hits="0" branch="false" />
+                <line number="188" hits="0" branch="false" />
+                <line number="191" hits="0" branch="true" condition-coverage="0% (0/2)" />
                 <line number="192" hits="0" branch="false" />
                 <line number="193" hits="0" branch="false" />
                 <line number="194" hits="0" branch="false" />
                 <line number="195" hits="0" branch="false" />
-                <line number="198" hits="0" branch="false" />
+                <line number="196" hits="0" branch="false" />
                 <line number="199" hits="0" branch="false" />
-                <line number="203" hits="0" branch="false" />
+                <line number="200" hits="0" branch="false" />
                 <line number="204" hits="0" branch="false" />
                 <line number="205" hits="0" branch="false" />
                 <line number="206" hits="0" branch="false" />
@@ -1472,21 +1476,21 @@
                 <line number="214" hits="0" branch="false" />
                 <line number="215" hits="0" branch="false" />
                 <line number="216" hits="0" branch="false" />
-                <line number="218" hits="0" branch="false" />
+                <line number="217" hits="0" branch="false" />
                 <line number="219" hits="0" branch="false" />
+                <line number="220" hits="0" branch="false" />
               </lines>
             </method>
-            <method name="PutProduct" signature="()" line-rate="0" branch-rate="0" complexity="8">
+            <method name="PutProduct" signature="()" line-rate="0" branch-rate="0" complexity="10">
               <lines>
-                <line number="221" hits="0" branch="false" />
-                <line number="222" hits="0" branch="true" condition-coverage="0% (0/6)" />
-                <line number="223" hits="0" branch="false" />
+                <line number="222" hits="0" branch="false" />
+                <line number="223" hits="0" branch="true" condition-coverage="0% (0/6)" />
                 <line number="224" hits="0" branch="false" />
-                <line number="226" hits="0" branch="true" condition-coverage="0% (0/2)" />
-                <line number="227" hits="0" branch="false" />
+                <line number="225" hits="0" branch="false" />
+                <line number="227" hits="0" branch="true" condition-coverage="0% (0/2)" />
                 <line number="228" hits="0" branch="false" />
-                <line number="232" hits="0" branch="false" />
-                <line number="233" hits="0" branch="false" />
+                <line number="229" hits="0" branch="false" />
+                <line number="233" hits="0" branch="true" condition-coverage="0% (0/2)" />
                 <line number="234" hits="0" branch="false" />
                 <line number="235" hits="0" branch="false" />
                 <line number="236" hits="0" branch="false" />
@@ -1498,10 +1502,10 @@
                 <line number="242" hits="0" branch="false" />
                 <line number="243" hits="0" branch="false" />
                 <line number="244" hits="0" branch="false" />
+                <line number="245" hits="0" branch="false" />
                 <line number="246" hits="0" branch="false" />
-                <line number="247" hits="0" branch="false" />
+                <line number="248" hits="0" branch="false" />
                 <line number="249" hits="0" branch="false" />
-                <line number="250" hits="0" branch="false" />
                 <line number="251" hits="0" branch="false" />
                 <line number="252" hits="0" branch="false" />
                 <line number="253" hits="0" branch="false" />
@@ -1514,8 +1518,10 @@
                 <line number="260" hits="0" branch="false" />
                 <line number="261" hits="0" branch="false" />
                 <line number="262" hits="0" branch="false" />
+                <line number="263" hits="0" branch="false" />
                 <line number="264" hits="0" branch="false" />
-                <line number="265" hits="0" branch="false" />
+                <line number="266" hits="0" branch="false" />
+                <line number="267" hits="0" branch="false" />
               </lines>
             </method>
           </methods>
@@ -1630,7 +1636,7 @@
             <line number="164" hits="0" branch="false" />
             <line number="165" hits="0" branch="false" />
             <line number="167" hits="0" branch="false" />
-            <line number="169" hits="0" branch="false" />
+            <line number="169" hits="0" branch="true" condition-coverage="0% (0/2)" />
             <line number="170" hits="0" branch="false" />
             <line number="171" hits="0" branch="false" />
             <line number="172" hits="0" branch="false" />
@@ -1643,19 +1649,19 @@
             <line number="179" hits="0" branch="false" />
             <line number="180" hits="0" branch="false" />
             <line number="181" hits="0" branch="false" />
-            <line number="183" hits="0" branch="false" />
+            <line number="182" hits="0" branch="false" />
             <line number="184" hits="0" branch="false" />
-            <line number="186" hits="0" branch="false" />
+            <line number="185" hits="0" branch="false" />
             <line number="187" hits="0" branch="false" />
-            <line number="190" hits="0" branch="true" condition-coverage="0% (0/2)" />
-            <line number="191" hits="0" branch="false" />
+            <line number="188" hits="0" branch="false" />
+            <line number="191" hits="0" branch="true" condition-coverage="0% (0/2)" />
             <line number="192" hits="0" branch="false" />
             <line number="193" hits="0" branch="false" />
             <line number="194" hits="0" branch="false" />
             <line number="195" hits="0" branch="false" />
-            <line number="198" hits="0" branch="false" />
+            <line number="196" hits="0" branch="false" />
             <line number="199" hits="0" branch="false" />
-            <line number="203" hits="0" branch="false" />
+            <line number="200" hits="0" branch="false" />
             <line number="204" hits="0" branch="false" />
             <line number="205" hits="0" branch="false" />
             <line number="206" hits="0" branch="false" />
@@ -1669,17 +1675,17 @@
             <line number="214" hits="0" branch="false" />
             <line number="215" hits="0" branch="false" />
             <line number="216" hits="0" branch="false" />
-            <line number="218" hits="0" branch="false" />
+            <line number="217" hits="0" branch="false" />
             <line number="219" hits="0" branch="false" />
-            <line number="221" hits="0" branch="false" />
-            <line number="222" hits="0" branch="true" condition-coverage="0% (0/6)" />
-            <line number="223" hits="0" branch="false" />
+            <line number="220" hits="0" branch="false" />
+            <line number="222" hits="0" branch="false" />
+            <line number="223" hits="0" branch="true" condition-coverage="0% (0/6)" />
             <line number="224" hits="0" branch="false" />
-            <line number="226" hits="0" branch="true" condition-coverage="0% (0/2)" />
-            <line number="227" hits="0" branch="false" />
+            <line number="225" hits="0" branch="false" />
+            <line number="227" hits="0" branch="true" condition-coverage="0% (0/2)" />
             <line number="228" hits="0" branch="false" />
-            <line number="232" hits="0" branch="false" />
-            <line number="233" hits="0" branch="false" />
+            <line number="229" hits="0" branch="false" />
+            <line number="233" hits="0" branch="true" condition-coverage="0% (0/2)" />
             <line number="234" hits="0" branch="false" />
             <line number="235" hits="0" branch="false" />
             <line number="236" hits="0" branch="false" />
@@ -1691,10 +1697,10 @@
             <line number="242" hits="0" branch="false" />
             <line number="243" hits="0" branch="false" />
             <line number="244" hits="0" branch="false" />
+            <line number="245" hits="0" branch="false" />
             <line number="246" hits="0" branch="false" />
-            <line number="247" hits="0" branch="false" />
+            <line number="248" hits="0" branch="false" />
             <line number="249" hits="0" branch="false" />
-            <line number="250" hits="0" branch="false" />
             <line number="251" hits="0" branch="false" />
             <line number="252" hits="0" branch="false" />
             <line number="253" hits="0" branch="false" />
@@ -1707,11 +1713,13 @@
             <line number="260" hits="0" branch="false" />
             <line number="261" hits="0" branch="false" />
             <line number="262" hits="0" branch="false" />
+            <line number="263" hits="0" branch="false" />
             <line number="264" hits="0" branch="false" />
-            <line number="265" hits="0" branch="false" />
+            <line number="266" hits="0" branch="false" />
+            <line number="267" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Application.Services.Implementations.RestaurantService" filename="C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\Application\Services\Implementations\RestaurantService.cs" line-rate="0" branch-rate="0" complexity="27">
+        <class name="Application.Services.Implementations.RestaurantService" filename="C:\Users\justa\Desktop\APPAS\gerascia\savings_app\Application\Services\Implementations\RestaurantService.cs" line-rate="0" branch-rate="0" complexity="29">
           <methods>
             <method name=".ctor" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -1883,7 +1891,7 @@
                 <line number="200" hits="0" branch="false" />
               </lines>
             </method>
-            <method name="PostRestaurant" signature="()" line-rate="0" branch-rate="0" complexity="6">
+            <method name="PostRestaurant" signature="()" line-rate="0" branch-rate="0" complexity="8">
               <lines>
                 <line number="203" hits="0" branch="true" condition-coverage="0% (0/2)" />
                 <line number="204" hits="0" branch="true" condition-coverage="0% (0/2)" />
@@ -1891,7 +1899,7 @@
                 <line number="206" hits="0" branch="false" />
                 <line number="207" hits="0" branch="false" />
                 <line number="209" hits="0" branch="false" />
-                <line number="210" hits="0" branch="false" />
+                <line number="210" hits="0" branch="true" condition-coverage="0% (0/2)" />
                 <line number="211" hits="0" branch="false" />
                 <line number="212" hits="0" branch="false" />
                 <line number="213" hits="0" branch="false" />
@@ -1909,19 +1917,19 @@
                 <line number="225" hits="0" branch="false" />
                 <line number="226" hits="0" branch="false" />
                 <line number="227" hits="0" branch="false" />
-                <line number="229" hits="0" branch="false" />
+                <line number="228" hits="0" branch="false" />
                 <line number="230" hits="0" branch="false" />
-                <line number="233" hits="0" branch="false" />
+                <line number="231" hits="0" branch="false" />
                 <line number="234" hits="0" branch="false" />
-                <line number="236" hits="0" branch="true" condition-coverage="0% (0/2)" />
-                <line number="237" hits="0" branch="false" />
+                <line number="235" hits="0" branch="false" />
+                <line number="237" hits="0" branch="true" condition-coverage="0% (0/2)" />
                 <line number="238" hits="0" branch="false" />
                 <line number="239" hits="0" branch="false" />
                 <line number="240" hits="0" branch="false" />
-                <line number="243" hits="0" branch="false" />
+                <line number="241" hits="0" branch="false" />
                 <line number="244" hits="0" branch="false" />
                 <line number="245" hits="0" branch="false" />
-                <line number="247" hits="0" branch="false" />
+                <line number="246" hits="0" branch="false" />
                 <line number="248" hits="0" branch="false" />
                 <line number="249" hits="0" branch="false" />
                 <line number="250" hits="0" branch="false" />
@@ -1938,24 +1946,24 @@
                 <line number="261" hits="0" branch="false" />
                 <line number="262" hits="0" branch="false" />
                 <line number="263" hits="0" branch="false" />
-                <line number="265" hits="0" branch="false" />
+                <line number="264" hits="0" branch="false" />
                 <line number="266" hits="0" branch="false" />
+                <line number="267" hits="0" branch="false" />
               </lines>
             </method>
             <method name="PutRestaurant" signature="()" line-rate="0" branch-rate="0" complexity="6">
               <lines>
-                <line number="269" hits="0" branch="false" />
-                <line number="270" hits="0" branch="true" condition-coverage="0% (0/2)" />
-                <line number="271" hits="0" branch="false" />
+                <line number="270" hits="0" branch="false" />
+                <line number="271" hits="0" branch="true" condition-coverage="0% (0/2)" />
                 <line number="272" hits="0" branch="false" />
-                <line number="274" hits="0" branch="true" condition-coverage="0% (0/2)" />
-                <line number="275" hits="0" branch="false" />
+                <line number="273" hits="0" branch="false" />
+                <line number="275" hits="0" branch="true" condition-coverage="0% (0/2)" />
                 <line number="276" hits="0" branch="false" />
                 <line number="277" hits="0" branch="false" />
-                <line number="280" hits="0" branch="true" condition-coverage="0% (0/2)" />
-                <line number="281" hits="0" branch="false" />
+                <line number="278" hits="0" branch="false" />
+                <line number="281" hits="0" branch="true" condition-coverage="0% (0/2)" />
                 <line number="282" hits="0" branch="false" />
-                <line number="285" hits="0" branch="false" />
+                <line number="283" hits="0" branch="false" />
                 <line number="286" hits="0" branch="false" />
                 <line number="287" hits="0" branch="false" />
                 <line number="288" hits="0" branch="false" />
@@ -1973,9 +1981,9 @@
                 <line number="300" hits="0" branch="false" />
                 <line number="301" hits="0" branch="false" />
                 <line number="302" hits="0" branch="false" />
-                <line number="304" hits="0" branch="false" />
+                <line number="303" hits="0" branch="false" />
                 <line number="305" hits="0" branch="false" />
-                <line number="308" hits="0" branch="false" />
+                <line number="306" hits="0" branch="false" />
                 <line number="309" hits="0" branch="false" />
                 <line number="310" hits="0" branch="false" />
                 <line number="311" hits="0" branch="false" />
@@ -1992,8 +2000,9 @@
                 <line number="322" hits="0" branch="false" />
                 <line number="323" hits="0" branch="false" />
                 <line number="324" hits="0" branch="false" />
-                <line number="326" hits="0" branch="false" />
+                <line number="325" hits="0" branch="false" />
                 <line number="327" hits="0" branch="false" />
+                <line number="328" hits="0" branch="false" />
               </lines>
             </method>
           </methods>
@@ -2150,7 +2159,7 @@
             <line number="206" hits="0" branch="false" />
             <line number="207" hits="0" branch="false" />
             <line number="209" hits="0" branch="false" />
-            <line number="210" hits="0" branch="false" />
+            <line number="210" hits="0" branch="true" condition-coverage="0% (0/2)" />
             <line number="211" hits="0" branch="false" />
             <line number="212" hits="0" branch="false" />
             <line number="213" hits="0" branch="false" />
@@ -2168,19 +2177,19 @@
             <line number="225" hits="0" branch="false" />
             <line number="226" hits="0" branch="false" />
             <line number="227" hits="0" branch="false" />
-            <line number="229" hits="0" branch="false" />
+            <line number="228" hits="0" branch="false" />
             <line number="230" hits="0" branch="false" />
-            <line number="233" hits="0" branch="false" />
+            <line number="231" hits="0" branch="false" />
             <line number="234" hits="0" branch="false" />
-            <line number="236" hits="0" branch="true" condition-coverage="0% (0/2)" />
-            <line number="237" hits="0" branch="false" />
+            <line number="235" hits="0" branch="false" />
+            <line number="237" hits="0" branch="true" condition-coverage="0% (0/2)" />
             <line number="238" hits="0" branch="false" />
             <line number="239" hits="0" branch="false" />
             <line number="240" hits="0" branch="false" />
-            <line number="243" hits="0" branch="false" />
+            <line number="241" hits="0" branch="false" />
             <line number="244" hits="0" branch="false" />
             <line number="245" hits="0" branch="false" />
-            <line number="247" hits="0" branch="false" />
+            <line number="246" hits="0" branch="false" />
             <line number="248" hits="0" branch="false" />
             <line number="249" hits="0" branch="false" />
             <line number="250" hits="0" branch="false" />
@@ -2197,20 +2206,20 @@
             <line number="261" hits="0" branch="false" />
             <line number="262" hits="0" branch="false" />
             <line number="263" hits="0" branch="false" />
-            <line number="265" hits="0" branch="false" />
+            <line number="264" hits="0" branch="false" />
             <line number="266" hits="0" branch="false" />
-            <line number="269" hits="0" branch="false" />
-            <line number="270" hits="0" branch="true" condition-coverage="0% (0/2)" />
-            <line number="271" hits="0" branch="false" />
+            <line number="267" hits="0" branch="false" />
+            <line number="270" hits="0" branch="false" />
+            <line number="271" hits="0" branch="true" condition-coverage="0% (0/2)" />
             <line number="272" hits="0" branch="false" />
-            <line number="274" hits="0" branch="true" condition-coverage="0% (0/2)" />
-            <line number="275" hits="0" branch="false" />
+            <line number="273" hits="0" branch="false" />
+            <line number="275" hits="0" branch="true" condition-coverage="0% (0/2)" />
             <line number="276" hits="0" branch="false" />
             <line number="277" hits="0" branch="false" />
-            <line number="280" hits="0" branch="true" condition-coverage="0% (0/2)" />
-            <line number="281" hits="0" branch="false" />
+            <line number="278" hits="0" branch="false" />
+            <line number="281" hits="0" branch="true" condition-coverage="0% (0/2)" />
             <line number="282" hits="0" branch="false" />
-            <line number="285" hits="0" branch="false" />
+            <line number="283" hits="0" branch="false" />
             <line number="286" hits="0" branch="false" />
             <line number="287" hits="0" branch="false" />
             <line number="288" hits="0" branch="false" />
@@ -2228,9 +2237,9 @@
             <line number="300" hits="0" branch="false" />
             <line number="301" hits="0" branch="false" />
             <line number="302" hits="0" branch="false" />
-            <line number="304" hits="0" branch="false" />
+            <line number="303" hits="0" branch="false" />
             <line number="305" hits="0" branch="false" />
-            <line number="308" hits="0" branch="false" />
+            <line number="306" hits="0" branch="false" />
             <line number="309" hits="0" branch="false" />
             <line number="310" hits="0" branch="false" />
             <line number="311" hits="0" branch="false" />
@@ -2247,11 +2256,12 @@
             <line number="322" hits="0" branch="false" />
             <line number="323" hits="0" branch="false" />
             <line number="324" hits="0" branch="false" />
-            <line number="326" hits="0" branch="false" />
+            <line number="325" hits="0" branch="false" />
             <line number="327" hits="0" branch="false" />
+            <line number="328" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Application.Services.Implementations.ShopService" filename="C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\Application\Services\Implementations\ShopService.cs" line-rate="0" branch-rate="0" complexity="11">
+        <class name="Application.Services.Implementations.ShopService" filename="C:\Users\justa\Desktop\APPAS\gerascia\savings_app\Application\Services\Implementations\ShopService.cs" line-rate="0" branch-rate="0" complexity="11">
           <methods>
             <method name=".ctor" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -2387,7 +2397,7 @@
             <line number="106" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Application.Specifications.BaseSpecification`1" filename="C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\Application\Specifications\BaseSpecification.cs" line-rate="0" branch-rate="1" complexity="18">
+        <class name="Application.Specifications.BaseSpecification`1" filename="C:\Users\justa\Desktop\APPAS\gerascia\savings_app\Application\Specifications\BaseSpecification.cs" line-rate="0" branch-rate="1" complexity="18">
           <methods>
             <method name="get_Criteria" signature="()" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -2543,7 +2553,7 @@
             <line number="67" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Application.Specifications.BuyerPickupSpecification" filename="C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\Application\Specifications\BuyerPickupSpecification.cs" line-rate="0" branch-rate="1" complexity="1">
+        <class name="Application.Specifications.BuyerPickupSpecification" filename="C:\Users\justa\Desktop\APPAS\gerascia\savings_app\Application\Specifications\BuyerPickupSpecification.cs" line-rate="0" branch-rate="1" complexity="1">
           <methods>
             <method name=".ctor" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -2565,7 +2575,7 @@
             <line number="12" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Application.Specifications.BuyersOrdersSpecification" filename="C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\Application\Specifications\BuyersOrdersSpecification.cs" line-rate="0" branch-rate="1" complexity="1">
+        <class name="Application.Specifications.BuyersOrdersSpecification" filename="C:\Users\justa\Desktop\APPAS\gerascia\savings_app\Application\Specifications\BuyersOrdersSpecification.cs" line-rate="0" branch-rate="1" complexity="1">
           <methods>
             <method name=".ctor" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -2585,7 +2595,7 @@
             <line number="12" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Application.Specifications.ProductFIlterSpecification" filename="C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\Application\Specifications\ProductFIlterSpecification.cs" line-rate="0" branch-rate="0" complexity="10">
+        <class name="Application.Specifications.ProductFIlterSpecification" filename="C:\Users\justa\Desktop\APPAS\gerascia\savings_app\Application\Specifications\ProductFIlterSpecification.cs" line-rate="0" branch-rate="0" complexity="10">
           <methods>
             <method name=".ctor" signature="(...)" line-rate="0" branch-rate="0" complexity="10">
               <lines>
@@ -2633,7 +2643,7 @@
             <line number="42" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Application.Specifications.ProductPickupSpecification" filename="C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\Application\Specifications\ProductPickupSpecification.cs" line-rate="0" branch-rate="1" complexity="1">
+        <class name="Application.Specifications.ProductPickupSpecification" filename="C:\Users\justa\Desktop\APPAS\gerascia\savings_app\Application\Specifications\ProductPickupSpecification.cs" line-rate="0" branch-rate="1" complexity="1">
           <methods>
             <method name=".ctor" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -2651,7 +2661,7 @@
             <line number="10" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Application.Specifications.RestaurantFilterSpecification" filename="C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\Application\Specifications\RestaurantFilterSpecification.cs" line-rate="0" branch-rate="1" complexity="1">
+        <class name="Application.Specifications.RestaurantFilterSpecification" filename="C:\Users\justa\Desktop\APPAS\gerascia\savings_app\Application\Specifications\RestaurantFilterSpecification.cs" line-rate="0" branch-rate="1" complexity="1">
           <methods>
             <method name=".ctor" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -2673,7 +2683,7 @@
             <line number="12" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Application.Specifications.SellersOrderItemsSpecification" filename="C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\Application\Specifications\SellersOrderItemsSpecification.cs" line-rate="0" branch-rate="1" complexity="1">
+        <class name="Application.Specifications.SellersOrderItemsSpecification" filename="C:\Users\justa\Desktop\APPAS\gerascia\savings_app\Application\Specifications\SellersOrderItemsSpecification.cs" line-rate="0" branch-rate="1" complexity="1">
           <methods>
             <method name=".ctor" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -2699,7 +2709,7 @@
     </package>
     <package name="Domain" line-rate="0" branch-rate="0" complexity="215">
       <classes>
-        <class name="Domain.DTOs.Request.AddressDTORequest" filename="C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\Domain\DTOs\Request\AddressDTORequest.cs" line-rate="0" branch-rate="1" complexity="8">
+        <class name="Domain.DTOs.Request.AddressDTORequest" filename="C:\Users\justa\Desktop\APPAS\gerascia\savings_app\Domain\DTOs\Request\AddressDTORequest.cs" line-rate="0" branch-rate="1" complexity="8">
           <methods>
             <method name="get_Country" signature="()" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -2775,7 +2785,7 @@
             <line number="33" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Domain.DTOs.Request.BuyerDTORequest" filename="C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\Domain\DTOs\Request\BuyerDTORequest.cs" line-rate="0" branch-rate="1" complexity="4">
+        <class name="Domain.DTOs.Request.BuyerDTORequest" filename="C:\Users\justa\Desktop\APPAS\gerascia\savings_app\Domain\DTOs\Request\BuyerDTORequest.cs" line-rate="0" branch-rate="1" complexity="4">
           <methods>
             <method name="get_Name" signature="()" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -2805,7 +2815,7 @@
             <line number="15" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Domain.DTOs.Request.CheckoutDTORequest" filename="C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\Domain\DTOs\Request\CheckoutDTORequest.cs" line-rate="0" branch-rate="1" complexity="2">
+        <class name="Domain.DTOs.Request.CheckoutDTORequest" filename="C:\Users\justa\Desktop\APPAS\gerascia\savings_app\Domain\DTOs\Request\CheckoutDTORequest.cs" line-rate="0" branch-rate="1" complexity="2">
           <methods>
             <method name="get_productsToBuy" signature="()" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -2823,7 +2833,7 @@
             <line number="15" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Domain.DTOs.Request.OrderDTORequest" filename="C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\Domain\DTOs\Request\OrderDTORequest.cs" line-rate="0" branch-rate="1" complexity="2">
+        <class name="Domain.DTOs.Request.OrderDTORequest" filename="C:\Users\justa\Desktop\APPAS\gerascia\savings_app\Domain\DTOs\Request\OrderDTORequest.cs" line-rate="0" branch-rate="1" complexity="2">
           <methods>
             <method name="get_BuyerId" signature="()" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -2841,7 +2851,7 @@
             <line number="17" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Domain.DTOs.Request.PickupDTORequest" filename="C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\Domain\DTOs\Request\PickupDTORequest.cs" line-rate="0" branch-rate="1" complexity="4">
+        <class name="Domain.DTOs.Request.PickupDTORequest" filename="C:\Users\justa\Desktop\APPAS\gerascia\savings_app\Domain\DTOs\Request\PickupDTORequest.cs" line-rate="0" branch-rate="1" complexity="4">
           <methods>
             <method name="get_ProductId" signature="()" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -2871,7 +2881,7 @@
             <line number="19" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Domain.DTOs.Request.ProductDTORequest" filename="C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\Domain\DTOs\Request\ProductDTORequest.cs" line-rate="0" branch-rate="1" complexity="11">
+        <class name="Domain.DTOs.Request.ProductDTORequest" filename="C:\Users\justa\Desktop\APPAS\gerascia\savings_app\Domain\DTOs\Request\ProductDTORequest.cs" line-rate="0" branch-rate="1" complexity="11">
           <methods>
             <method name="get_Name" signature="()" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -2943,7 +2953,7 @@
             <line number="39" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Domain.DTOs.Request.ProductToBuyDTORequest" filename="C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\Domain\DTOs\Request\ProductToBuyDTORequest.cs" line-rate="0" branch-rate="1" complexity="3">
+        <class name="Domain.DTOs.Request.ProductToBuyDTORequest" filename="C:\Users\justa\Desktop\APPAS\gerascia\savings_app\Domain\DTOs\Request\ProductToBuyDTORequest.cs" line-rate="0" branch-rate="1" complexity="3">
           <methods>
             <method name="get_Id" signature="()" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -2967,7 +2977,7 @@
             <line number="17" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Domain.DTOs.Request.RestaurantDTORequest" filename="C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\Domain\DTOs\Request\RestaurantDTORequest.cs" line-rate="0" branch-rate="1" complexity="8">
+        <class name="Domain.DTOs.Request.RestaurantDTORequest" filename="C:\Users\justa\Desktop\APPAS\gerascia\savings_app\Domain\DTOs\Request\RestaurantDTORequest.cs" line-rate="0" branch-rate="1" complexity="8">
           <methods>
             <method name="get_Name" signature="()" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -3021,7 +3031,7 @@
             <line number="23" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Domain.DTOs.Request.UserAuthDTORequest" filename="C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\Domain\DTOs\Request\UserAuthDTORequest.cs" line-rate="0" branch-rate="1" complexity="2">
+        <class name="Domain.DTOs.Request.UserAuthDTORequest" filename="C:\Users\justa\Desktop\APPAS\gerascia\savings_app\Domain\DTOs\Request\UserAuthDTORequest.cs" line-rate="0" branch-rate="1" complexity="2">
           <methods>
             <method name="get_Email" signature="()" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -3039,7 +3049,7 @@
             <line number="15" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Domain.DTOs.Request.UserLoginDTO" filename="C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\Domain\DTOs\Request\UserLoginDTO.cs" line-rate="0" branch-rate="1" complexity="2">
+        <class name="Domain.DTOs.Request.UserLoginDTO" filename="C:\Users\justa\Desktop\APPAS\gerascia\savings_app\Domain\DTOs\Request\UserLoginDTO.cs" line-rate="0" branch-rate="1" complexity="2">
           <methods>
             <method name="get_Email" signature="()" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -3057,7 +3067,7 @@
             <line number="10" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Domain.DTOs.Response.AddressDTOResponse" filename="C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\Domain\DTOs\Response\AddressDTOResponse.cs" line-rate="0" branch-rate="1" complexity="8">
+        <class name="Domain.DTOs.Response.AddressDTOResponse" filename="C:\Users\justa\Desktop\APPAS\gerascia\savings_app\Domain\DTOs\Response\AddressDTOResponse.cs" line-rate="0" branch-rate="1" complexity="8">
           <methods>
             <method name="get_Country" signature="()" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -3133,7 +3143,7 @@
             <line number="26" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Domain.DTOs.Response.BuyerDTOResponse" filename="C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\Domain\DTOs\Response\BuyerDTOResponse.cs" line-rate="0" branch-rate="1" complexity="4">
+        <class name="Domain.DTOs.Response.BuyerDTOResponse" filename="C:\Users\justa\Desktop\APPAS\gerascia\savings_app\Domain\DTOs\Response\BuyerDTOResponse.cs" line-rate="0" branch-rate="1" complexity="4">
           <methods>
             <method name="get_Id" signature="()" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -3145,7 +3155,7 @@
                 <line number="22" hits="0" branch="false" />
               </lines>
             </method>
-            <method name="get_ImageName" signature="()" line-rate="0" branch-rate="1" complexity="1">
+            <method name="get_ImageUrl" signature="()" line-rate="0" branch-rate="1" complexity="1">
               <lines>
                 <line number="24" hits="0" branch="false" />
               </lines>
@@ -3173,31 +3183,31 @@
             <line number="24" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Domain.DTOs.Response.BuyerPrivateDTOResponse" filename="C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\Domain\DTOs\Response\BuyerPrivateDTOResponse.cs" line-rate="0" branch-rate="1" complexity="6">
+        <class name="Domain.DTOs.Response.BuyerPrivateDTOResponse" filename="C:\Users\justa\Desktop\APPAS\gerascia\savings_app\Domain\DTOs\Response\BuyerPrivateDTOResponse.cs" line-rate="0" branch-rate="1" complexity="6">
           <methods>
             <method name="get_Id" signature="()" line-rate="0" branch-rate="1" complexity="1">
-              <lines>
-                <line number="21" hits="0" branch="false" />
-              </lines>
-            </method>
-            <method name="get_Name" signature="()" line-rate="0" branch-rate="1" complexity="1">
               <lines>
                 <line number="23" hits="0" branch="false" />
               </lines>
             </method>
-            <method name="get_ImageName" signature="()" line-rate="0" branch-rate="1" complexity="1">
+            <method name="get_Name" signature="()" line-rate="0" branch-rate="1" complexity="1">
               <lines>
                 <line number="25" hits="0" branch="false" />
               </lines>
             </method>
-            <method name="get_Address" signature="()" line-rate="0" branch-rate="1" complexity="1">
+            <method name="get_ImageUrl" signature="()" line-rate="0" branch-rate="1" complexity="1">
               <lines>
                 <line number="27" hits="0" branch="false" />
               </lines>
             </method>
-            <method name="get_UserAuth" signature="()" line-rate="0" branch-rate="1" complexity="1">
+            <method name="get_Address" signature="()" line-rate="0" branch-rate="1" complexity="1">
               <lines>
                 <line number="29" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="get_UserAuth" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="31" hits="0" branch="false" />
               </lines>
             </method>
             <method name=".ctor" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
@@ -3209,6 +3219,8 @@
                 <line number="17" hits="0" branch="false" />
                 <line number="18" hits="0" branch="false" />
                 <line number="19" hits="0" branch="false" />
+                <line number="20" hits="0" branch="false" />
+                <line number="21" hits="0" branch="false" />
               </lines>
             </method>
           </methods>
@@ -3220,14 +3232,16 @@
             <line number="17" hits="0" branch="false" />
             <line number="18" hits="0" branch="false" />
             <line number="19" hits="0" branch="false" />
+            <line number="20" hits="0" branch="false" />
             <line number="21" hits="0" branch="false" />
             <line number="23" hits="0" branch="false" />
             <line number="25" hits="0" branch="false" />
             <line number="27" hits="0" branch="false" />
             <line number="29" hits="0" branch="false" />
+            <line number="31" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Domain.DTOs.Response.OrderDTOResponse" filename="C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\Domain\DTOs\Response\OrderDTOResponse.cs" line-rate="0" branch-rate="1" complexity="4">
+        <class name="Domain.DTOs.Response.OrderDTOResponse" filename="C:\Users\justa\Desktop\APPAS\gerascia\savings_app\Domain\DTOs\Response\OrderDTOResponse.cs" line-rate="0" branch-rate="1" complexity="4">
           <methods>
             <method name="get_Id" signature="()" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -3267,7 +3281,7 @@
             <line number="17" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Domain.DTOs.Response.OrderItemDTOResponse" filename="C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\Domain\DTOs\Response\OrderItemDTOResponse.cs" line-rate="0" branch-rate="1" complexity="8">
+        <class name="Domain.DTOs.Response.OrderItemDTOResponse" filename="C:\Users\justa\Desktop\APPAS\gerascia\savings_app\Domain\DTOs\Response\OrderItemDTOResponse.cs" line-rate="0" branch-rate="1" complexity="8">
           <methods>
             <method name="get_Id" signature="()" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -3339,7 +3353,7 @@
             <line number="40" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Domain.DTOs.Response.PickupDTOResponse" filename="C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\Domain\DTOs\Response\PickupDTOResponse.cs" line-rate="0" branch-rate="1" complexity="6">
+        <class name="Domain.DTOs.Response.PickupDTOResponse" filename="C:\Users\justa\Desktop\APPAS\gerascia\savings_app\Domain\DTOs\Response\PickupDTOResponse.cs" line-rate="0" branch-rate="1" complexity="6">
           <methods>
             <method name="get_Id" signature="()" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -3395,7 +3409,7 @@
             <line number="31" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Domain.DTOs.Response.ProductDTOResponse" filename="C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\Domain\DTOs\Response\ProductDTOResponse.cs" line-rate="0" branch-rate="1" complexity="13">
+        <class name="Domain.DTOs.Response.ProductDTOResponse" filename="C:\Users\justa\Desktop\APPAS\gerascia\savings_app\Domain\DTOs\Response\ProductDTOResponse.cs" line-rate="0" branch-rate="1" complexity="13">
           <methods>
             <method name="get_Id" signature="()" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -3442,7 +3456,7 @@
                 <line number="52" hits="0" branch="false" />
               </lines>
             </method>
-            <method name="get_ImageName" signature="()" line-rate="0" branch-rate="1" complexity="1">
+            <method name="get_ImageUrl" signature="()" line-rate="0" branch-rate="1" complexity="1">
               <lines>
                 <line number="54" hits="0" branch="false" />
               </lines>
@@ -3511,7 +3525,7 @@
             <line number="58" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Domain.DTOs.Response.RestaurantDTOResponse" filename="C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\Domain\DTOs\Response\RestaurantDTOResponse.cs" line-rate="0" branch-rate="1" complexity="10">
+        <class name="Domain.DTOs.Response.RestaurantDTOResponse" filename="C:\Users\justa\Desktop\APPAS\gerascia\savings_app\Domain\DTOs\Response\RestaurantDTOResponse.cs" line-rate="0" branch-rate="1" complexity="10">
           <methods>
             <method name="get_Id" signature="()" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -3528,7 +3542,7 @@
                 <line number="29" hits="0" branch="false" />
               </lines>
             </method>
-            <method name="get_ImageName" signature="()" line-rate="0" branch-rate="1" complexity="1">
+            <method name="get_ImageUrl" signature="()" line-rate="0" branch-rate="1" complexity="1">
               <lines>
                 <line number="30" hits="0" branch="false" />
               </lines>
@@ -3599,7 +3613,7 @@
             <line number="35" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Domain.DTOs.Response.RestaurantPrivateDTOResponse" filename="C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\Domain\DTOs\Response\RestaurantPrivateDTOResponse.cs" line-rate="0" branch-rate="1" complexity="11">
+        <class name="Domain.DTOs.Response.RestaurantPrivateDTOResponse" filename="C:\Users\justa\Desktop\APPAS\gerascia\savings_app\Domain\DTOs\Response\RestaurantPrivateDTOResponse.cs" line-rate="0" branch-rate="1" complexity="11">
           <methods>
             <method name="get_Id" signature="()" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -3621,7 +3635,7 @@
                 <line number="28" hits="0" branch="false" />
               </lines>
             </method>
-            <method name="get_ImageName" signature="()" line-rate="0" branch-rate="1" complexity="1">
+            <method name="get_ImageUrl" signature="()" line-rate="0" branch-rate="1" complexity="1">
               <lines>
                 <line number="29" hits="0" branch="false" />
               </lines>
@@ -3695,7 +3709,7 @@
             <line number="34" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Domain.DTOs.Response.UserAuthDTOResponse" filename="C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\Domain\DTOs\Response\UserAuthDTOResponse.cs" line-rate="0" branch-rate="1" complexity="2">
+        <class name="Domain.DTOs.Response.UserAuthDTOResponse" filename="C:\Users\justa\Desktop\APPAS\gerascia\savings_app\Domain\DTOs\Response\UserAuthDTOResponse.cs" line-rate="0" branch-rate="1" complexity="2">
           <methods>
             <method name="get_Email" signature="()" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -3719,7 +3733,7 @@
             <line number="10" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Domain.Entities.Address" filename="C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\Domain\Entities\Address.cs" line-rate="0" branch-rate="1" complexity="8">
+        <class name="Domain.Entities.Address" filename="C:\Users\justa\Desktop\APPAS\gerascia\savings_app\Domain\Entities\Address.cs" line-rate="0" branch-rate="1" complexity="8">
           <methods>
             <method name="get_Country" signature="()" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -3795,7 +3809,7 @@
             <line number="26" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Domain.Entities.BaseEntity" filename="C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\Domain\Entities\BaseEntity.cs" line-rate="0" branch-rate="1" complexity="4">
+        <class name="Domain.Entities.BaseEntity" filename="C:\Users\justa\Desktop\APPAS\gerascia\savings_app\Domain\Entities\BaseEntity.cs" line-rate="0" branch-rate="1" complexity="4">
           <methods>
             <method name="get_Id" signature="()" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -3839,7 +3853,7 @@
             <line number="26" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Domain.Entities.Buyer" filename="C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\Domain\Entities\Buyer.cs" line-rate="0" branch-rate="1" complexity="4">
+        <class name="Domain.Entities.Buyer" filename="C:\Users\justa\Desktop\APPAS\gerascia\savings_app\Domain\Entities\Buyer.cs" line-rate="0" branch-rate="1" complexity="4">
           <methods>
             <method name="get_Address" signature="()" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -3887,7 +3901,7 @@
             <line number="21" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Domain.Entities.OrderAggregate.Order" filename="C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\Domain\Entities\OrderAggregate\Order.cs" line-rate="0" branch-rate="1" complexity="6">
+        <class name="Domain.Entities.OrderAggregate.Order" filename="C:\Users\justa\Desktop\APPAS\gerascia\savings_app\Domain\Entities\OrderAggregate\Order.cs" line-rate="0" branch-rate="1" complexity="6">
           <methods>
             <method name="get_OrderDate" signature="()" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -3943,7 +3957,7 @@
             <line number="25" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Domain.Entities.OrderAggregate.OrderItem" filename="C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\Domain\Entities\OrderAggregate\OrderItem.cs" line-rate="0" branch-rate="1" complexity="11">
+        <class name="Domain.Entities.OrderAggregate.OrderItem" filename="C:\Users\justa\Desktop\APPAS\gerascia\savings_app\Domain\Entities\OrderAggregate\OrderItem.cs" line-rate="0" branch-rate="1" complexity="11">
           <methods>
             <method name="get_OrderId" signature="()" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -4039,7 +4053,7 @@
             <line number="41" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Domain.Entities.Pickup" filename="C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\Domain\Entities\Pickup.cs" line-rate="0" branch-rate="1" complexity="8">
+        <class name="Domain.Entities.Pickup" filename="C:\Users\justa\Desktop\APPAS\gerascia\savings_app\Domain\Entities\Pickup.cs" line-rate="0" branch-rate="1" complexity="8">
           <methods>
             <method name="get_ProductId" signature="()" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -4115,7 +4129,7 @@
             <line number="39" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Domain.Entities.Product" filename="C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\Domain\Entities\Product.cs" line-rate="0" branch-rate="0" complexity="23">
+        <class name="Domain.Entities.Product" filename="C:\Users\justa\Desktop\APPAS\gerascia\savings_app\Domain\Entities\Product.cs" line-rate="0" branch-rate="0" complexity="23">
           <methods>
             <method name="get_Name" signature="()" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -4167,7 +4181,7 @@
                 <line number="36" hits="0" branch="false" />
               </lines>
             </method>
-            <method name="get_ImageName" signature="()" line-rate="0" branch-rate="1" complexity="1">
+            <method name="get_ImageUrl" signature="()" line-rate="0" branch-rate="1" complexity="1">
               <lines>
                 <line number="38" hits="0" branch="false" />
               </lines>
@@ -4281,7 +4295,7 @@
             <line number="86" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Domain.Entities.Restaurant" filename="C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\Domain\Entities\Restaurant.cs" line-rate="0" branch-rate="1" complexity="9">
+        <class name="Domain.Entities.Restaurant" filename="C:\Users\justa\Desktop\APPAS\gerascia\savings_app\Domain\Entities\Restaurant.cs" line-rate="0" branch-rate="1" complexity="9">
           <methods>
             <method name="get_Open" signature="()" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -4369,7 +4383,7 @@
             <line number="32" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Domain.Entities.User" filename="C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\Domain\Entities\User.cs" line-rate="0" branch-rate="1" complexity="3">
+        <class name="Domain.Entities.User" filename="C:\Users\justa\Desktop\APPAS\gerascia\savings_app\Domain\Entities\User.cs" line-rate="0" branch-rate="1" complexity="3">
           <methods>
             <method name="get_Name" signature="()" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -4381,7 +4395,7 @@
                 <line number="9" hits="0" branch="false" />
               </lines>
             </method>
-            <method name="get_ImageName" signature="()" line-rate="0" branch-rate="1" complexity="1">
+            <method name="get_ImageUrl" signature="()" line-rate="0" branch-rate="1" complexity="1">
               <lines>
                 <line number="11" hits="0" branch="false" />
               </lines>
@@ -4393,7 +4407,7 @@
             <line number="11" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Domain.Entities.UserAuth" filename="C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\Domain\Entities\UserAuth.cs" line-rate="0" branch-rate="1" complexity="4">
+        <class name="Domain.Entities.UserAuth" filename="C:\Users\justa\Desktop\APPAS\gerascia\savings_app\Domain\Entities\UserAuth.cs" line-rate="0" branch-rate="1" complexity="4">
           <methods>
             <method name="get_Password" signature="()" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -4435,7 +4449,7 @@
             <line number="16" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Domain.Events.ProductSoldEventArgs" filename="C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\Domain\Events\ProductSoldEventArgs.cs" line-rate="0" branch-rate="1" complexity="3">
+        <class name="Domain.Events.ProductSoldEventArgs" filename="C:\Users\justa\Desktop\APPAS\gerascia\savings_app\Domain\Events\ProductSoldEventArgs.cs" line-rate="0" branch-rate="1" complexity="3">
           <methods>
             <method name="get_Amount" signature="()" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -4467,7 +4481,7 @@
             <line number="13" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Domain.Exceptions.HttpResponseException" filename="C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\Domain\Exceptions\HttpResponseException.cs" line-rate="0" branch-rate="1" complexity="2">
+        <class name="Domain.Exceptions.HttpResponseException" filename="C:\Users\justa\Desktop\APPAS\gerascia\savings_app\Domain\Exceptions\HttpResponseException.cs" line-rate="0" branch-rate="1" complexity="2">
           <methods>
             <method name="get_StatusCode" signature="()" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -4491,7 +4505,7 @@
             <line number="17" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Domain.Exceptions.InvalidEmailException" filename="C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\Domain\Exceptions\InvalidEmailException.cs" line-rate="0" branch-rate="1" complexity="1">
+        <class name="Domain.Exceptions.InvalidEmailException" filename="C:\Users\justa\Desktop\APPAS\gerascia\savings_app\Domain\Exceptions\InvalidEmailException.cs" line-rate="0" branch-rate="1" complexity="1">
           <methods>
             <method name=".ctor" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -4503,7 +4517,7 @@
             <line number="7" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Domain.Exceptions.InvalidEnumStringException" filename="C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\Domain\Exceptions\InvalidEnumStringException.cs" line-rate="0" branch-rate="1" complexity="1">
+        <class name="Domain.Exceptions.InvalidEnumStringException" filename="C:\Users\justa\Desktop\APPAS\gerascia\savings_app\Domain\Exceptions\InvalidEnumStringException.cs" line-rate="0" branch-rate="1" complexity="1">
           <methods>
             <method name=".ctor" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -4515,7 +4529,7 @@
             <line number="7" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Domain.Exceptions.InvalidIdentityException" filename="C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\Domain\Exceptions\InvalidIdentityException.cs" line-rate="0" branch-rate="1" complexity="1">
+        <class name="Domain.Exceptions.InvalidIdentityException" filename="C:\Users\justa\Desktop\APPAS\gerascia\savings_app\Domain\Exceptions\InvalidIdentityException.cs" line-rate="0" branch-rate="1" complexity="1">
           <methods>
             <method name=".ctor" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -4527,7 +4541,7 @@
             <line number="7" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Domain.Exceptions.InvalidLoginCredentialsException" filename="C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\Domain\Exceptions\InvalidLoginCredentialsException.cs" line-rate="0" branch-rate="1" complexity="1">
+        <class name="Domain.Exceptions.InvalidLoginCredentialsException" filename="C:\Users\justa\Desktop\APPAS\gerascia\savings_app\Domain\Exceptions\InvalidLoginCredentialsException.cs" line-rate="0" branch-rate="1" complexity="1">
           <methods>
             <method name=".ctor" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -4539,7 +4553,7 @@
             <line number="7" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Domain.Exceptions.InvalidPasswordException" filename="C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\Domain\Exceptions\InvalidPasswordException.cs" line-rate="0" branch-rate="1" complexity="1">
+        <class name="Domain.Exceptions.InvalidPasswordException" filename="C:\Users\justa\Desktop\APPAS\gerascia\savings_app\Domain\Exceptions\InvalidPasswordException.cs" line-rate="0" branch-rate="1" complexity="1">
           <methods>
             <method name=".ctor" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -4551,7 +4565,7 @@
             <line number="7" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Domain.Exceptions.InvalidRequestArgumentsException" filename="C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\Domain\Exceptions\InvalidRequestArgumentsException.cs" line-rate="0" branch-rate="1" complexity="1">
+        <class name="Domain.Exceptions.InvalidRequestArgumentsException" filename="C:\Users\justa\Desktop\APPAS\gerascia\savings_app\Domain\Exceptions\InvalidRequestArgumentsException.cs" line-rate="0" branch-rate="1" complexity="1">
           <methods>
             <method name=".ctor" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -4563,7 +4577,7 @@
             <line number="7" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Domain.Exceptions.InvalidRoleException" filename="C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\Domain\Exceptions\InvalidRoleException.cs" line-rate="0" branch-rate="1" complexity="1">
+        <class name="Domain.Exceptions.InvalidRoleException" filename="C:\Users\justa\Desktop\APPAS\gerascia\savings_app\Domain\Exceptions\InvalidRoleException.cs" line-rate="0" branch-rate="1" complexity="1">
           <methods>
             <method name=".ctor" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -4575,7 +4589,7 @@
             <line number="7" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Domain.Exceptions.NotEnoughProductAmountException" filename="C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\Domain\Exceptions\NotEnoughProductAmountException.cs" line-rate="0" branch-rate="1" complexity="1">
+        <class name="Domain.Exceptions.NotEnoughProductAmountException" filename="C:\Users\justa\Desktop\APPAS\gerascia\savings_app\Domain\Exceptions\NotEnoughProductAmountException.cs" line-rate="0" branch-rate="1" complexity="1">
           <methods>
             <method name=".ctor" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -4587,7 +4601,7 @@
             <line number="7" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Domain.Exceptions.RecourseAlreadyExistsException" filename="C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\Domain\Exceptions\RecourseAlreadyExistsException.cs" line-rate="0" branch-rate="1" complexity="1">
+        <class name="Domain.Exceptions.RecourseAlreadyExistsException" filename="C:\Users\justa\Desktop\APPAS\gerascia\savings_app\Domain\Exceptions\RecourseAlreadyExistsException.cs" line-rate="0" branch-rate="1" complexity="1">
           <methods>
             <method name=".ctor" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -4599,7 +4613,7 @@
             <line number="7" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Domain.Exceptions.RecourseNotFoundException" filename="C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\Domain\Exceptions\RecourseNotFoundException.cs" line-rate="0" branch-rate="1" complexity="1">
+        <class name="Domain.Exceptions.RecourseNotFoundException" filename="C:\Users\justa\Desktop\APPAS\gerascia\savings_app\Domain\Exceptions\RecourseNotFoundException.cs" line-rate="0" branch-rate="1" complexity="1">
           <methods>
             <method name=".ctor" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -4611,7 +4625,7 @@
             <line number="7" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Domain.Extention.RegistrationValidation" filename="C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\Domain\Extention\RegistrationValidation.cs" line-rate="0" branch-rate="1" complexity="2">
+        <class name="Domain.Extention.RegistrationValidation" filename="C:\Users\justa\Desktop\APPAS\gerascia\savings_app\Domain\Extention\RegistrationValidation.cs" line-rate="0" branch-rate="1" complexity="2">
           <methods>
             <method name="IsValidEmail" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -4641,7 +4655,7 @@
     </package>
     <package name="Infrastructure" line-rate="0" branch-rate="0" complexity="112">
       <classes>
-        <class name="Infrastructure.Repositories.BuyerRepository" filename="C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\Infrastructure\Repositories\BuyerRepository.cs" line-rate="0" branch-rate="1" complexity="17">
+        <class name="Infrastructure.Repositories.BuyerRepository" filename="C:\Users\justa\Desktop\APPAS\gerascia\savings_app\Infrastructure\Repositories\BuyerRepository.cs" line-rate="0" branch-rate="1" complexity="17">
           <methods>
             <method name="AddBuyer" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -4861,7 +4875,7 @@
             <line number="134" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Infrastructure.Repositories.OrderRepository" filename="C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\Infrastructure\Repositories\OrderRepository.cs" line-rate="0" branch-rate="1" complexity="15">
+        <class name="Infrastructure.Repositories.OrderRepository" filename="C:\Users\justa\Desktop\APPAS\gerascia\savings_app\Infrastructure\Repositories\OrderRepository.cs" line-rate="0" branch-rate="1" complexity="15">
           <methods>
             <method name="AddOrder" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -5059,7 +5073,7 @@
             <line number="119" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Infrastructure.Repositories.PickupRepository" filename="C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\Infrastructure\Repositories\PickupRepository.cs" line-rate="0" branch-rate="1" complexity="15">
+        <class name="Infrastructure.Repositories.PickupRepository" filename="C:\Users\justa\Desktop\APPAS\gerascia\savings_app\Infrastructure\Repositories\PickupRepository.cs" line-rate="0" branch-rate="1" complexity="15">
           <methods>
             <method name="AddPickup" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -5257,7 +5271,7 @@
             <line number="120" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Infrastructure.Repositories.ProductRepository" filename="C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\Infrastructure\Repositories\ProductRepository.cs" line-rate="0" branch-rate="1" complexity="15">
+        <class name="Infrastructure.Repositories.ProductRepository" filename="C:\Users\justa\Desktop\APPAS\gerascia\savings_app\Infrastructure\Repositories\ProductRepository.cs" line-rate="0" branch-rate="1" complexity="15">
           <methods>
             <method name="AddProduct" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -5481,7 +5495,7 @@
             <line number="143" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Infrastructure.Repositories.Repository`1" filename="C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\Infrastructure\Repositories\Repository.cs" line-rate="0" branch-rate="0" complexity="19">
+        <class name="Infrastructure.Repositories.Repository`1" filename="C:\Users\justa\Desktop\APPAS\gerascia\savings_app\Infrastructure\Repositories\Repository.cs" line-rate="0" branch-rate="0" complexity="19">
           <methods>
             <method name="GetById" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -5675,7 +5689,7 @@
             <line number="121" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Infrastructure.Repositories.RestaurantRepository" filename="C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\Infrastructure\Repositories\RestaurantRepository.cs" line-rate="0" branch-rate="1" complexity="17">
+        <class name="Infrastructure.Repositories.RestaurantRepository" filename="C:\Users\justa\Desktop\APPAS\gerascia\savings_app\Infrastructure\Repositories\RestaurantRepository.cs" line-rate="0" branch-rate="1" complexity="17">
           <methods>
             <method name="AddRestaurant" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -5893,7 +5907,7 @@
             <line number="134" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Infrastructure.SavingsAppContext" filename="C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\Infrastructure\SavingsAppContext.cs" line-rate="0" branch-rate="1" complexity="9">
+        <class name="Infrastructure.SavingsAppContext" filename="C:\Users\justa\Desktop\APPAS\gerascia\savings_app\Infrastructure\SavingsAppContext.cs" line-rate="0" branch-rate="1" complexity="9">
           <methods>
             <method name="OnModelCreating" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -6073,7 +6087,7 @@
             <line number="102" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Infrastructure.Services.EmailSender" filename="C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\Infrastructure\Services\EmailSender.cs" line-rate="0" branch-rate="1" complexity="2">
+        <class name="Infrastructure.Services.EmailSender" filename="C:\Users\justa\Desktop\APPAS\gerascia\savings_app\Infrastructure\Services\EmailSender.cs" line-rate="0" branch-rate="1" complexity="2">
           <methods>
             <method name="NotifyRestaurantSoldProduct" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -6151,7 +6165,7 @@
             <line number="61" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Infrastructure.Services.FileSaver" filename="C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\Infrastructure\Services\FileSaver.cs" line-rate="0" branch-rate="0" complexity="3">
+        <class name="Infrastructure.Services.FileSaver" filename="C:\Users\justa\Desktop\APPAS\gerascia\savings_app\Infrastructure\Services\FileSaver.cs" line-rate="0" branch-rate="0" complexity="3">
           <methods>
             <method name=".ctor" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -6217,7 +6231,7 @@
             <line number="4" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="savings_app_tests.ProductControllerTests" filename="C:\Users\justa\Desktop\APPAS\klonas - Copy\savings_app\savings_app_tests\ProductControllerTests.cs" line-rate="1" branch-rate="1" complexity="2">
+        <class name="savings_app_tests.ProductControllerTests" filename="C:\Users\justa\Desktop\APPAS\gerascia\savings_app\savings_app_tests\ProductControllerTests.cs" line-rate="1" branch-rate="1" complexity="2">
           <methods>
             <method name=".ctor" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
@@ -6245,6 +6259,722 @@
             <line number="27" hits="1" branch="false" />
             <line number="31" hits="1" branch="false" />
             <line number="37" hits="1" branch="false" />
+          </lines>
+        </class>
+      </classes>
+    </package>
+    <package name="WebAPI" line-rate="0.0167364016736402" branch-rate="0" complexity="49">
+      <classes>
+        <class name="Program" filename="C:\Users\justa\Desktop\APPAS\gerascia\savings_app\savings_app_backend\Program.cs" line-rate="0" branch-rate="0" complexity="4">
+          <methods>
+            <method name="&lt;Main&gt;$" signature="(...)" line-rate="0" branch-rate="0" complexity="4">
+              <lines>
+                <line number="18" hits="0" branch="false" />
+                <line number="21" hits="0" branch="false" />
+                <line number="22" hits="0" branch="false" />
+                <line number="25" hits="0" branch="false" />
+                <line number="27" hits="0" branch="false" />
+                <line number="28" hits="0" branch="true" condition-coverage="0% (0/2)" />
+                <line number="34" hits="0" branch="false" />
+                <line number="36" hits="0" branch="false" />
+                <line number="37" hits="0" branch="false" />
+                <line number="42" hits="0" branch="false" />
+                <line number="43" hits="0" branch="false" />
+                <line number="44" hits="0" branch="false" />
+                <line number="46" hits="0" branch="false" />
+                <line number="48" hits="0" branch="false" />
+                <line number="50" hits="0" branch="false" />
+                <line number="52" hits="0" branch="false" />
+                <line number="54" hits="0" branch="false" />
+                <line number="56" hits="0" branch="false" />
+                <line number="58" hits="0" branch="false" />
+                <line number="59" hits="0" branch="false" />
+                <line number="60" hits="0" branch="false" />
+                <line number="61" hits="0" branch="false" />
+                <line number="62" hits="0" branch="false" />
+                <line number="68" hits="0" branch="false" />
+                <line number="69" hits="0" branch="false" />
+                <line number="70" hits="0" branch="false" />
+                <line number="71" hits="0" branch="false" />
+                <line number="72" hits="0" branch="false" />
+                <line number="73" hits="0" branch="false" />
+                <line number="74" hits="0" branch="false" />
+                <line number="75" hits="0" branch="false" />
+                <line number="76" hits="0" branch="false" />
+                <line number="77" hits="0" branch="false" />
+                <line number="78" hits="0" branch="false" />
+                <line number="80" hits="0" branch="false" />
+                <line number="81" hits="0" branch="false" />
+                <line number="82" hits="0" branch="false" />
+                <line number="83" hits="0" branch="false" />
+                <line number="84" hits="0" branch="false" />
+                <line number="85" hits="0" branch="false" />
+                <line number="86" hits="0" branch="false" />
+                <line number="87" hits="0" branch="false" />
+                <line number="88" hits="0" branch="false" />
+                <line number="89" hits="0" branch="false" />
+                <line number="90" hits="0" branch="false" />
+                <line number="91" hits="0" branch="false" />
+                <line number="92" hits="0" branch="false" />
+                <line number="93" hits="0" branch="false" />
+                <line number="95" hits="0" branch="false" />
+                <line number="96" hits="0" branch="false" />
+                <line number="98" hits="0" branch="false" />
+                <line number="99" hits="0" branch="false" />
+                <line number="101" hits="0" branch="false" />
+                <line number="104" hits="0" branch="true" condition-coverage="0% (0/2)" />
+                <line number="105" hits="0" branch="false" />
+                <line number="106" hits="0" branch="false" />
+                <line number="107" hits="0" branch="false" />
+                <line number="108" hits="0" branch="false" />
+                <line number="110" hits="0" branch="false" />
+                <line number="112" hits="0" branch="false" />
+                <line number="113" hits="0" branch="false" />
+                <line number="114" hits="0" branch="false" />
+                <line number="115" hits="0" branch="false" />
+                <line number="117" hits="0" branch="false" />
+                <line number="119" hits="0" branch="false" />
+                <line number="121" hits="0" branch="false" />
+                <line number="123" hits="0" branch="false" />
+                <line number="125" hits="0" branch="false" />
+                <line number="127" hits="0" branch="false" />
+                <line number="130" hits="0" branch="false" />
+                <line number="131" hits="0" branch="false" />
+                <line number="132" hits="0" branch="false" />
+                <line number="133" hits="0" branch="false" />
+                <line number="134" hits="0" branch="false" />
+                <line number="135" hits="0" branch="false" />
+                <line number="138" hits="0" branch="false" />
+                <line number="139" hits="0" branch="false" />
+                <line number="140" hits="0" branch="false" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="18" hits="0" branch="false" />
+            <line number="21" hits="0" branch="false" />
+            <line number="22" hits="0" branch="false" />
+            <line number="25" hits="0" branch="false" />
+            <line number="27" hits="0" branch="false" />
+            <line number="28" hits="0" branch="true" condition-coverage="0% (0/2)" />
+            <line number="34" hits="0" branch="false" />
+            <line number="36" hits="0" branch="false" />
+            <line number="37" hits="0" branch="false" />
+            <line number="42" hits="0" branch="false" />
+            <line number="43" hits="0" branch="false" />
+            <line number="44" hits="0" branch="false" />
+            <line number="46" hits="0" branch="false" />
+            <line number="48" hits="0" branch="false" />
+            <line number="50" hits="0" branch="false" />
+            <line number="52" hits="0" branch="false" />
+            <line number="54" hits="0" branch="false" />
+            <line number="56" hits="0" branch="false" />
+            <line number="58" hits="0" branch="false" />
+            <line number="59" hits="0" branch="false" />
+            <line number="60" hits="0" branch="false" />
+            <line number="61" hits="0" branch="false" />
+            <line number="62" hits="0" branch="false" />
+            <line number="68" hits="0" branch="false" />
+            <line number="69" hits="0" branch="false" />
+            <line number="70" hits="0" branch="false" />
+            <line number="71" hits="0" branch="false" />
+            <line number="72" hits="0" branch="false" />
+            <line number="73" hits="0" branch="false" />
+            <line number="74" hits="0" branch="false" />
+            <line number="75" hits="0" branch="false" />
+            <line number="76" hits="0" branch="false" />
+            <line number="77" hits="0" branch="false" />
+            <line number="78" hits="0" branch="false" />
+            <line number="80" hits="0" branch="false" />
+            <line number="81" hits="0" branch="false" />
+            <line number="82" hits="0" branch="false" />
+            <line number="83" hits="0" branch="false" />
+            <line number="84" hits="0" branch="false" />
+            <line number="85" hits="0" branch="false" />
+            <line number="86" hits="0" branch="false" />
+            <line number="87" hits="0" branch="false" />
+            <line number="88" hits="0" branch="false" />
+            <line number="89" hits="0" branch="false" />
+            <line number="90" hits="0" branch="false" />
+            <line number="91" hits="0" branch="false" />
+            <line number="92" hits="0" branch="false" />
+            <line number="93" hits="0" branch="false" />
+            <line number="95" hits="0" branch="false" />
+            <line number="96" hits="0" branch="false" />
+            <line number="98" hits="0" branch="false" />
+            <line number="99" hits="0" branch="false" />
+            <line number="101" hits="0" branch="false" />
+            <line number="104" hits="0" branch="true" condition-coverage="0% (0/2)" />
+            <line number="105" hits="0" branch="false" />
+            <line number="106" hits="0" branch="false" />
+            <line number="107" hits="0" branch="false" />
+            <line number="108" hits="0" branch="false" />
+            <line number="110" hits="0" branch="false" />
+            <line number="112" hits="0" branch="false" />
+            <line number="113" hits="0" branch="false" />
+            <line number="114" hits="0" branch="false" />
+            <line number="115" hits="0" branch="false" />
+            <line number="117" hits="0" branch="false" />
+            <line number="119" hits="0" branch="false" />
+            <line number="121" hits="0" branch="false" />
+            <line number="123" hits="0" branch="false" />
+            <line number="125" hits="0" branch="false" />
+            <line number="127" hits="0" branch="false" />
+            <line number="130" hits="0" branch="false" />
+            <line number="131" hits="0" branch="false" />
+            <line number="132" hits="0" branch="false" />
+            <line number="133" hits="0" branch="false" />
+            <line number="134" hits="0" branch="false" />
+            <line number="135" hits="0" branch="false" />
+            <line number="138" hits="0" branch="false" />
+            <line number="139" hits="0" branch="false" />
+            <line number="140" hits="0" branch="false" />
+          </lines>
+        </class>
+        <class name="savings_app_backend.Controllers.AuthController" filename="C:\Users\justa\Desktop\APPAS\gerascia\savings_app\savings_app_backend\Controllers\AuthController.cs" line-rate="0" branch-rate="1" complexity="2">
+          <methods>
+            <method name="Login" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="21" hits="0" branch="false" />
+                <line number="22" hits="0" branch="false" />
+                <line number="23" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name=".ctor" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="14" hits="0" branch="false" />
+                <line number="15" hits="0" branch="false" />
+                <line number="16" hits="0" branch="false" />
+                <line number="17" hits="0" branch="false" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="14" hits="0" branch="false" />
+            <line number="15" hits="0" branch="false" />
+            <line number="16" hits="0" branch="false" />
+            <line number="17" hits="0" branch="false" />
+            <line number="21" hits="0" branch="false" />
+            <line number="22" hits="0" branch="false" />
+            <line number="23" hits="0" branch="false" />
+          </lines>
+        </class>
+        <class name="savings_app_backend.Controllers.BuyersController" filename="C:\Users\justa\Desktop\APPAS\gerascia\savings_app\savings_app_backend\Controllers\BuyersController.cs" line-rate="0" branch-rate="1" complexity="7">
+          <methods>
+            <method name=".ctor" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="15" hits="0" branch="false" />
+                <line number="16" hits="0" branch="false" />
+                <line number="17" hits="0" branch="false" />
+                <line number="18" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="DeleteBuyer" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="56" hits="0" branch="false" />
+                <line number="57" hits="0" branch="false" />
+                <line number="58" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="GetBuyer" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="28" hits="0" branch="false" />
+                <line number="29" hits="0" branch="false" />
+                <line number="30" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="GetBuyerPrivate" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="35" hits="0" branch="false" />
+                <line number="36" hits="0" branch="false" />
+                <line number="37" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="GetBuyers" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="22" hits="0" branch="false" />
+                <line number="23" hits="0" branch="false" />
+                <line number="24" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="PostBuyer" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="49" hits="0" branch="false" />
+                <line number="50" hits="0" branch="false" />
+                <line number="51" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="PutBuyer" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="42" hits="0" branch="false" />
+                <line number="43" hits="0" branch="false" />
+                <line number="44" hits="0" branch="false" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="15" hits="0" branch="false" />
+            <line number="16" hits="0" branch="false" />
+            <line number="17" hits="0" branch="false" />
+            <line number="18" hits="0" branch="false" />
+            <line number="22" hits="0" branch="false" />
+            <line number="23" hits="0" branch="false" />
+            <line number="24" hits="0" branch="false" />
+            <line number="28" hits="0" branch="false" />
+            <line number="29" hits="0" branch="false" />
+            <line number="30" hits="0" branch="false" />
+            <line number="35" hits="0" branch="false" />
+            <line number="36" hits="0" branch="false" />
+            <line number="37" hits="0" branch="false" />
+            <line number="42" hits="0" branch="false" />
+            <line number="43" hits="0" branch="false" />
+            <line number="44" hits="0" branch="false" />
+            <line number="49" hits="0" branch="false" />
+            <line number="50" hits="0" branch="false" />
+            <line number="51" hits="0" branch="false" />
+            <line number="56" hits="0" branch="false" />
+            <line number="57" hits="0" branch="false" />
+            <line number="58" hits="0" branch="false" />
+          </lines>
+        </class>
+        <class name="savings_app_backend.Controllers.OrdersController" filename="C:\Users\justa\Desktop\APPAS\gerascia\savings_app\savings_app_backend\Controllers\OrdersController.cs" line-rate="0" branch-rate="1" complexity="8">
+          <methods>
+            <method name=".ctor" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="17" hits="0" branch="false" />
+                <line number="18" hits="0" branch="false" />
+                <line number="19" hits="0" branch="false" />
+                <line number="20" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="DeleteOrder" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="66" hits="0" branch="false" />
+                <line number="67" hits="0" branch="false" />
+                <line number="68" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="GetBuyersOrders" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="31" hits="0" branch="false" />
+                <line number="32" hits="0" branch="false" />
+                <line number="33" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="GetOrder" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="45" hits="0" branch="false" />
+                <line number="46" hits="0" branch="false" />
+                <line number="47" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="GetOrders" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="24" hits="0" branch="false" />
+                <line number="25" hits="0" branch="false" />
+                <line number="26" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="GetSellersOrderItems" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="38" hits="0" branch="false" />
+                <line number="39" hits="0" branch="false" />
+                <line number="40" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="PostOrder" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="59" hits="0" branch="false" />
+                <line number="60" hits="0" branch="false" />
+                <line number="61" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="PutOrder" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="52" hits="0" branch="false" />
+                <line number="53" hits="0" branch="false" />
+                <line number="54" hits="0" branch="false" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="17" hits="0" branch="false" />
+            <line number="18" hits="0" branch="false" />
+            <line number="19" hits="0" branch="false" />
+            <line number="20" hits="0" branch="false" />
+            <line number="24" hits="0" branch="false" />
+            <line number="25" hits="0" branch="false" />
+            <line number="26" hits="0" branch="false" />
+            <line number="31" hits="0" branch="false" />
+            <line number="32" hits="0" branch="false" />
+            <line number="33" hits="0" branch="false" />
+            <line number="38" hits="0" branch="false" />
+            <line number="39" hits="0" branch="false" />
+            <line number="40" hits="0" branch="false" />
+            <line number="45" hits="0" branch="false" />
+            <line number="46" hits="0" branch="false" />
+            <line number="47" hits="0" branch="false" />
+            <line number="52" hits="0" branch="false" />
+            <line number="53" hits="0" branch="false" />
+            <line number="54" hits="0" branch="false" />
+            <line number="59" hits="0" branch="false" />
+            <line number="60" hits="0" branch="false" />
+            <line number="61" hits="0" branch="false" />
+            <line number="66" hits="0" branch="false" />
+            <line number="67" hits="0" branch="false" />
+            <line number="68" hits="0" branch="false" />
+          </lines>
+        </class>
+        <class name="savings_app_backend.Controllers.PickupsController" filename="C:\Users\justa\Desktop\APPAS\gerascia\savings_app\savings_app_backend\Controllers\PickupsController.cs" line-rate="0" branch-rate="1" complexity="7">
+          <methods>
+            <method name=".ctor" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="17" hits="0" branch="false" />
+                <line number="18" hits="0" branch="false" />
+                <line number="19" hits="0" branch="false" />
+                <line number="20" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="DeletePickup" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="57" hits="0" branch="false" />
+                <line number="58" hits="0" branch="false" />
+                <line number="59" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="GetPickup" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="30" hits="0" branch="false" />
+                <line number="31" hits="0" branch="false" />
+                <line number="32" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="GetPickups" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="24" hits="0" branch="false" />
+                <line number="25" hits="0" branch="false" />
+                <line number="26" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="GetProductPickups" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="36" hits="0" branch="false" />
+                <line number="37" hits="0" branch="false" />
+                <line number="38" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="PostPickup" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="50" hits="0" branch="false" />
+                <line number="51" hits="0" branch="false" />
+                <line number="52" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="PutPickup" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="43" hits="0" branch="false" />
+                <line number="44" hits="0" branch="false" />
+                <line number="45" hits="0" branch="false" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="17" hits="0" branch="false" />
+            <line number="18" hits="0" branch="false" />
+            <line number="19" hits="0" branch="false" />
+            <line number="20" hits="0" branch="false" />
+            <line number="24" hits="0" branch="false" />
+            <line number="25" hits="0" branch="false" />
+            <line number="26" hits="0" branch="false" />
+            <line number="30" hits="0" branch="false" />
+            <line number="31" hits="0" branch="false" />
+            <line number="32" hits="0" branch="false" />
+            <line number="36" hits="0" branch="false" />
+            <line number="37" hits="0" branch="false" />
+            <line number="38" hits="0" branch="false" />
+            <line number="43" hits="0" branch="false" />
+            <line number="44" hits="0" branch="false" />
+            <line number="45" hits="0" branch="false" />
+            <line number="50" hits="0" branch="false" />
+            <line number="51" hits="0" branch="false" />
+            <line number="52" hits="0" branch="false" />
+            <line number="57" hits="0" branch="false" />
+            <line number="58" hits="0" branch="false" />
+            <line number="59" hits="0" branch="false" />
+          </lines>
+        </class>
+        <class name="savings_app_backend.Controllers.ProductsController" filename="C:\Users\justa\Desktop\APPAS\gerascia\savings_app\savings_app_backend\Controllers\ProductsController.cs" line-rate="0.181818181818182" branch-rate="1" complexity="7">
+          <methods>
+            <method name=".ctor" signature="(...)" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="17" hits="1" branch="false" />
+                <line number="18" hits="1" branch="false" />
+                <line number="19" hits="1" branch="false" />
+                <line number="20" hits="1" branch="false" />
+              </lines>
+            </method>
+            <method name="DeleteProduct" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="61" hits="0" branch="false" />
+                <line number="62" hits="0" branch="false" />
+                <line number="63" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="GetFilteredProducts" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="33" hits="0" branch="false" />
+                <line number="34" hits="0" branch="false" />
+                <line number="35" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="GetProduct" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="39" hits="0" branch="false" />
+                <line number="40" hits="0" branch="false" />
+                <line number="41" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="GetProducts" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="24" hits="0" branch="false" />
+                <line number="25" hits="0" branch="false" />
+                <line number="26" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="PostProduct" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="54" hits="0" branch="false" />
+                <line number="55" hits="0" branch="false" />
+                <line number="56" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="PutProduct" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="46" hits="0" branch="false" />
+                <line number="47" hits="0" branch="false" />
+                <line number="48" hits="0" branch="false" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="17" hits="1" branch="false" />
+            <line number="18" hits="1" branch="false" />
+            <line number="19" hits="1" branch="false" />
+            <line number="20" hits="1" branch="false" />
+            <line number="24" hits="0" branch="false" />
+            <line number="25" hits="0" branch="false" />
+            <line number="26" hits="0" branch="false" />
+            <line number="33" hits="0" branch="false" />
+            <line number="34" hits="0" branch="false" />
+            <line number="35" hits="0" branch="false" />
+            <line number="39" hits="0" branch="false" />
+            <line number="40" hits="0" branch="false" />
+            <line number="41" hits="0" branch="false" />
+            <line number="46" hits="0" branch="false" />
+            <line number="47" hits="0" branch="false" />
+            <line number="48" hits="0" branch="false" />
+            <line number="54" hits="0" branch="false" />
+            <line number="55" hits="0" branch="false" />
+            <line number="56" hits="0" branch="false" />
+            <line number="61" hits="0" branch="false" />
+            <line number="62" hits="0" branch="false" />
+            <line number="63" hits="0" branch="false" />
+          </lines>
+        </class>
+        <class name="savings_app_backend.Controllers.RestaurantsController" filename="C:\Users\justa\Desktop\APPAS\gerascia\savings_app\savings_app_backend\Controllers\RestaurantsController.cs" line-rate="0" branch-rate="1" complexity="8">
+          <methods>
+            <method name=".ctor" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="18" hits="0" branch="false" />
+                <line number="19" hits="0" branch="false" />
+                <line number="20" hits="0" branch="false" />
+                <line number="21" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="DeleteRestaurant" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="66" hits="0" branch="false" />
+                <line number="67" hits="0" branch="false" />
+                <line number="68" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="GetFilteredRestaurants" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="31" hits="0" branch="false" />
+                <line number="32" hits="0" branch="false" />
+                <line number="33" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="GetRestaurant" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="38" hits="0" branch="false" />
+                <line number="39" hits="0" branch="false" />
+                <line number="40" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="GetRestaurantPrivate" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="45" hits="0" branch="false" />
+                <line number="46" hits="0" branch="false" />
+                <line number="47" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="GetRestaurants" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="25" hits="0" branch="false" />
+                <line number="26" hits="0" branch="false" />
+                <line number="27" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="PostRestaurant" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="59" hits="0" branch="false" />
+                <line number="60" hits="0" branch="false" />
+                <line number="61" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="PutRestaurant" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="52" hits="0" branch="false" />
+                <line number="53" hits="0" branch="false" />
+                <line number="54" hits="0" branch="false" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="18" hits="0" branch="false" />
+            <line number="19" hits="0" branch="false" />
+            <line number="20" hits="0" branch="false" />
+            <line number="21" hits="0" branch="false" />
+            <line number="25" hits="0" branch="false" />
+            <line number="26" hits="0" branch="false" />
+            <line number="27" hits="0" branch="false" />
+            <line number="31" hits="0" branch="false" />
+            <line number="32" hits="0" branch="false" />
+            <line number="33" hits="0" branch="false" />
+            <line number="38" hits="0" branch="false" />
+            <line number="39" hits="0" branch="false" />
+            <line number="40" hits="0" branch="false" />
+            <line number="45" hits="0" branch="false" />
+            <line number="46" hits="0" branch="false" />
+            <line number="47" hits="0" branch="false" />
+            <line number="52" hits="0" branch="false" />
+            <line number="53" hits="0" branch="false" />
+            <line number="54" hits="0" branch="false" />
+            <line number="59" hits="0" branch="false" />
+            <line number="60" hits="0" branch="false" />
+            <line number="61" hits="0" branch="false" />
+            <line number="66" hits="0" branch="false" />
+            <line number="67" hits="0" branch="false" />
+            <line number="68" hits="0" branch="false" />
+          </lines>
+        </class>
+        <class name="savings_app_backend.Controllers.ShopController" filename="C:\Users\justa\Desktop\APPAS\gerascia\savings_app\savings_app_backend\Controllers\ShopController.cs" line-rate="0" branch-rate="1" complexity="2">
+          <methods>
+            <method name=".ctor" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="16" hits="0" branch="false" />
+                <line number="17" hits="0" branch="false" />
+                <line number="18" hits="0" branch="false" />
+                <line number="19" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="Checkout" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="24" hits="0" branch="false" />
+                <line number="25" hits="0" branch="false" />
+                <line number="26" hits="0" branch="false" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="16" hits="0" branch="false" />
+            <line number="17" hits="0" branch="false" />
+            <line number="18" hits="0" branch="false" />
+            <line number="19" hits="0" branch="false" />
+            <line number="24" hits="0" branch="false" />
+            <line number="25" hits="0" branch="false" />
+            <line number="26" hits="0" branch="false" />
+          </lines>
+        </class>
+        <class name="WebAPI.Middlewares.MyExceptionHandlerMiddleware" filename="C:\Users\justa\Desktop\APPAS\gerascia\savings_app\savings_app_backend\Middlewares\MyExceptionHandlerMiddleware.cs" line-rate="0" branch-rate="0" complexity="4">
+          <methods>
+            <method name=".ctor" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="15" hits="0" branch="false" />
+                <line number="16" hits="0" branch="false" />
+                <line number="17" hits="0" branch="false" />
+                <line number="18" hits="0" branch="false" />
+                <line number="19" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="HandleExceptionsAsync" signature="()" line-rate="0" branch-rate="0" complexity="2">
+              <lines>
+                <line number="35" hits="0" branch="false" />
+                <line number="36" hits="0" branch="false" />
+                <line number="37" hits="0" branch="false" />
+                <line number="39" hits="0" branch="true" condition-coverage="0% (0/2)" />
+                <line number="40" hits="0" branch="false" />
+                <line number="41" hits="0" branch="false" />
+                <line number="42" hits="0" branch="false" />
+                <line number="43" hits="0" branch="false" />
+                <line number="45" hits="0" branch="false" />
+                <line number="46" hits="0" branch="false" />
+                <line number="48" hits="0" branch="false" />
+                <line number="50" hits="0" branch="false" />
+                <line number="51" hits="0" branch="false" />
+                <line number="53" hits="0" branch="false" />
+                <line number="55" hits="0" branch="false" />
+                <line number="57" hits="0" branch="false" />
+              </lines>
+            </method>
+            <method name="InvokeAsync" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="22" hits="0" branch="false" />
+                <line number="24" hits="0" branch="false" />
+                <line number="25" hits="0" branch="false" />
+                <line number="26" hits="0" branch="false" />
+                <line number="27" hits="0" branch="false" />
+                <line number="28" hits="0" branch="false" />
+                <line number="29" hits="0" branch="false" />
+                <line number="30" hits="0" branch="false" />
+                <line number="31" hits="0" branch="false" />
+                <line number="32" hits="0" branch="false" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="15" hits="0" branch="false" />
+            <line number="16" hits="0" branch="false" />
+            <line number="17" hits="0" branch="false" />
+            <line number="18" hits="0" branch="false" />
+            <line number="19" hits="0" branch="false" />
+            <line number="22" hits="0" branch="false" />
+            <line number="24" hits="0" branch="false" />
+            <line number="25" hits="0" branch="false" />
+            <line number="26" hits="0" branch="false" />
+            <line number="27" hits="0" branch="false" />
+            <line number="28" hits="0" branch="false" />
+            <line number="29" hits="0" branch="false" />
+            <line number="30" hits="0" branch="false" />
+            <line number="31" hits="0" branch="false" />
+            <line number="32" hits="0" branch="false" />
+            <line number="35" hits="0" branch="false" />
+            <line number="36" hits="0" branch="false" />
+            <line number="37" hits="0" branch="false" />
+            <line number="39" hits="0" branch="true" condition-coverage="0% (0/2)" />
+            <line number="40" hits="0" branch="false" />
+            <line number="41" hits="0" branch="false" />
+            <line number="42" hits="0" branch="false" />
+            <line number="43" hits="0" branch="false" />
+            <line number="45" hits="0" branch="false" />
+            <line number="46" hits="0" branch="false" />
+            <line number="48" hits="0" branch="false" />
+            <line number="50" hits="0" branch="false" />
+            <line number="51" hits="0" branch="false" />
+            <line number="53" hits="0" branch="false" />
+            <line number="55" hits="0" branch="false" />
+            <line number="57" hits="0" branch="false" />
           </lines>
         </class>
       </classes>

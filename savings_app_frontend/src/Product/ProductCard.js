@@ -11,7 +11,9 @@ const Card = ({ product }) => {
                                 key={product.id}
                             >
                                 <div className="card-img-top text-center">
-                                    <img src={product.pictureURL} alt={product.name} className="photo w-75" />
+                            <img src={product.imageUrl == null ?
+                                "https://savingsapp.blob.core.windows.net/productimages/foodDefault.jpg" :
+                                product.imageUrl} alt={product.name} className="photo w-75" />
                                 </div>
                                 <div className="card-body">
                                     <div className="card-title fw-bold fs-4">

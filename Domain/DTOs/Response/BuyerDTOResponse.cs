@@ -10,17 +10,17 @@ namespace Domain.DTOs.Response
 {
     public class BuyerDTOResponse
     {
-        public BuyerDTOResponse(Guid id, string name, string imageName)
+        public BuyerDTOResponse(Guid id, string name, string? imageUrl)
         {
             Id = id;
             Name = name;
-            ImageName = imageName;
+            ImageUrl = imageUrl;
         }
 
         public Guid Id { get; set; }
 
         public string Name { get; set; }
 
-        public string ImageName { get; set; }
+        public string? ImageUrl { get; set; }
     }
 }

@@ -8,14 +8,14 @@
 
         }
 
-        public Restaurant(Guid id, string name, UserAuth userAuth, Address address, string imageName, 
+        public Restaurant(Guid id, string name, UserAuth userAuth, Address address, string? imageUrl, 
             bool open, string? description, string? shortDescription, string? siteRef)
         {
             Id = id;
             Name = name;
             UserAuth = userAuth;
             Address = address;
-            ImageName = imageName;
+            ImageUrl = imageUrl;
             Open = open;
             Description = description;
             ShortDescription = shortDescription;

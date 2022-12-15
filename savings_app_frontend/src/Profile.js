@@ -62,7 +62,9 @@ const Profile = () => {
 
                 <div className=" float-left  ml-[80px] w-[275px] h-[325px]  mt-[50px] border-solid border-2 border-sky-500">
                     <div className="d-flex flex-column align-items-center text-center mt-4">
-                        <img src={"https://localhost:7183/userImg/" + getId(localStorage.getItem("token")) + ".jpg"} alt="Admin" className="rounded-circle" width="150" />
+                        <img src={profile.imageUrl == null ?
+                            "https://savingsapp.blob.core.windows.net/userimages/profilePic.jpg" :
+                            profile.imageUrl} alt="Admin" className="rounded-circle" width="150" />
                         <div className="mt-3">
                             <h4>{getName(localStorage.getItem("token"))}</h4>
                             <p className="text-secondary mb-1">Country: Lithuania</p>

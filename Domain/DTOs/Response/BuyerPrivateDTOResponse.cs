@@ -10,22 +10,24 @@ namespace Domain.DTOs.Response
     public class BuyerPrivateDTOResponse
     {
 
-        public BuyerPrivateDTOResponse(Guid id, string name, string imageName, AddressDTOResponse? address,
+        public BuyerPrivateDTOResponse(Guid id, string name, string? imageUrl, AddressDTOResponse? address,
             UserAuthDTOResponse userAuth)
         {
             Id = id;
             Name = name;
-            ImageName = imageName;
+            ImageUrl = imageUrl;
+            Address = address;
+            UserAuth = userAuth;
         }
 
         public Guid Id { get; set; }
 
         public string Name { get; set; }
 
-        public string ImageName { get; set; }
+        public string? ImageUrl { get; set; }
 
-        public Address? Address { get; set; }
+        public AddressDTOResponse? Address { get; set; }
 
-        public UserAuth UserAuth { get; set; }
+        public UserAuthDTOResponse UserAuth { get; set; }
     }
 }

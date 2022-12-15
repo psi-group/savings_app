@@ -8,7 +8,7 @@ namespace Domain.Entities
         public string Name { get; protected set; }
         public UserAuth UserAuth { get; protected set; }
 
-        public string ImageName { get; protected set; }
+        public string? ImageUrl { get; protected set; }
 
     }
 }

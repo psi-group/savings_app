@@ -23,7 +23,9 @@ export default class List extends Component {
     });
 
     const response = await fetch(url);
-    let data = await response.json();
+      let data = await response.json();
+
+      console.log(data);
 
     await this.setState({ products: data, loading: false });
     await console.log(data);
@@ -53,6 +55,7 @@ export default class List extends Component {
               color="#0ea5e9"
             />
             {this.state.products.map((product) => (
+
               <Link to={"/product/" + product.id}>
                 <div className="flex align-middle justify-center rounded-xl  sm:min-w-[200px]">
                   <li
@@ -63,14 +66,12 @@ export default class List extends Component {
                       {product.name.toUpperCase()}
                     </h1>
                     <img
-                      src={
-                        "https://savingsapp.blob.core.windows.net/productimages/" +
-                        product.id +
-                        ".jpg"
-                          ? "https://savingsapp.blob.core.windows.net/productimages/" +
-                            product.id +
-                            ".jpg"
-                          : productImageSkeleton
+                                src={
+                                    product.imageUrl == null ? 
+                                        "https://savingsapp.blob.core.windows.net/productimages/foodDefault.jpg" :
+                                        product.imageUrl
+                                    
+                        
                       }
                       className="w-60 h-60 rounded-md"
                     />

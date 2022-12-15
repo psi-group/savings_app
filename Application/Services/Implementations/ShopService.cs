@@ -100,6 +100,7 @@ namespace Application.Services.Implementations
 
             return new OrderDTOResponse(
                 order.Id,
+                order.OrderDate,
                 order.BuyerId,
                 orderItemListDTO
                 );

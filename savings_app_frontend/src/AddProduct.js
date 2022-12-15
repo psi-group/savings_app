@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const AddProduct = () => {
+const AddProduct = ({ setSnackOn, setSnackMessage }) => {
     console.log("print");
 
     const defaultImageSrc = "/images/foodDefault.png";
@@ -13,6 +13,9 @@ const AddProduct = () => {
     const [price, setPrice] = useState(0);
     const [shelfLife, setShelfLife] = useState("");
     const [description, setDescription] = useState("");
+
+    const [errorMsg, setErrMsg] = useState("");
+    const [loading, setLoading] = useState(false);
 
     const [imageSrc, setImageSrc] = useState(defaultImageSrc);
     const [imageFile, setImageFile] = useState();
@@ -29,6 +32,8 @@ const AddProduct = () => {
     }
 
     const handleSubmit = (e) => {
+        setLoading(true);
+
         e.preventDefault();
 
         console.log(pickups);
@@ -44,62 +49,53 @@ const AddProduct = () => {
         formData.append("amountType", amountType);
         console.log(amountType);
         console.log(category);
-        formData.append("amountPerUnit", amountPerUnit);
 
-        formData.append("amountOfUnits", amountOfUnits);
-        formData.append("price", price);
+        if (!isNaN(amountPerUnit))
+            formData.append("amountPerUnit", amountPerUnit);
+
+        if (!isNaN(amountOfUnits))
+            formData.append("amountOfUnits", amountOfUnits);
+
+        if (!isNaN(price))
+            formData.append("price", price);
         formData.append("shelfLife", shelfLife);
         formData.append("description", description);
 
         formData.append("image", imageFile);
         formData.append("restaurantId", getId(localStorage.getItem("token")));
 
-        console.log(formData);
-
-        //formData.append('pickups', JSON.stringify(pickups));
-
-        /*for (var i = 0; i < pickups.length; i++) {
-          formData.append(`pickups[${i}][startTime]`, pickups[i].startTime);
-          formData.append(`pickups[${i}][endTime]`, pickups[i].endTime);
-        }*/
+        console.log(formData.get("amountPerUnit"));
 
         fetch("https://localhost:7183/api/products", {
             method: "POST",
             headers: {
                 "Access-Control-Allow-Origin": "*",
-                Authorization: "Bearer " + localStorage.getItem("token"),
+                "Authorization": "Bearer " + localStorage.getItem("token"),
             },
             body: formData,
         })
             .then(async (response) => {
 
-                console.log(response);
+                const json = await response.json();
+                console.log(json);
 
-
-                let productId;
-                if (response.headers
-                    .get("content-type")
-                    ?.includes("application/json")) {
-                    productId = (await response.json()).id;
+                if (!response.ok) {
+                    return Promise.reject(json);
                 }
 
-                console.log(productId);
-                const body = JSON.stringify({
-                    productId: productId,
-                    startTime: pickups[0].startTime,
-                    endTime: pickups[0].endTime
-                });
-                console.log(body);
+                const productId = json.id;
+
+                console.log("id cia: " + productId);
 
                 for (var i = 0; i < pickups.length; i++) {
-
+                    console.log("i: " + i);
                     fetch("https://localhost:7183/api/pickups", {
                         method: "POST",
                         headers: {
                             "Access-Control-Allow-Origin": "*",
                             'Accept': 'application/json',
-                            'Content-Type': 'application/json'
-                            //Authorization: "Bearer " + localStorage.getItem("token"),
+                            'Content-Type': 'application/json',
+                            "Authorization" : "Bearer " + localStorage.getItem("token"),
                         },
                         body: JSON.stringify({
                             productId: productId,
@@ -107,19 +103,26 @@ const AddProduct = () => {
                             endTime: pickups[i].endTime
                         })
                     })
-                        .catch((error) => { });
+                        .catch(error => { setErrMsg(error.title); })
                 }
 
+                setLoading(false);
+                setSnackMessage("Product and pickups created succesfully");
+                setSnackOn(true);
+
             })
-            .catch((error) => { });
+            .catch((error) => { setErrMsg(error.title); setLoading(false); });
+
+
+
     };
 
     const renderPickupInput = () => {
         let pickups = [];
         for (let i = 0; i < pickupAmount; i++) {
-            pickups.push(<label>Pickup Start Time</label>);
             pickups.push(
-                <div>
+                <div className = "flex gap-2">
+                    <label>Pickup Start Time</label>
                     <input
                         type="datetime-local"
                         className="focus:border-2 border-[1px] outline-none border-sky-500 rounded-xl"
@@ -129,10 +132,10 @@ const AddProduct = () => {
                 </div>
             );
 
-            pickups.push(<label>Pickup End Time</label>);
             pickups.push(
 
-                <div>
+                <div className = "flex gap-2">
+                    <label>Pickup End Time</label>
                     <input
                         type="datetime-local"
                         className="focus:border-2 border-[1px] outline-none border-sky-500 rounded-xl"
@@ -186,7 +189,8 @@ const AddProduct = () => {
 
     return (
         <div className="grid h-screen place-items-center sm:pt-20">
-            <div className="text-[16px]  w-full sm:w-[600px] flex flex-col sm:border-sky-500 sm:border-2 px-6 py-3 rounded-xl shadow-xl">
+            <div className="text-[16px]  w-full sm:w-[700px] flex flex-col sm:border-sky-500 sm:border-2 px-6 py-3 rounded-xl shadow-xl">
+                <p className="text-red-500">{errorMsg}</p>
                 <h1 className="text-center font-bold  mb-3 text-3xl">Add Product</h1>
                 <form
                     onSubmit={handleSubmit}
@@ -233,7 +237,7 @@ const AddProduct = () => {
                         <div className="flex flex-col sm:items-center">
                             <label>Amount of Units</label>
                             <input
-                                type="text"
+                                type="number"
                                 className="focus:border-2 border-[1px] outline-none border-sky-500 rounded-xl"
                                 onChange={(e) => setAmountOfUnits(parseInt(e.target.value))}
                             ></input>
@@ -241,9 +245,10 @@ const AddProduct = () => {
                         <div className="flex flex-col sm:items-center">
                             <label>Amount Per Unit</label>
                             <input
-                                type="text"
+                                type="number"
+                                step="0.001"
                                 className="focus:border-2 border-[1px] outline-none border-sky-500 rounded-xl"
-                                onChange={(e) => setAmountPerUnit(parseFloat(e.target.value))}
+                                onChange={(e) => { setAmountPerUnit(parseFloat(e.target.value)) ;  }}
                             ></input>
                         </div>
                     </div>
@@ -251,7 +256,8 @@ const AddProduct = () => {
                         <div className="flex flex-col sm:items-center">
                             <label>Price</label>
                             <input
-                                type="text"
+                                type="number"
+                                step="0.01"
                                 className="focus:border-2 border-[1px] outline-none border-sky-500 rounded-xl flex-1"
                                 onChange={(e) => setPrice(parseFloat(e.target.value))}
                             ></input>
@@ -288,7 +294,7 @@ const AddProduct = () => {
                     </div>
 
                     {pickupAmount > 0 && (
-                        <div className="grid gap-2 grid-cols-4 border-2 p-3 border-sky-500 rounded-lg">
+                        <div className="flex justify-between border-2 p-3 border-sky-500 rounded-lg">
                             {renderPickupInput()}{" "}
                         </div>
                     )}
@@ -299,7 +305,18 @@ const AddProduct = () => {
                     >
                         Add Pickup Time
                     </button>
-                    <button className="bg-sky-500 text-white rounded-xl font-bold hover:bg-sky-800 hover:text-white p-1">
+                    <button className="bg-sky-500 text-white rounded-xl font-bold hover:bg-sky-800 hover:text-white p-1"
+                        disabled={loading}
+                    >
+                        <>
+
+                            {loading && <div>
+                                <i
+                                    className="fa fa-refresh fa-spin"
+
+                                />
+                            </div>}
+                        </>
                         Add Product
                     </button>
                 </form>
