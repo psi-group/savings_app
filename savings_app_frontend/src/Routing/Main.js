@@ -8,6 +8,7 @@ import RestaurantDetails from '../Restaurant/RestaurantDetails';
 import ShoppingCart from '../ShoppingCart';
 import Register from "../Register";
 import Login from "../Login";
+import OrderDetails from '../Orders/OrderDetails';
 
 
 const Main = (props) => {

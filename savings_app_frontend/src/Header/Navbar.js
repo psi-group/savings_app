@@ -2,13 +2,10 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ShoppingCart from "../img/shopping-cart.png";
 import { Link } from "react-router-dom";
-import AuthContext from "../AuthProvider";
-import { useContext } from "react";
 import useValidateJWT from "../Hooks/useValidateJWT";
 import useIsRestaurant from "../Hooks/useIsRestaurant";
 import logo from "../img/logo.png"
 import { Searchbar } from "./Searchbar";
-import MenuItems from "./MenuItems";
 import userIcon from "../img/userIcon.png";
 import restaurantIcon from "../img/restaurantIcon.png";
 

@@ -18,6 +18,7 @@ import UnauthorizedSeller from "./UnauthorizedSeller";
 import UnauthorizedBuyer from "./UnauthorizedBuyer";
 import Unauthorized from "./Unauthorized";
 import Snackbar from '@mui/material/Snackbar';
+import OrderDetails from "./Orders/OrderDetails";
 
 const App = () => {
   const [searchas, setSearchas] = React.useState("");
@@ -154,6 +155,7 @@ const App = () => {
                     
                     <Route path='/product/:id' element={<ProductDetails cartItems={cartItems} addCartItem={addCartItem} roundNumber={roundNumber} />}></Route>
                     <Route path='/orders' element={<Orders />}></Route>
+                    <Route path='/orders/:id' element={<OrderDetails />}></Route>
                     <Route path='/restaurants' element={<Restaurants searchas={searchas} />}></Route>
                     <Route path='/restaurants/:id' element={<RestaurantDetails />}></Route>
 
