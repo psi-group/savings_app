@@ -101,7 +101,7 @@ console.log(orders);
         <div className="bg-slate-100 w-full rounded-xl min-h-[400px] border-2 border-sky-500 pt-5 px-5 flex-col flex justify-between py-5 ">
         <OrderSortButton />
             <div>
-            <table className="w-full bg-sky-500 text-white h-[50px] rounded-xl flex justify-between items-center px-5">
+            <table className="w-full bg-sky-500 text-white h-[50px] rounded-t-xl flex justify-between items-center px-5">
                 <div className="flex gap-[100px]">
                 <th>Order date</th>
                 <th>Ordered items</th>
@@ -111,7 +111,7 @@ console.log(orders);
             
             {orders !== null && orders.map(order => (
                 <Link to={`/orders/${order.id}`}>
-                <div className="w-full bg-white rounded-xl px-5 h-[50px] flex items-center hover:!bg-sky-200 justify-between">
+                <div className="w-full bg-white px-5 h-[50px] flex items-center hover:!bg-slate-200 hover:!text-black justify-between">
                 <div className="flex gap-[100px]" >
                 <div>{getFullDate(order.orderDate)}</div>
                 <div>{order.orderItems.length}</div>
@@ -121,14 +121,14 @@ console.log(orders);
                 </Link>
             ))}
             {orders ===null && (
-                <div className="w-full bg-white flex items-center justify-center rounded-xl h-[50px]"><h2 className="text-2xl text-sky-500" >You do not have active orders</h2></div>
+                <div className="w-full bg-white flex items-center justify-center h-[50px]"><h2 className="text-2xl text-sky-500" >You do not have active orders</h2></div>
             )}
             </div>
             <div className=" flex flex-col w-full gap-2">
                 <hr className="bg-black"></hr>
                 <div className="flex justify-between w-full">
-                <h1 className="text-2xl">Need more products?</h1>
-                <Link to="/" className="text-xl bg-sky-500 p-2 rounded-md text-white">Go back to shopping</Link> </div>
+                <h1 className="text-2xl mt-3">Need more products?</h1>
+                <Link to="/" className="text-xl bg-sky-500 p-2 rounded-md text-white hover:bg-sky-600 mt-3">Go back to shopping</Link> </div>
                 </div>
         </div>
         </div>
