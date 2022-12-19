@@ -1,28 +1,30 @@
-﻿/*using Microsoft.Extensions.Configuration;
-using Microsoft.IdentityModel.Tokens;
+﻿using Application.Services.Implementations;
+using Domain.DTOs.Request;
+using Domain.Entities;
+using Domain.Exceptions;
+using Domain.Interfaces.Repositories;
+using Infrastructure.Repositories;
+using Microsoft.Extensions.Configuration;
 using NSubstitute;
-using savings_app_backend.Models.Entities;
-using savings_app_backend.Services.Implementations;
-using System;
-using System.Collections.Generic;
-using System.Data;
+using NuGet.Protocol.Plugins;
 using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
-using System.Net;
-using System.Security.Claims;
-using System.Text;
-using System.Threading.Tasks;
+using System.Linq.Expressions;
+using Xunit;
 
 namespace savings_app_tests
 {
     public class AuthServiceTests
     {
         private readonly IConfiguration _config = Substitute.For<IConfiguration>();
+        private readonly IBuyerRepository _buyerRepo = Substitute.For<IBuyerRepository>();
+        private readonly IRestaurantRepository _restaurantRepo = Substitute.For<IRestaurantRepository>();
+
+
         private readonly AuthService _sut;
 
         public AuthServiceTests()
         {
-            _sut = new AuthService(_config);
+            _sut = new AuthService(_config, _buyerRepo, _restaurantRepo);
         }
 
         [Fact]
@@ -31,10 +33,13 @@ namespace savings_app_tests
 
             // Arrange
 
-            User user = new Buyer();
-
-            user.Name = "user";
-            user.Id = Guid.NewGuid();
+            User user = new Buyer(
+                Guid.NewGuid(),
+                "user",
+                new UserAuth("password", "email"),
+                new Address("country", "city", "streetName", 0, 0, 0),
+                "imageUrl"
+                );
 
             _config["Jwt:Key"].Returns("randomStringOfCharacters");
             _config["Jwt:Issuer"].Returns("https://localhost:7183");
@@ -65,6 +70,132 @@ namespace savings_app_tests
             Assert.Equal(_config["Jwt:Audience"], audienceClaim);
 
         }
+
+        [Fact]
+        public async Task AuthenticateUser_ShouldReturnBuyer_WhenThereIsBuyerWithLoginAndPasswordMatches()
+        {
+
+            // Arrange
+
+            Buyer buyer = new Buyer(
+                Guid.NewGuid(),
+                "user",
+                new UserAuth("password", "email"),
+                new Address("country", "city", "streetName", 0, 0, 0),
+                "imageUrl"
+                );
+
+            _buyerRepo.GetBuyerAsync(Arg.Any<Expression<Func<Buyer, bool>>>()).Returns(buyer);
+
+            var userLogin = new UserLoginDTO(
+                "email",
+                "password"
+                );
+
+            // Act
+
+            var buyerResponse = await _sut.AuthenticateUserAsync(userLogin);
+
+            // Assert
+
+
+            Assert.Equal(buyer, buyerResponse);
+
+        }
+
+        [Fact]
+        public async Task AuthenticateUser_ShouldThrowInvalidLoginCredentialsException_WhenThereIsBuyerWithLoginButPasswordDoesntMatch()
+        {
+
+            // Arrange
+
+            Buyer buyer = new Buyer(
+                Guid.NewGuid(),
+                "user",
+                new UserAuth("password", "email"),
+                new Address("country", "city", "streetName", 0, 0, 0),
+                "imageUrl"
+                );
+
+            _buyerRepo.GetBuyerAsync(Arg.Any<Expression<Func<Buyer, bool>>>()).Returns(buyer);
+
+            var userLogin = new UserLoginDTO(
+                "email",
+                "wrongPassword"
+                );
+
+            // Act
+            // Assert
+
+
+            await Assert.ThrowsAsync<InvalidLoginCredentialsException>(async () => await _sut.AuthenticateUserAsync(userLogin));
+
+        }
+
+
+        [Fact]
+        public async Task AuthenticateUser_ShouldReturnSeller_WhenThereIsNoBuyerWithLoginAndThereIsSellerWithLoginAndPasswordMatches()
+        {
+
+            // Arrange
+
+            _buyerRepo.GetBuyerAsync(Arg.Any<Expression<Func<Buyer, bool>>>()).Returns((Buyer?)null);
+
+            var seller = new Restaurant(
+                Guid.NewGuid(),
+                "user",
+                new UserAuth("password", "email"),
+                new Address("country", "city", "streetName", 0, 0, 0),
+                null,
+                true,
+                null,
+                null,
+                null
+                );
+
+            _restaurantRepo.GetRestaurantAsync(Arg.Any<Expression<Func<Restaurant, bool>>>()).Returns(seller);
+
+            var userLogin = new UserLoginDTO(
+                "email",
+                "password"
+                );
+
+            // Act
+
+            var restaurant = await _sut.AuthenticateUserAsync(userLogin);
+
+            // Assert
+
+
+            Assert.Equal(seller, restaurant);
+
+        }
+
+
+        [Fact]
+        public async Task AuthenticateUser_ShouldThrowInvalidLoginCredentialsException_WhenThereIsNoBuyerWithLoginAndThereIsNoSellerWithLogin()
+        {
+
+            // Arrange
+
+            _buyerRepo.GetBuyerAsync(Arg.Any<Expression<Func<Buyer, bool>>>()).Returns((Buyer?)null);
+
+
+            _restaurantRepo.GetRestaurantAsync(Arg.Any<Expression<Func<Restaurant, bool>>>()).Returns((Restaurant?)null);
+
+            var userLogin = new UserLoginDTO(
+                "email",
+                "password"
+                );
+
+            // Act
+
+
+            // Assert
+
+
+            await Assert.ThrowsAsync<InvalidLoginCredentialsException>(async () => await _sut.AuthenticateUserAsync(userLogin));
+
+        }
     }
 }
-*/

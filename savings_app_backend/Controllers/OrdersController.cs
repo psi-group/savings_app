@@ -19,11 +19,6 @@ namespace savings_app_backend.Controllers
             _orderService = orderService;
         }
 
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<OrderDTOResponse>>> GetOrders()
-        {
-            return Ok(await _orderService.GetOrders());
-        }
 
         [HttpGet("buyer/{buyerId}")]
         [Authorize (Roles = "buyer")]
@@ -51,13 +46,6 @@ namespace savings_app_backend.Controllers
         public async Task<ActionResult<OrderDTOResponse>> PutOrder(Guid id, OrderDTORequest order)
         {
             return Ok(await _orderService.PutOrder(id, order));
-        }
-
-        [HttpPost]
-        [Authorize(Roles = "buyer")]
-        public async Task<ActionResult<OrderDTOResponse>> PostOrder(OrderDTORequest order)
-        {
-            return Ok(await _orderService.PostOrder(order));
         }
 
         [HttpDelete("{id}")]

@@ -1,14 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
+
 
 namespace Domain.DTOs.Request
 {
     public class CheckoutDTORequest
     {
+        public CheckoutDTORequest(List<ProductToBuyDTORequest>? productsToBuy, Guid? buyerId)
+        {
+            this.productsToBuy = productsToBuy;
+            this.buyerId = buyerId;
+        }
+
+        public CheckoutDTORequest()
+        {
+
+        }
+
         [Required]
         public List<ProductToBuyDTORequest>? productsToBuy { get; set; }
         [Required]

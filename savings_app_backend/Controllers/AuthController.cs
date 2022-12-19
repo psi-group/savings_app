@@ -17,9 +17,9 @@ namespace savings_app_backend.Controllers
         }
 
         [HttpPost("login")]
-        public ActionResult<string> Login(UserLoginDTO userLogin)
+        public async Task<ActionResult<string>> Login(UserLoginDTO userLogin)
         {
-            return Ok(_authService.Login(userLogin));
+            return Ok(await _authService.Login(userLogin));
         }
     }
 }

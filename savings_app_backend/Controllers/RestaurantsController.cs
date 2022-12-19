@@ -20,12 +20,6 @@ namespace savings_app_backend.Controllers
             _restaurantService = restaurantService;
         }
 
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<RestaurantDTOResponse>>> GetRestaurants()
-        {
-            return Ok(await _restaurantService.GetRestaurants());
-        }
-
         [HttpGet("filter")]
         public async Task<ActionResult<IEnumerable<RestaurantDTOResponse>>> GetFilteredRestaurants([FromQuery] string? search)
         {
@@ -46,13 +40,6 @@ namespace savings_app_backend.Controllers
             return Ok(await _restaurantService.GetRestaurantPrivate(id));
         }
 
-        [HttpPut("{id}")]
-        [Authorize(Roles = "seller")]
-        public async Task<ActionResult<RestaurantDTOResponse>> PutRestaurant(Guid id, RestaurantDTORequest restaurant)
-        {
-            return Ok(await _restaurantService.PutRestaurant(id, restaurant));
-        }
-
         [HttpPost]
         public async Task<ActionResult<RestaurantDTOResponse>> PostRestaurant(
             [FromForm] RestaurantDTORequest restaurant)
@@ -60,11 +47,5 @@ namespace savings_app_backend.Controllers
             return Ok(await _restaurantService.PostRestaurant(restaurant));
         }
 
-        [HttpDelete("{id}")]
-        [Authorize(Roles = "seller")]
-        public async Task<ActionResult<RestaurantDTOResponse>> DeleteRestaurant(Guid id)
-        {
-            return Ok(await _restaurantService.DeleteRestaurant(id));
-        }
     }
 }

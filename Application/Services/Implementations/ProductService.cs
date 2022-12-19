@@ -20,54 +20,14 @@ namespace Application.Services.Implementations
 
         private readonly IProductRepository _productRepository;
         private readonly IFileSaver _fileSaver;
-        private readonly IWebHostEnvironment _webHostEnvironment;
-        private readonly IConfiguration _config;
         private readonly IHttpContextAccessor _httpContext;
 
-        public ProductService(IWebHostEnvironment webHostEnvironment,
-            IConfiguration config, IHttpContextAccessor httpContext,
+        public ProductService(IHttpContextAccessor httpContext,
             IProductRepository productRepository, IFileSaver fileSaver)
         {
             _productRepository = productRepository;
             _fileSaver = fileSaver;
-            _webHostEnvironment = webHostEnvironment;
-            _config = config;
             _httpContext = httpContext;
-        }
-
-        public async Task<ProductDTOResponse> DeleteProduct(Guid id)
-        {
-            var product = await _productRepository.GetProductAsync(id);
-
-            if (product == null)
-            {
-                throw new RecourseNotFoundException("product with this id does not exist");
-            }
-
-            if (product.RestaurantID !=
-                Guid.Parse(((ClaimsIdentity)_httpContext.HttpContext.User.Identity).FindFirst("Id").Value))
-                throw new InvalidIdentityException("you are unauthorized to delete this resource");
-
-
-            _productRepository.RemoveProduct(product);
-            await _productRepository.SaveChangesAsync();
-
-            var productDTO = new ProductDTOResponse(
-                product.Id,
-                product.Name,
-                product.IsHidden,
-                product.Category,
-                product.RestaurantID,
-                product.AmountType,
-                product.AmountPerUnit,
-                product.AmountOfUnits,
-                product.Price,
-                product.ImageUrl,
-                product.ShelfLife,
-                product.Description
-                );
-
-            return productDTO;
         }
 
         public async Task<IEnumerable<ProductDTOResponse>> GetFilteredProducts(List<Category> category,
@@ -128,35 +88,6 @@ namespace Application.Services.Implementations
                 return productDTO;
             }
         }
-
-        public async Task<IEnumerable<ProductDTOResponse>> GetProducts()
-        {
-            var products = await _productRepository.GetProductsAsync();
-            var productsDTO = new List<ProductDTOResponse>();
-            foreach (var product in products)
-            {
-                var productDTO = new ProductDTOResponse(
-                product.Id,
-                product.Name,
-                product.IsHidden,
-                product.Category,
-                product.RestaurantID,
-                product.AmountType,
-                product.AmountPerUnit,
-                product.AmountOfUnits,
-                product.Price,
-                product.ImageUrl,
-                product.ShelfLife,
-                product.Description
-                );
-
-                productsDTO.Add(productDTO);
-            }
-
-            return productsDTO;
-        }
-
-
         public async Task<ProductDTOResponse> PostProduct(ProductDTORequest productToPost)
         {
 
@@ -200,53 +131,6 @@ namespace Application.Services.Implementations
             }
 
             
-
-            var productDTO = new ProductDTOResponse(
-                product.Id,
-                product.Name,
-                product.IsHidden,
-                product.Category,
-                product.RestaurantID,
-                product.AmountType,
-                product.AmountPerUnit,
-                product.AmountOfUnits,
-                product.Price,
-                product.ImageUrl,
-                product.ShelfLife,
-                product.Description
-                );
-
-            return productDTO;
-        }
-        public async Task<ProductDTOResponse> PutProduct(Guid id, ProductDTORequest productToChange)
-        {
-            if (productToChange.RestaurantID !=
-                Guid.Parse(((ClaimsIdentity)_httpContext.HttpContext.User.Identity).FindFirst("Id").Value))
-                throw new InvalidIdentityException("you are unauthorized to update this resource");
-
-            if (!await _productRepository.ProductExistsAsync(id))
-            {
-                throw new RecourseNotFoundException("product with this id does not exist");
-            }
-
-
-            var product = new Product(
-                id,
-                productToChange.Name!,
-                (Category)productToChange.Category!,
-                (Guid)productToChange.RestaurantID,
-                null,
-                (AmountType)productToChange.AmountType!,
-                (float)productToChange.AmountPerUnit!,
-                (int)productToChange.AmountOfUnits!,
-                (float)productToChange.Price!,
-                productToChange.Image == null ? null :
-                "https://savingsapp.blob.core.windows.net/productimages/" + id + ".jpg",
-                (DateTime)productToChange.ShelfLife!,
-                productToChange.Description);
-
-            _productRepository.UpdateProduct(product);
-            await _productRepository.SaveChangesAsync();
 
             var productDTO = new ProductDTOResponse(
                 product.Id,

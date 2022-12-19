@@ -1,14 +1,11 @@
-﻿/*
+﻿
+using Domain.Entities;
+using Domain.Enums;
+using Domain.Events;
+using Domain.Exceptions;
+using Domain.Interfaces;
 using NSubstitute;
-using savings_app_backend.EmailSender;
-using savings_app_backend.Events;
-using savings_app_backend.Exceptions;
-using savings_app_backend.Models.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Xunit;
 
 namespace savings_app_tests
 {
@@ -19,14 +16,25 @@ namespace savings_app_tests
         {
             //Arrange
 
-            var product = new Product();
-            product.AmountOfUnits = 1;
+            var product = new Product(
+                Guid.NewGuid(),
+                "name",
+                0,
+                Guid.NewGuid(),
+                null,
+                0,
+                0,
+                1,
+                0,
+                null,
+                DateTime.Now,
+                null);
 
             //Act
 
             //Assert
 
-            Assert.Throws<NotEnoughProductAmountException>(() => product.ReduceAmount(2));
+            Assert.Throws<NotEnoughProductAmountException>(() => product.Buy(2, Guid.NewGuid()));
         }
 
         [Fact]
@@ -38,15 +46,37 @@ namespace savings_app_tests
             bool productSoldEventCalled = false;
 
 
-            var userAuth = new UserAuth();
-            userAuth.Email = "justasmileika@gmail.com";
+            var userAuth = new UserAuth(
+                "password",
+                "justasmileika@gmail.com"
+                );
 
-            var restaurant = new Restaurant();
-            restaurant.UserAuth = userAuth;
+            var restaurant = new Restaurant(
+                Guid.NewGuid(),
+                "restaurant",
+                userAuth,
+                new Address(),
+                null,
+                false,
+                null,
+                null,
+                null
+                );
 
-            var product = new Product();
-            product.AmountOfUnits = 2;
-            product.Restaurant = restaurant;
+            var product = new Product(
+                Guid.NewGuid(),
+                "product",
+                0,
+                restaurant.Id,
+                null,
+                0,
+                0,
+                2,
+                0,
+                null,
+                DateTime.Now,
+                null
+                );
 
 
             int amountToReduce = 1;
@@ -60,14 +90,14 @@ namespace savings_app_tests
 
             //Act
 
-            product.ReduceAmount(amountToReduce);
+            product.Buy(amountToReduce, Guid.NewGuid());
 
             //Assert
 
             Assert.True(productSoldEventCalled);
             Assert.Equal(1, product.AmountOfUnits);
         }
-
+        
         [Fact]
         public void ReduceAmount_ShouldInvokeProductSoldOutEvent_WhenAmountOfUnitsIsEqualToAmount()
         {
@@ -77,15 +107,37 @@ namespace savings_app_tests
             bool productSoldOutEventCalled = false;
 
 
-            var userAuth = new UserAuth();
-            userAuth.Email = "justasmileika@gmail.com";
+            var userAuth = new UserAuth(
+                "password",
+                "justasmileika@gmail.com"
+                );
 
-            var restaurant = new Restaurant();
-            restaurant.UserAuth = userAuth;
+            var restaurant = new Restaurant(
+                Guid.NewGuid(),
+                "restaurant",
+                userAuth,
+                new Address(),
+                null,
+                false,
+                null,
+                null,
+                null
+                );
 
-            var product = new Product();
-            product.AmountOfUnits = 2;
-            product.Restaurant = restaurant;
+            var product = new Product(
+                Guid.NewGuid(),
+                "product",
+                0,
+                restaurant.Id,
+                null,
+                0,
+                0,
+                2,
+                0,
+                null,
+                DateTime.Now,
+                null
+                );
 
 
             int amountToReduce = 2;
@@ -94,12 +146,12 @@ namespace savings_app_tests
 
             product.ProductSoldOut += emailSender.NotifyRestaurantSoldOutProduct;
 
-            emailSender.When(x => x.NotifyRestaurantSoldOutProduct(product, product.Restaurant.UserAuth.Email))
+            emailSender.When(x => x.NotifyRestaurantSoldOutProduct(Arg.Any<Object>(), Arg.Any<ProductSoldOutEventArgs>()))
                 .Do(x => { productSoldOutEventCalled = true; });
 
             //Act
 
-            product.ReduceAmount(amountToReduce);
+            product.Buy(amountToReduce, Guid.NewGuid());
 
             //Assert
 
@@ -108,4 +160,3 @@ namespace savings_app_tests
         }
     }
 }
-*/

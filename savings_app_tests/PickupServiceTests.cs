@@ -1,16 +1,15 @@
-﻿/*using Microsoft.AspNetCore.Http;
+﻿using Application.Services.Implementations;
+using Domain.DTOs.Request;
+using Domain.DTOs.Response;
+using Domain.Entities;
+using Domain.Enums;
+using Domain.Exceptions;
+using Domain.Interfaces.Repositories;
+using Infrastructure.Repositories;
+using Microsoft.AspNetCore.Http;
 using NSubstitute;
-using savings_app_backend.Exceptions;
-using savings_app_backend.Models.Entities;
-using savings_app_backend.Models.Enums;
-using savings_app_backend.Repositories.Implementations;
-using savings_app_backend.Repositories.Interfaces;
-using savings_app_backend.Services.Implementations;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Security.Claims;
+using Xunit;
 
 namespace savings_app_tests
 {
@@ -34,18 +33,30 @@ namespace savings_app_tests
             //Arrange
 
             var id = Guid.NewGuid();
+            
 
             var returnedPickup = new Pickup(id, Guid.NewGuid(), DateTime.Now, DateTime.Now, PickupStatus.Available);
+            var returnedPickupDTO = new PickupDTOResponse(
+                id,
+                returnedPickup.ProductId,
+                returnedPickup.StartTime,
+                returnedPickup.EndTime,
+                returnedPickup.Status
+                );
 
-            _pickupRepository.GetPickup(id).Returns(returnedPickup);
+            _pickupRepository.GetPickupAsync(id).Returns(returnedPickup);
 
             //Act
 
-            var pickup = await _sut.GetPickup(id);
+            var pickupDTO = await _sut.GetPickup(id);
 
             //Assert
 
-            Assert.Equal(returnedPickup, pickup);
+            Assert.Equal(returnedPickupDTO.Id, pickupDTO.Id);
+            Assert.Equal(returnedPickupDTO.StartTime, pickupDTO.StartTime);
+            Assert.Equal(returnedPickupDTO.Status, pickupDTO.Status);
+            Assert.Equal(returnedPickupDTO.EndTime, pickupDTO.EndTime);
+            Assert.Equal(returnedPickupDTO.ProductId, pickupDTO.ProductId);
         }
 
         [Fact]
@@ -55,7 +66,7 @@ namespace savings_app_tests
 
             var id = Guid.NewGuid();
 
-            _pickupRepository.GetPickup(id).Returns(default(Pickup));
+            _pickupRepository.GetPickupAsync(id).Returns(default(Pickup));
 
             //Act
 
@@ -64,8 +75,93 @@ namespace savings_app_tests
             await Assert.ThrowsAsync<RecourseNotFoundException>(async () => await _sut.GetPickup(id));
         }
 
-        
+        [Fact]
+        public async Task PostPickup_ShouldReturnPickupDTOResponseAndSaveToDatabase_WhenPostingPickupForProductThatExistsAndIdentityMatchesPickupProductsRestaurantId()
+        {
 
+            // Arrange
+            var restaurantId = Guid.NewGuid();
+            var product = new Product(
+                Guid.NewGuid(),
+                "product",
+                0,
+                restaurantId,
+                null,
+                0,
+                0,
+                0,
+                0,
+                null,
+                DateTime.Now,
+                null
+                );
+
+            _productRepository.GetProductAsync(product.Id).Returns(product);
+
+            var restaurant = new Restaurant(
+                restaurantId,
+                "restaurant",
+                new UserAuth(
+                    "password",
+                    "email"
+                    ),
+                new Address(
+                    "country",
+                    "city",
+                    "street",
+                    1,
+                    null,
+                    1),
+                null,
+                true,
+                null,
+                null,
+                null
+                    );
+            _restaurantRepository.GetRestaurantAsync(restaurantId).Returns(restaurant);
+
+            var claimsIdentity = new ClaimsIdentity(new List<Claim>() { new Claim("Id", restaurantId.ToString()) });
+
+            HttpContext httpctx = Substitute.For<HttpContext>();
+
+            _httpContext.HttpContext = httpctx;
+
+            _httpContext.HttpContext.User.Identity.Returns(claimsIdentity);
+
+
+            int saveChangesAsyncCounter = 0;
+            int addPickupAsyncCounter = 0;
+
+
+            _pickupRepository.When(async x => await x.SaveChangesAsync())
+                .Do(x => saveChangesAsyncCounter++);
+
+            
+            _pickupRepository.When(async x => await x.AddPickupAsync(Arg.Any<Pickup>()))
+                .Do(x => addPickupAsyncCounter++);
+
+            var now = DateTime.Now;
+
+            var pickupDTORequest = new PickupDTORequest(
+                product.Id,
+                now,
+                now,
+                0
+                );
+
+            // Act
+
+            var pickupDTOResponse = await _sut.PostPickup(pickupDTORequest);
+
+            // Assert
+
+            Assert.Equal(1, saveChangesAsyncCounter);
+            Assert.Equal(1, addPickupAsyncCounter);
+
+            Assert.Equal(pickupDTORequest.ProductId, pickupDTOResponse.ProductId);
+            Assert.Equal(pickupDTORequest.StartTime, pickupDTOResponse.StartTime);
+            Assert.Equal(pickupDTORequest.EndTime, pickupDTOResponse.EndTime);
+            Assert.Equal(pickupDTORequest.Status, pickupDTOResponse.Status);
+        }
     }
 }
-*/

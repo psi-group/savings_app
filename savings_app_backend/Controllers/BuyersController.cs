@@ -29,8 +29,8 @@ namespace savings_app_backend.Controllers
             return Ok(await _buyerService.GetBuyer(id));
         }
 
-        [HttpGet("private/{id}")]
         [Authorize(Roles = "buyer")]
+        [HttpGet("private/{id}")]
         public async Task<ActionResult<BuyerPrivateDTOResponse>> GetBuyerPrivate(Guid id)
         {
             return Ok(await _buyerService.GetBuyerPrivate(id));

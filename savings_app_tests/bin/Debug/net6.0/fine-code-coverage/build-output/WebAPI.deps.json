@@ -9,6 +9,9 @@
       "WebAPI/1.0.0": {
         "dependencies": {
           "Application": "1.0.0",
+          "Autofac": "6.5.0",
+          "Autofac.Extensions.DependencyInjection": "8.0.0",
+          "Autofac.Extras.DynamicProxy": "6.0.1",
           "Infrastructure": "1.0.0",
           "MailKit": "3.4.2",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "6.0.10",
@@ -25,6 +28,41 @@
         },
         "runtime": {
           "WebAPI.dll": {}
+        }
+      },
+      "Autofac/6.5.0": {
+        "dependencies": {
+          "System.Diagnostics.DiagnosticSource": "6.0.0"
+        },
+        "runtime": {
+          "lib/net6.0/Autofac.dll": {
+            "assemblyVersion": "6.5.0.0",
+            "fileVersion": "6.5.0.0"
+          }
+        }
+      },
+      "Autofac.Extensions.DependencyInjection/8.0.0": {
+        "dependencies": {
+          "Autofac": "6.5.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "6.0.0"
+        },
+        "runtime": {
+          "lib/net6.0/Autofac.Extensions.DependencyInjection.dll": {
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.0.0.0"
+          }
+        }
+      },
+      "Autofac.Extras.DynamicProxy/6.0.1": {
+        "dependencies": {
+          "Autofac": "6.5.0",
+          "Castle.Core": "5.1.0"
+        },
+        "runtime": {
+          "lib/netstandard2.1/Autofac.Extras.DynamicProxy.dll": {
+            "assemblyVersion": "6.0.1.0",
+            "fileVersion": "6.0.1.0"
+          }
         }
       },
       "Azure.Core/1.25.0": {
@@ -65,6 +103,17 @@
           "lib/netstandard2.0/Azure.Storage.Common.dll": {
             "assemblyVersion": "12.13.0.0",
             "fileVersion": "12.1300.22.51204"
+          }
+        }
+      },
+      "Castle.Core/5.1.0": {
+        "dependencies": {
+          "System.Diagnostics.EventLog": "6.0.0"
+        },
+        "runtime": {
+          "lib/net6.0/Castle.Core.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.1.0.0"
           }
         }
       },
@@ -1396,6 +1445,14 @@
           }
         }
       },
+      "Neleus.LambdaCompare/1.0.3": {
+        "runtime": {
+          "lib/netstandard2.0/Neleus.LambdaCompare.dll": {
+            "assemblyVersion": "1.0.2.0",
+            "fileVersion": "1.0.2.0"
+          }
+        }
+      },
       "NETStandard.Library/1.6.1": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "3.1.0",
@@ -1870,6 +1927,7 @@
           "System.Runtime.CompilerServices.Unsafe": "6.0.0"
         }
       },
+      "System.Diagnostics.EventLog/6.0.0": {},
       "System.Diagnostics.Tools/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "3.1.0",
@@ -2492,10 +2550,12 @@
       },
       "Application/1.0.0": {
         "dependencies": {
+          "Castle.Core": "5.1.0",
           "Domain": "1.0.0",
           "Microsoft.AspNetCore.Http.Abstractions": "2.2.0",
           "Microsoft.Extensions.Configuration.Abstractions": "6.0.0",
           "Microsoft.IdentityModel.Tokens": "6.25.0",
+          "Neleus.LambdaCompare": "1.0.3",
           "System.IdentityModel.Tokens.Jwt": "6.25.0"
         },
         "runtime": {
@@ -2532,6 +2592,27 @@
       "serviceable": false,
       "sha512": ""
     },
+    "Autofac/6.5.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-sm6HWWBDEoTPGXeyOchMygJ/7L89VxmVH72BFxakG88J34AVjA8RMi5jbv3PdpUtXI/d9ZLKOaxCmOSIo2K4aA==",
+      "path": "autofac/6.5.0",
+      "hashPath": "autofac.6.5.0.nupkg.sha512"
+    },
+    "Autofac.Extensions.DependencyInjection/8.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-nGrXNpQX2FiZpIBydK9cxZnnoqP/cUd3k/53uRERYEqLtWzKtE15R6L+j5q5ax5Rv/+3wAIkOaPePkahfqrwjg==",
+      "path": "autofac.extensions.dependencyinjection/8.0.0",
+      "hashPath": "autofac.extensions.dependencyinjection.8.0.0.nupkg.sha512"
+    },
+    "Autofac.Extras.DynamicProxy/6.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-+ulCOXUjbJ5dljBPZf3gRxQNPRGqg/h1cNTZ4SpXK3qiamTfRsW3gXs2w/IJ+CIDmHrFGYXLqzNd5etvzwB8kA==",
+      "path": "autofac.extras.dynamicproxy/6.0.1",
+      "hashPath": "autofac.extras.dynamicproxy.6.0.1.nupkg.sha512"
+    },
     "Azure.Core/1.25.0": {
       "type": "package",
       "serviceable": true,
@@ -2552,6 +2633,13 @@
       "sha512": "sha512-jDv8xJWeZY2Er9zA6QO25BiGolxg87rItt9CwAp7L/V9EPJeaz8oJydaNL9Wj0+3ncceoMgdiyEv66OF8YUwWQ==",
       "path": "azure.storage.common/12.13.0",
       "hashPath": "azure.storage.common.12.13.0.nupkg.sha512"
+    },
+    "Castle.Core/5.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-31UJpTHOiWq95CDOHazE3Ub/hE/PydNWsJMwnEVTqFFP4WhAugwpaVGxzOxKgNeSUUeqS2W6lxV+q7u1pAOfXg==",
+      "path": "castle.core/5.1.0",
+      "hashPath": "castle.core.5.1.0.nupkg.sha512"
     },
     "Humanizer.Core/2.8.26": {
       "type": "package",
@@ -3078,6 +3166,13 @@
       "path": "mimekit/3.4.2",
       "hashPath": "mimekit.3.4.2.nupkg.sha512"
     },
+    "Neleus.LambdaCompare/1.0.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-HkJQ36da55taJvCLoiTjeVaES0wVE0GLk1LkPQvdkaeFYiarY+n70qOTaKqHr0XNYtnv971Gp4RkRGpy4cqjaw==",
+      "path": "neleus.lambdacompare/1.0.3",
+      "hashPath": "neleus.lambdacompare.1.0.3.nupkg.sha512"
+    },
     "NETStandard.Library/1.6.1": {
       "type": "package",
       "serviceable": true,
@@ -3434,6 +3529,13 @@
       "sha512": "sha512-frQDfv0rl209cKm1lnwTgFPzNigy2EKk1BS3uAvHvlBVKe5cymGyHO+Sj+NLv5VF/AhHsqPIUUwya5oV4CHMUw==",
       "path": "system.diagnostics.diagnosticsource/6.0.0",
       "hashPath": "system.diagnostics.diagnosticsource.6.0.0.nupkg.sha512"
+    },
+    "System.Diagnostics.EventLog/6.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-lcyUiXTsETK2ALsZrX+nWuHSIQeazhqPphLfaRxzdGaG93+0kELqpgEHtwWOlQe7+jSFnKwaCAgL4kjeZCQJnw==",
+      "path": "system.diagnostics.eventlog/6.0.0",
+      "hashPath": "system.diagnostics.eventlog.6.0.0.nupkg.sha512"
     },
     "System.Diagnostics.Tools/4.3.0": {
       "type": "package",

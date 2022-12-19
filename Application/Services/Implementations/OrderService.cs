@@ -2,7 +2,6 @@
 using Application.Specifications;
 using Domain.DTOs.Request;
 using Domain.DTOs.Response;
-using Domain.Entities;
 using Domain.Entities.OrderAggregate;
 using Domain.Exceptions;
 using Domain.Interfaces.Repositories;
@@ -15,6 +14,7 @@ namespace Application.Services.Implementations
     {
         private readonly IOrderRepository _orderRepository;
         private readonly IHttpContextAccessor _httpContext;
+
         public OrderService(IOrderRepository orderRepository, IHttpContextAccessor httpContext)
         {
             _orderRepository = orderRepository;
@@ -107,10 +107,6 @@ namespace Application.Services.Implementations
 
             var order = await _orderRepository.GetOrderAsync(id);
 
-            if (order.BuyerId !=
-                Guid.Parse(((ClaimsIdentity)_httpContext.HttpContext.User.Identity).FindFirst("Id").Value))
-                throw new InvalidIdentityException("you are unauthorized to access this resource");
-
 
             if (order == null)
             {
@@ -118,6 +114,12 @@ namespace Application.Services.Implementations
             }
             else
             {
+                
+                if (order.BuyerId !=
+                    Guid.Parse(((ClaimsIdentity)_httpContext.HttpContext.User.Identity).FindFirst("Id").Value))
+                    throw new InvalidIdentityException("you are unauthorized to access this resource");
+
+
                 var orderItemListDTO = new List<OrderItemDTOResponse>();
 
                 foreach (var orderItem in order.OrderItems)
@@ -143,41 +145,6 @@ namespace Application.Services.Implementations
 
                 return orderDTO;
             }
-        }
-
-        public async Task<IEnumerable<OrderDTOResponse>> GetOrders()
-        {
-            var orders = await _orderRepository.GetOrdersAsync();
-
-            var ordersResponse = new List<OrderDTOResponse>();
-            foreach(var order in orders)
-            {
-                var orderItemListDTO = new List<OrderItemDTOResponse>();
-
-                foreach (var orderItem in order.OrderItems)
-                {
-                    var orderItemDTO = new OrderItemDTOResponse(
-                        orderItem.Id,
-                        orderItem.OrderId,
-                        orderItem.ProductId,
-                        orderItem.PickupId,
-                        orderItem.UnitsOrdered,
-                        orderItem.Price,
-                        orderItem.OrderItemStatus
-                        );
-                    orderItemListDTO.Add(orderItemDTO);
-                }
-
-                var orderDTO = new OrderDTOResponse(
-                order.Id,
-                order.OrderDate,
-                order.BuyerId,
-                orderItemListDTO
-                );
-                ordersResponse.Add(orderDTO);
-            }
-
-            return ordersResponse;
         }
 
         public async Task<IEnumerable<OrderItemDTOResponse>> GetSellersOrderItems(Guid sellerId)
@@ -211,43 +178,7 @@ namespace Application.Services.Implementations
             return orderItemsResponse;
         }
 
-        public async Task<OrderDTOResponse> PostOrder(OrderDTORequest orderToPost)
-        {
-            var id = Guid.NewGuid();
-            var order = new Order(
-                id,
-                (Guid)orderToPost.BuyerId!,
-                orderToPost.OrderItems!
-                );
 
-            await _orderRepository.AddOrderAsync(order);
-            await _orderRepository.SaveChangesAsync();
-
-            var orderItemListDTO = new List<OrderItemDTOResponse>();
-
-            foreach (var orderItem in order.OrderItems)
-            {
-                var orderItemDTO = new OrderItemDTOResponse(
-                    orderItem.Id,
-                    orderItem.OrderId,
-                    orderItem.ProductId,
-                    orderItem.PickupId,
-                    orderItem.UnitsOrdered,
-                    orderItem.Price,
-                    orderItem.OrderItemStatus
-                    );
-                orderItemListDTO.Add(orderItemDTO);
-            }
-
-            var orderDTO = new OrderDTOResponse(
-                order.Id,
-                order.OrderDate,
-                order.BuyerId,
-                orderItemListDTO
-                );
-
-            return orderDTO;
-        }
 
         public async Task<OrderDTOResponse> PutOrder(Guid id, OrderDTORequest orderToUpdate)
         {
@@ -264,7 +195,7 @@ namespace Application.Services.Implementations
 
             var orderCheck = await _orderRepository.GetOrderAsync(id);
 
-            if (orderCheck.BuyerId !=
+            if (orderCheck!.BuyerId !=
                 Guid.Parse(((ClaimsIdentity)_httpContext.HttpContext.User.Identity).FindFirst("Id").Value))
                 throw new InvalidIdentityException("you are unauthorized to access this resource");
 

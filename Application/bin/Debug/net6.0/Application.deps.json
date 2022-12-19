@@ -8,14 +8,27 @@
     ".NETCoreApp,Version=v6.0": {
       "Application/1.0.0": {
         "dependencies": {
+          "Castle.Core": "5.1.0",
           "Domain": "1.0.0",
           "Microsoft.AspNetCore.Http.Abstractions": "2.2.0",
           "Microsoft.Extensions.Configuration.Abstractions": "6.0.0",
           "Microsoft.IdentityModel.Tokens": "6.25.0",
+          "Neleus.LambdaCompare": "1.0.3",
           "System.IdentityModel.Tokens.Jwt": "6.25.0"
         },
         "runtime": {
           "Application.dll": {}
+        }
+      },
+      "Castle.Core/5.1.0": {
+        "dependencies": {
+          "System.Diagnostics.EventLog": "6.0.0"
+        },
+        "runtime": {
+          "lib/net6.0/Castle.Core.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.1.0.0"
+          }
         }
       },
       "Microsoft.AspNetCore.Http.Abstractions/2.2.0": {
@@ -88,6 +101,15 @@
       },
       "Microsoft.NETCore.Platforms/1.1.0": {},
       "Microsoft.NETCore.Targets/1.1.0": {},
+      "Neleus.LambdaCompare/1.0.3": {
+        "runtime": {
+          "lib/netstandard2.0/Neleus.LambdaCompare.dll": {
+            "assemblyVersion": "1.0.2.0",
+            "fileVersion": "1.0.2.0"
+          }
+        }
+      },
+      "System.Diagnostics.EventLog/6.0.0": {},
       "System.IdentityModel.Tokens.Jwt/6.25.0": {
         "dependencies": {
           "Microsoft.IdentityModel.JsonWebTokens": "6.25.0",
@@ -133,6 +155,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "Castle.Core/5.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-31UJpTHOiWq95CDOHazE3Ub/hE/PydNWsJMwnEVTqFFP4WhAugwpaVGxzOxKgNeSUUeqS2W6lxV+q7u1pAOfXg==",
+      "path": "castle.core/5.1.0",
+      "hashPath": "castle.core.5.1.0.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Http.Abstractions/2.2.0": {
       "type": "package",
@@ -210,6 +239,20 @@
       "sha512": "sha512-aOZA3BWfz9RXjpzt0sRJJMjAscAUm3Hoa4UWAfceV9UTYxgwZ1lZt5nO2myFf+/jetYQo4uTP7zS8sJY67BBxg==",
       "path": "microsoft.netcore.targets/1.1.0",
       "hashPath": "microsoft.netcore.targets.1.1.0.nupkg.sha512"
+    },
+    "Neleus.LambdaCompare/1.0.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-HkJQ36da55taJvCLoiTjeVaES0wVE0GLk1LkPQvdkaeFYiarY+n70qOTaKqHr0XNYtnv971Gp4RkRGpy4cqjaw==",
+      "path": "neleus.lambdacompare/1.0.3",
+      "hashPath": "neleus.lambdacompare.1.0.3.nupkg.sha512"
+    },
+    "System.Diagnostics.EventLog/6.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-lcyUiXTsETK2ALsZrX+nWuHSIQeazhqPphLfaRxzdGaG93+0kELqpgEHtwWOlQe7+jSFnKwaCAgL4kjeZCQJnw==",
+      "path": "system.diagnostics.eventlog/6.0.0",
+      "hashPath": "system.diagnostics.eventlog.6.0.0.nupkg.sha512"
     },
     "System.IdentityModel.Tokens.Jwt/6.25.0": {
       "type": "package",

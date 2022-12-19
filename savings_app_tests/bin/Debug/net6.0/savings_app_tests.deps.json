@@ -11,6 +11,7 @@
           "Microsoft.NET.Test.Sdk": "17.1.0",
           "NSubstitute": "4.4.0",
           "NUnit": "3.13.3",
+          "Neleus.LambdaCompare": "1.0.3",
           "WebAPI": "1.0.0",
           "coverlet.collector": "3.1.2",
           "xunit": "2.4.1",
@@ -19,6 +20,41 @@
         },
         "runtime": {
           "savings_app_tests.dll": {}
+        }
+      },
+      "Autofac/6.5.0": {
+        "dependencies": {
+          "System.Diagnostics.DiagnosticSource": "6.0.0"
+        },
+        "runtime": {
+          "lib/net6.0/Autofac.dll": {
+            "assemblyVersion": "6.5.0.0",
+            "fileVersion": "6.5.0.0"
+          }
+        }
+      },
+      "Autofac.Extensions.DependencyInjection/8.0.0": {
+        "dependencies": {
+          "Autofac": "6.5.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "6.0.0"
+        },
+        "runtime": {
+          "lib/net6.0/Autofac.Extensions.DependencyInjection.dll": {
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.0.0.0"
+          }
+        }
+      },
+      "Autofac.Extras.DynamicProxy/6.0.1": {
+        "dependencies": {
+          "Autofac": "6.5.0",
+          "Castle.Core": "5.1.0"
+        },
+        "runtime": {
+          "lib/netstandard2.1/Autofac.Extras.DynamicProxy.dll": {
+            "assemblyVersion": "6.0.1.0",
+            "fileVersion": "6.0.1.0"
+          }
         }
       },
       "Azure.Core/1.25.0": {
@@ -62,14 +98,14 @@
           }
         }
       },
-      "Castle.Core/5.0.0": {
+      "Castle.Core/5.1.0": {
         "dependencies": {
           "System.Diagnostics.EventLog": "6.0.0"
         },
         "runtime": {
           "lib/net6.0/Castle.Core.dll": {
             "assemblyVersion": "5.0.0.0",
-            "fileVersion": "5.0.0.0"
+            "fileVersion": "5.1.0.0"
           }
         }
       },
@@ -1642,6 +1678,14 @@
           }
         }
       },
+      "Neleus.LambdaCompare/1.0.3": {
+        "runtime": {
+          "lib/netstandard2.0/Neleus.LambdaCompare.dll": {
+            "assemblyVersion": "1.0.2.0",
+            "fileVersion": "1.0.2.0"
+          }
+        }
+      },
       "NETStandard.Library/2.0.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "3.1.0"
@@ -1700,7 +1744,7 @@
       },
       "NSubstitute/4.4.0": {
         "dependencies": {
-          "Castle.Core": "5.0.0"
+          "Castle.Core": "5.1.0"
         },
         "runtime": {
           "lib/net6.0/NSubstitute.dll": {
@@ -2591,10 +2635,12 @@
       "xunit.runner.visualstudio/2.4.3": {},
       "Application/1.0.0": {
         "dependencies": {
+          "Castle.Core": "5.1.0",
           "Domain": "1.0.0",
           "Microsoft.AspNetCore.Http.Abstractions": "2.2.0",
           "Microsoft.Extensions.Configuration.Abstractions": "6.0.0",
           "Microsoft.IdentityModel.Tokens": "6.25.0",
+          "Neleus.LambdaCompare": "1.0.3",
           "System.IdentityModel.Tokens.Jwt": "6.25.0"
         },
         "runtime": {
@@ -2626,6 +2672,9 @@
       "WebAPI/1.0.0": {
         "dependencies": {
           "Application": "1.0.0",
+          "Autofac": "6.5.0",
+          "Autofac.Extensions.DependencyInjection": "8.0.0",
+          "Autofac.Extras.DynamicProxy": "6.0.1",
           "Infrastructure": "1.0.0",
           "MailKit": "3.4.2",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "6.0.10",
@@ -2651,6 +2700,27 @@
       "serviceable": false,
       "sha512": ""
     },
+    "Autofac/6.5.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-sm6HWWBDEoTPGXeyOchMygJ/7L89VxmVH72BFxakG88J34AVjA8RMi5jbv3PdpUtXI/d9ZLKOaxCmOSIo2K4aA==",
+      "path": "autofac/6.5.0",
+      "hashPath": "autofac.6.5.0.nupkg.sha512"
+    },
+    "Autofac.Extensions.DependencyInjection/8.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-nGrXNpQX2FiZpIBydK9cxZnnoqP/cUd3k/53uRERYEqLtWzKtE15R6L+j5q5ax5Rv/+3wAIkOaPePkahfqrwjg==",
+      "path": "autofac.extensions.dependencyinjection/8.0.0",
+      "hashPath": "autofac.extensions.dependencyinjection.8.0.0.nupkg.sha512"
+    },
+    "Autofac.Extras.DynamicProxy/6.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-+ulCOXUjbJ5dljBPZf3gRxQNPRGqg/h1cNTZ4SpXK3qiamTfRsW3gXs2w/IJ+CIDmHrFGYXLqzNd5etvzwB8kA==",
+      "path": "autofac.extras.dynamicproxy/6.0.1",
+      "hashPath": "autofac.extras.dynamicproxy.6.0.1.nupkg.sha512"
+    },
     "Azure.Core/1.25.0": {
       "type": "package",
       "serviceable": true,
@@ -2672,12 +2742,12 @@
       "path": "azure.storage.common/12.13.0",
       "hashPath": "azure.storage.common.12.13.0.nupkg.sha512"
     },
-    "Castle.Core/5.0.0": {
+    "Castle.Core/5.1.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-edc8jjyXqzzy8jFdhs36FZdwmlDDTgqPb2Zy1Q5F/f2uAc88bu/VS/0Tpvgupmpl9zJOvOo5ZizVANb0ltN1NQ==",
-      "path": "castle.core/5.0.0",
-      "hashPath": "castle.core.5.0.0.nupkg.sha512"
+      "sha512": "sha512-31UJpTHOiWq95CDOHazE3Ub/hE/PydNWsJMwnEVTqFFP4WhAugwpaVGxzOxKgNeSUUeqS2W6lxV+q7u1pAOfXg==",
+      "path": "castle.core/5.1.0",
+      "hashPath": "castle.core.5.1.0.nupkg.sha512"
     },
     "coverlet.collector/3.1.2": {
       "type": "package",
@@ -3217,6 +3287,13 @@
       "sha512": "sha512-8bshZj8peXR9OaGb1fJJto6YWGG9zGGbDwY5Uylkz08mFU2tHKdkGtwMyFdtO6ZVq1aW41QYj+cN+4vRlE0O5Q==",
       "path": "mimekit/3.4.2",
       "hashPath": "mimekit.3.4.2.nupkg.sha512"
+    },
+    "Neleus.LambdaCompare/1.0.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-HkJQ36da55taJvCLoiTjeVaES0wVE0GLk1LkPQvdkaeFYiarY+n70qOTaKqHr0XNYtnv971Gp4RkRGpy4cqjaw==",
+      "path": "neleus.lambdacompare/1.0.3",
+      "hashPath": "neleus.lambdacompare.1.0.3.nupkg.sha512"
     },
     "NETStandard.Library/2.0.0": {
       "type": "package",

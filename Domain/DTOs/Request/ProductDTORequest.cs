@@ -36,5 +36,23 @@ namespace Domain.DTOs.Request
         
         public string? Description { get; set; }
         public IFormFile? Image { get; set; }
+
+
+        public ProductDTORequest(string? name, bool? isHidden, Category? category, Guid? restaurantID, AmountType? amountType, float? amountPerUnit, int? amountOfUnits, float? price, DateTime? shelfLife, string? description, IFormFile? image)
+        {
+            Name = name;
+            IsHidden = isHidden;
+            Category = category;
+            RestaurantID = restaurantID;
+            AmountType = amountType;
+            AmountPerUnit = amountPerUnit;
+            AmountOfUnits = amountOfUnits;
+            Price = price;
+            ShelfLife = shelfLife;
+            Description = description;
+            Image = image;
+        }
+
+        public ProductDTORequest() { }
     }
 }

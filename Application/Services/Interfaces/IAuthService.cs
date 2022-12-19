@@ -5,6 +5,6 @@ namespace Application.Services.Interfaces
 {
     public interface IAuthService
     {
-        public string Login(UserLoginDTO userLogin);
+        public Task<string> Login(UserLoginDTO userLogin);
     }
 }

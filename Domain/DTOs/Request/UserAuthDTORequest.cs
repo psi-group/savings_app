@@ -9,6 +9,14 @@ namespace Domain.DTOs.Request
 {
     public class UserAuthDTORequest
     {
+        public UserAuthDTORequest(string? email, string? password)
+        {
+            Email = email;
+            Password = password;
+        }
+
+        public UserAuthDTORequest() { }
+
         [Required]
         public string? Email { get; set; }
         [Required]

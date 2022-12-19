@@ -15,5 +15,16 @@ namespace Domain.DTOs.Request
         public Guid? PickupId { get; set; }
         [Required]
         public int? Amount { get; set; }
+
+
+        public ProductToBuyDTORequest(Guid? id, Guid? pickupId, int? amount)
+        {
+            Id = id;
+            PickupId = pickupId;
+            Amount = amount;
+        }
+
+
+        public ProductToBuyDTORequest() { }
     }
 }

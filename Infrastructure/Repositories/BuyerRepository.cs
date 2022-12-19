@@ -15,12 +15,6 @@ namespace Infrastructure.Repositories
             _appContext = appContext;
         }
 
-        public Buyer AddBuyer(Buyer Buyer)
-        {
-            _appContext.Buyers.Add(Buyer);
-
-            return Buyer;
-        }
         public async Task<Buyer> AddBuyerAsync(Buyer Buyer)
         {
             await _appContext.Buyers.AddAsync(Buyer);
@@ -28,121 +22,16 @@ namespace Infrastructure.Repositories
             return Buyer;
         }
 
-
-        public Buyer? GetBuyer(Guid id)
-        {
-            return _appContext.Buyers.Find(id);
-        }
         public async Task<Buyer?> GetBuyerAsync(Guid id)
         {
             return await _appContext.Buyers.FindAsync(id);
         }
 
-
-
-        public IEnumerable<Buyer> GetBuyers()
-        {
-            return _appContext.Buyers.ToList();
-        }
         public async Task<IEnumerable<Buyer>> GetBuyersAsync()
         {
             return await _appContext.Buyers.ToListAsync();
         }
-
-
-        public IEnumerable<Buyer> GetBuyers(ISpecification<Buyer> spec)
-        {
-            // fetch a Queryable that includes all expression-based includes
-            var res = spec.Includes
-                .Aggregate(_appContext.Buyers.AsQueryable(),
-                    (current, include) => current.Include(include));
-
-            // modify the IQueryable to include any string-based include statements
-            res = spec.IncludeStrings
-                .Aggregate(res,
-                    (current, include) => current.Include(include));
-
-            // return the result of the query using the specification's criteria expression
-
-
-            if (spec.IsPagingEnabled)
-            {
-                res = res.Skip(spec.Skip)
-                             .Take(spec.Take);
-            }
-
-            if (spec.Criteria != null)
-            {
-                res = res.Where(spec.Criteria);
-            }
-
-            if (spec.OrderBy != null)
-            {
-                res = res.OrderBy(spec.OrderBy);
-            }
-
-            if (spec.OrderByDescending != null)
-            {
-                res = res.OrderByDescending(spec.OrderByDescending);
-            }
-
-            if (spec.GroupBy != null)
-            {
-                res = res.GroupBy(spec.GroupBy).SelectMany(x => x);
-            }
-
-            return res.ToList();
-        }
-        public async Task<IEnumerable<Buyer>> GetBuyersAsync(ISpecification<Buyer> spec)
-        {
-            // fetch a Queryable that includes all expression-based includes
-            var res = spec.Includes
-                .Aggregate(_appContext.Buyers.AsQueryable(),
-                    (current, include) => current.Include(include));
-
-            // modify the IQueryable to include any string-based include statements
-            res = spec.IncludeStrings
-                .Aggregate(res,
-                    (current, include) => current.Include(include));
-
-            // return the result of the query using the specification's criteria expression
-
-
-            if (spec.IsPagingEnabled)
-            {
-                res = res.Skip(spec.Skip)
-                             .Take(spec.Take);
-            }
-
-            if (spec.Criteria != null)
-            {
-                res = res.Where(spec.Criteria);
-            }
-
-            if (spec.OrderBy != null)
-            {
-                res = res.OrderBy(spec.OrderBy);
-            }
-
-            if (spec.OrderByDescending != null)
-            {
-                res = res.OrderByDescending(spec.OrderByDescending);
-            }
-
-            if (spec.GroupBy != null)
-            {
-                res = res.GroupBy(spec.GroupBy).SelectMany(x => x);
-            }
-
-            return await res.ToListAsync();
-        }
-
-
-
-        public bool BuyerExists(Guid id)
-        {
-            return _appContext.Buyers.Any(e => e.Id == id);
-        }
+        
         public async Task<bool> BuyerExistsAsync(Guid id)
         {
             return await _appContext.Buyers.AnyAsync(e => e.Id == id);
@@ -167,22 +56,10 @@ namespace Infrastructure.Repositories
             await _appContext.SaveChangesAsync();
         }
 
-        public void SaveChanges()
-        {
-            _appContext.SaveChanges();
-        }
 
         public async Task<Buyer?> GetBuyerAsync(Expression<Func<Buyer, bool>> predicate)
         {
             return await _appContext.Buyers.FirstOrDefaultAsync(predicate);
-        }
-
-        public Buyer? GetBuyer(Expression<Func<Buyer, bool>> predicate)
-        {
-            var buyers = _appContext.Buyers.ToList();
-            
-            //var t = Expression.Invoke(predicate, buyers[0]);
-            return _appContext.Buyers.FirstOrDefault(predicate);
         }
     }
 }

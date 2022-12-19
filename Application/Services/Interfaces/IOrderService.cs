@@ -6,7 +6,6 @@ namespace Application.Services.Interfaces
 {
     public interface IOrderService
     {
-        Task<IEnumerable<OrderDTOResponse>> GetOrders();
 
         Task<IEnumerable<OrderDTOResponse>> GetBuyersOrders(Guid buyerId);
 
@@ -17,8 +16,6 @@ namespace Application.Services.Interfaces
         Task<OrderDTOResponse> PutOrder(Guid id, OrderDTORequest Order);
 
         Task<OrderDTOResponse> DeleteOrder(Guid id);
-
-        Task<OrderDTOResponse> PostOrder(OrderDTORequest Order);
 
     }
 }

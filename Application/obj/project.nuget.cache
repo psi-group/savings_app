@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "rnSPRrzcXz4PhykJr3SayCZQOOvXjeljSsqsuAy+JiT+GhenC8fxzNNJqK0mhiYbPhyJgOYjb+iOu/SUJvH/ow==",
+  "dgSpecHash": "Tue+iT0bUXq1zOoFT9QLps4IR2oW9Akrnnm74/2IfEQzQZTKqUd2OkgARjFIW4MowNNCV1WI4UIS2mIIW3l6Dg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\justa\\Desktop\\APPAS\\gerascia\\savings_app\\Application\\Application.csproj",
+  "projectFilePath": "C:\\Users\\justa\\Desktop\\APPAS\\gerascia - Copy (3)\\savings_app\\Application\\Application.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\justa\\.nuget\\packages\\castle.core\\5.1.0\\castle.core.5.1.0.nupkg.sha512",
     "C:\\Users\\justa\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\2.2.0\\microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\justa\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.17\\microsoft.aspnetcore.http.features.5.0.17.nupkg.sha512",
     "C:\\Users\\justa\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
@@ -15,6 +16,8 @@
     "C:\\Users\\justa\\.nuget\\packages\\microsoft.identitymodel.tokens\\6.25.0\\microsoft.identitymodel.tokens.6.25.0.nupkg.sha512",
     "C:\\Users\\justa\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\justa\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
+    "C:\\Users\\justa\\.nuget\\packages\\neleus.lambdacompare\\1.0.3\\neleus.lambdacompare.1.0.3.nupkg.sha512",
+    "C:\\Users\\justa\\.nuget\\packages\\system.diagnostics.eventlog\\6.0.0\\system.diagnostics.eventlog.6.0.0.nupkg.sha512",
     "C:\\Users\\justa\\.nuget\\packages\\system.identitymodel.tokens.jwt\\6.25.0\\system.identitymodel.tokens.jwt.6.25.0.nupkg.sha512",
     "C:\\Users\\justa\\.nuget\\packages\\system.io.pipelines\\5.0.2\\system.io.pipelines.5.0.2.nupkg.sha512",
     "C:\\Users\\justa\\.nuget\\packages\\system.runtime\\4.3.0\\system.runtime.4.3.0.nupkg.sha512",
