@@ -10271,11 +10271,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\justa\\Desktop\\APPAS\\gerascia\\savings_app\\Infrastructure\\Infrastructure.csproj",
+      "projectUniqueName": "C:\\Users\\justa\\Desktop\\APPAS\\gerascia - Copy (3)\\savings_app\\Infrastructure\\Infrastructure.csproj",
       "projectName": "Infrastructure",
-      "projectPath": "C:\\Users\\justa\\Desktop\\APPAS\\gerascia\\savings_app\\Infrastructure\\Infrastructure.csproj",
+      "projectPath": "C:\\Users\\justa\\Desktop\\APPAS\\gerascia - Copy (3)\\savings_app\\Infrastructure\\Infrastructure.csproj",
       "packagesPath": "C:\\Users\\justa\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\justa\\Desktop\\APPAS\\gerascia\\savings_app\\Infrastructure\\obj\\",
+      "outputPath": "C:\\Users\\justa\\Desktop\\APPAS\\gerascia - Copy (3)\\savings_app\\Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\justa\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -10292,8 +10292,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\justa\\Desktop\\APPAS\\gerascia\\savings_app\\Domain\\Domain.csproj": {
-              "projectPath": "C:\\Users\\justa\\Desktop\\APPAS\\gerascia\\savings_app\\Domain\\Domain.csproj"
+            "C:\\Users\\justa\\Desktop\\APPAS\\gerascia - Copy (3)\\savings_app\\Domain\\Domain.csproj": {
+              "projectPath": "C:\\Users\\justa\\Desktop\\APPAS\\gerascia - Copy (3)\\savings_app\\Domain\\Domain.csproj"
             }
           }
         }

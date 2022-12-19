@@ -14,6 +14,10 @@ using Infrastructure.Repositories;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Diagnostics;
 using WebAPI.Middlewares;
+using Autofac.Extensions.DependencyInjection;
+using Autofac;
+using Autofac.Extras.DynamicProxy;
+using Application.Interceptors;
 
 var logger = NLog.LogManager.Setup().LoadConfigurationFromAppSettings().GetCurrentClassLogger();
 
@@ -27,7 +31,15 @@ try
     builder.Services.AddDbContext<SavingsAppContext>(options =>
         options.UseSqlServer(builder.Configuration.GetConnectionString("savingsAppContext") ?? throw new InvalidOperationException("Connection string 'savingsAppContext' not found.")));
 
-
+    builder.Services.AddScoped<IdentityInterceptor>();
+    builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory())
+        .ConfigureContainer<ContainerBuilder>(builder =>
+        {
+            builder.RegisterType<BuyerService>().As<IBuyerService>()
+            .EnableInterfaceInterceptors()
+            .InterceptedBy(typeof(IdentityInterceptor))
+            .InstancePerDependency();
+        });
 
     // Add services to the container.
 

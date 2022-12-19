@@ -7,6 +7,19 @@ namespace Domain.DTOs.Request
 {
     public class BuyerDTORequest
     {
+        public BuyerDTORequest(string? name, UserAuthDTORequest? userAuth, AddressDTORequest? address, IFormFile? image)
+        {
+            Name = name;
+            UserAuth = userAuth;
+            Address = address;
+            Image = image;
+        }
+
+        public BuyerDTORequest()
+        {
+
+        }
+
         [Required]
         public string? Name { get; set; }
         [Required]

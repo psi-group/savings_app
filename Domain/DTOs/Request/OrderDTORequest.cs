@@ -11,6 +11,14 @@ namespace Domain.DTOs.Request
 {
     public class OrderDTORequest
     {
+        public OrderDTORequest(Guid? buyerId, List<OrderItem>? orderItems)
+        {
+            BuyerId = buyerId;
+            OrderItems = orderItems;
+        }
+
+        public OrderDTORequest() { }
+
         [Required]
         public Guid? BuyerId { get; set; }
         [Required]

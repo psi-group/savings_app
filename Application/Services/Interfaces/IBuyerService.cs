@@ -9,6 +9,8 @@ namespace Application.Services.Interfaces
         Task<IEnumerable<BuyerDTOResponse>> GetBuyers();
 
         Task<BuyerDTOResponse> GetBuyer(Guid id);
+
+        [PrivateIdentity]
         Task<BuyerPrivateDTOResponse> GetBuyerPrivate(Guid id);
 
         Task<BuyerDTOResponse> PutBuyer(Guid id, BuyerDTORequest buyer);

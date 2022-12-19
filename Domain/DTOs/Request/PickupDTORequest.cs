@@ -7,6 +7,17 @@ namespace Domain.DTOs.Request
 {
     public class PickupDTORequest
     {
+
+        public PickupDTORequest(Guid? productId, DateTime? startTime, DateTime? endTime, PickupStatus? status)
+        {
+            ProductId = productId;
+            StartTime = startTime;
+            EndTime = endTime;
+            Status = status;
+        }
+
+        public PickupDTORequest() { }
+
         [Required]
         public Guid? ProductId { get; set; }
         [Required]

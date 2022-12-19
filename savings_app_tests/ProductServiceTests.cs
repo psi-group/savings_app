@@ -1,19 +1,17 @@
-/*
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using NSubstitute;
-using savings_app_backend.EmailSender;
-using savings_app_backend.Repositories.Interfaces;
-using savings_app_backend.Services.Implementations;
-using NUnit;
-using savings_app_backend.Models.Entities;
-using savings_app_backend.Models.Enums;
-using savings_app_backend.Exceptions;
-using System.Net.Http;
 using System.Security.Claims;
-using savings_app_backend.SavingToFile;
 using Microsoft.AspNetCore.Mvc;
+using Application.Services.Implementations;
+using Domain.Interfaces.Repositories;
+using Domain.Interfaces;
+using Domain.Entities;
+using Domain.Exceptions;
+using Domain.Enums;
+using Domain.DTOs.Request;
+using Xunit;
 
 namespace savings_app_tests
 {
@@ -22,7 +20,6 @@ namespace savings_app_tests
         private readonly ProductService _sut;
         private readonly IProductRepository _productRepository = Substitute.For<IProductRepository>();
         private readonly IRestaurantRepository _restaurantRepository = Substitute.For<IRestaurantRepository>();
-        private readonly IUserAuthRepository _userAuthRepository = Substitute.For<IUserAuthRepository>();
 
         private readonly IFileSaver _fileSaver = Substitute.For<IFileSaver>();
         private readonly IWebHostEnvironment _webHostEnvironment = Substitute.For<IWebHostEnvironment>();
@@ -34,8 +31,7 @@ namespace savings_app_tests
 
         public ProductServiceTests()
         {
-            _sut = new ProductService(_webHostEnvironment, _configuration, _httpContext, _emailSender,
-                _productRepository, _userAuthRepository, _restaurantRepository, _fileSaver);
+            _sut = new ProductService(_httpContext, _productRepository, _fileSaver);
         }
 
         [Fact]
@@ -45,18 +41,29 @@ namespace savings_app_tests
 
             var id = Guid.NewGuid();
 
-            var returnedProduct = new Product(id, "product", Category.Snack, Guid.NewGuid(), AmountType.unit,
-                1.0f, 2, 1.0f, id.ToString(), DateTime.Now, "description");
+            var returnedProduct = new Product(id, "product", Category.Snack, Guid.NewGuid(), null, AmountType.Unit,
+                1.0f, 2, 1.0f, null, DateTime.Now, "description");
 
-            _productRepository.GetProduct(id).Returns(returnedProduct);
+            _productRepository.GetProductAsync(id).Returns(returnedProduct);
 
             //Act
 
-            var product = await _sut.GetProduct(id);
+            var productDTOResponse= await _sut.GetProduct(id);
 
             //Assert
 
-            Assert.Equal(product, returnedProduct);
+            Assert.Equal(returnedProduct.Name, productDTOResponse.Name);
+            Assert.Equal(returnedProduct.Id, productDTOResponse.Id);
+            Assert.Equal(returnedProduct.Category, productDTOResponse.Category);
+            Assert.Equal(returnedProduct.RestaurantID, productDTOResponse.RestaurantID);
+            Assert.Equal(returnedProduct.AmountOfUnits, productDTOResponse.AmountOfUnits);
+            Assert.Equal(returnedProduct.AmountPerUnit, productDTOResponse.AmountPerUnit);
+            Assert.Equal(returnedProduct.AmountType, productDTOResponse.AmountType);
+            Assert.Equal(returnedProduct.ImageUrl, productDTOResponse.ImageUrl);
+            Assert.Equal(returnedProduct.ShelfLife, productDTOResponse.ShelfLife);
+            Assert.Equal(returnedProduct.Description, productDTOResponse.Description);
+
+
         }
 
         [Fact]
@@ -66,7 +73,7 @@ namespace savings_app_tests
 
             var id = Guid.NewGuid();
 
-            _productRepository.GetProduct(id).Returns(default(Product));
+            _productRepository.GetProductAsync(id).Returns(default(Product));
 
             //Act
 
@@ -74,7 +81,7 @@ namespace savings_app_tests
 
             await Assert.ThrowsAsync<RecourseNotFoundException>(async () => await _sut.GetProduct(id));
         }
-
+        /*
         [Fact]
         public async Task PostProduct_ShouldThrowInvalidIdentityException_WhenRestaurantCreatesProductWithInvalidRestaurantId()
         {
@@ -100,19 +107,17 @@ namespace savings_app_tests
 
             await Assert.ThrowsAsync<InvalidIdentityException>(async () => await _sut.PostProduct(productToPost));
         }
-
+        */
         [Fact]
-        public async Task PostProduct_ShouldReturnProductAndSaveImage_WhenProductHasBeenCreated()
+        public async Task PostProduct_ShouldReturnProductAndSaveImageAndAddToDatabase_WhenIdentityMatchesRestaurantsIdAndImageIsNotNull()
         {
             //Arrange
 
-            int saveImageCounter = 0;
-            int addProductCounter = 0;
-
             var id = Guid.NewGuid();
             var restaurantId = Guid.NewGuid();
-            var productToPost = new Product(id, "product", Category.Snack, restaurantId, AmountType.unit,
-                1.0f, 2, 1.0f, id.ToString(), DateTime.Now, "description");
+
+            var productToPost = new ProductDTORequest("product", false, Category.Snack, restaurantId, AmountType.Unit,
+                1.0f, 2, 1.0f, DateTime.Now, "description", Substitute.For<IFormFile>());
 
             var claimsIdentity = new ClaimsIdentity(new List<Claim>() { new Claim("Id", restaurantId.ToString()) });
 
@@ -123,24 +128,40 @@ namespace savings_app_tests
 
             _httpContext.HttpContext.User.Identity.Returns(claimsIdentity);
 
+            int saveImageCounter = 0;
+            int addProductCounter = 0;
+            int saveChangesCounter = 0;
 
 
-            _fileSaver.When(async x => await x.SaveImage(Arg.Any<IFormFile>(), Arg.Any<string>(), Arg.Any<string>(), Arg.Any<string>()))
+            _fileSaver.When(async x => await x.SaveImage(Arg.Any<IFormFile>(), Arg.Any<string>(), Arg.Any<bool>()))
                 .Do(x => saveImageCounter++);
-            _productRepository.When(x => x.AddProduct(productToPost))
+            _productRepository.When(x => x.AddProductAsync(Arg.Any<Product>()))
                 .Do(x => addProductCounter++);
+            _productRepository.When(async x => await x.SaveChangesAsync())
+                .Do(x => saveChangesCounter++);
 
             //Act
 
-            var product = await _sut.PostProduct(productToPost);
+            var productDTOResponse = await _sut.PostProduct(productToPost);
 
             //Assert
 
-            Assert.Equal(product, productToPost);
+            Assert.Equal(productToPost.Name, productDTOResponse.Name);
+            Assert.Equal(productDTOResponse.Description, productDTOResponse.Description);
+            Assert.Equal(productToPost.IsHidden, productDTOResponse.IsHidden);
+            Assert.Equal(productToPost.Category, productDTOResponse.Category);
+            Assert.Equal(productToPost.RestaurantID, productDTOResponse.RestaurantID);
+            Assert.Equal(productToPost.AmountType, productDTOResponse.AmountType);
+            Assert.Equal(productToPost.AmountOfUnits, productDTOResponse.AmountOfUnits);
+            Assert.Equal(productToPost.AmountPerUnit, productDTOResponse.AmountPerUnit);
+            Assert.Equal(productToPost.Price, productDTOResponse.Price);
+            Assert.Equal(productToPost.ShelfLife, productDTOResponse.ShelfLife);
+
             Assert.Equal(1, saveImageCounter);
             Assert.Equal(1, addProductCounter);
+            Assert.Equal(1, saveChangesCounter);
         }
-
+        /*
         [Fact]
         public async Task DeleteProduct_ShouldThrowRecourseNotFoundException_WhenProductDoesNotExist()
         {
@@ -209,6 +230,6 @@ namespace savings_app_tests
 
             await Assert.ThrowsAsync<InvalidRequestArgumentsException>(async () =>
                 await _sut.GetFilteredProducts(default, default, "invalidOrder"));
-        }
+        }*/
     }
-}*/
+}

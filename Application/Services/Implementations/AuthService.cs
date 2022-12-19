@@ -24,9 +24,9 @@ namespace Application.Services.Implementations
             _restaurantRepository = restaurantRepository;
         }
 
-        public string Login(UserLoginDTO userLogin)
+        public async Task<string> Login(UserLoginDTO userLogin)
         {
-            var user = AuthenticateUser(userLogin);
+            var user = await AuthenticateUserAsync(userLogin);
 
             var token = GenerateToken(user);
             return token;
@@ -64,9 +64,9 @@ namespace Application.Services.Implementations
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
 
-        private User AuthenticateUser(UserLoginDTO userLogin)
+        public async Task<User> AuthenticateUserAsync(UserLoginDTO userLogin)
         {
-            var buyer = _buyerRepository.GetBuyer(user => user.UserAuth.Email.ToLower() == userLogin.Email!.ToLower());
+            var buyer = await _buyerRepository.GetBuyerAsync(user => user.UserAuth.Email.ToLower() == userLogin.Email!.ToLower());
 
 
             if (buyer != null)
@@ -78,7 +78,7 @@ namespace Application.Services.Implementations
             }
             else
             {
-                var seller = _restaurantRepository.GetRestaurant(user => user.UserAuth.Email.ToLower() == userLogin.Email!.ToLower());
+                var seller = await _restaurantRepository.GetRestaurantAsync(user => user.UserAuth.Email.ToLower() == userLogin.Email!.ToLower());
                 if (seller != null)
                 {
                     if (seller.UserAuth.Password.ToLower() == userLogin.Password!.ToLower())

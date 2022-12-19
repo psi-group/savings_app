@@ -1,4 +1,5 @@
-﻿using Application.Services.Interfaces;
+﻿using Application.Interceptors;
+using Application.Services.Interfaces;
 using Domain.DTOs.Request;
 using Domain.DTOs.Response;
 using Domain.Entities;
@@ -28,10 +29,9 @@ namespace Application.Services.Implementations
         public async Task<BuyerDTOResponse> DeleteBuyer(Guid id)
         {
             if (id !=
-                Guid.Parse(((ClaimsIdentity)_httpContext.HttpContext.User.Identity).FindFirst("Id").Value))
+               Guid.Parse(((ClaimsIdentity)_httpContext.HttpContext.User.Identity).FindFirst("Id").Value))
                 throw new InvalidIdentityException("you are unauthorized to delete this recource");
 
-           
             var buyer = await _buyerRepository.GetBuyerAsync(id);
             if (buyer == null)
             {
@@ -50,14 +50,9 @@ namespace Application.Services.Implementations
             return buyerResponse;
         }
 
-
+        [PrivateIdentity]
         public async Task<BuyerPrivateDTOResponse> GetBuyerPrivate(Guid id)
         {
-
-            if (id !=
-                Guid.Parse(((ClaimsIdentity)_httpContext.HttpContext.User.Identity).FindFirst("Id").Value))
-                throw new InvalidIdentityException("you are unauthorized to access this recource");
-
             var buyer = await _buyerRepository.GetBuyerAsync(id);
 
             if (buyer == null)
@@ -151,6 +146,7 @@ namespace Application.Services.Implementations
                 "https://savingsapp.blob.core.windows.net/userimages/" + id + ".jpg"
                 );
 
+            
             using (TransactionScope scope = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled))
             {
                 await _buyerRepository.AddBuyerAsync(buyer);
@@ -181,16 +177,18 @@ namespace Application.Services.Implementations
                 Guid.Parse(((ClaimsIdentity)_httpContext.HttpContext.User.Identity).FindFirst("Id").Value))
                 throw new InvalidIdentityException("you are unauthorized to update this resource");
 
+            if (!await _buyerRepository.BuyerExistsAsync(id))
+            {
+                throw new RecourseNotFoundException("buyer with this id does not exist");
+            }
+
             if (await _buyerRepository.GetBuyerAsync(
                 buyer => buyer.UserAuth.Email == buyerToUpdate.UserAuth!.Email) != null)
             {
                 throw new RecourseAlreadyExistsException("buyer with this email already exists");
             }
 
-            if (!await _buyerRepository.BuyerExistsAsync(id))
-            {
-                throw new RecourseNotFoundException("buyer with this id does not exist");
-            }
+            
 
             var buyer = new Buyer(
                 id,
@@ -207,10 +205,22 @@ namespace Application.Services.Implementations
                         (int)buyerToUpdate.Address.HouseNumber!,
                         buyerToUpdate.Address.AppartmentNumber,
                         (int)buyerToUpdate.Address.PostalCode!),
-                id.ToString());
+                "https://savingsapp.blob.core.windows.net/userimages/" + id + ".jpg");
 
-            _buyerRepository.UpdateBuyer(buyer);
-            await _buyerRepository.SaveChangesAsync();
+            using (TransactionScope scope = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled))
+            {
+                _buyerRepository.UpdateBuyer(buyer);
+                await _buyerRepository.SaveChangesAsync();
+
+                if (buyerToUpdate.Image != null)
+                {
+                    Task saveImageTask = _fileSaver.SaveImage(buyerToUpdate.Image,
+                        buyer.Id.ToString(), false);
+                    await saveImageTask;
+                }
+
+                scope.Complete();
+            }
 
             var buyerResponse = new BuyerDTOResponse(
                 buyer.Id,

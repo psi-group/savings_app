@@ -21,5 +21,20 @@ namespace Domain.DTOs.Request
 
         public string? ShortDescription { get; set; }
         public string? SiteRef { get; set; }
+
+
+        public RestaurantDTORequest(string? name, UserAuthDTORequest? userAuth, AddressDTORequest? address, IFormFile? image, bool? open, string? description, string? shortDescription, string? siteRef)
+        {
+            Name = name;
+            UserAuth = userAuth;
+            Address = address;
+            Image = image;
+            Open = open;
+            Description = description;
+            ShortDescription = shortDescription;
+            SiteRef = siteRef;
+        }
+
+        public RestaurantDTORequest() { }
     }
 }

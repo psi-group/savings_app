@@ -14,3 +14,5 @@ C:\Users\Medas\Desktop\savings_app\savings_app_frontend\obj\Debug\savings_app_fr
 C:\Users\Medas\Desktop\savings_app\savings_app_frontend\obj\Debug\savings_app_frontend.esproj.CoreCompileInputs.cache
 C:\Users\justa\Desktop\APPAS\gerascia\savings_app\savings_app_frontend\obj\Debug\savings_app_frontend.esproj.SuggestedBindingRedirects.cache
 C:\Users\justa\Desktop\APPAS\gerascia\savings_app\savings_app_frontend\obj\Debug\savings_app_frontend.esproj.CoreCompileInputs.cache
+C:\Users\justa\Desktop\APPAS\gerascia - Copy (3)\savings_app\savings_app_frontend\obj\Debug\savings_app_frontend.esproj.SuggestedBindingRedirects.cache
+C:\Users\justa\Desktop\APPAS\gerascia - Copy (3)\savings_app\savings_app_frontend\obj\Debug\savings_app_frontend.esproj.CoreCompileInputs.cache

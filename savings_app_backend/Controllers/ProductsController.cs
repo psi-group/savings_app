@@ -20,12 +20,6 @@ namespace savings_app_backend.Controllers
             _productService = productService;
         }
 
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<Product>>> GetProducts()
-        {
-            return Ok(await _productService.GetProducts());
-        }
-
         [HttpGet("filter")]
         public async Task<ActionResult<IEnumerable<ProductDTOResponse>>> GetFilteredProducts(
             [FromQuery] List<Category> category,
@@ -41,26 +35,12 @@ namespace savings_app_backend.Controllers
             return Ok(await _productService.GetProduct(id));
         }
 
-        [HttpPut("{id}")]
-        [Authorize(Roles = "seller")]
-        public async Task<ActionResult<Product>> PutProduct(Guid id, [FromForm] ProductDTORequest product)
-        {
-            return Ok(await _productService.PutProduct(id, product));
-        }
-
         [HttpPost]
         [Authorize(Roles = "seller")]
         public async Task<ActionResult<Product>> PostProduct(
             [FromForm] ProductDTORequest product)
         {
             return Ok(await _productService.PostProduct(product));
-        }
-
-        [Authorize(Roles = "seller")]
-        [HttpDelete("{id}")]
-        public async Task<ActionResult<Product>> DeleteProduct(Guid id)
-        {
-            return Ok(await _productService.DeleteProduct(id));
         }
     }
 }
