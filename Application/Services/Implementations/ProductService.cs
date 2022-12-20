@@ -60,6 +60,36 @@ namespace Application.Services.Implementations
             return productsDTO;
         }
 
+        public async Task<IEnumerable<ProductDTOResponse>> GetProducts()
+        {
+            
+
+            var products = await _productRepository.GetProductsAsync();
+
+            var productsDTO = new List<ProductDTOResponse>();
+            foreach (var product in products)
+            {
+                var productDTO = new ProductDTOResponse(
+                product.Id,
+                product.Name,
+                product.IsHidden,
+                product.Category,
+                product.RestaurantID,
+                product.AmountType,
+                product.AmountPerUnit,
+                product.AmountOfUnits,
+                product.Price,
+                product.ImageUrl,
+                product.ShelfLife,
+                product.Description
+                );
+
+                productsDTO.Add(productDTO);
+            }
+
+            return productsDTO;
+        }
+
         public async Task<ProductDTOResponse> GetProduct(Guid id)
         {
             var product = await _productRepository.GetProductAsync(id);

@@ -54,7 +54,11 @@ function ProductDetails(props) {
         product.price,
             restaurant,
             product
-      );
+            );
+
+            props.setSnackMessage("Product added to shopping cart");
+            props.setSnackOn(true);
+
       }
   };
 

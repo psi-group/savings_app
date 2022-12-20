@@ -8,6 +8,8 @@ namespace Application.Services.Interfaces
     {
         Task<IEnumerable<ProductDTOResponse>> GetFilteredProducts(List<Category> category, string? search, string? order);
 
+        Task<IEnumerable<ProductDTOResponse>> GetProducts();
+
         Task<ProductDTOResponse> GetProduct(Guid id);
 
         Task<ProductDTOResponse> PostProduct(ProductDTORequest product);
