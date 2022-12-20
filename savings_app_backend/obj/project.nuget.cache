@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "VhGxfcXzQPotcFqpCJuBrRO2NmlD0C/fvfZSaYRHS9Hqg0ia7WDinfir6QuYA8c5VriukmOvahbrj5xaf+IOsQ==",
+  "dgSpecHash": "vwblM5ZlLUpFERL3ca2nVoYAG/XRo1dgirjOohuxUFbaDh17uKtgJThJfhKkjub/JkFTfpSbOmA91jHWpnzOFQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\justa\\Desktop\\APPAS\\gerascia - Copy (3)\\savings_app\\savings_app_backend\\WebAPI.csproj",
+  "projectFilePath": "C:\\Users\\justa\\Desktop\\APPAS\\FINAL\\savings_app\\savings_app_backend\\WebAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\justa\\.nuget\\packages\\autofac\\6.5.0\\autofac.6.5.0.nupkg.sha512",
     "C:\\Users\\justa\\.nuget\\packages\\autofac.extensions.dependencyinjection\\8.0.0\\autofac.extensions.dependencyinjection.8.0.0.nupkg.sha512",
