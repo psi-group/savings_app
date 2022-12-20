@@ -294,7 +294,7 @@ const AddProduct = ({ setSnackOn, setSnackMessage }) => {
                     </div>
 
                     {pickupAmount > 0 && (
-                        <div className="flex justify-between border-2 p-3 border-sky-500 rounded-lg">
+                        <div className="grid grid-cols-2 gap-3 justify-between border-2 p-3 border-sky-500 rounded-lg">
                             {renderPickupInput()}{" "}
                         </div>
                     )}

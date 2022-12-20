@@ -80,8 +80,9 @@ console.log(orders);
   );
   const getFullDate = (fullDate) => {
     const date = new Date(fullDate);
-    return `${date.getFullYear()}-${date.getMonth()}-${date.getDay()}   ${date.getHours()}:${date.getMinutes()}`;
-  }
+    const minutes = date.getMinutes() < 10 ? `0${date.getMinutes()}` : date.getMinutes();
+    return `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}   ${date.getHours()}:${minutes }`;
+  };
 
   const getFullPrice = (orderItems) => {
     let sum = 0;

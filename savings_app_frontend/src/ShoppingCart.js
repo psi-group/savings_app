@@ -17,6 +17,12 @@ export const ShoppingCart = (props) => {
     setIsSelectTimeOpen(false);
   };
 
+  const getFullDate = (fullDate) => {
+    const date = new Date(fullDate);
+    const minutes = date.getMinutes() < 10 ? `0${date.getMinutes()}` : date.getMinutes();
+    return `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}   ${date.getHours()}:${minutes }`;
+  };
+
   const getId = (token) => {
     return JSON.parse(window.atob(token.split(".")[1]))["Id"];
   };
@@ -144,21 +150,21 @@ export const ShoppingCart = (props) => {
       <div className="flex w-full h-full">
               <div className="bg-white w-2/3 p-16 flex flex-col relative">
                   <p className="text-red-500">{errorMsg}</p>
-          <h1 className="text-2xl font-bold">MY SHOPPING CART</h1>
-          <div className="bg-zinc-700 h-1"></div>
+          <h1 className="text-2xl font-bold text-sky-500">MY SHOPPING CART</h1>
+          <div className="bg-sky-500 h-1"></div>
           <div className="flex justify-between pt-5">
-            <p className="text-zinc-500">PRODUCT</p>
+            <p className="text-black">PRODUCT</p>
             <div className="flex gap-20 text-zinc-500">
-              <p className="font-bol">TOTAL</p>
+              <p className="font-bol text-black">TOTAL</p>
             </div>
           </div>
-          <div className="bg-zinc-700 h-0.5 mb-3"></div>
+          <div className="bg-sky-500 h-0.5 mb-3"></div>
           <div className="flex flex-col gap-4">
             {props.cartItems.length > 0 ? (
               props.cartItems.map((cartItem, index) => {
                 return (
                   <>
-                    <div className="flex justify-between border-b-2 border-zinc-500 pb-2">
+                    <div className="flex justify-between border-b-2 border-sky-500 pb-2">
                       <div className="flex gap-5">
                         <img
                                     src={cartItem.product.imageUrl == null ?
@@ -167,18 +173,18 @@ export const ShoppingCart = (props) => {
                           className="w-24 h-20 rounded-md border-zinc-500 border-2"
                         />
                         <div className="flex flex-col">
-                          <h1 className="font-bold italic text-xl tracking-wide">
+                          <h1 className="font-bold italic text-sky-500 text-xl tracking-wide">
                             {cartItem.itemName}
                           </h1>
                           <div className="flex gap-1 items-center">
-                            <h3 className="font-bold text-md">Pickup Time: </h3>
+                            <h3 className="font-bold text-md text-sky-500">Pickup Time: </h3>
                             <p className="text-sm">
-                              {cartItem.pickupTime.startTime} to{" "}
-                              {cartItem.pickupTime.endTime}
+                              {getFullDate(cartItem.pickupTime.startTime)} to{" "}
+                              {getFullDate(cartItem.pickupTime.endTime)}
                             </p>
                           </div>
                           <div className="flex gap-1 items-center">
-                            <h3 className="font-bold text-md">Quantity: </h3>
+                            <h3 className="font-bold text-md text-sky-500">Quantity: </h3>
                             <p className="text-sm">
                               {cartItem.quantity} {cartItem.quantityType}
                             </p>
@@ -195,8 +201,8 @@ export const ShoppingCart = (props) => {
                           </button>
                         </div>
                       </div>
-                      <div className="bg-zinc-500 h-0.5 my-3"></div>
-                      <p className="font-bold self-center">
+                      <div className="bg-sky-500 h-0.5 my-3"></div>
+                      <p className="font-bold self-center text-sky-500">
                         {cartItem.fullPrice} Eur
                       </p>
                     </div>
@@ -205,113 +211,21 @@ export const ShoppingCart = (props) => {
               })
             ) : (
               <div className="flex flex-col items-center gap-3">
-                <h1 className="text-center text-black font-bold pt-10 text-xl">
+                <h1 className="text-center text-sky-500 font-bold pt-10 text-2xl">
                   Your Shopping Cart Is Empty
                 </h1>
                 <Link to="/">
-                  <button className="px-5 py-2 bg-black hover:font-bold hover:text-white text-lg">
+                  <button className="px-5 py-2 bg-sky-500 hover:font-bold text-white text-lg">
                     SHOP
                   </button>
                 </Link>
               </div>
             )}
-            {isSelectTimeOpen && (
-              <div className="m-auto bg-white border-4 w-2/5 h-56 rounded-lg border-sky-500 shadow-lg relative">
-                <button
-                  className="text-xl absolute top-1 right-3"
-                  onClick={() => {
-                    setIsSelectTimeOpen(false);
-                  }}
-                >
-                  X
-                </button>
-                <form
-                  className="flex justify-center items-center h-full flex-col gap-2"
-                  onSubmit={handlePlanVisits}
-                >
-                  <h1 className="font-bold text-sky-600 text-xl">
-                    Select time
-                  </h1>
-                  <div className="flex gap-3">
-                    <input
-                      type="time"
-                      id="time1"
-                      name="time1"
-                      defaultValue="00:00"
-                    ></input>
-                    <h1 className="font-bold text-sky-900 text-xl">-</h1>
-                    <input
-                      type="time"
-                      placeholder="12:00"
-                      name="time2"
-                      id="time2"
-                      defaultValue="12:00"
-                    ></input>
-                  </div>
-                  <button
-                    type="submit"
-                    className="bg-sky-700 active:text-black text-white  border-2 active:border-black hover:bg-sky-800 p-2 pt-2 font-bold self-center w-[50%]"
-                  >
-                    Confirm
-                  </button>
-                </form>
-                <div>
-                  {!isPathFinderReady && isPathFinderReady != null ? (
-                    <div id="load">
-                      <p>Loading....</p>
-                    </div>
-                  ) : (
-                    <></>
-                  )}
-                </div>
-              </div>
-            )}
-            {isPathVisible && (
-              <div className="m-auto bg-white border-4 w-3/5 pb-4 rounded-lg border-sky-500 shadow-lg absolute left-52 top-28">
-                <h1 className="font-bold text-2xl text-center text-sky-500">Locations</h1>
-                <div className="flex flex-col overflow-hidden gap-2">
-                {MOCK_VISIT.visits.map((visit,index) => (
-                  <div className="flex flex-col">
-                  <div className="flex items-center ml-5">
-                  <h1 className="font-bold text-sky-500">{index}.</h1>
-                  <div className="text-black mx-2">{visit.placeId}</div>
-                  </div>
-                  <p className="text-sm ml-5">({visit.startTime} - {visit.endTime})</p>
-                  </div>
-                ))}
-                </div>
-                <div className="bg-sky-500 my-3 p-[2px]"></div>
-                <h1 className="font-bold text-2xl text-center text-sky-500">Main Information</h1>
-                <div className="flex flex-col gap-2 ml-5">
-                  <div>
-                  <h1 className="font-bold text-sky-500">Departure Time:</h1>
-                  <p>{MOCK_VISIT.departureTime}</p>
-                  </div>
-                  <div>
-                  <h1 className="font-bold text-sky-500">Start Location:</h1>
-                  <p>{MOCK_VISIT.startLocationPlaceId}</p>
-                  </div>
-                  <div>
-                  <h1 className="font-bold text-sky-500">Journey duration:</h1>
-                  <p>{(MOCK_VISIT.duration/3600).toFixed(2)} hours</p>
-                  </div>
-                  <div className="flex flex-col pt-3">
-                  <h1 className="text-center">Does this route suit you?</h1>
-                  <button
-                  
-                  className="self-center bg-sky-500 active:text-black text-white  border-2 active:border-black hover:bg-sky-700 p-2 pt-2 font-bold  w-[50%]"
-                >
-                  Confirm
-                </button>
-                <button className="self-center rounded-md bg-white-500 active:text-white text-sky-500  border-2 border-sky-500 hover:bg-sky-500 hover:text-white p-1 font-bold  w-[25%]">Find next route</button>
-                </div>
-                </div>
-               
-              </div>
-            )}
+            
+           
           </div>
         </div>
-        <div className="bg-sky-700 w-1/3 min-h-screen p-10 pt-24 flex flex-col justify-between">
+        <div className="bg-sky-500 w-1/3 min-h-screen p-10 pt-24 flex flex-col justify-between">
           <div>
             <h1 className="text-2xl text-white">Summary</h1>
             <div className="bg-white h-1 mt-2"></div>
@@ -346,16 +260,7 @@ export const ShoppingCart = (props) => {
 
                           </>
             </button>
-            <button
-              type="button"
-              className="bg-sky-900 active:text-black text-white  border-2 active:border-black hover:bg-sky-800 p-2 pt-2 font-bold self-center w-[50%]"
-              onClick={() => {
-                setIsSelectTimeOpen(!isSelectTimeOpen);
-                setIsPathVisible(false);
-              }}
-            >
-              Calculate pickup times
-            </button>
+           
           </div>
         </div>
       </div>

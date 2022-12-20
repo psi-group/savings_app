@@ -4,6 +4,7 @@ import imgSkeleton from "../img/productImageSkeleton.png";
 import checkIcon from "../img/checkIcon.png";
 import "reactjs-popup/dist/index.css";
 import React from "react";
+import useIsRestaurant from "../Hooks/useIsRestaurant";
 import { CircleSpinnerOverlay } from "react-spinner-overlay";
 
 function ProductDetails(props) {
@@ -19,6 +20,7 @@ function ProductDetails(props) {
   const [itemPickupTime, setItemPickupTime] = React.useState({});
   const [errorVisible, setErrorVisible] = React.useState(false);
   const [pickups, setPickups] = React.useState({});
+  const isRestaurant = useIsRestaurant();
 
   let { id } = useParams();
 
@@ -127,10 +129,9 @@ function ProductDetails(props) {
             <h3 className="text-xl">{capitalizeFirst(productCategory)}</h3>
           </div>
           <div>
-            <h2 className="text-2xl text-sky-500">Available pickup times</h2>
-
+            {!isRestaurant && <h2 className="text-2xl text-sky-500">Available pickup times</h2>}
             <form className="flex gap-1 flex-col" onSubmit={handleSubmit}>
-              {pickups.filter(pickUp => pickUp.status == "Available").map( (pickUpTime, index) => (
+              {!isRestaurant && pickups.filter(pickUp => pickUp.status == "Available").map( (pickUpTime, index) => (
                 
                   <label
                     className="flex items-center rounded border-2 w-full border-sky-500"
@@ -193,12 +194,12 @@ function ProductDetails(props) {
                   {props.roundNumber(product.price * itemQuantity, 2)} Eur
                 </p>
               </div>
-              <button
+              {!isRestaurant && <button
                 type="submit"
                 className="pl-10 pr-10 pt-3 pb-3 bg-gradient-to-r from-sky-400 to-blue-500 rounded-xl text-white text-lg active:shadow-lg active:font-bold"
               >
                 Add To Cart
-              </button>
+              </button>}
             </form>
             <h2 className="text-sm text-center font-bold">
               Sold By {capitalizeFirst(restaurant.name)}

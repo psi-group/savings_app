@@ -17,7 +17,11 @@ const Navbar = (props) => {
   const [showCart, setShowCart] = React.useState(false);
   //const [isRestaurant, setIsRestaurant] = React.useState(false);
   const navigate = useNavigate();
-
+  const getFullDate = (fullDate) => {
+    const date = new Date(fullDate);
+    const minutes = date.getMinutes() < 10 ? `0${date.getMinutes()}` : date.getMinutes();
+    return `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}   ${date.getHours()}:${minutes }`;
+  };
 
   function handleLogout() {
     localStorage.removeItem("token");
@@ -74,7 +78,7 @@ const Navbar = (props) => {
                 </Link>
                 {showCart && (
                   <div
-                    className="absolute top-14 w-96 p-3 h-96 bg-white right-1 z-20 rounded-lg flex flex-col border-sky-500 border-2"
+                    className="absolute top-[52px] w-96 p-3 h-96 bg-white right-1 z-20 rounded-lg flex flex-col border-sky-500 border-2"
                     onMouseEnter={() => setShowCart(true)}
                     onMouseLeave={() => setShowCart(false)}
                   >
@@ -98,24 +102,26 @@ const Navbar = (props) => {
                                   className="w-16 h-16 rounded-md border-2 border-black self-center"
                                 />
                                 <div className="flex flex-col">
-                                  <h3 className="font-bold text-xs">
+                                  <h3 className="font-bold text-sm text-sky-500">
                                     Pickup Time:{" "}
                                   </h3>
                                   <p className="text-xs">
-                                    FROM: {cartItem.pickupTime.startTime}
+                                    FROM: {getFullDate(cartItem.pickupTime.startTime)}
                                     <br></br>
-                                    TO: {cartItem.pickupTime.endTime}
+                                    TO: {getFullDate(cartItem.pickupTime.endTime)}
                                   </p>
-                                  <h3 className="font-bold text-xs">
+                                  <div className="flex gap-3 items-center">
+                                  <h3 className="font-bold text-sm text-sky-500">
                                     Quantity:{" "}
                                   </h3>
                                   <p className="text-xs">
                                     {cartItem.quantity} {cartItem.quantityType}
                                   </p>
-                                  <h3 className="font-bold text-xs">Price: </h3>
+                                  <h3 className="font-bold text-sm text-sky-500">Price: </h3>
                                   <p className="text-xs">
                                     {cartItem.fullPrice} Eur
                                   </p>
+                                  </div>
                                 </div>
                               </div>
                               <div className="mt-3 mb-3 w-full h-[1px] bg-sky-500">

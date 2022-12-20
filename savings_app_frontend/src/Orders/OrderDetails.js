@@ -72,7 +72,6 @@ const OrderDetails = () => {
           })
             .then(async (res) => {
               const json1 = await res.json();
-              setLoading(false);
 
               if (!res.ok) {
                 return Promise.reject(json1);
@@ -109,7 +108,6 @@ const OrderDetails = () => {
               if (!res.ok) {
                 return Promise.reject(json1);
               }
-              setLoading(false);
 
               orderItem.product = json1;
               if (orderItem.product.imageUrl == null) {
@@ -123,6 +121,7 @@ const OrderDetails = () => {
               delete orderItem.product.amountOfUnits;
               delete orderItem.product.amountPerUnit;
               delete orderItem.product.price;
+              setLoading(false);
             })
             .catch((error) => {});
 
@@ -200,7 +199,8 @@ const OrderDetails = () => {
   };
   const getFullDate = (fullDate) => {
     const date = new Date(fullDate);
-    return `${date.getFullYear()}-${date.getMonth()}-${date.getDay()}   ${date.getHours()}:${date.getMinutes()}`;
+    const minutes = date.getMinutes() < 10 ? `0${date.getMinutes()}` : date.getMinutes();
+    return `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}   ${date.getHours()}:${minutes }`;
   };
 
   const getFullPrice = (orderItems) => {
