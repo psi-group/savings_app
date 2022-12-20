@@ -20,6 +20,11 @@ namespace savings_app_backend.Controllers
             _productService = productService;
         }
 
+        public async Task<ActionResult<IEnumerable<ProductDTOResponse>>> GetProducts()
+        {
+            return Ok(await _productService.GetProducts());
+        }
+
         [HttpGet("filter")]
         public async Task<ActionResult<IEnumerable<ProductDTOResponse>>> GetFilteredProducts(
             [FromQuery] List<Category> category,

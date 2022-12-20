@@ -153,7 +153,7 @@ const App = () => {
                     <Route path='/register' element={<Register setSnackOn={setSnackOn} setSnackMessage={setSnackMessage}></Register>} ></Route>
                     <Route path='/login' element={<Login setSnackOn={setSnackOn} setSnackMessage={setSnackMessage}></Login>} ></Route>
                     
-                    <Route path='/product/:id' element={<ProductDetails cartItems={cartItems} addCartItem={addCartItem} roundNumber={roundNumber} />}></Route>
+                <Route path='/product/:id' element={<ProductDetails setSnackOn={setSnackOn} setSnackMessage={setSnackMessage} cartItems={cartItems} addCartItem={addCartItem} roundNumber={roundNumber} />}></Route>
                     <Route path='/orders' element={<Orders />}></Route>
                     <Route path='/orders/:id' element={<OrderDetails />}></Route>
                     <Route path='/restaurants' element={<Restaurants searchas={searchas} />}></Route>

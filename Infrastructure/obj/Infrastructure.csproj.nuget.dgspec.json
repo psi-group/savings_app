@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\justa\\Desktop\\APPAS\\FINAL\\savings_app\\Infrastructure\\Infrastructure.csproj": {}
+    "C:\\Users\\justa\\Desktop\\APPAS\\finalinis\\savings_app\\Infrastructure\\Infrastructure.csproj": {}
   },
   "projects": {
-    "C:\\Users\\justa\\Desktop\\APPAS\\FINAL\\savings_app\\Domain\\Domain.csproj": {
+    "C:\\Users\\justa\\Desktop\\APPAS\\finalinis\\savings_app\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\justa\\Desktop\\APPAS\\FINAL\\savings_app\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Users\\justa\\Desktop\\APPAS\\finalinis\\savings_app\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\Users\\justa\\Desktop\\APPAS\\FINAL\\savings_app\\Domain\\Domain.csproj",
+        "projectPath": "C:\\Users\\justa\\Desktop\\APPAS\\finalinis\\savings_app\\Domain\\Domain.csproj",
         "packagesPath": "C:\\Users\\justa\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\justa\\Desktop\\APPAS\\FINAL\\savings_app\\Domain\\obj\\",
+        "outputPath": "C:\\Users\\justa\\Desktop\\APPAS\\finalinis\\savings_app\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\justa\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -65,14 +65,14 @@
         }
       }
     },
-    "C:\\Users\\justa\\Desktop\\APPAS\\FINAL\\savings_app\\Infrastructure\\Infrastructure.csproj": {
+    "C:\\Users\\justa\\Desktop\\APPAS\\finalinis\\savings_app\\Infrastructure\\Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\justa\\Desktop\\APPAS\\FINAL\\savings_app\\Infrastructure\\Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\justa\\Desktop\\APPAS\\finalinis\\savings_app\\Infrastructure\\Infrastructure.csproj",
         "projectName": "Infrastructure",
-        "projectPath": "C:\\Users\\justa\\Desktop\\APPAS\\FINAL\\savings_app\\Infrastructure\\Infrastructure.csproj",
+        "projectPath": "C:\\Users\\justa\\Desktop\\APPAS\\finalinis\\savings_app\\Infrastructure\\Infrastructure.csproj",
         "packagesPath": "C:\\Users\\justa\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\justa\\Desktop\\APPAS\\FINAL\\savings_app\\Infrastructure\\obj\\",
+        "outputPath": "C:\\Users\\justa\\Desktop\\APPAS\\finalinis\\savings_app\\Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\justa\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -89,8 +89,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\justa\\Desktop\\APPAS\\FINAL\\savings_app\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\justa\\Desktop\\APPAS\\FINAL\\savings_app\\Domain\\Domain.csproj"
+              "C:\\Users\\justa\\Desktop\\APPAS\\finalinis\\savings_app\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\justa\\Desktop\\APPAS\\finalinis\\savings_app\\Domain\\Domain.csproj"
               }
             }
           }
