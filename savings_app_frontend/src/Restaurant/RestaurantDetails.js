@@ -99,12 +99,9 @@ const RestaurantDetails = () => {
                                 dataRestaurant.imageUrl
                     }
                         alt={dataRestaurant.name} />
-                    <div className="w-[150px] ml-auto mr-auto">
-                          <Rating name="half-rating" value={dataRestaurant.rating} precision={0.5}  size="large" />
-                    </div>
                     <div className="ml-7 mb-6">
                         <h2 className=" font-bold text-[20px]">Description:</h2>
-                        <p>{dataRestaurant.description}</p>
+                        <p>{!dataRestaurant.description ? "-" : dataRestaurant.description }</p>
                     </div>
                    
                     <h3 className="text-[20px] font-bold ml-7">Offered products:</h3>

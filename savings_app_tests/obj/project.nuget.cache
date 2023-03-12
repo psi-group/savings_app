@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "8Hg9wz+x3HbRDoTQQvalkPQj19E0pXlzAp0cg3p/IbJyP9RTaWwlcr04PxaRPMKJdq78sNWLozakshW8MBs4HQ==",
+  "dgSpecHash": "AqILkLzqcPTjACc5mZjfDisU/ageQ4OroRVtCsH3kh3reQrTelYPA857/IhJqFuQAiSsfHqK3DoHRlmiYdHMSw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\justa\\Desktop\\APPAS\\finalinis\\savings_app\\savings_app_tests\\savings_app_tests.csproj",
+  "projectFilePath": "C:\\Users\\justa\\Desktop\\APPAS\\PRISTATYMUI\\savings_app\\savings_app_tests\\savings_app_tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\justa\\.nuget\\packages\\autofac\\6.5.0\\autofac.6.5.0.nupkg.sha512",
     "C:\\Users\\justa\\.nuget\\packages\\autofac.extensions.dependencyinjection\\8.0.0\\autofac.extensions.dependencyinjection.8.0.0.nupkg.sha512",

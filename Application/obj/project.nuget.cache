@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "K6BU0OdOjkX21oOokPMO61JdH0DuGXdoBrnauKjf3h4/QN/gMh3+o+hsCgJZPawW5euWb7pZ+C6bxfaCwxYYgg==",
+  "dgSpecHash": "Jx70qye/q/KDFWu4h04cvaBbcd6nr65vlnlt6lecsucD1vvseTZFmrJOrFVTyEd2wNNde2lUkqZqzR+CRyg7rg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\justa\\Desktop\\APPAS\\finalinis\\savings_app\\Application\\Application.csproj",
+  "projectFilePath": "C:\\Users\\justa\\Desktop\\APPAS\\PRISTATYMUI\\savings_app\\Application\\Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\justa\\.nuget\\packages\\castle.core\\5.1.0\\castle.core.5.1.0.nupkg.sha512",
     "C:\\Users\\justa\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\2.2.0\\microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",

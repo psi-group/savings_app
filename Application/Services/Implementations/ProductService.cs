@@ -138,7 +138,7 @@ namespace Application.Services.Implementations
                 (int)productToPost.AmountOfUnits!,
                 (float)productToPost.Price!,
                 productToPost.Image == null ? null :
-                "https://savingsapp.blob.core.windows.net/productimages/" + id + ".jpg",
+                "https://cityfood.blob.core.windows.net/cityfoodproductimages/" + id + ".jpg",
                 (DateTime)productToPost.ShelfLife!,
                 productToPost.Description);
 

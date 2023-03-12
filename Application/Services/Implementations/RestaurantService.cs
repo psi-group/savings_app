@@ -149,7 +149,7 @@ namespace Application.Services.Implementations
                     restaurantToPost.Address.AppartmentNumber,
                     (int)restaurantToPost.Address.PostalCode!),
                 restaurantToPost.Image == null ? null :
-                "https://savingsapp.blob.core.windows.net/userimages/" + id + ".jpg",
+                "https://cityfood.blob.core.windows.net/cityfooduserimages/" + id + ".jpg",
                 (bool)restaurantToPost.Open!,
                 restaurantToPost.Description,
                 restaurantToPost.ShortDescription,

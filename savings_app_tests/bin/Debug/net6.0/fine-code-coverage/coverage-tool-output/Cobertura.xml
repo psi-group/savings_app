@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
-<coverage line-rate="0.700736377025037" branch-rate="0.494845360824742" lines-covered="2379" lines-valid="3395" branches-covered="96" branches-valid="194" complexity="652" version="0" timestamp="1671576922">
+<coverage line-rate="0.701996476805637" branch-rate="0.5" lines-covered="2391" lines-valid="3406" branches-covered="97" branches-valid="194" complexity="654" version="0" timestamp="1671628038">
   <sources>
     <source>C:\Users\justa\</source>
   </sources>
   <packages>
-    <package name="Application" line-rate="0.683389074693422" branch-rate="0.63768115942029" complexity="171">
+    <package name="Application" line-rate="0.684503901895206" branch-rate="0.644927536231884" complexity="171">
       <classes>
-        <class name="Application.Interceptors.IdentityInterceptor" filename="C:\Users\justa\Desktop\APPAS\finalinis\savings_app\Application\Interceptors\IdentityInterceptor.cs" line-rate="1" branch-rate="1" complexity="5">
+        <class name="Application.Interceptors.IdentityInterceptor" filename="C:\Users\justa\Desktop\APPAS\PRISTATYMUI\savings_app\Application\Interceptors\IdentityInterceptor.cs" line-rate="1" branch-rate="1" complexity="5">
           <methods>
             <method name="Intercept" signature="(...)" line-rate="1" branch-rate="1" complexity="4">
               <lines>
@@ -49,7 +49,7 @@
             <line number="30" hits="2" branch="false" />
           </lines>
         </class>
-        <class name="Application.Interceptors.MappingInterceptor" filename="C:\Users\justa\Desktop\APPAS\finalinis\savings_app\Application\Interceptors\MappingInterceptor.cs" line-rate="0" branch-rate="1" complexity="1">
+        <class name="Application.Interceptors.MappingInterceptor" filename="C:\Users\justa\Desktop\APPAS\PRISTATYMUI\savings_app\Application\Interceptors\MappingInterceptor.cs" line-rate="0" branch-rate="1" complexity="1">
           <methods>
             <method name="Intercept" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -63,7 +63,7 @@
             <line number="15" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Application.Services.Implementations.AuthService" filename="C:\Users\justa\Desktop\APPAS\finalinis\savings_app\Application\Services\Implementations\AuthService.cs" line-rate="0.830188679245283" branch-rate="0.8" complexity="12">
+        <class name="Application.Services.Implementations.AuthService" filename="C:\Users\justa\Desktop\APPAS\PRISTATYMUI\savings_app\Application\Services\Implementations\AuthService.cs" line-rate="0.830188679245283" branch-rate="0.8" complexity="12">
           <methods>
             <method name="GenerateToken" signature="(...)" line-rate="0.88" branch-rate="0.5" complexity="2">
               <lines>
@@ -191,7 +191,7 @@
             <line number="94" hits="2" branch="false" />
           </lines>
         </class>
-        <class name="Application.Services.Implementations.BuyerService" filename="C:\Users\justa\Desktop\APPAS\finalinis\savings_app\Application\Services\Implementations\BuyerService.cs" line-rate="1" branch-rate="1" complexity="33">
+        <class name="Application.Services.Implementations.BuyerService" filename="C:\Users\justa\Desktop\APPAS\PRISTATYMUI\savings_app\Application\Services\Implementations\BuyerService.cs" line-rate="1" branch-rate="1" complexity="33">
           <methods>
             <method name=".ctor" signature="(...)" line-rate="1" branch-rate="1" complexity="1">
               <lines>
@@ -555,7 +555,7 @@
             <line number="232" hits="2" branch="false" />
           </lines>
         </class>
-        <class name="Application.Services.Implementations.OrderService" filename="C:\Users\justa\Desktop\APPAS\finalinis\savings_app\Application\Services\Implementations\OrderService.cs" line-rate="0.822085889570552" branch-rate="0.7" complexity="31">
+        <class name="Application.Services.Implementations.OrderService" filename="C:\Users\justa\Desktop\APPAS\PRISTATYMUI\savings_app\Application\Services\Implementations\OrderService.cs" line-rate="0.822085889570552" branch-rate="0.7" complexity="31">
           <methods>
             <method name=".ctor" signature="(...)" line-rate="1" branch-rate="1" complexity="1">
               <lines>
@@ -911,7 +911,7 @@
             <line number="229" hits="1" branch="false" />
           </lines>
         </class>
-        <class name="Application.Services.Implementations.PickupService" filename="C:\Users\justa\Desktop\APPAS\finalinis\savings_app\Application\Services\Implementations\PickupService.cs" line-rate="0.540229885057471" branch-rate="0.333333333333333" complexity="13">
+        <class name="Application.Services.Implementations.PickupService" filename="C:\Users\justa\Desktop\APPAS\PRISTATYMUI\savings_app\Application\Services\Implementations\PickupService.cs" line-rate="0.540229885057471" branch-rate="0.333333333333333" complexity="13">
           <methods>
             <method name=".ctor" signature="(...)" line-rate="1" branch-rate="1" complexity="1">
               <lines>
@@ -1111,17 +1111,17 @@
             <line number="132" hits="1" branch="false" />
           </lines>
         </class>
-        <class name="Application.Services.Implementations.ProductService" filename="C:\Users\justa\Desktop\APPAS\finalinis\savings_app\Application\Services\Implementations\ProductService.cs" line-rate="0.609756097560976" branch-rate="0.5" complexity="17">
+        <class name="Application.Services.Implementations.ProductService" filename="C:\Users\justa\Desktop\APPAS\PRISTATYMUI\savings_app\Application\Services\Implementations\ProductService.cs" line-rate="0.617886178861789" branch-rate="0.5625" complexity="17">
           <methods>
             <method name=".ctor" signature="(...)" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="25" hits="3" branch="false" />
-                <line number="26" hits="3" branch="false" />
-                <line number="27" hits="3" branch="false" />
-                <line number="28" hits="3" branch="false" />
-                <line number="29" hits="3" branch="false" />
-                <line number="30" hits="3" branch="false" />
-                <line number="31" hits="3" branch="false" />
+                <line number="25" hits="4" branch="false" />
+                <line number="26" hits="4" branch="false" />
+                <line number="27" hits="4" branch="false" />
+                <line number="28" hits="4" branch="false" />
+                <line number="29" hits="4" branch="false" />
+                <line number="30" hits="4" branch="false" />
+                <line number="31" hits="4" branch="false" />
               </lines>
             </method>
             <method name="GetFilteredProducts" signature="()" line-rate="0" branch-rate="0" complexity="2">
@@ -1205,12 +1205,12 @@
                 <line number="91" hits="0" branch="false" />
               </lines>
             </method>
-            <method name="PostProduct" signature="()" line-rate="0.978723404255319" branch-rate="0.6" complexity="10">
+            <method name="PostProduct" signature="()" line-rate="1" branch-rate="0.7" complexity="10">
               <lines>
-                <line number="122" hits="1" branch="false" />
-                <line number="124" hits="1" branch="true" condition-coverage="50% (3/6)" />
-                <line number="125" hits="1" branch="false" />
-                <line number="126" hits="0" branch="false" />
+                <line number="122" hits="2" branch="false" />
+                <line number="124" hits="2" branch="true" condition-coverage="67% (4/6)" />
+                <line number="125" hits="2" branch="false" />
+                <line number="126" hits="1" branch="false" />
                 <line number="128" hits="1" branch="false" />
                 <line number="130" hits="1" branch="true" condition-coverage="50% (1/2)" />
                 <line number="131" hits="1" branch="false" />
@@ -1258,13 +1258,13 @@
             </method>
           </methods>
           <lines>
-            <line number="25" hits="3" branch="false" />
-            <line number="26" hits="3" branch="false" />
-            <line number="27" hits="3" branch="false" />
-            <line number="28" hits="3" branch="false" />
-            <line number="29" hits="3" branch="false" />
-            <line number="30" hits="3" branch="false" />
-            <line number="31" hits="3" branch="false" />
+            <line number="25" hits="4" branch="false" />
+            <line number="26" hits="4" branch="false" />
+            <line number="27" hits="4" branch="false" />
+            <line number="28" hits="4" branch="false" />
+            <line number="29" hits="4" branch="false" />
+            <line number="30" hits="4" branch="false" />
+            <line number="31" hits="4" branch="false" />
             <line number="35" hits="0" branch="false" />
             <line number="36" hits="0" branch="false" />
             <line number="38" hits="0" branch="false" />
@@ -1334,10 +1334,10 @@
             <line number="116" hits="1" branch="false" />
             <line number="118" hits="1" branch="false" />
             <line number="120" hits="1" branch="false" />
-            <line number="122" hits="1" branch="false" />
-            <line number="124" hits="1" branch="true" condition-coverage="50% (3/6)" />
-            <line number="125" hits="1" branch="false" />
-            <line number="126" hits="0" branch="false" />
+            <line number="122" hits="2" branch="false" />
+            <line number="124" hits="2" branch="true" condition-coverage="67% (4/6)" />
+            <line number="125" hits="2" branch="false" />
+            <line number="126" hits="1" branch="false" />
             <line number="128" hits="1" branch="false" />
             <line number="130" hits="1" branch="true" condition-coverage="50% (1/2)" />
             <line number="131" hits="1" branch="false" />
@@ -1383,7 +1383,7 @@
             <line number="181" hits="1" branch="false" />
           </lines>
         </class>
-        <class name="Application.Services.Implementations.RestaurantService" filename="C:\Users\justa\Desktop\APPAS\finalinis\savings_app\Application\Services\Implementations\RestaurantService.cs" line-rate="0.811188811188811" branch-rate="0.785714285714286" complexity="15">
+        <class name="Application.Services.Implementations.RestaurantService" filename="C:\Users\justa\Desktop\APPAS\PRISTATYMUI\savings_app\Application\Services\Implementations\RestaurantService.cs" line-rate="0.811188811188811" branch-rate="0.785714285714286" complexity="15">
           <methods>
             <method name=".ctor" signature="(...)" line-rate="1" branch-rate="1" complexity="1">
               <lines>
@@ -1695,7 +1695,7 @@
             <line number="193" hits="1" branch="false" />
           </lines>
         </class>
-        <class name="Application.Services.Implementations.ShopService" filename="C:\Users\justa\Desktop\APPAS\finalinis\savings_app\Application\Services\Implementations\ShopService.cs" line-rate="0" branch-rate="0" complexity="11">
+        <class name="Application.Services.Implementations.ShopService" filename="C:\Users\justa\Desktop\APPAS\PRISTATYMUI\savings_app\Application\Services\Implementations\ShopService.cs" line-rate="0" branch-rate="0" complexity="11">
           <methods>
             <method name=".ctor" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -1833,7 +1833,7 @@
             <line number="107" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Application.Specifications.BaseSpecification`1" filename="C:\Users\justa\Desktop\APPAS\finalinis\savings_app\Application\Specifications\BaseSpecification.cs" line-rate="0.333333333333333" branch-rate="1" complexity="18">
+        <class name="Application.Specifications.BaseSpecification`1" filename="C:\Users\justa\Desktop\APPAS\PRISTATYMUI\savings_app\Application\Specifications\BaseSpecification.cs" line-rate="0.333333333333333" branch-rate="1" complexity="18">
           <methods>
             <method name="get_Criteria" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
@@ -1989,7 +1989,7 @@
             <line number="67" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Application.Specifications.BuyerPickupSpecification" filename="C:\Users\justa\Desktop\APPAS\finalinis\savings_app\Application\Specifications\BuyerPickupSpecification.cs" line-rate="0" branch-rate="1" complexity="1">
+        <class name="Application.Specifications.BuyerPickupSpecification" filename="C:\Users\justa\Desktop\APPAS\PRISTATYMUI\savings_app\Application\Specifications\BuyerPickupSpecification.cs" line-rate="0" branch-rate="1" complexity="1">
           <methods>
             <method name=".ctor" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -2011,7 +2011,7 @@
             <line number="12" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Application.Specifications.BuyersOrdersSpecification" filename="C:\Users\justa\Desktop\APPAS\finalinis\savings_app\Application\Specifications\BuyersOrdersSpecification.cs" line-rate="1" branch-rate="1" complexity="1">
+        <class name="Application.Specifications.BuyersOrdersSpecification" filename="C:\Users\justa\Desktop\APPAS\PRISTATYMUI\savings_app\Application\Specifications\BuyersOrdersSpecification.cs" line-rate="1" branch-rate="1" complexity="1">
           <methods>
             <method name=".ctor" signature="(...)" line-rate="1" branch-rate="1" complexity="1">
               <lines>
@@ -2031,7 +2031,7 @@
             <line number="12" hits="1" branch="false" />
           </lines>
         </class>
-        <class name="Application.Specifications.ProductFIlterSpecification" filename="C:\Users\justa\Desktop\APPAS\finalinis\savings_app\Application\Specifications\ProductFIlterSpecification.cs" line-rate="0" branch-rate="0" complexity="10">
+        <class name="Application.Specifications.ProductFIlterSpecification" filename="C:\Users\justa\Desktop\APPAS\PRISTATYMUI\savings_app\Application\Specifications\ProductFIlterSpecification.cs" line-rate="0" branch-rate="0" complexity="10">
           <methods>
             <method name=".ctor" signature="(...)" line-rate="0" branch-rate="0" complexity="10">
               <lines>
@@ -2079,7 +2079,7 @@
             <line number="42" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Application.Specifications.ProductPickupSpecification" filename="C:\Users\justa\Desktop\APPAS\finalinis\savings_app\Application\Specifications\ProductPickupSpecification.cs" line-rate="0" branch-rate="1" complexity="1">
+        <class name="Application.Specifications.ProductPickupSpecification" filename="C:\Users\justa\Desktop\APPAS\PRISTATYMUI\savings_app\Application\Specifications\ProductPickupSpecification.cs" line-rate="0" branch-rate="1" complexity="1">
           <methods>
             <method name=".ctor" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -2097,7 +2097,7 @@
             <line number="10" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Application.Specifications.RestaurantFilterSpecification" filename="C:\Users\justa\Desktop\APPAS\finalinis\savings_app\Application\Specifications\RestaurantFilterSpecification.cs" line-rate="0" branch-rate="1" complexity="1">
+        <class name="Application.Specifications.RestaurantFilterSpecification" filename="C:\Users\justa\Desktop\APPAS\PRISTATYMUI\savings_app\Application\Specifications\RestaurantFilterSpecification.cs" line-rate="0" branch-rate="1" complexity="1">
           <methods>
             <method name=".ctor" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -2119,7 +2119,7 @@
             <line number="12" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Application.Specifications.SellersOrderItemsSpecification" filename="C:\Users\justa\Desktop\APPAS\finalinis\savings_app\Application\Specifications\SellersOrderItemsSpecification.cs" line-rate="0" branch-rate="1" complexity="1">
+        <class name="Application.Specifications.SellersOrderItemsSpecification" filename="C:\Users\justa\Desktop\APPAS\PRISTATYMUI\savings_app\Application\Specifications\SellersOrderItemsSpecification.cs" line-rate="0" branch-rate="1" complexity="1">
           <methods>
             <method name=".ctor" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -2145,7 +2145,7 @@
     </package>
     <package name="Domain" line-rate="0.764168190127971" branch-rate="1" complexity="252">
       <classes>
-        <class name="Domain.DTOs.Request.AddressDTORequest" filename="C:\Users\justa\Desktop\APPAS\finalinis\savings_app\Domain\DTOs\Request\AddressDTORequest.cs" line-rate="0.842105263157895" branch-rate="1" complexity="8">
+        <class name="Domain.DTOs.Request.AddressDTORequest" filename="C:\Users\justa\Desktop\APPAS\PRISTATYMUI\savings_app\Domain\DTOs\Request\AddressDTORequest.cs" line-rate="0.842105263157895" branch-rate="1" complexity="8">
           <methods>
             <method name="get_Country" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
@@ -2221,7 +2221,7 @@
             <line number="33" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Domain.DTOs.Request.AddressPutDTORequest" filename="C:\Users\justa\Desktop\APPAS\finalinis\savings_app\Domain\DTOs\Request\AddressPutDTORequest.cs" line-rate="0" branch-rate="1" complexity="8">
+        <class name="Domain.DTOs.Request.AddressPutDTORequest" filename="C:\Users\justa\Desktop\APPAS\PRISTATYMUI\savings_app\Domain\DTOs\Request\AddressPutDTORequest.cs" line-rate="0" branch-rate="1" complexity="8">
           <methods>
             <method name="get_Country" signature="()" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -2297,7 +2297,7 @@
             <line number="28" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Domain.DTOs.Request.BuyerDTORequest" filename="C:\Users\justa\Desktop\APPAS\finalinis\savings_app\Domain\DTOs\Request\BuyerDTORequest.cs" line-rate="0.785714285714286" branch-rate="1" complexity="6">
+        <class name="Domain.DTOs.Request.BuyerDTORequest" filename="C:\Users\justa\Desktop\APPAS\PRISTATYMUI\savings_app\Domain\DTOs\Request\BuyerDTORequest.cs" line-rate="0.785714285714286" branch-rate="1" complexity="6">
           <methods>
             <method name="get_Name" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
@@ -2355,7 +2355,7 @@
             <line number="28" hits="17" branch="false" />
           </lines>
         </class>
-        <class name="Domain.DTOs.Request.BuyerPutDTORequest" filename="C:\Users\justa\Desktop\APPAS\finalinis\savings_app\Domain\DTOs\Request\BuyerPutDTORequest.cs" line-rate="0" branch-rate="1" complexity="6">
+        <class name="Domain.DTOs.Request.BuyerPutDTORequest" filename="C:\Users\justa\Desktop\APPAS\PRISTATYMUI\savings_app\Domain\DTOs\Request\BuyerPutDTORequest.cs" line-rate="0" branch-rate="1" complexity="6">
           <methods>
             <method name="get_Name" signature="()" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -2413,7 +2413,7 @@
             <line number="26" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Domain.DTOs.Request.CheckoutDTORequest" filename="C:\Users\justa\Desktop\APPAS\finalinis\savings_app\Domain\DTOs\Request\CheckoutDTORequest.cs" line-rate="0" branch-rate="1" complexity="4">
+        <class name="Domain.DTOs.Request.CheckoutDTORequest" filename="C:\Users\justa\Desktop\APPAS\PRISTATYMUI\savings_app\Domain\DTOs\Request\CheckoutDTORequest.cs" line-rate="0" branch-rate="1" complexity="4">
           <methods>
             <method name="get_productsToBuy" signature="()" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -2455,7 +2455,7 @@
             <line number="22" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Domain.DTOs.Request.OrderDTORequest" filename="C:\Users\justa\Desktop\APPAS\finalinis\savings_app\Domain\DTOs\Request\OrderDTORequest.cs" line-rate="0.875" branch-rate="1" complexity="4">
+        <class name="Domain.DTOs.Request.OrderDTORequest" filename="C:\Users\justa\Desktop\APPAS\PRISTATYMUI\savings_app\Domain\DTOs\Request\OrderDTORequest.cs" line-rate="0.875" branch-rate="1" complexity="4">
           <methods>
             <method name="get_BuyerId" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
@@ -2493,7 +2493,7 @@
             <line number="25" hits="2" branch="false" />
           </lines>
         </class>
-        <class name="Domain.DTOs.Request.PickupDTORequest" filename="C:\Users\justa\Desktop\APPAS\finalinis\savings_app\Domain\DTOs\Request\PickupDTORequest.cs" line-rate="0.916666666666667" branch-rate="1" complexity="6">
+        <class name="Domain.DTOs.Request.PickupDTORequest" filename="C:\Users\justa\Desktop\APPAS\PRISTATYMUI\savings_app\Domain\DTOs\Request\PickupDTORequest.cs" line-rate="0.916666666666667" branch-rate="1" complexity="6">
           <methods>
             <method name="get_ProductId" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
@@ -2547,79 +2547,79 @@
             <line number="30" hits="4" branch="false" />
           </lines>
         </class>
-        <class name="Domain.DTOs.Request.ProductDTORequest" filename="C:\Users\justa\Desktop\APPAS\finalinis\savings_app\Domain\DTOs\Request\ProductDTORequest.cs" line-rate="0.961538461538462" branch-rate="1" complexity="13">
+        <class name="Domain.DTOs.Request.ProductDTORequest" filename="C:\Users\justa\Desktop\APPAS\PRISTATYMUI\savings_app\Domain\DTOs\Request\ProductDTORequest.cs" line-rate="0.961538461538462" branch-rate="1" complexity="13">
           <methods>
             <method name="get_Name" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="12" hits="3" branch="false" />
+                <line number="12" hits="4" branch="false" />
               </lines>
             </method>
             <method name="get_IsHidden" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="13" hits="3" branch="false" />
+                <line number="13" hits="5" branch="false" />
               </lines>
             </method>
             <method name="get_Category" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="18" hits="3" branch="false" />
+                <line number="18" hits="4" branch="false" />
               </lines>
             </method>
             <method name="get_RestaurantID" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="21" hits="4" branch="false" />
+                <line number="21" hits="6" branch="false" />
               </lines>
             </method>
             <method name="get_AmountType" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="26" hits="3" branch="false" />
+                <line number="26" hits="4" branch="false" />
               </lines>
             </method>
             <method name="get_AmountPerUnit" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="29" hits="3" branch="false" />
+                <line number="29" hits="4" branch="false" />
               </lines>
             </method>
             <method name="get_AmountOfUnits" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="31" hits="3" branch="false" />
+                <line number="31" hits="4" branch="false" />
               </lines>
             </method>
             <method name="get_Price" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="33" hits="3" branch="false" />
+                <line number="33" hits="4" branch="false" />
               </lines>
             </method>
             <method name="get_ShelfLife" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="35" hits="3" branch="false" />
+                <line number="35" hits="4" branch="false" />
               </lines>
             </method>
             <method name="get_Description" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="37" hits="2" branch="false" />
+                <line number="37" hits="3" branch="false" />
               </lines>
             </method>
             <method name="get_Image" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="38" hits="4" branch="false" />
+                <line number="38" hits="5" branch="false" />
               </lines>
             </method>
             <method name=".ctor" signature="(...)" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="41" hits="1" branch="false" />
-                <line number="42" hits="1" branch="false" />
-                <line number="43" hits="1" branch="false" />
-                <line number="44" hits="1" branch="false" />
-                <line number="45" hits="1" branch="false" />
-                <line number="46" hits="1" branch="false" />
-                <line number="47" hits="1" branch="false" />
-                <line number="48" hits="1" branch="false" />
-                <line number="49" hits="1" branch="false" />
-                <line number="50" hits="1" branch="false" />
-                <line number="51" hits="1" branch="false" />
-                <line number="52" hits="1" branch="false" />
-                <line number="53" hits="1" branch="false" />
-                <line number="54" hits="1" branch="false" />
+                <line number="41" hits="2" branch="false" />
+                <line number="42" hits="2" branch="false" />
+                <line number="43" hits="2" branch="false" />
+                <line number="44" hits="2" branch="false" />
+                <line number="45" hits="2" branch="false" />
+                <line number="46" hits="2" branch="false" />
+                <line number="47" hits="2" branch="false" />
+                <line number="48" hits="2" branch="false" />
+                <line number="49" hits="2" branch="false" />
+                <line number="50" hits="2" branch="false" />
+                <line number="51" hits="2" branch="false" />
+                <line number="52" hits="2" branch="false" />
+                <line number="53" hits="2" branch="false" />
+                <line number="54" hits="2" branch="false" />
               </lines>
             </method>
             <method name=".ctor" signature="()" line-rate="0" branch-rate="1" complexity="1">
@@ -2629,35 +2629,35 @@
             </method>
           </methods>
           <lines>
-            <line number="12" hits="3" branch="false" />
-            <line number="13" hits="3" branch="false" />
-            <line number="18" hits="3" branch="false" />
-            <line number="21" hits="4" branch="false" />
-            <line number="26" hits="3" branch="false" />
-            <line number="29" hits="3" branch="false" />
-            <line number="31" hits="3" branch="false" />
-            <line number="33" hits="3" branch="false" />
-            <line number="35" hits="3" branch="false" />
-            <line number="37" hits="2" branch="false" />
-            <line number="38" hits="4" branch="false" />
-            <line number="41" hits="1" branch="false" />
-            <line number="42" hits="1" branch="false" />
-            <line number="43" hits="1" branch="false" />
-            <line number="44" hits="1" branch="false" />
-            <line number="45" hits="1" branch="false" />
-            <line number="46" hits="1" branch="false" />
-            <line number="47" hits="1" branch="false" />
-            <line number="48" hits="1" branch="false" />
-            <line number="49" hits="1" branch="false" />
-            <line number="50" hits="1" branch="false" />
-            <line number="51" hits="1" branch="false" />
-            <line number="52" hits="1" branch="false" />
-            <line number="53" hits="1" branch="false" />
-            <line number="54" hits="1" branch="false" />
+            <line number="12" hits="4" branch="false" />
+            <line number="13" hits="5" branch="false" />
+            <line number="18" hits="4" branch="false" />
+            <line number="21" hits="6" branch="false" />
+            <line number="26" hits="4" branch="false" />
+            <line number="29" hits="4" branch="false" />
+            <line number="31" hits="4" branch="false" />
+            <line number="33" hits="4" branch="false" />
+            <line number="35" hits="4" branch="false" />
+            <line number="37" hits="3" branch="false" />
+            <line number="38" hits="5" branch="false" />
+            <line number="41" hits="2" branch="false" />
+            <line number="42" hits="2" branch="false" />
+            <line number="43" hits="2" branch="false" />
+            <line number="44" hits="2" branch="false" />
+            <line number="45" hits="2" branch="false" />
+            <line number="46" hits="2" branch="false" />
+            <line number="47" hits="2" branch="false" />
+            <line number="48" hits="2" branch="false" />
+            <line number="49" hits="2" branch="false" />
+            <line number="50" hits="2" branch="false" />
+            <line number="51" hits="2" branch="false" />
+            <line number="52" hits="2" branch="false" />
+            <line number="53" hits="2" branch="false" />
+            <line number="54" hits="2" branch="false" />
             <line number="56" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Domain.DTOs.Request.ProductToBuyDTORequest" filename="C:\Users\justa\Desktop\APPAS\finalinis\savings_app\Domain\DTOs\Request\ProductToBuyDTORequest.cs" line-rate="0" branch-rate="1" complexity="5">
+        <class name="Domain.DTOs.Request.ProductToBuyDTORequest" filename="C:\Users\justa\Desktop\APPAS\PRISTATYMUI\savings_app\Domain\DTOs\Request\ProductToBuyDTORequest.cs" line-rate="0" branch-rate="1" complexity="5">
           <methods>
             <method name="get_Id" signature="()" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -2703,7 +2703,7 @@
             <line number="28" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Domain.DTOs.Request.RestaurantDTORequest" filename="C:\Users\justa\Desktop\APPAS\finalinis\savings_app\Domain\DTOs\Request\RestaurantDTORequest.cs" line-rate="0.95" branch-rate="1" complexity="10">
+        <class name="Domain.DTOs.Request.RestaurantDTORequest" filename="C:\Users\justa\Desktop\APPAS\PRISTATYMUI\savings_app\Domain\DTOs\Request\RestaurantDTORequest.cs" line-rate="0.95" branch-rate="1" complexity="10">
           <methods>
             <method name="get_Name" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
@@ -2789,7 +2789,7 @@
             <line number="38" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Domain.DTOs.Request.UserAuthDTORequest" filename="C:\Users\justa\Desktop\APPAS\finalinis\savings_app\Domain\DTOs\Request\UserAuthDTORequest.cs" line-rate="0.875" branch-rate="1" complexity="4">
+        <class name="Domain.DTOs.Request.UserAuthDTORequest" filename="C:\Users\justa\Desktop\APPAS\PRISTATYMUI\savings_app\Domain\DTOs\Request\UserAuthDTORequest.cs" line-rate="0.875" branch-rate="1" complexity="4">
           <methods>
             <method name="get_Email" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
@@ -2827,7 +2827,7 @@
             <line number="23" hits="15" branch="false" />
           </lines>
         </class>
-        <class name="Domain.DTOs.Request.UserAuthPutDTORequest" filename="C:\Users\justa\Desktop\APPAS\finalinis\savings_app\Domain\DTOs\Request\UserAuthPutDTORequest.cs" line-rate="0" branch-rate="1" complexity="4">
+        <class name="Domain.DTOs.Request.UserAuthPutDTORequest" filename="C:\Users\justa\Desktop\APPAS\PRISTATYMUI\savings_app\Domain\DTOs\Request\UserAuthPutDTORequest.cs" line-rate="0" branch-rate="1" complexity="4">
           <methods>
             <method name="get_Email" signature="()" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -2865,7 +2865,7 @@
             <line number="21" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Domain.DTOs.Request.UserLoginDTO" filename="C:\Users\justa\Desktop\APPAS\finalinis\savings_app\Domain\DTOs\Request\UserLoginDTO.cs" line-rate="0.875" branch-rate="1" complexity="4">
+        <class name="Domain.DTOs.Request.UserLoginDTO" filename="C:\Users\justa\Desktop\APPAS\PRISTATYMUI\savings_app\Domain\DTOs\Request\UserLoginDTO.cs" line-rate="0.875" branch-rate="1" complexity="4">
           <methods>
             <method name="get_Email" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
@@ -2903,7 +2903,7 @@
             <line number="19" hits="7" branch="false" />
           </lines>
         </class>
-        <class name="Domain.DTOs.Response.AddressDTOResponse" filename="C:\Users\justa\Desktop\APPAS\finalinis\savings_app\Domain\DTOs\Response\AddressDTOResponse.cs" line-rate="0.842105263157895" branch-rate="1" complexity="8">
+        <class name="Domain.DTOs.Response.AddressDTOResponse" filename="C:\Users\justa\Desktop\APPAS\PRISTATYMUI\savings_app\Domain\DTOs\Response\AddressDTOResponse.cs" line-rate="0.842105263157895" branch-rate="1" complexity="8">
           <methods>
             <method name="get_Country" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
@@ -2979,7 +2979,7 @@
             <line number="26" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Domain.DTOs.Response.BuyerDTOResponse" filename="C:\Users\justa\Desktop\APPAS\finalinis\savings_app\Domain\DTOs\Response\BuyerDTOResponse.cs" line-rate="1" branch-rate="1" complexity="4">
+        <class name="Domain.DTOs.Response.BuyerDTOResponse" filename="C:\Users\justa\Desktop\APPAS\PRISTATYMUI\savings_app\Domain\DTOs\Response\BuyerDTOResponse.cs" line-rate="1" branch-rate="1" complexity="4">
           <methods>
             <method name="get_Id" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
@@ -3019,7 +3019,7 @@
             <line number="24" hits="26" branch="false" />
           </lines>
         </class>
-        <class name="Domain.DTOs.Response.BuyerPrivateDTOResponse" filename="C:\Users\justa\Desktop\APPAS\finalinis\savings_app\Domain\DTOs\Response\BuyerPrivateDTOResponse.cs" line-rate="1" branch-rate="1" complexity="6">
+        <class name="Domain.DTOs.Response.BuyerPrivateDTOResponse" filename="C:\Users\justa\Desktop\APPAS\PRISTATYMUI\savings_app\Domain\DTOs\Response\BuyerPrivateDTOResponse.cs" line-rate="1" branch-rate="1" complexity="6">
           <methods>
             <method name="get_Id" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
@@ -3077,7 +3077,7 @@
             <line number="31" hits="8" branch="false" />
           </lines>
         </class>
-        <class name="Domain.DTOs.Response.OrderDTOResponse" filename="C:\Users\justa\Desktop\APPAS\finalinis\savings_app\Domain\DTOs\Response\OrderDTOResponse.cs" line-rate="1" branch-rate="1" complexity="5">
+        <class name="Domain.DTOs.Response.OrderDTOResponse" filename="C:\Users\justa\Desktop\APPAS\PRISTATYMUI\savings_app\Domain\DTOs\Response\OrderDTOResponse.cs" line-rate="1" branch-rate="1" complexity="5">
           <methods>
             <method name="get_Id" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
@@ -3125,7 +3125,7 @@
             <line number="19" hits="33" branch="false" />
           </lines>
         </class>
-        <class name="Domain.DTOs.Response.OrderItemDTOResponse" filename="C:\Users\justa\Desktop\APPAS\finalinis\savings_app\Domain\DTOs\Response\OrderItemDTOResponse.cs" line-rate="1" branch-rate="1" complexity="8">
+        <class name="Domain.DTOs.Response.OrderItemDTOResponse" filename="C:\Users\justa\Desktop\APPAS\PRISTATYMUI\savings_app\Domain\DTOs\Response\OrderItemDTOResponse.cs" line-rate="1" branch-rate="1" complexity="8">
           <methods>
             <method name="get_Id" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
@@ -3197,7 +3197,7 @@
             <line number="40" hits="9" branch="false" />
           </lines>
         </class>
-        <class name="Domain.DTOs.Response.PickupDTOResponse" filename="C:\Users\justa\Desktop\APPAS\finalinis\savings_app\Domain\DTOs\Response\PickupDTOResponse.cs" line-rate="1" branch-rate="1" complexity="6">
+        <class name="Domain.DTOs.Response.PickupDTOResponse" filename="C:\Users\justa\Desktop\APPAS\PRISTATYMUI\savings_app\Domain\DTOs\Response\PickupDTOResponse.cs" line-rate="1" branch-rate="1" complexity="6">
           <methods>
             <method name="get_Id" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
@@ -3253,7 +3253,7 @@
             <line number="31" hits="6" branch="false" />
           </lines>
         </class>
-        <class name="Domain.DTOs.Response.ProductDTOResponse" filename="C:\Users\justa\Desktop\APPAS\finalinis\savings_app\Domain\DTOs\Response\ProductDTOResponse.cs" line-rate="1" branch-rate="1" complexity="13">
+        <class name="Domain.DTOs.Response.ProductDTOResponse" filename="C:\Users\justa\Desktop\APPAS\PRISTATYMUI\savings_app\Domain\DTOs\Response\ProductDTOResponse.cs" line-rate="1" branch-rate="1" complexity="13">
           <methods>
             <method name="get_Id" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
@@ -3369,7 +3369,7 @@
             <line number="58" hits="5" branch="false" />
           </lines>
         </class>
-        <class name="Domain.DTOs.Response.RestaurantDTOResponse" filename="C:\Users\justa\Desktop\APPAS\finalinis\savings_app\Domain\DTOs\Response\RestaurantDTOResponse.cs" line-rate="0.952380952380952" branch-rate="1" complexity="10">
+        <class name="Domain.DTOs.Response.RestaurantDTOResponse" filename="C:\Users\justa\Desktop\APPAS\PRISTATYMUI\savings_app\Domain\DTOs\Response\RestaurantDTOResponse.cs" line-rate="0.952380952380952" branch-rate="1" complexity="10">
           <methods>
             <method name="get_Id" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
@@ -3457,7 +3457,7 @@
             <line number="35" hits="6" branch="false" />
           </lines>
         </class>
-        <class name="Domain.DTOs.Response.RestaurantPrivateDTOResponse" filename="C:\Users\justa\Desktop\APPAS\finalinis\savings_app\Domain\DTOs\Response\RestaurantPrivateDTOResponse.cs" line-rate="0.956521739130435" branch-rate="1" complexity="11">
+        <class name="Domain.DTOs.Response.RestaurantPrivateDTOResponse" filename="C:\Users\justa\Desktop\APPAS\PRISTATYMUI\savings_app\Domain\DTOs\Response\RestaurantPrivateDTOResponse.cs" line-rate="0.956521739130435" branch-rate="1" complexity="11">
           <methods>
             <method name="get_Id" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
@@ -3553,7 +3553,7 @@
             <line number="34" hits="2" branch="false" />
           </lines>
         </class>
-        <class name="Domain.DTOs.Response.UserAuthDTOResponse" filename="C:\Users\justa\Desktop\APPAS\finalinis\savings_app\Domain\DTOs\Response\UserAuthDTOResponse.cs" line-rate="1" branch-rate="1" complexity="2">
+        <class name="Domain.DTOs.Response.UserAuthDTOResponse" filename="C:\Users\justa\Desktop\APPAS\PRISTATYMUI\savings_app\Domain\DTOs\Response\UserAuthDTOResponse.cs" line-rate="1" branch-rate="1" complexity="2">
           <methods>
             <method name="get_Email" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
@@ -3577,7 +3577,7 @@
             <line number="10" hits="9" branch="false" />
           </lines>
         </class>
-        <class name="Domain.Entities.Address" filename="C:\Users\justa\Desktop\APPAS\finalinis\savings_app\Domain\Entities\Address.cs" line-rate="1" branch-rate="1" complexity="8">
+        <class name="Domain.Entities.Address" filename="C:\Users\justa\Desktop\APPAS\PRISTATYMUI\savings_app\Domain\Entities\Address.cs" line-rate="1" branch-rate="1" complexity="8">
           <methods>
             <method name="get_Country" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
@@ -3653,7 +3653,7 @@
             <line number="26" hits="2" branch="false" />
           </lines>
         </class>
-        <class name="Domain.Entities.BaseEntity" filename="C:\Users\justa\Desktop\APPAS\finalinis\savings_app\Domain\Entities\BaseEntity.cs" line-rate="0.363636363636364" branch-rate="1" complexity="4">
+        <class name="Domain.Entities.BaseEntity" filename="C:\Users\justa\Desktop\APPAS\PRISTATYMUI\savings_app\Domain\Entities\BaseEntity.cs" line-rate="0.363636363636364" branch-rate="1" complexity="4">
           <methods>
             <method name="get_Id" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
@@ -3697,7 +3697,7 @@
             <line number="26" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Domain.Entities.Buyer" filename="C:\Users\justa\Desktop\APPAS\finalinis\savings_app\Domain\Entities\Buyer.cs" line-rate="0.692307692307692" branch-rate="1" complexity="4">
+        <class name="Domain.Entities.Buyer" filename="C:\Users\justa\Desktop\APPAS\PRISTATYMUI\savings_app\Domain\Entities\Buyer.cs" line-rate="0.692307692307692" branch-rate="1" complexity="4">
           <methods>
             <method name="get_Address" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
@@ -3745,7 +3745,7 @@
             <line number="21" hits="15" branch="false" />
           </lines>
         </class>
-        <class name="Domain.Entities.OrderAggregate.Order" filename="C:\Users\justa\Desktop\APPAS\finalinis\savings_app\Domain\Entities\OrderAggregate\Order.cs" line-rate="0.692307692307692" branch-rate="1" complexity="6">
+        <class name="Domain.Entities.OrderAggregate.Order" filename="C:\Users\justa\Desktop\APPAS\PRISTATYMUI\savings_app\Domain\Entities\OrderAggregate\Order.cs" line-rate="0.692307692307692" branch-rate="1" complexity="6">
           <methods>
             <method name="get_OrderDate" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
@@ -3801,7 +3801,7 @@
             <line number="25" hits="29" branch="false" />
           </lines>
         </class>
-        <class name="Domain.Entities.OrderAggregate.OrderItem" filename="C:\Users\justa\Desktop\APPAS\finalinis\savings_app\Domain\Entities\OrderAggregate\OrderItem.cs" line-rate="0.739130434782609" branch-rate="1" complexity="11">
+        <class name="Domain.Entities.OrderAggregate.OrderItem" filename="C:\Users\justa\Desktop\APPAS\PRISTATYMUI\savings_app\Domain\Entities\OrderAggregate\OrderItem.cs" line-rate="0.739130434782609" branch-rate="1" complexity="11">
           <methods>
             <method name="get_OrderId" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
@@ -3897,7 +3897,7 @@
             <line number="41" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Domain.Entities.Pickup" filename="C:\Users\justa\Desktop\APPAS\finalinis\savings_app\Domain\Entities\Pickup.cs" line-rate="0.631578947368421" branch-rate="1" complexity="8">
+        <class name="Domain.Entities.Pickup" filename="C:\Users\justa\Desktop\APPAS\PRISTATYMUI\savings_app\Domain\Entities\Pickup.cs" line-rate="0.631578947368421" branch-rate="1" complexity="8">
           <methods>
             <method name="get_ProductId" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
@@ -3973,7 +3973,7 @@
             <line number="39" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Domain.Entities.Product" filename="C:\Users\justa\Desktop\APPAS\finalinis\savings_app\Domain\Entities\Product.cs" line-rate="0.916666666666667" branch-rate="1" complexity="23">
+        <class name="Domain.Entities.Product" filename="C:\Users\justa\Desktop\APPAS\PRISTATYMUI\savings_app\Domain\Entities\Product.cs" line-rate="0.916666666666667" branch-rate="1" complexity="23">
           <methods>
             <method name="get_Name" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
@@ -4139,7 +4139,7 @@
             <line number="86" hits="2" branch="false" />
           </lines>
         </class>
-        <class name="Domain.Entities.Restaurant" filename="C:\Users\justa\Desktop\APPAS\finalinis\savings_app\Domain\Entities\Restaurant.cs" line-rate="0.782608695652174" branch-rate="1" complexity="9">
+        <class name="Domain.Entities.Restaurant" filename="C:\Users\justa\Desktop\APPAS\PRISTATYMUI\savings_app\Domain\Entities\Restaurant.cs" line-rate="0.782608695652174" branch-rate="1" complexity="9">
           <methods>
             <method name="get_Open" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
@@ -4227,7 +4227,7 @@
             <line number="32" hits="13" branch="false" />
           </lines>
         </class>
-        <class name="Domain.Entities.User" filename="C:\Users\justa\Desktop\APPAS\finalinis\savings_app\Domain\Entities\User.cs" line-rate="1" branch-rate="1" complexity="3">
+        <class name="Domain.Entities.User" filename="C:\Users\justa\Desktop\APPAS\PRISTATYMUI\savings_app\Domain\Entities\User.cs" line-rate="1" branch-rate="1" complexity="3">
           <methods>
             <method name="get_Name" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
@@ -4251,7 +4251,7 @@
             <line number="11" hits="38" branch="false" />
           </lines>
         </class>
-        <class name="Domain.Entities.UserAuth" filename="C:\Users\justa\Desktop\APPAS\finalinis\savings_app\Domain\Entities\UserAuth.cs" line-rate="0.7" branch-rate="1" complexity="4">
+        <class name="Domain.Entities.UserAuth" filename="C:\Users\justa\Desktop\APPAS\PRISTATYMUI\savings_app\Domain\Entities\UserAuth.cs" line-rate="0.7" branch-rate="1" complexity="4">
           <methods>
             <method name="get_Password" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
@@ -4293,7 +4293,7 @@
             <line number="16" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Domain.Events.ProductSoldEventArgs" filename="C:\Users\justa\Desktop\APPAS\finalinis\savings_app\Domain\Events\ProductSoldEventArgs.cs" line-rate="1" branch-rate="1" complexity="3">
+        <class name="Domain.Events.ProductSoldEventArgs" filename="C:\Users\justa\Desktop\APPAS\PRISTATYMUI\savings_app\Domain\Events\ProductSoldEventArgs.cs" line-rate="1" branch-rate="1" complexity="3">
           <methods>
             <method name="get_Amount" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
@@ -4325,31 +4325,31 @@
             <line number="13" hits="1" branch="false" />
           </lines>
         </class>
-        <class name="Domain.Exceptions.HttpResponseException" filename="C:\Users\justa\Desktop\APPAS\finalinis\savings_app\Domain\Exceptions\HttpResponseException.cs" line-rate="1" branch-rate="1" complexity="2">
+        <class name="Domain.Exceptions.HttpResponseException" filename="C:\Users\justa\Desktop\APPAS\PRISTATYMUI\savings_app\Domain\Exceptions\HttpResponseException.cs" line-rate="1" branch-rate="1" complexity="2">
           <methods>
             <method name="get_StatusCode" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="12" hits="22" branch="false" />
+                <line number="12" hits="23" branch="false" />
               </lines>
             </method>
             <method name=".ctor" signature="(...)" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="14" hits="22" branch="false" />
-                <line number="15" hits="22" branch="false" />
-                <line number="16" hits="22" branch="false" />
-                <line number="17" hits="22" branch="false" />
+                <line number="14" hits="23" branch="false" />
+                <line number="15" hits="23" branch="false" />
+                <line number="16" hits="23" branch="false" />
+                <line number="17" hits="23" branch="false" />
               </lines>
             </method>
           </methods>
           <lines>
-            <line number="12" hits="22" branch="false" />
-            <line number="14" hits="22" branch="false" />
-            <line number="15" hits="22" branch="false" />
-            <line number="16" hits="22" branch="false" />
-            <line number="17" hits="22" branch="false" />
+            <line number="12" hits="23" branch="false" />
+            <line number="14" hits="23" branch="false" />
+            <line number="15" hits="23" branch="false" />
+            <line number="16" hits="23" branch="false" />
+            <line number="17" hits="23" branch="false" />
           </lines>
         </class>
-        <class name="Domain.Exceptions.InvalidEmailException" filename="C:\Users\justa\Desktop\APPAS\finalinis\savings_app\Domain\Exceptions\InvalidEmailException.cs" line-rate="0" branch-rate="1" complexity="1">
+        <class name="Domain.Exceptions.InvalidEmailException" filename="C:\Users\justa\Desktop\APPAS\PRISTATYMUI\savings_app\Domain\Exceptions\InvalidEmailException.cs" line-rate="0" branch-rate="1" complexity="1">
           <methods>
             <method name=".ctor" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -4361,7 +4361,7 @@
             <line number="7" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Domain.Exceptions.InvalidEnumStringException" filename="C:\Users\justa\Desktop\APPAS\finalinis\savings_app\Domain\Exceptions\InvalidEnumStringException.cs" line-rate="0" branch-rate="1" complexity="1">
+        <class name="Domain.Exceptions.InvalidEnumStringException" filename="C:\Users\justa\Desktop\APPAS\PRISTATYMUI\savings_app\Domain\Exceptions\InvalidEnumStringException.cs" line-rate="0" branch-rate="1" complexity="1">
           <methods>
             <method name=".ctor" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -4373,19 +4373,19 @@
             <line number="7" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Domain.Exceptions.InvalidIdentityException" filename="C:\Users\justa\Desktop\APPAS\finalinis\savings_app\Domain\Exceptions\InvalidIdentityException.cs" line-rate="1" branch-rate="1" complexity="1">
+        <class name="Domain.Exceptions.InvalidIdentityException" filename="C:\Users\justa\Desktop\APPAS\PRISTATYMUI\savings_app\Domain\Exceptions\InvalidIdentityException.cs" line-rate="1" branch-rate="1" complexity="1">
           <methods>
             <method name=".ctor" signature="(...)" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="7" hits="15" branch="false" />
+                <line number="7" hits="18" branch="false" />
               </lines>
             </method>
           </methods>
           <lines>
-            <line number="7" hits="15" branch="false" />
+            <line number="7" hits="18" branch="false" />
           </lines>
         </class>
-        <class name="Domain.Exceptions.InvalidLoginCredentialsException" filename="C:\Users\justa\Desktop\APPAS\finalinis\savings_app\Domain\Exceptions\InvalidLoginCredentialsException.cs" line-rate="1" branch-rate="1" complexity="1">
+        <class name="Domain.Exceptions.InvalidLoginCredentialsException" filename="C:\Users\justa\Desktop\APPAS\PRISTATYMUI\savings_app\Domain\Exceptions\InvalidLoginCredentialsException.cs" line-rate="1" branch-rate="1" complexity="1">
           <methods>
             <method name=".ctor" signature="(...)" line-rate="1" branch-rate="1" complexity="1">
               <lines>
@@ -4397,7 +4397,7 @@
             <line number="7" hits="6" branch="false" />
           </lines>
         </class>
-        <class name="Domain.Exceptions.InvalidPasswordException" filename="C:\Users\justa\Desktop\APPAS\finalinis\savings_app\Domain\Exceptions\InvalidPasswordException.cs" line-rate="0" branch-rate="1" complexity="1">
+        <class name="Domain.Exceptions.InvalidPasswordException" filename="C:\Users\justa\Desktop\APPAS\PRISTATYMUI\savings_app\Domain\Exceptions\InvalidPasswordException.cs" line-rate="0" branch-rate="1" complexity="1">
           <methods>
             <method name=".ctor" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -4409,7 +4409,7 @@
             <line number="7" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Domain.Exceptions.InvalidRequestArgumentsException" filename="C:\Users\justa\Desktop\APPAS\finalinis\savings_app\Domain\Exceptions\InvalidRequestArgumentsException.cs" line-rate="0" branch-rate="1" complexity="1">
+        <class name="Domain.Exceptions.InvalidRequestArgumentsException" filename="C:\Users\justa\Desktop\APPAS\PRISTATYMUI\savings_app\Domain\Exceptions\InvalidRequestArgumentsException.cs" line-rate="0" branch-rate="1" complexity="1">
           <methods>
             <method name=".ctor" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -4421,7 +4421,7 @@
             <line number="7" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Domain.Exceptions.InvalidRoleException" filename="C:\Users\justa\Desktop\APPAS\finalinis\savings_app\Domain\Exceptions\InvalidRoleException.cs" line-rate="0" branch-rate="1" complexity="1">
+        <class name="Domain.Exceptions.InvalidRoleException" filename="C:\Users\justa\Desktop\APPAS\PRISTATYMUI\savings_app\Domain\Exceptions\InvalidRoleException.cs" line-rate="0" branch-rate="1" complexity="1">
           <methods>
             <method name=".ctor" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -4433,7 +4433,7 @@
             <line number="7" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Domain.Exceptions.NotEnoughProductAmountException" filename="C:\Users\justa\Desktop\APPAS\finalinis\savings_app\Domain\Exceptions\NotEnoughProductAmountException.cs" line-rate="1" branch-rate="1" complexity="1">
+        <class name="Domain.Exceptions.NotEnoughProductAmountException" filename="C:\Users\justa\Desktop\APPAS\PRISTATYMUI\savings_app\Domain\Exceptions\NotEnoughProductAmountException.cs" line-rate="1" branch-rate="1" complexity="1">
           <methods>
             <method name=".ctor" signature="(...)" line-rate="1" branch-rate="1" complexity="1">
               <lines>
@@ -4445,7 +4445,7 @@
             <line number="7" hits="3" branch="false" />
           </lines>
         </class>
-        <class name="Domain.Exceptions.RecourseAlreadyExistsException" filename="C:\Users\justa\Desktop\APPAS\finalinis\savings_app\Domain\Exceptions\RecourseAlreadyExistsException.cs" line-rate="1" branch-rate="1" complexity="1">
+        <class name="Domain.Exceptions.RecourseAlreadyExistsException" filename="C:\Users\justa\Desktop\APPAS\PRISTATYMUI\savings_app\Domain\Exceptions\RecourseAlreadyExistsException.cs" line-rate="1" branch-rate="1" complexity="1">
           <methods>
             <method name=".ctor" signature="(...)" line-rate="1" branch-rate="1" complexity="1">
               <lines>
@@ -4457,7 +4457,7 @@
             <line number="7" hits="9" branch="false" />
           </lines>
         </class>
-        <class name="Domain.Exceptions.RecourseNotFoundException" filename="C:\Users\justa\Desktop\APPAS\finalinis\savings_app\Domain\Exceptions\RecourseNotFoundException.cs" line-rate="1" branch-rate="1" complexity="1">
+        <class name="Domain.Exceptions.RecourseNotFoundException" filename="C:\Users\justa\Desktop\APPAS\PRISTATYMUI\savings_app\Domain\Exceptions\RecourseNotFoundException.cs" line-rate="1" branch-rate="1" complexity="1">
           <methods>
             <method name=".ctor" signature="(...)" line-rate="1" branch-rate="1" complexity="1">
               <lines>
@@ -4469,7 +4469,7 @@
             <line number="7" hits="33" branch="false" />
           </lines>
         </class>
-        <class name="Domain.Extention.RegistrationValidation" filename="C:\Users\justa\Desktop\APPAS\finalinis\savings_app\Domain\Extention\RegistrationValidation.cs" line-rate="0" branch-rate="1" complexity="2">
+        <class name="Domain.Extention.RegistrationValidation" filename="C:\Users\justa\Desktop\APPAS\PRISTATYMUI\savings_app\Domain\Extention\RegistrationValidation.cs" line-rate="0" branch-rate="1" complexity="2">
           <methods>
             <method name="IsValidEmail" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -4499,7 +4499,7 @@
     </package>
     <package name="Infrastructure" line-rate="0" branch-rate="0" complexity="93">
       <classes>
-        <class name="Infrastructure.Repositories.BuyerRepository" filename="C:\Users\justa\Desktop\APPAS\finalinis\savings_app\Infrastructure\Repositories\BuyerRepository.cs" line-rate="0" branch-rate="1" complexity="9">
+        <class name="Infrastructure.Repositories.BuyerRepository" filename="C:\Users\justa\Desktop\APPAS\PRISTATYMUI\savings_app\Infrastructure\Repositories\BuyerRepository.cs" line-rate="0" branch-rate="1" complexity="9">
           <methods>
             <method name="RemoveBuyer" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -4603,7 +4603,7 @@
             <line number="63" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Infrastructure.Repositories.OrderRepository" filename="C:\Users\justa\Desktop\APPAS\finalinis\savings_app\Infrastructure\Repositories\OrderRepository.cs" line-rate="0" branch-rate="0" complexity="18">
+        <class name="Infrastructure.Repositories.OrderRepository" filename="C:\Users\justa\Desktop\APPAS\PRISTATYMUI\savings_app\Infrastructure\Repositories\OrderRepository.cs" line-rate="0" branch-rate="0" complexity="18">
           <methods>
             <method name="RemoveOrder" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -4761,7 +4761,7 @@
             <line number="98" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Infrastructure.Repositories.PickupRepository" filename="C:\Users\justa\Desktop\APPAS\finalinis\savings_app\Infrastructure\Repositories\PickupRepository.cs" line-rate="0" branch-rate="0" complexity="15">
+        <class name="Infrastructure.Repositories.PickupRepository" filename="C:\Users\justa\Desktop\APPAS\PRISTATYMUI\savings_app\Infrastructure\Repositories\PickupRepository.cs" line-rate="0" branch-rate="0" complexity="15">
           <methods>
             <method name=".ctor" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -4885,7 +4885,7 @@
             <line number="79" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Infrastructure.Repositories.ProductRepository" filename="C:\Users\justa\Desktop\APPAS\finalinis\savings_app\Infrastructure\Repositories\ProductRepository.cs" line-rate="0" branch-rate="0" complexity="18">
+        <class name="Infrastructure.Repositories.ProductRepository" filename="C:\Users\justa\Desktop\APPAS\PRISTATYMUI\savings_app\Infrastructure\Repositories\ProductRepository.cs" line-rate="0" branch-rate="0" complexity="18">
           <methods>
             <method name="RemoveProduct" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -5063,7 +5063,7 @@
             <line number="116" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Infrastructure.Repositories.RestaurantRepository" filename="C:\Users\justa\Desktop\APPAS\finalinis\savings_app\Infrastructure\Repositories\RestaurantRepository.cs" line-rate="0" branch-rate="0" complexity="19">
+        <class name="Infrastructure.Repositories.RestaurantRepository" filename="C:\Users\justa\Desktop\APPAS\PRISTATYMUI\savings_app\Infrastructure\Repositories\RestaurantRepository.cs" line-rate="0" branch-rate="0" complexity="19">
           <methods>
             <method name="RemoveRestaurant" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -5231,7 +5231,7 @@
             <line number="108" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Infrastructure.SavingsAppContext" filename="C:\Users\justa\Desktop\APPAS\finalinis\savings_app\Infrastructure\SavingsAppContext.cs" line-rate="0" branch-rate="1" complexity="9">
+        <class name="Infrastructure.SavingsAppContext" filename="C:\Users\justa\Desktop\APPAS\PRISTATYMUI\savings_app\Infrastructure\SavingsAppContext.cs" line-rate="0" branch-rate="1" complexity="9">
           <methods>
             <method name="OnModelCreating" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -5411,7 +5411,7 @@
             <line number="102" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Infrastructure.Services.EmailSender" filename="C:\Users\justa\Desktop\APPAS\finalinis\savings_app\Infrastructure\Services\EmailSender.cs" line-rate="0" branch-rate="1" complexity="2">
+        <class name="Infrastructure.Services.EmailSender" filename="C:\Users\justa\Desktop\APPAS\PRISTATYMUI\savings_app\Infrastructure\Services\EmailSender.cs" line-rate="0" branch-rate="1" complexity="2">
           <methods>
             <method name="NotifyRestaurantSoldProduct" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -5489,7 +5489,7 @@
             <line number="61" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="Infrastructure.Services.FileSaver" filename="C:\Users\justa\Desktop\APPAS\finalinis\savings_app\Infrastructure\Services\FileSaver.cs" line-rate="0" branch-rate="0" complexity="3">
+        <class name="Infrastructure.Services.FileSaver" filename="C:\Users\justa\Desktop\APPAS\PRISTATYMUI\savings_app\Infrastructure\Services\FileSaver.cs" line-rate="0" branch-rate="0" complexity="3">
           <methods>
             <method name=".ctor" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -5541,7 +5541,7 @@
         </class>
       </classes>
     </package>
-    <package name="savings_app_tests" line-rate="0.999258710155671" branch-rate="1" complexity="97">
+    <package name="savings_app_tests" line-rate="0.999264705882353" branch-rate="1" complexity="99">
       <classes>
         <class name="AutoGeneratedProgram" filename="C:\Users\justa\.nuget\packages\microsoft.net.test.sdk\17.1.0\build\netcoreapp2.1\Microsoft.NET.Test.Sdk.Program.cs" line-rate="0" branch-rate="1" complexity="1">
           <methods>
@@ -5555,7 +5555,7 @@
             <line number="4" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="savings_app_tests.AuthServiceTests" filename="C:\Users\justa\Desktop\APPAS\finalinis\savings_app\savings_app_tests\AuthServiceTests.cs" line-rate="1" branch-rate="1" complexity="8">
+        <class name="savings_app_tests.AuthServiceTests" filename="C:\Users\justa\Desktop\APPAS\PRISTATYMUI\savings_app\savings_app_tests\AuthServiceTests.cs" line-rate="1" branch-rate="1" complexity="8">
           <methods>
             <method name="GenerateToken_ShouldGenerateTokenForBuyer" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
@@ -5787,7 +5787,7 @@
             <line number="199" hits="1" branch="false" />
           </lines>
         </class>
-        <class name="savings_app_tests.BuyerServiceTests" filename="C:\Users\justa\Desktop\APPAS\finalinis\savings_app\savings_app_tests\BuyerServiceTests.cs" line-rate="1" branch-rate="1" complexity="37">
+        <class name="savings_app_tests.BuyerServiceTests" filename="C:\Users\justa\Desktop\APPAS\PRISTATYMUI\savings_app\savings_app_tests\BuyerServiceTests.cs" line-rate="1" branch-rate="1" complexity="37">
           <methods>
             <method name=".ctor" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
@@ -6852,7 +6852,7 @@
             <line number="787" hits="1" branch="false" />
           </lines>
         </class>
-        <class name="savings_app_tests.OrderServiceTests" filename="C:\Users\justa\Desktop\APPAS\finalinis\savings_app\savings_app_tests\OrderServiceTests.cs" line-rate="1" branch-rate="1" complexity="16">
+        <class name="savings_app_tests.OrderServiceTests" filename="C:\Users\justa\Desktop\APPAS\PRISTATYMUI\savings_app\savings_app_tests\OrderServiceTests.cs" line-rate="1" branch-rate="1" complexity="16">
           <methods>
             <method name=".ctor" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
@@ -7472,7 +7472,7 @@
             <line number="464" hits="1" branch="false" />
           </lines>
         </class>
-        <class name="savings_app_tests.PickupServiceTests" filename="C:\Users\justa\Desktop\APPAS\finalinis\savings_app\savings_app_tests\PickupServiceTests.cs" line-rate="1" branch-rate="1" complexity="7">
+        <class name="savings_app_tests.PickupServiceTests" filename="C:\Users\justa\Desktop\APPAS\PRISTATYMUI\savings_app\savings_app_tests\PickupServiceTests.cs" line-rate="1" branch-rate="1" complexity="7">
           <methods>
             <method name=".ctor" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
@@ -7697,7 +7697,7 @@
             <line number="165" hits="1" branch="false" />
           </lines>
         </class>
-        <class name="savings_app_tests.PrivateIdentityInterceptorTests" filename="C:\Users\justa\Desktop\APPAS\finalinis\savings_app\savings_app_tests\PrivateIdentityInterceptorTests.cs" line-rate="1" branch-rate="1" complexity="3">
+        <class name="savings_app_tests.PrivateIdentityInterceptorTests" filename="C:\Users\justa\Desktop\APPAS\PRISTATYMUI\savings_app\savings_app_tests\PrivateIdentityInterceptorTests.cs" line-rate="1" branch-rate="1" complexity="3">
           <methods>
             <method name="Intercept_ShouldThrowInvalidIdentityException_WhenIdentityDoesntMatchIdArgumentAndMethodIsProtectedByPrivateIdentity" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
@@ -7825,36 +7825,41 @@
             <line number="187" hits="1" branch="false" />
           </lines>
         </class>
-        <class name="savings_app_tests.ProductServiceTests" filename="C:\Users\justa\Desktop\APPAS\finalinis\savings_app\savings_app_tests\ProductServiceTests.cs" line-rate="1" branch-rate="1" complexity="7">
+        <class name="savings_app_tests.ProductServiceTests" filename="C:\Users\justa\Desktop\APPAS\PRISTATYMUI\savings_app\savings_app_tests\ProductServiceTests.cs" line-rate="1" branch-rate="1" complexity="9">
           <methods>
             <method name=".ctor" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="21" hits="3" branch="false" />
-                <line number="22" hits="3" branch="false" />
-                <line number="24" hits="3" branch="false" />
-                <line number="25" hits="3" branch="false" />
-                <line number="26" hits="3" branch="false" />
-                <line number="27" hits="3" branch="false" />
-                <line number="28" hits="3" branch="false" />
-                <line number="32" hits="3" branch="false" />
-                <line number="33" hits="3" branch="false" />
-                <line number="34" hits="3" branch="false" />
-                <line number="35" hits="3" branch="false" />
+                <line number="21" hits="4" branch="false" />
+                <line number="22" hits="4" branch="false" />
+                <line number="24" hits="4" branch="false" />
+                <line number="25" hits="4" branch="false" />
+                <line number="26" hits="4" branch="false" />
+                <line number="27" hits="4" branch="false" />
+                <line number="28" hits="4" branch="false" />
+                <line number="32" hits="4" branch="false" />
+                <line number="33" hits="4" branch="false" />
+                <line number="34" hits="4" branch="false" />
+                <line number="35" hits="4" branch="false" />
               </lines>
             </method>
             <method name="&lt;PostProduct_ShouldReturnProductAndSaveImageAndAddToDatabase_WhenIdentityMatchesRestaurantsIdAndImageIsNotNull" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="136" hits="2" branch="false" />
+                <line number="137" hits="2" branch="false" />
               </lines>
             </method>
             <method name="&lt;PostProduct_ShouldReturnProductAndSaveImageAndAddToDatabase_WhenIdentityMatchesRestaurantsIdAndImageIsNotNull" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="140" hits="2" branch="false" />
+                <line number="141" hits="2" branch="false" />
               </lines>
             </method>
             <method name="&lt;GetProduct_ShouldThrowRecourseNotFoundException_WhenProductDoesNotExist" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
                 <line number="82" hits="2" branch="false" />
+              </lines>
+            </method>
+            <method name="&lt;PostProduct_ShouldThrowInvalidIdentityException_WhenIdentityDoesntMatchesRestaurantsId" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="109" hits="2" branch="false" />
               </lines>
             </method>
             <method name="GetProduct_ShouldReturnProduct_WhenProductExists" signature="()" line-rate="1" branch-rate="1" complexity="1">
@@ -7889,26 +7894,25 @@
             </method>
             <method name="PostProduct_ShouldReturnProductAndSaveImageAndAddToDatabase_WhenIdentityMatchesRestaurantsIdAndImageIsNotNull" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="113" hits="1" branch="false" />
-                <line number="116" hits="1" branch="false" />
+                <line number="114" hits="1" branch="false" />
                 <line number="117" hits="1" branch="false" />
-                <line number="119" hits="1" branch="false" />
+                <line number="118" hits="1" branch="false" />
                 <line number="120" hits="1" branch="false" />
-                <line number="122" hits="1" branch="false" />
-                <line number="125" hits="1" branch="false" />
-                <line number="127" hits="1" branch="false" />
-                <line number="129" hits="1" branch="false" />
-                <line number="131" hits="1" branch="false" />
+                <line number="121" hits="1" branch="false" />
+                <line number="123" hits="1" branch="false" />
+                <line number="126" hits="1" branch="false" />
+                <line number="128" hits="1" branch="false" />
+                <line number="130" hits="1" branch="false" />
                 <line number="132" hits="1" branch="false" />
                 <line number="133" hits="1" branch="false" />
-                <line number="136" hits="2" branch="false" />
+                <line number="134" hits="1" branch="false" />
                 <line number="137" hits="2" branch="false" />
                 <line number="138" hits="2" branch="false" />
                 <line number="139" hits="2" branch="false" />
                 <line number="140" hits="2" branch="false" />
                 <line number="141" hits="2" branch="false" />
-                <line number="145" hits="1" branch="false" />
-                <line number="149" hits="1" branch="false" />
+                <line number="142" hits="2" branch="false" />
+                <line number="146" hits="1" branch="false" />
                 <line number="150" hits="1" branch="false" />
                 <line number="151" hits="1" branch="false" />
                 <line number="152" hits="1" branch="false" />
@@ -7918,25 +7922,41 @@
                 <line number="156" hits="1" branch="false" />
                 <line number="157" hits="1" branch="false" />
                 <line number="158" hits="1" branch="false" />
-                <line number="160" hits="1" branch="false" />
+                <line number="159" hits="1" branch="false" />
                 <line number="161" hits="1" branch="false" />
                 <line number="162" hits="1" branch="false" />
                 <line number="163" hits="1" branch="false" />
+                <line number="164" hits="1" branch="false" />
+              </lines>
+            </method>
+            <method name="PostProduct_ShouldThrowInvalidIdentityException_WhenIdentityDoesntMatchesRestaurantsId" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="87" hits="1" branch="false" />
+                <line number="90" hits="1" branch="false" />
+                <line number="91" hits="1" branch="false" />
+                <line number="93" hits="1" branch="false" />
+                <line number="94" hits="1" branch="false" />
+                <line number="96" hits="1" branch="false" />
+                <line number="99" hits="1" branch="false" />
+                <line number="101" hits="1" branch="false" />
+                <line number="103" hits="1" branch="false" />
+                <line number="109" hits="2" branch="false" />
+                <line number="110" hits="1" branch="false" />
               </lines>
             </method>
           </methods>
           <lines>
-            <line number="21" hits="3" branch="false" />
-            <line number="22" hits="3" branch="false" />
-            <line number="24" hits="3" branch="false" />
-            <line number="25" hits="3" branch="false" />
-            <line number="26" hits="3" branch="false" />
-            <line number="27" hits="3" branch="false" />
-            <line number="28" hits="3" branch="false" />
-            <line number="32" hits="3" branch="false" />
-            <line number="33" hits="3" branch="false" />
-            <line number="34" hits="3" branch="false" />
-            <line number="35" hits="3" branch="false" />
+            <line number="21" hits="4" branch="false" />
+            <line number="22" hits="4" branch="false" />
+            <line number="24" hits="4" branch="false" />
+            <line number="25" hits="4" branch="false" />
+            <line number="26" hits="4" branch="false" />
+            <line number="27" hits="4" branch="false" />
+            <line number="28" hits="4" branch="false" />
+            <line number="32" hits="4" branch="false" />
+            <line number="33" hits="4" branch="false" />
+            <line number="34" hits="4" branch="false" />
+            <line number="35" hits="4" branch="false" />
             <line number="39" hits="1" branch="false" />
             <line number="42" hits="1" branch="false" />
             <line number="44" hits="1" branch="false" />
@@ -7959,26 +7979,36 @@
             <line number="76" hits="1" branch="false" />
             <line number="82" hits="2" branch="false" />
             <line number="83" hits="1" branch="false" />
-            <line number="113" hits="1" branch="false" />
-            <line number="116" hits="1" branch="false" />
+            <line number="87" hits="1" branch="false" />
+            <line number="90" hits="1" branch="false" />
+            <line number="91" hits="1" branch="false" />
+            <line number="93" hits="1" branch="false" />
+            <line number="94" hits="1" branch="false" />
+            <line number="96" hits="1" branch="false" />
+            <line number="99" hits="1" branch="false" />
+            <line number="101" hits="1" branch="false" />
+            <line number="103" hits="1" branch="false" />
+            <line number="109" hits="2" branch="false" />
+            <line number="110" hits="1" branch="false" />
+            <line number="114" hits="1" branch="false" />
             <line number="117" hits="1" branch="false" />
-            <line number="119" hits="1" branch="false" />
+            <line number="118" hits="1" branch="false" />
             <line number="120" hits="1" branch="false" />
-            <line number="122" hits="1" branch="false" />
-            <line number="125" hits="1" branch="false" />
-            <line number="127" hits="1" branch="false" />
-            <line number="129" hits="1" branch="false" />
-            <line number="131" hits="1" branch="false" />
+            <line number="121" hits="1" branch="false" />
+            <line number="123" hits="1" branch="false" />
+            <line number="126" hits="1" branch="false" />
+            <line number="128" hits="1" branch="false" />
+            <line number="130" hits="1" branch="false" />
             <line number="132" hits="1" branch="false" />
             <line number="133" hits="1" branch="false" />
-            <line number="136" hits="2" branch="false" />
+            <line number="134" hits="1" branch="false" />
             <line number="137" hits="2" branch="false" />
             <line number="138" hits="2" branch="false" />
             <line number="139" hits="2" branch="false" />
             <line number="140" hits="2" branch="false" />
             <line number="141" hits="2" branch="false" />
-            <line number="145" hits="1" branch="false" />
-            <line number="149" hits="1" branch="false" />
+            <line number="142" hits="2" branch="false" />
+            <line number="146" hits="1" branch="false" />
             <line number="150" hits="1" branch="false" />
             <line number="151" hits="1" branch="false" />
             <line number="152" hits="1" branch="false" />
@@ -7988,13 +8018,14 @@
             <line number="156" hits="1" branch="false" />
             <line number="157" hits="1" branch="false" />
             <line number="158" hits="1" branch="false" />
-            <line number="160" hits="1" branch="false" />
+            <line number="159" hits="1" branch="false" />
             <line number="161" hits="1" branch="false" />
             <line number="162" hits="1" branch="false" />
             <line number="163" hits="1" branch="false" />
+            <line number="164" hits="1" branch="false" />
           </lines>
         </class>
-        <class name="savings_app_tests.ProductTests" filename="C:\Users\justa\Desktop\APPAS\finalinis\savings_app\savings_app_tests\ProductTests.cs" line-rate="1" branch-rate="1" complexity="3">
+        <class name="savings_app_tests.ProductTests" filename="C:\Users\justa\Desktop\APPAS\PRISTATYMUI\savings_app\savings_app_tests\ProductTests.cs" line-rate="1" branch-rate="1" complexity="3">
           <methods>
             <method name="ReduceAmount_ShouldThrowNotEnoughProductAmountException_WhenAmountToReduceExceedsAmountOfUnits" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
@@ -8204,7 +8235,7 @@
             <line number="160" hits="1" branch="false" />
           </lines>
         </class>
-        <class name="savings_app_tests.RestaurantServiceTests" filename="C:\Users\justa\Desktop\APPAS\finalinis\savings_app\savings_app_tests\RestaurantServiceTests.cs" line-rate="1" branch-rate="1" complexity="15">
+        <class name="savings_app_tests.RestaurantServiceTests" filename="C:\Users\justa\Desktop\APPAS\PRISTATYMUI\savings_app\savings_app_tests\RestaurantServiceTests.cs" line-rate="1" branch-rate="1" complexity="15">
           <methods>
             <method name=".ctor" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
@@ -8727,7 +8758,7 @@
     </package>
     <package name="WebAPI" line-rate="0" branch-rate="0" complexity="39">
       <classes>
-        <class name="Program" filename="C:\Users\justa\Desktop\APPAS\finalinis\savings_app\savings_app_backend\Program.cs" line-rate="0" branch-rate="0" complexity="4">
+        <class name="Program" filename="C:\Users\justa\Desktop\APPAS\PRISTATYMUI\savings_app\savings_app_backend\Program.cs" line-rate="0" branch-rate="0" complexity="4">
           <methods>
             <method name="&lt;Main&gt;$" signature="(...)" line-rate="0" branch-rate="0" complexity="4">
               <lines>
@@ -8911,7 +8942,7 @@
             <line number="152" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="savings_app_backend.Controllers.AuthController" filename="C:\Users\justa\Desktop\APPAS\finalinis\savings_app\savings_app_backend\Controllers\AuthController.cs" line-rate="0" branch-rate="1" complexity="2">
+        <class name="savings_app_backend.Controllers.AuthController" filename="C:\Users\justa\Desktop\APPAS\PRISTATYMUI\savings_app\savings_app_backend\Controllers\AuthController.cs" line-rate="0" branch-rate="1" complexity="2">
           <methods>
             <method name=".ctor" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -8939,7 +8970,7 @@
             <line number="23" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="savings_app_backend.Controllers.BuyersController" filename="C:\Users\justa\Desktop\APPAS\finalinis\savings_app\savings_app_backend\Controllers\BuyersController.cs" line-rate="0" branch-rate="1" complexity="7">
+        <class name="savings_app_backend.Controllers.BuyersController" filename="C:\Users\justa\Desktop\APPAS\PRISTATYMUI\savings_app\savings_app_backend\Controllers\BuyersController.cs" line-rate="0" branch-rate="1" complexity="7">
           <methods>
             <method name=".ctor" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -9017,7 +9048,7 @@
             <line number="58" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="savings_app_backend.Controllers.OrdersController" filename="C:\Users\justa\Desktop\APPAS\finalinis\savings_app\savings_app_backend\Controllers\OrdersController.cs" line-rate="0" branch-rate="1" complexity="6">
+        <class name="savings_app_backend.Controllers.OrdersController" filename="C:\Users\justa\Desktop\APPAS\PRISTATYMUI\savings_app\savings_app_backend\Controllers\OrdersController.cs" line-rate="0" branch-rate="1" complexity="6">
           <methods>
             <method name=".ctor" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -9085,7 +9116,7 @@
             <line number="56" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="savings_app_backend.Controllers.PickupsController" filename="C:\Users\justa\Desktop\APPAS\finalinis\savings_app\savings_app_backend\Controllers\PickupsController.cs" line-rate="0" branch-rate="1" complexity="4">
+        <class name="savings_app_backend.Controllers.PickupsController" filename="C:\Users\justa\Desktop\APPAS\PRISTATYMUI\savings_app\savings_app_backend\Controllers\PickupsController.cs" line-rate="0" branch-rate="1" complexity="4">
           <methods>
             <method name=".ctor" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -9133,7 +9164,7 @@
             <line number="39" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="savings_app_backend.Controllers.ProductsController" filename="C:\Users\justa\Desktop\APPAS\finalinis\savings_app\savings_app_backend\Controllers\ProductsController.cs" line-rate="0" branch-rate="1" complexity="5">
+        <class name="savings_app_backend.Controllers.ProductsController" filename="C:\Users\justa\Desktop\APPAS\PRISTATYMUI\savings_app\savings_app_backend\Controllers\ProductsController.cs" line-rate="0" branch-rate="1" complexity="5">
           <methods>
             <method name=".ctor" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -9191,7 +9222,7 @@
             <line number="49" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="savings_app_backend.Controllers.RestaurantsController" filename="C:\Users\justa\Desktop\APPAS\finalinis\savings_app\savings_app_backend\Controllers\RestaurantsController.cs" line-rate="0" branch-rate="1" complexity="5">
+        <class name="savings_app_backend.Controllers.RestaurantsController" filename="C:\Users\justa\Desktop\APPAS\PRISTATYMUI\savings_app\savings_app_backend\Controllers\RestaurantsController.cs" line-rate="0" branch-rate="1" complexity="5">
           <methods>
             <method name=".ctor" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -9249,7 +9280,7 @@
             <line number="48" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="savings_app_backend.Controllers.ShopController" filename="C:\Users\justa\Desktop\APPAS\finalinis\savings_app\savings_app_backend\Controllers\ShopController.cs" line-rate="0" branch-rate="1" complexity="2">
+        <class name="savings_app_backend.Controllers.ShopController" filename="C:\Users\justa\Desktop\APPAS\PRISTATYMUI\savings_app\savings_app_backend\Controllers\ShopController.cs" line-rate="0" branch-rate="1" complexity="2">
           <methods>
             <method name=".ctor" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -9277,7 +9308,7 @@
             <line number="26" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="WebAPI.Middlewares.MyExceptionHandlerMiddleware" filename="C:\Users\justa\Desktop\APPAS\finalinis\savings_app\savings_app_backend\Middlewares\MyExceptionHandlerMiddleware.cs" line-rate="0" branch-rate="0" complexity="4">
+        <class name="WebAPI.Middlewares.MyExceptionHandlerMiddleware" filename="C:\Users\justa\Desktop\APPAS\PRISTATYMUI\savings_app\savings_app_backend\Middlewares\MyExceptionHandlerMiddleware.cs" line-rate="0" branch-rate="0" complexity="4">
           <methods>
             <method name=".ctor" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
               <lines>

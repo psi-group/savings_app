@@ -81,19 +81,20 @@ namespace savings_app_tests
 
             await Assert.ThrowsAsync<RecourseNotFoundException>(async () => await _sut.GetProduct(id));
         }
-        /*
+
         [Fact]
-        public async Task PostProduct_ShouldThrowInvalidIdentityException_WhenRestaurantCreatesProductWithInvalidRestaurantId()
+        public async Task PostProduct_ShouldThrowInvalidIdentityException_WhenIdentityDoesntMatchesRestaurantsId()
         {
             //Arrange
 
-            ControllerContext controllerBase = new ControllerContext();
-
             var id = Guid.NewGuid();
-            var productToPost = new Product(id, "product", Category.Snack, Guid.NewGuid(), AmountType.unit,
-                1.0f, 2, 1.0f, id.ToString(), DateTime.Now, "description");
+            var restaurantId = Guid.NewGuid();
+
+            var productToPost = new ProductDTORequest("product", false, Category.Snack, restaurantId, AmountType.Unit,
+                1.0f, 2, 1.0f, DateTime.Now, "description", Substitute.For<IFormFile>());
 
             var claimsIdentity = new ClaimsIdentity(new List<Claim>() { new Claim("Id", default(Guid).ToString()) });
+
 
             HttpContext httpctx = Substitute.For<HttpContext>();
 
@@ -107,7 +108,7 @@ namespace savings_app_tests
 
             await Assert.ThrowsAsync<InvalidIdentityException>(async () => await _sut.PostProduct(productToPost));
         }
-        */
+
         [Fact]
         public async Task PostProduct_ShouldReturnProductAndSaveImageAndAddToDatabase_WhenIdentityMatchesRestaurantsIdAndImageIsNotNull()
         {

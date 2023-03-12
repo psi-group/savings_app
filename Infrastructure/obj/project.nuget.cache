@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "h7VXvBzcsM9oKkQpP1131rEE0GUkToLiOP/mi2mcMqEKd3wUgDE2MBx27p10XWdzn+JXqCYtkoONreJynkIzlQ==",
+  "dgSpecHash": "9wEvxyfD/sagiJmQCYxtUphwKZ85xjXw/sf7RiC4Uvdaa5c6BHG1uL7ZyHvBlcFCl6BbfelHpEf6ub7sTbjDnA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\justa\\Desktop\\APPAS\\finalinis\\savings_app\\Infrastructure\\Infrastructure.csproj",
+  "projectFilePath": "C:\\Users\\justa\\Desktop\\APPAS\\PRISTATYMUI\\savings_app\\Infrastructure\\Infrastructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\justa\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\justa\\.nuget\\packages\\azure.storage.blobs\\12.14.1\\azure.storage.blobs.12.14.1.nupkg.sha512",

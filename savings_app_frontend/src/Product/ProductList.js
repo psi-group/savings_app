@@ -50,10 +50,7 @@ export default class List extends Component {
       <div>
         <ul>
         <div className="grid w-full grid-flow-row grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 mt-10 gap-1 sm:gap-3">
-            <CircleSpinnerOverlay
-              loading={this.state.loading}
-              color="#0ea5e9"
-            />
+            
             {this.state.products.map((product) => (
 
               <Link to={"/product/" + product.id}>

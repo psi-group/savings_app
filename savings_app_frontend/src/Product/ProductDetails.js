@@ -22,6 +22,13 @@ function ProductDetails(props) {
   const [pickups, setPickups] = React.useState({});
   const isRestaurant = useIsRestaurant();
 
+
+    const getFullDate = (fullDate) => {
+        const date = new Date(fullDate);
+        const minutes = date.getMinutes() < 10 ? `0${date.getMinutes()}` : date.getMinutes();
+        return `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}   ${date.getHours()}:${minutes}`;
+    };
+
   let { id } = useParams();
 
   const capitalizeFirst = (str) => {
@@ -151,7 +158,7 @@ function ProductDetails(props) {
                     ></input>
                     <div className="pl-1 peer-hover:bg-sky-100 peer-checked:peer-hover:bg-sky-500 peer-checked:bg-sky-500 w-full peer-checked:text-white  flex justify-between items-center gap-2">
                       <p>
-                        {pickUpTime.startTime} to {pickUpTime.endTime}
+                        {getFullDate(pickUpTime.startTime)} to {getFullDate(pickUpTime.endTime)}
                       </p>
                       <img
                         src={checkIcon}

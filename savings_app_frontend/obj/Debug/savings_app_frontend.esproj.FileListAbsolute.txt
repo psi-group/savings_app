@@ -4,3 +4,5 @@ C:\Users\Medas\Desktop\repos\savings_app\savings_app_frontend\obj\Debug\savings_
 C:\Users\Medas\Desktop\repos\savings_app\savings_app_frontend\obj\Debug\savings_app_frontend.esproj.CoreCompileInputs.cache
 C:\Users\justa\Desktop\APPAS\finalinis\savings_app\savings_app_frontend\obj\Debug\savings_app_frontend.esproj.SuggestedBindingRedirects.cache
 C:\Users\justa\Desktop\APPAS\finalinis\savings_app\savings_app_frontend\obj\Debug\savings_app_frontend.esproj.CoreCompileInputs.cache
+C:\Users\justa\Desktop\APPAS\PRISTATYMUI\savings_app\savings_app_frontend\obj\Debug\savings_app_frontend.esproj.SuggestedBindingRedirects.cache
+C:\Users\justa\Desktop\APPAS\PRISTATYMUI\savings_app\savings_app_frontend\obj\Debug\savings_app_frontend.esproj.CoreCompileInputs.cache

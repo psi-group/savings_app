@@ -205,7 +205,7 @@ namespace Application.Services.Implementations
                         (int)buyerToUpdate.Address.HouseNumber!,
                         buyerToUpdate.Address.AppartmentNumber,
                         (int)buyerToUpdate.Address.PostalCode!),
-                "https://savingsapp.blob.core.windows.net/userimages/" + id + ".jpg");
+                "https://cityfood.blob.core.windows.net/cityfooduserimages/" + id + ".jpg");
 
             using (TransactionScope scope = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled))
             {
